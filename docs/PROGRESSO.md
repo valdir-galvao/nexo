@@ -292,6 +292,20 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Pendência: primeiro import/teste GameCI depende dos três secrets Unity.
 - Próxima ação: executar `Unity tests` após cadastro manual dos secrets.
 
+## P19 — Game design e narrativa P1 — concluído
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Entregas: `GDD.md`, `NARRATIVE_BIBLE.md`, `MISSION_DESIGN.md`,
+  `PROGRESSION_DESIGN.md`, `UX_FLOW.md`, `DIALOGUE_SCRIPT.md`,
+  `ART_DIRECTION.md` e `AUDIO_DIRECTION.md`.
+- Resultado: prólogo de 90 segundos, missão de 10–15 minutos, loops, estados,
+  regras, puzzles com solução/pistas/recuperação, diálogos e adaptação por idade.
+- Verificação: cada evento possui gatilho/ação ou condição; cada puzzle possui
+  critério de sucesso e falha recuperável; não foi escrito código de gameplay.
+- Dependências: P2 implementa sistemas; P3 valida pedagogia/UX; P4 produz arte e
+  áudio; P5 audita save/privacidade; P6 testa em dispositivos.
+- Próxima ação: iniciar P2 somente após a execução do primeiro import/teste GameCI.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

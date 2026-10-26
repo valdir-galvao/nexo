@@ -84,6 +84,10 @@ Decision Log. O bloqueio restante e operacional: cadastrar os secrets Unity e
 executar o primeiro workflow. Isso valida import, testes e build; nao altera o
 escopo aprovado.
 
+O pacote de design P1 foi concluido em oito documentos. Ele cobre o prologo de
+90 segundos, a missao completa, estados, puzzles, dialogos, progressao por
+competencia, UX, direcao visual e audio. Nenhum codigo de gameplay foi escrito.
+
 ## Persistencia
 
 Documentos e codigo ficam nesta pasta e sobrevivem a queda da sessao, desde que

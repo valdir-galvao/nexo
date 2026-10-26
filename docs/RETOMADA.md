@@ -1,7 +1,7 @@
 # Ponto de retomada
 
 Ultima atualizacao: 26/10/2026, America/Sao_Paulo.
-Ultimo passo concluido: P18, escopo P1 e baseline tecnico fechados; secrets Unity ausentes.
+Ultimo passo concluido: P19, GDD e design narrativo P1 concluídos; secrets Unity ausentes.
 Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
@@ -29,7 +29,8 @@ P1, confirmar ADR-009/ADR-010 e decidir D-001/D-002/D-008/D-009: Unity/SDKs,
 dispositivos mínimos, espaço e CI iOS. Não iniciar implementação ou instalações grandes antes
 dessas decisoes e de uma verificacao de toolchain.
 
-Atualizacao P18: as decisoes D-001 a D-009 foram fechadas como baseline do
+Atualizacao P19: o pacote de design P1 foi concluido; as decisoes D-001 a D-009
+continuam fechadas como baseline do
 prototipo. A proxima acao e cadastrar os secrets Unity e executar `Unity tests`;
 o P1 so sera aceito apos evidencia do import e dos testes no GameCI.
 
