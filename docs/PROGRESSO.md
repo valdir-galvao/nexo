@@ -253,6 +253,21 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: configurar secrets Unity e criar/confirmar o projeto Unity antes
   de disparar os workflows.
 
+## P16 — Fundação Unity P1 — scaffold criado, importação pendente
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Arquivos: `ProjectSettings/ProjectVersion.txt`, `ProjectSettings/ProjectSettings.asset`,
+  `ProjectSettings/EditorBuildSettings.asset`, `Packages/manifest.json`,
+  `Packages/packages-lock.json`, cena placeholder e métodos de build Android/iOS.
+- Resultado: versão `6000.3.0f1`, URP `17.3.0`, Android API 29–35, ARM64/IL2CPP,
+  cena habilitada e namespaces dos métodos alinhados aos workflows GameCI.
+- Verificação estática: dois JSONs válidos; GUID da cena consistente; cada workflow
+  de teste/Android/iOS usa a versão; métodos customizados encontrados; `git diff
+  --check` sem erros. Unity Editor não está instalado, então não houve import/build.
+- Limitação: pipeline URP ativo, renderer asset, input, gameplay e save ainda não
+  existem; scripts precisam ser compilados pelo Unity antes de declarar P1 aceito.
+- Próxima ação: configurar secrets Unity e executar o workflow `Unity tests`.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

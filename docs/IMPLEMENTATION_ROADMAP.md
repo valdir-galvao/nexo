@@ -7,7 +7,7 @@ Nenhuma instalação ou compra está autorizada por este documento.
 | Fase | Estimativa | Entregável | Dependências | Critério de saída | Responsável primário |
 | --- | --- | --- | --- | --- | --- |
 | P0 Planejamento | 1–2 dias | Charter, requisitos, aceite, decisões, riscos e roadmap | Briefing recebido | Gate P0 aprovado | Diretor |
-| P1 Fundação técnica | 2–5 dias | Projeto Unity mínimo, cenas, input, save local, build de teste | D-001/D-002; Unity/SDKs/dispositivos | App abre, salva e roda offline no mínimo definido | Engenharia |
+| P1 Fundação técnica | 2–5 dias | Scaffold Unity mínimo, cena, manifest URP, scripts de build e workflow | D-001/D-002; Unity/SDKs/dispositivos | Editor importa, testes passam e build Android roda offline no mínimo definido | Engenharia |
 | P2 Núcleo da missão | 5–10 dias | Exploração, pistas, recurso de água, decisão e reparo | P1; D-003/D-004 | Fluxo crítico jogável de início a conclusão | Engenharia + design |
 | P3 Aprendizagem e UX | 3–6 dias | Tutorial, feedback, eventos pedagógicos, acessibilidade | P2; D-004/D-005 | LR/AX passam sua matriz de testes | Pedagogia + UX |
 | P4 Arte e áudio verticais | 5–10 dias | Ilha, reservatório, UI, animações e áudio licenciados | P2; D-005/D-007 | Cena coerente, assets rastreados, áudio opcional | Arte |
