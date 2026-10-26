@@ -1,0 +1,57 @@
+name: Unity iOS Xcode project
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'Assets/**'
+      - 'Packages/**'
+      - 'ProjectSettings/**'
+      - '.github/workflows/unity-ios.yml'
+
+permissions:
+  contents: read
+
+env:
+  UNITY_VERSION: 6000.3.0f1
+
+jobs:
+  ios:
+    name: Build iOS Xcode project
+    if: ${{ hashFiles('ProjectSettings/ProjectVersion.txt') != '' }}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout with LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Restore Unity Library cache
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-iOS-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-iOS-
+            Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-
+
+      - name: Build unsigned iOS Xcode project
+        uses: game-ci/unity-builder@v6
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: .
+          unityVersion: ${{ env.UNITY_VERSION }}
+          targetPlatform: iOS
+          buildMethod: Nexo.Editor.Build.IosBuild.PerformBuild
+          buildPath: build/iOS
+
+      - name: Upload Xcode project
+        uses: actions/upload-artifact@v4
+        with:
+          name: nexo-ios-xcode-${{ github.sha }}
+          path: build/iOS
+          if-no-files-found: error

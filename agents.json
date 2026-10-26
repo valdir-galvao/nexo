@@ -1,0 +1,12 @@
+{
+  "max_calls_per_day": 12,
+  "max_input_chars": 16000,
+  "max_output_tokens": 1200,
+  "providers": {
+    "gemini": {"key": "GEMINI_API_KEY", "base": "https://generativelanguage.googleapis.com/v1beta", "preferred": ["gemini-2.5-flash-lite", "gemini-2.5-flash"], "role": "visual: especificacoes de cenas, animacao e materiais; sem prometer gerar assets"},
+    "groq": {"key": "GROQ_API_KEY", "base": "https://api.groq.com/openai/v1", "preferred": ["llama-3.1-8b-instant", "llama-3.3-70b-versatile"], "role": "qa: casos de teste, revisao localizada e documentacao curta"},
+    "deepseek": {"key": "DEEPSEEK_API_KEY", "base": "https://api.deepseek.com", "preferred": ["deepseek-chat", "deepseek-flash"], "role": "codigo: propostas de implementacao de sistemas isolados e algoritmos"},
+    "mistral": {"key": "MISTRAL_API_KEY", "base": "https://api.mistral.ai/v1", "preferred": ["mistral-small-latest"], "role": "contexto: sintetizar requisitos e decisoes, identificar contradicoes e produzir contexto curto para outras tarefas sem inventar informacoes"},
+    "typesafe": {"key": "TYPESAFE_API_KEY", "base": "https://api.typesafe.ai/v1", "preferred": ["jev-latest"], "role": "decisoes estruturadas: relevancia de contexto e classificacao de tarefas sob revisao do gerente"}
+  }
+}
