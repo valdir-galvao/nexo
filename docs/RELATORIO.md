@@ -93,6 +93,11 @@ As regras criticas e validacao de save possuem testes EditMode versionados; a
 compilacao nao foi executada localmente porque Unity, dotnet, adb e xcodebuild
 nao estao disponiveis neste Windows.
 
+P3 adicionou a máquina de estados, regras da missão, save JSON atômico, bootstrap
+de ilha temporária, controles de teste, interação com três pistas, puzzle da
+válvula, feedback, conclusão e desbloqueio narrativo. A implementação é parcial
+até a importação no Unity e o teste em dispositivo.
+
 ## Persistencia
 
 Documentos e codigo ficam nesta pasta e sobrevivem a queda da sessao, desde que

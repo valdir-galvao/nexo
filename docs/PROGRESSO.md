@@ -319,6 +319,20 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: cadastrar secrets Unity e executar `Unity tests`; corrigir apenas
   erros reais de import/compilação e registrar evidências.
 
+## P21 — Implementação do gameplay P3 — concluída parcialmente
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Entregas: máquina de estados, regras da missão, save JSON atômico, bootstrap
+  temporário da ilha, interação com três objetos, puzzle da válvula, feedback,
+  pausa, retomada, conclusão e desbloqueio narrativo.
+- Testes: transições inválidas, conclusão idempotente, tentativa sem penalidade,
+  alocação, válvula e save inválido versionados em `Assets/NEXO/Tests`.
+- Verificação local: JSON/ASMDEFs válidos e `git diff --check`; Unity não está
+  instalado, logo compilação e execução não foram declaradas.
+- Limitações: arte/áudio finais, input físico e validação Android/iOS dependem de
+  GameCI e dispositivos. Rota Garden permanece domínio-only nesta fatia.
+- Próxima ação: configurar secrets e executar `Unity tests`, depois Android/iOS.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
