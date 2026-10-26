@@ -306,6 +306,19 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   áudio; P5 audita save/privacidade; P6 testa em dispositivos.
 - Próxima ação: iniciar P2 somente após a execução do primeiro import/teste GameCI.
 
+## P20 — Arquitetura técnica P2 — concluída parcialmente
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Auditoria: Unity, dotnet, adb e xcodebuild não encontrados; manifestos JSON válidos.
+- Entregas: `TECHNICAL_ARCHITECTURE.md`, `DATA_MODEL.md`, `API_CONTRACTS.md`,
+  `BUILD_GUIDE.md` e `Assets/NEXO/Scripts` com contratos, regras e persistência.
+- Testes: quatro testes EditMode para alocação, válvula e save inválido foram
+  versionados; compilação não foi executada sem Unity Editor.
+- Decisões: ADR-013 domínio desacoplado; ADR-014 JSON versionado; ADR-015 analytics local.
+- Limitação: suporte Android/iOS ainda não é declarado; requer workflows GameCI verdes.
+- Próxima ação: cadastrar secrets Unity e executar `Unity tests`; corrigir apenas
+  erros reais de import/compilação e registrar evidências.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

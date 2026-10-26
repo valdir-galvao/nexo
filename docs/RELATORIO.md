@@ -88,6 +88,11 @@ O pacote de design P1 foi concluido em oito documentos. Ele cobre o prologo de
 90 segundos, a missao completa, estados, puzzles, dialogos, progressao por
 competencia, UX, direcao visual e audio. Nenhum codigo de gameplay foi escrito.
 
+P2 adicionou a arquitetura modular e contratos de dominio em `Assets/NEXO`.
+As regras criticas e validacao de save possuem testes EditMode versionados; a
+compilacao nao foi executada localmente porque Unity, dotnet, adb e xcodebuild
+nao estao disponiveis neste Windows.
+
 ## Persistencia
 
 Documentos e codigo ficam nesta pasta e sobrevivem a queda da sessao, desde que

@@ -52,6 +52,10 @@ alteradas somente por novo ADR antes de adicionar dependências ou assets finais
 | D-008 | Não instalar Unity/SDK localmente enquanto houver cerca de 15 GiB livres; builds usam GitHub Actions. | Fechada | Reavaliar somente se o espaço livre atingir 40–60 GiB. |
 | D-009 | `macos-latest` para projeto Xcode iOS não assinado; certificados ficam em secrets protegidos quando o release exigir assinatura. | Fechada para CI | Assinatura de loja não faz parte do P1. |
 
+| ADR-013 | Domínio em C# puro, adaptadores Unity na borda e contratos por interfaces. | Aprovada para P2 | Permite testes EditMode, reduz acoplamento de cena e compartilha regras Android/iOS. |
+| ADR-014 | Persistência inicial em JSON versionado com escrita atômica; SQLite não entra sem necessidade medida. | Aprovada para P2 | Estado pequeno, migrações explícitas e nenhuma dependência de terceiro. |
+| ADR-015 | Analytics apenas local e mínimo no protótipo; sem rede obrigatória. | Aprovada para P2 | Eventos têm IDs e contagens, sem texto livre ou dados pessoais. |
+
 ## Regra de mudança
 
 Uma mudança que altere plataformas, dados infantis, dependências online, escopo

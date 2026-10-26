@@ -23,6 +23,7 @@ Responsavel final de cada marco: gerente. Colaboradores entram sob demanda.
 | J07 | Testar fluxo completo e corrigir defeitos | Planejado | J06 | Criterios do briefing verificados; defeitos restantes descritos |
 | J08 | Preparar entrega reproduzivel | Planejado | J07 | Build, instrucoes, versoes e limitacoes documentados |
 | J09 | Especificar GDD, narrativa, missao, progressao, UX, dialogos, arte e audio | Concluido | J01/J02 | Oito documentos P1 presentes, regras e criterios implementaveis |
+| J10 | Definir arquitetura modular, contratos, persistencia e testes de regras | Concluido parcialmente | J09; Unity Editor para compilacao | Docs, contratos C# e testes EditMode versionados; compilacao GameCI pendente |
 
 Pendencias tecnicas independentes de J01: A01 Mistral HTTP 429;
 A02 Gemini HTTP 404; A03 Groq HTTP 403. Nao bloqueiam o briefing.
