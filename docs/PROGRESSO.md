@@ -225,6 +225,22 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: usar autenticação GitHub CLI/browser com sessão que tenha acesso
   de escrita ou revisar o recurso selecionado e `Contents: Read and write` no PAT.
 
+## P14 — Push e validação remota — concluído
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- O novo token permitiu publicar a branch `main`. O commit inicial `0fcff9c` e
+  a atualização documental `2fdd251` estão no repositório privado.
+- Validação API: repositório HTTP 200, privado, branch padrão `main`; commit
+  remoto `2fdd2518068ba3f5ef742d4c5fee1f162343bf13`; quatro workflows encontrados:
+  ativação, testes, Android e iOS.
+- Segurança: push autenticado por header temporário; token não foi salvo no Git
+  config, URL remota ou arquivos. Working tree limpo após o segundo push.
+- Limitação: os workflows ainda não executaram build porque o projeto Unity e
+  `ProjectSettings/ProjectVersion.txt` não existem; secrets Unity ainda não
+  foram configurados no GitHub.
+- Próxima ação: criar/confirmar o projeto Unity URP e configurar os secrets antes
+  de disparar os workflows.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
