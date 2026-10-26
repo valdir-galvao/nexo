@@ -1,7 +1,7 @@
 # Ponto de retomada
 
 Ultima atualizacao: 26/10/2026, America/Sao_Paulo.
-Ultimo passo concluido: P09, URL `valdir-galvao/nexo` verificada e não encontrada.
+Ultimo passo concluido: P13, novo token API válido mas push Git continua bloqueado.
 Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 

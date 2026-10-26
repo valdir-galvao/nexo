@@ -172,6 +172,59 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: criar o repositório na conta correta e fornecer uma URL verificável;
   então repetir apenas GET/ls-remote antes de configurar o remote.
 
+## P10 — Repositório acessível, push bloqueado por autorização Git — pendente
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- O repositório `valdir-galvao/nexo` agora retorna HTTP 200 pela API, é privado,
+  está vazio, usa `main` e a resposta inclui permissões aparentes de administração
+  e push. O remote local foi configurado e o branch local foi renomeado para `main`.
+- Commit local criado: `0fcff9c` (`chore: bootstrap NEXO planning and CI`), 24 arquivos;
+  `.env*` e `.agents-local/` não foram incluídos.
+- Tentativa de push autenticada via HTTPS retornou HTTP 403 `Write access to
+  repository not granted`. Nenhum objeto foi publicado.
+- Limitação: metadados da API não comprovam que o token fine-grained tem
+  `Contents: Read and write` e `Actions/Workflows` no recurso selecionado.
+- Próxima ação: editar o token para incluir o repositório `nexo` e `Contents:
+  Read and write` (e Actions/Workflows se necessário), ou autenticar pelo GitHub
+  CLI/browser; depois repetir um único push e validar Actions.
+
+## P11 — Nova chave verificada, push ainda recusado — pendente
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- A nova chave autentica `GET /user` como `valdir-galvao` e `GET /repos/valdir-galvao/nexo`
+  como HTTP 200; o repositório é privado, vazio e tem branch `main`.
+- Foram testados os dois formatos HTTPS de autenticação Git (header Basic e
+  usuário `x-access-token`); ambos retornaram HTTP 403 `Write access to repository
+  not granted`. O commit `0fcff9c` continua apenas local.
+- Nenhum push, secret ou alteração remota ocorreu. A API não expôs escopos OAuth;
+  o resultado não comprova `Contents: write` para o token efetivamente usado pelo Git.
+- Próxima ação: habilitar no token o repositório `nexo` com `Contents: Read and
+  write` (e `Actions: Read and write`), ou autenticar via GitHub CLI/browser;
+  depois repetir um único push.
+
+## P12 — Tentativa segura de criação do repositório — alvo já existente
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Resultado: a chave atual encontrou `valdir-galvao/nexo` com HTTP 200; o
+  repositório é privado, vazio, usa `main` e apresenta `admin/maintain/push` nos
+  metadados. Nenhum POST de criação foi enviado porque o alvo já existe.
+- Configuração observada: Issues habilitadas; Projects/Wiki não foram alterados.
+- Limitação: essa consulta API não substitui a autorização efetiva do Git; o push
+  anterior continuou retornando 403. O commit local segue não publicado.
+- Próxima ação: corrigir `Contents: Read and write`/acesso de recurso no token ou
+  autenticar por GitHub CLI/browser; então publicar o commit existente.
+
+## P13 — Novo token verificado — push continua bloqueado
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- API GitHub: HTTP 200, login `valdir-galvao`.
+- Git HTTPS: HTTP 403 `Write access to repository not granted` ao tentar publicar
+  `main`; nenhum objeto foi enviado e o commit local permanece `0fcff9c`.
+- Conclusão: a chave é válida para API, mas ainda não está autorizada para escrita
+  Git no repositório `nexo`, ou o acesso foi concedido a outro token/conta.
+- Próxima ação: usar autenticação GitHub CLI/browser com sessão que tenha acesso
+  de escrita ou revisar o recurso selecionado e `Contents: Read and write` no PAT.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
