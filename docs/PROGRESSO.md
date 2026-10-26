@@ -268,6 +268,19 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   existem; scripts precisam ser compilados pelo Unity antes de declarar P1 aceito.
 - Próxima ação: configurar secrets Unity e executar o workflow `Unity tests`.
 
+## P17 — Validação final da infraestrutura remota — concluída com bloqueio externo
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- GitHub API: repositório HTTP 200; Actions habilitado; ações permitidas `all`;
+  quatro workflows publicados.
+- Secrets: consulta HTTP 200 retornou lista vazia. Nenhum valor foi lido ou
+  alterado. Sem `UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`, os jobs Unity
+  não podem ativar o Editor.
+- Working tree: limpo após a validação anterior; nenhum push neste passo.
+- Resultado: tudo que é possível preparar sem credenciais Unity foi concluído.
+  O próximo passo depende exclusivamente da configuração manual dos três secrets
+  e da execução do primeiro workflow.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
