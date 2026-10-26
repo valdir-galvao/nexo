@@ -17,7 +17,11 @@ Formato: decisão, estado, motivo, consequência, responsável e data.
 | ADR-011 | Git LFS e estrutura Unity de arquivos serão preparados antes de adicionar assets binários. | Aprovada | `.gitignore` e `.gitattributes` foram criados; instalação/configuração de LFS ainda não verificada. |
 | ADR-012 | Direção visual da fatia: 3D estilizado, iluminação baked/simple e câmera Unity; Cinemachine fica opcional. | Provisória | Mantém iteração possível na UHD 630; validar leitura visual e conforto em playtest. |
 
-## Decisões pendentes — não inventar
+## Decisões pendentes — registro histórico
+
+As decisões D-001 a D-005 e D-007 a D-009 abaixo foram resolvidas para o
+protótipo na seção de fechamento. D-006 continua pendente porque depende de
+jurisdição e coleta online futura; isso não bloqueia a missão offline.
 
 | ID | Pergunta | Bloqueia | Dono da decisão | Evidência necessária |
 | --- | --- | --- | --- | --- |
@@ -30,6 +34,23 @@ Formato: decisão, estado, motivo, consequência, responsável e data.
 | D-007 | Quais idiomas entram na primeira fatia? | J05/J08 | Produto | Lista de idiomas e orçamento de localização. |
 | D-008 | O disco atual tem apenas cerca de 15 GiB livres; liberar espaço ou usar volume alternativo? | P1 | Produto/infra | Espaço livre ≥40–60 GiB ou volume aprovado. |
 | D-009 | Qual runner macOS e política de assinatura serão usados para iOS? | P6/P7 | Release/segurança | CI aprovado, certificados fora do Git e build de teste. |
+
+## Fechamento do escopo P1 (26/10/2026)
+
+O usuário autorizou a conclusão do planejamento e o início do P1 sob as
+seguintes premissas verificáveis. Elas valem para o protótipo e podem ser
+alteradas somente por novo ADR antes de adicionar dependências ou assets finais:
+
+| ID | Decisão de baseline | Estado | Verificação/limite |
+| --- | --- | --- | --- |
+| D-001 | Unity 6.3 LTS (`6000.3.0f1`) + URP; Personal em CI; sem instalação local pesada. | Fechada para P1 | Confirmar import no GameCI; secrets permanecem fora do Git. |
+| D-002 | Android 10+, 4 GB RAM, ARM64, Vulkan/OpenGL ES 3.1; meta inicial 30 FPS/33,3 ms. iOS equivalente de entrada definido no primeiro dispositivo disponível. | Fechada para protótipo | Benchmark real ainda é obrigatório no P6. |
+| D-003 | Cooperação representada por NPC/sistemas locais assíncronos; sem rede, matchmaking ou chat. | Fechada para P1 | Deve ser jogável integralmente offline. |
+| D-004 | Objetivo curricular: relacionar recurso, prioridade e consequência; instrumento: rubrica de decisão e eventos locais minimizados. | Fechada para P1 | Revisão pedagógica e teste de eventos no P3/P6. |
+| D-005 | 3D estilizado, iluminação baked/simple, câmera Unity em terceira pessoa; Cinemachine opcional. | Fechada para protótipo | Validar leitura, conforto e acessibilidade em playtest. |
+| D-007 | Português do Brasil na primeira fatia; localização adicional fora do P1. | Fechada para P1 | Textos devem ser externalizáveis. |
+| D-008 | Não instalar Unity/SDK localmente enquanto houver cerca de 15 GiB livres; builds usam GitHub Actions. | Fechada | Reavaliar somente se o espaço livre atingir 40–60 GiB. |
+| D-009 | `macos-latest` para projeto Xcode iOS não assinado; certificados ficam em secrets protegidos quando o release exigir assinatura. | Fechada para CI | Assinatura de loja não faz parte do P1. |
 
 ## Regra de mudança
 

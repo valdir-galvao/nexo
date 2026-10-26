@@ -4,15 +4,16 @@ Atualizacao: 26/10/2026, America/Sao_Paulo. Responsavel: diretor de projeto.
 
 ## Objetivo e escopo atual
 
-Desenvolver um jogo dinamico, animado e com direcao grafica ultrarrealista,
+Desenvolver um jogo dinamico, animado e com direcao grafica estilizada de alta
+qualidade, ajustada ao hardware disponivel,
 com colaboradores de IA acionados conforme a tarefa e com economia de contexto
 e requisicoes. O usuario solicitou preparar a equipe e o ambiente e aguardar
 sua instrucao para iniciar o jogo. Solicitou tambem documentacao continua para
 retomada independente da sessao.
 
 O briefing NEXO define plataforma Android/iOS, genero, publico, tema e primeira
-missao. Ainda faltam mecanica detalhada, engine fechada, dispositivos minimos e
-metas de desempenho. Nao ha jogo implementado ou build.
+missao. O escopo P1 e o baseline tecnico foram fechados nesta sessao; a
+implementacao funcional e a build ainda aguardam validacao no GameCI.
 O executor de APIs esta preparado; os contratos P0 do NEXO foram criados; o ambiente de execucao grafica ainda nao.
 
 ## Entregas existentes
@@ -29,8 +30,8 @@ O executor de APIs esta preparado; os contratos P0 do NEXO foram criados; o ambi
 | Contratos P0 do NEXO | `PROJECT_CHARTER.md`, `PRODUCT_REQUIREMENTS.md`, `ACCEPTANCE_CRITERIA.md`, `DECISION_LOG.md`, `IMPLEMENTATION_ROADMAP.md`, `RISK_REGISTER.md` | Concluido |
 | Auditoria e configuração NEXO | `NEXO_ENVIRONMENT_AUDIT.md`, `NEXO_CONFIGURATION_REPORT.md`, `.gitattributes` | Concluido como baseline |
 | Esteira CI/CD GameCI | `.github/workflows/unity-*.yml`, `CICD_REPORT.md` | Estruturada; não executada |
-| Verificação de GitHub | API `GET /user` somente leitura | Token válido para `valdir-galvao`; remoto ainda não configurado |
-| Criação remota do repositório | `POST /user/repos` | Bloqueada por HTTP 403; nenhum push ou remote alterado |
+| Verificação de GitHub | API e `git push` | `valdir-galvao/nexo` privado, Actions habilitado, branch `main` sincronizada |
+| CI/CD GameCI | Workflows remotos | Quatro workflows publicados; secrets Unity ainda vazios |
 
 ## Equipe e disponibilidade observada
 
@@ -78,10 +79,10 @@ Mistral: diagnosticar limites/cota/plano antes de nova inferencia; causa especif
 do HTTP 429 ainda nao identificada. Gemini: investigar HTTP 404. Groq: investigar
 HTTP 403. Nao atribuir automaticamente essas falhas a saldo ou chave invalida.
 
-Para iniciar P1, ainda faltam D-001 (versao/template Unity e licenciamento),
-D-002 (dispositivos minimos e metas), D-003 (forma de cooperacao), D-004
-(objetivos e instrumento pedagogicos) e D-005 (direcao visual/camera). O briefing
-ja define plataformas e primeira missao; nao ha base para inventar essas decisoes.
+O escopo P1 foi autorizado e as premissas D-001 a D-009 estao registradas no
+Decision Log. O bloqueio restante e operacional: cadastrar os secrets Unity e
+executar o primeiro workflow. Isso valida import, testes e build; nao altera o
+escopo aprovado.
 
 ## Persistencia
 

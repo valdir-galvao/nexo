@@ -14,9 +14,9 @@ Responsavel final de cada marco: gerente. Colaboradores entram sob demanda.
 | P03 | Preparar documentacao e protocolo de retomada | Concluido | P00–P02 | Relatorio, cronograma, progresso e roteiro consistentes |
 | P04 | Produzir contratos P0 do NEXO | Concluido | Briefing NEXO + inventario do ambiente | Seis documentos criados, requisitos rastreaveis e riscos/decisoes revisados |
 | P05 | Auditar hardware e fechar baseline tecnico provisório | Concluido | Briefing NEXO | Auditoria, URP/30 FPS baseline, CI iOS e comandos de provisionamento documentados |
-| J01 | Definir conceito, genero, plataforma e mecanica central | Aguardando definicao | Instrucao de inicio do usuario | Briefing registrado com escopo inicial e criterios de aceite |
-| J02 | Selecionar engine e plano visual viavel | Planejado | J01 | Decisao documentada considerando hardware e plataforma alvo |
-| J03 | Instalar/configurar engine e validar projeto minimo | Planejado | J02 | Projeto abre, executa e gera build de teste quando aplicavel |
+| J01 | Definir conceito, genero, plataforma e mecanica central | Concluido para P1 | Briefing + fechamento de escopo | Escopo P1 e ADRs D-003/D-004/D-005 registrados |
+| J02 | Selecionar engine e plano visual viavel | Concluido como baseline | Auditoria de hardware + D-001/D-002/D-005 | Unity 6.3 LTS, URP, 3D estilizado e 30 FPS registrados |
+| J03 | Instalar/configurar engine e validar projeto minimo | Em execucao remota | J02; secrets Unity para validacao | Scaffold publicado; falta primeiro import/teste GameCI |
 | J04 | Construir prototipo da mecanica principal | Planejado | J03 | Ciclo jogavel demonstravel e controles funcionais |
 | J05 | Integrar cena representativa, animacao e materiais | Planejado | J04 | Cena jogavel com assets e licencas registrados |
 | J06 | Medir e otimizar desempenho e qualidade | Planejado | J05 | Resolucao, FPS e hardware medidos frente a metas definidas |

@@ -281,6 +281,17 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   O próximo passo depende exclusivamente da configuração manual dos três secrets
   e da execução do primeiro workflow.
 
+## P18 — Fechamento do escopo P1 e baseline técnico — concluído
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Resultado: escopo funcional do P1 autorizado e decisões D-001 a D-009 fechadas
+  como baseline do protótipo, sem instalar ferramentas locais pesadas.
+- Arquivos: `DECISION_LOG.md`, `CRONOGRAMA.md`, `RELATORIO.md` e `RETOMADA.md`.
+- Verificação: roadmap agora identifica J01/J02 concluídos para P1 e J03 em
+  execução remota; secrets não foram lidos nem alterados.
+- Pendência: primeiro import/teste GameCI depende dos três secrets Unity.
+- Próxima ação: executar `Unity tests` após cadastro manual dos secrets.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
