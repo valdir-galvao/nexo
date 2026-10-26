@@ -241,6 +241,18 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: criar/confirmar o projeto Unity URP e configurar os secrets antes
   de disparar os workflows.
 
+## P15 — Verificação pós-autenticação — concluída
+
+- Data: 26/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- API: autenticação HTTP 200 como `valdir-galvao`; repositório privado HTTP 200;
+  permissões aparentes `admin/maintain/push/pull/triage`.
+- Sincronização: branch local `main` e `origin/main` apontam para
+  `0a0e1d9186569b27d8e769267c4fe85abfd951df`; working tree limpo.
+- Workflows remotos: ativação, testes, Android e iOS confirmados pela API.
+- Uso externo: somente consultas de leitura; nenhum push ou alteração neste passo.
+- Próxima ação: configurar secrets Unity e criar/confirmar o projeto Unity antes
+  de disparar os workflows.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

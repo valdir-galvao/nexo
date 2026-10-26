@@ -1,7 +1,7 @@
 # Ponto de retomada
 
 Ultima atualizacao: 26/10/2026, America/Sao_Paulo.
-Ultimo passo concluido: P14, push concluído e workflows remotos validados.
+Ultimo passo concluido: P15, autenticação e sincronização pós-push verificadas.
 Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
