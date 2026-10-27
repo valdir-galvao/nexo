@@ -3,8 +3,11 @@ name: Unity activation artifact
 on:
   workflow_dispatch:
 
-# This job only requests the activation artifact. It does not upload a license
-# or modify repository secrets. Manual steps are documented in docs/CICD_REPORT.md.
+# This job requests the free Unity Personal activation artifact. It does not
+# upload a license or modify repository secrets. After downloading the .alf,
+# activate it through Unity's Personal license flow and store the resulting ULF
+# as UNITY_LICENSE. Do not use a Pro/Plus serial. Manual steps are documented
+# in docs/CICD_REPORT.md.
 permissions:
   contents: read
 

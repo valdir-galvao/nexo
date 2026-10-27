@@ -50,7 +50,7 @@ jobs:
           targetPlatform: Android
           buildMethod: Nexo.Editor.Build.AndroidBuild.PerformBuild
           customParameters: -logFile /github/workspace/diagnostics/unity-editor.log
-          buildPath: build/Android
+          buildsPath: build/Android
 
       - name: Capture Unity failure diagnostics
         if: failure()
@@ -59,6 +59,7 @@ jobs:
           for path in /root/.config/unity3d/Editor.log /root/.config/unity3d/Unity/Editor.log /github/home/.config/unity3d/Editor.log "$HOME/.config/unity3d/Editor.log"; do
             if [ -f "$path" ]; then echo "===== $path =====" | tee -a diagnostics/unity-editor.log; tail -n 300 "$path" | tee -a diagnostics/unity-editor.log; fi
           done
+          cat "$HOME/Library/Logs/Unity/Editor.log" 2>/dev/null || cat "$HOME/.config/unity3d/Unity/Editor/Editor.log" 2>/dev/null || true
           find build -maxdepth 4 -type f -print > diagnostics/build-files.log 2>&1 || true
 
       - name: Write build metadata

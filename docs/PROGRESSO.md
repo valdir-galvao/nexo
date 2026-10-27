@@ -622,3 +622,13 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Nenhuma causa C#/packages foi comprovada; não houve JUnit, APK ou Xcode.
 - Relatório: `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`.
 - Próxima ação: configurar secrets Unity em canal seguro e repetir primeiro o workflow de testes.
+
+## P46 — Fase 10: licença Personal e parâmetros GameCI — parcial/BLOCKED
+
+- Data: 27/10/2026; responsável: diretor de projeto.
+- Corrigidos `buildPath` para `buildsPath` nos workflows Android/iOS.
+- Adicionado dump de `Editor.log` nos diagnósticos de falha e documentado o fluxo gratuito Unity Personal via `.alf`/`.ulf`.
+- YAML parseado e `git diff --check` aprovados.
+- Secrets Unity continuam ausentes; não houve build nesta etapa.
+- Relatório: `docs/PHASE_10_LICENSE_BUILD_FIX.md`.
+- Próxima ação: configurar os secrets Personal em canal seguro e repetir primeiro `unity-tests.yml`.
