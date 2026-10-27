@@ -6,6 +6,10 @@ Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
+Atualização P36: Fase B3 `BLOCKED`; `gh` não está instalado e nenhum canal
+autenticado de dispatch está disponível. Executar somente `unity-tests.yml`
+quando o método seguro estiver disponível. Relatório:
+`docs/PHASE_B3_GAMECI_TEST_REPORT.md`.
 
 Atualização P35: Fase B2 auditada. Workflows parseiam e builds Android/iOS agora
 exigem disparo manual; GameCI ainda não executado, secrets permanecem não

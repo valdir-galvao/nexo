@@ -97,6 +97,17 @@ artifacts before attempting Android or iOS builds.
 - Estado: `PASS` para auditoria estática/correção; execução GameCI permanece
   `BLOCKED`. Nenhum workflow foi disparado.
 
+## Fase B3 — primeiro teste Unity controlado
+
+- Commit confirmado: `8cf86c7`; branch isolada; árvore limpa antes do registro.
+- Pré-condições estáticas confirmadas; `unity-tests.yml` executa somente
+  EditMode e não inicia builds de plataforma.
+- Resultado: `BLOCKED`. `gh` não está instalado e não há mecanismo autenticado
+  disponível nesta sessão para disparar `workflow_dispatch`.
+- Secrets Unity: presença `NÃO VERIFICÁVEL`; nenhum valor foi lido ou exposto.
+- Importação, resolução de pacotes, compilação e testes Unity: `NOT_RUN`.
+- Relatório: `docs/PHASE_B3_GAMECI_TEST_REPORT.md`.
+
 ## Fase B1 — validação local (execução atual)
 
 - Início: 27/10/2026, America/Sao_Paulo.

@@ -499,6 +499,17 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: executar manualmente `unity-tests` somente após secrets Unity
   configurados e autorização; não iniciar builds de plataforma.
 
+## P36 — Fase B3: primeiro teste Unity controlado no GameCI — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Commit/branch confirmados: `8cf86c7`, `orchestrator/phase-a-baseline`.
+- Motivo: `gh` não está instalado e não há canal autenticado disponível para
+  disparar o workflow manual. Nenhum runner ou secret foi acessado.
+- Relatório: `docs/PHASE_B3_GAMECI_TEST_REPORT.md`; importação, compilação e
+  EditMode permanecem `NOT_RUN`.
+- Próxima ação: disponibilizar método autenticado de `workflow_dispatch` e
+  executar somente `unity-tests.yml`.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

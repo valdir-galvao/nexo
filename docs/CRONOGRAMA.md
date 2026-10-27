@@ -40,6 +40,9 @@ Ao iniciar um marco, subdividir em tarefas pequenas com ID (ex.: J04.01), dono,
 escopo de arquivos, entrada minima e criterio de aceite. Registrar a subdivisao
 aqui antes de distribuir trabalho. Ao concluir cada tarefa, registrar progresso
 e atualizar a retomada imediatamente.
+J22 — Fase B3: primeiro teste Unity GameCI — Bloqueado. Depende de canal
+autenticado para `workflow_dispatch` e secrets Unity verificáveis sem exposição;
+nenhum runner foi iniciado.
 
 J21 — Fase B2: auditoria GitHub Actions/GameCI — Parcial concluído. YAML,
 permissões e gatilhos revisados; Android/iOS ficaram manuais. Depende de secrets
