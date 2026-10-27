@@ -7,6 +7,11 @@ iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
 
+Atualização P35: Fase B2 auditada. Workflows parseiam e builds Android/iOS agora
+exigem disparo manual; GameCI ainda não executado, secrets permanecem não
+verificáveis e PlayMode não está coberto. Relatório:
+`docs/PHASE_B2_CI_AUDIT.md`.
+
 Atualização P34: a Fase G está `BLOCKED`; não existe versão funcional para
 revisão. Revisões técnica, jurídica, pedagógica e ética permanecem `PENDENTE`.
 Relatório: `docs/PHASE_G_TRUST_SAFETY_REPORT.md`.

@@ -2,13 +2,6 @@ name: Unity iOS Xcode project
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'Assets/**'
-      - 'Packages/**'
-      - 'ProjectSettings/**'
-      - '.github/workflows/unity-ios.yml'
 
 permissions:
   contents: read

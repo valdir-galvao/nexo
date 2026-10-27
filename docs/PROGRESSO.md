@@ -486,6 +486,19 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: aprovar C–F, revisar o pacote candidato e obter pareceres
   qualificados antes de qualquer piloto.
 
+## P35 — Prompt Fase B2: auditoria GitHub Actions/GameCI — concluído parcialmente
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Resultado: YAML e configuração estática aprovados; execução GameCI permanece
+  bloqueada. PyYAML parseou os quatro workflows; nenhum workflow foi disparado.
+- Correção: removidos gatilhos `push` dos workflows Android/iOS para exigir
+  disparo manual e evitar builds automáticos.
+- Relatório: `docs/PHASE_B2_CI_AUDIT.md`; PlayMode segue sem job e iOS gera
+  apenas Xcode não assinado.
+- Commit da correção: será registrado no commit desta etapa.
+- Próxima ação: executar manualmente `unity-tests` somente após secrets Unity
+  configurados e autorização; não iniciar builds de plataforma.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

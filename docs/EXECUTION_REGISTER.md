@@ -84,6 +84,19 @@ Do not advance automatically. After the owner authorizes continuation, configure
 the approved Unity secrets and run `Unity tests`; record the workflow URL and
 artifacts before attempting Android or iOS builds.
 
+## Fase B2 — auditoria CI/GameCI
+
+- Commit inicial: `e59d126`; branch isolada preservada.
+- Quatro workflows parseados com PyYAML 6.0.3; permissões, actions, runners,
+  secrets referenciados, falhas e artefatos revisados.
+- Correção aplicada: gatilhos `push` removidos de Android e iOS; ambos agora
+  exigem `workflow_dispatch` para evitar builds automáticos não autorizados.
+- PlayMode não está coberto; iOS gera somente projeto Xcode não assinado.
+- Secrets: `NÃO VERIFICÁVEL` localmente; nenhum valor foi exposto.
+- Relatório: `docs/PHASE_B2_CI_AUDIT.md`.
+- Estado: `PASS` para auditoria estática/correção; execução GameCI permanece
+  `BLOCKED`. Nenhum workflow foi disparado.
+
 ## Fase B1 — validação local (execução atual)
 
 - Início: 27/10/2026, America/Sao_Paulo.

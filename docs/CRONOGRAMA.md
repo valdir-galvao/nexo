@@ -41,6 +41,10 @@ escopo de arquivos, entrada minima e criterio de aceite. Registrar a subdivisao
 aqui antes de distribuir trabalho. Ao concluir cada tarefa, registrar progresso
 e atualizar a retomada imediatamente.
 
+J21 — Fase B2: auditoria GitHub Actions/GameCI — Parcial concluído. YAML,
+permissões e gatilhos revisados; Android/iOS ficaram manuais. Depende de secrets
+Unity e execução GameCI para validação operacional.
+
 J20 — Fase G: privacidade, segurança infantil e validação pedagógica — Bloqueado.
 Depende de uma versão funcional e de revisões técnica, jurídica, pedagógica e
 ética; estados e evidências em `docs/PHASE_G_TRUST_SAFETY_REPORT.md`.
