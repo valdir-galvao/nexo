@@ -2,6 +2,8 @@ name: Unity iOS Xcode project
 
 on:
   workflow_dispatch:
+  push:
+    branches: [orchestrator/phase-a-baseline]
 
 permissions:
   contents: read

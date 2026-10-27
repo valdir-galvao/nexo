@@ -2,6 +2,8 @@ name: Unity tests
 
 on:
   workflow_dispatch:
+  push:
+    branches: [orchestrator/phase-a-baseline]
   pull_request:
     paths:
       - 'Assets/**'
