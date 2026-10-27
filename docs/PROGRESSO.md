@@ -413,6 +413,15 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   este passo; aguarda autorização para avançar conforme o protocolo mestre.
 - Próxima ação: aguardar aprovação humana para iniciar P1.
 
+## P28 — Prompt 1, Fase A: auditoria e linha de base — concluída
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Escopo: somente inspeção e baseline; nenhuma modificação de código ou build.
+- Registro persistente: `docs/EXECUTION_REGISTER.md`, execução `NEXO-20261027-A`.
+- Resultado: INSPECTION e BASELINE em PASS; infraestrutura, testes Unity e builds
+  permanecem BLOCKED/NOT_RUN por ferramentas e secrets ausentes.
+- Próxima ação: aguardar autorização explícita; não avançar automaticamente.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

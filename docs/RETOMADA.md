@@ -1,7 +1,7 @@
 # Ponto de retomada
 
 Ultima atualizacao: 26/10/2026, America/Sao_Paulo.
-Ultimo passo concluido: P27, gate P0 revalidado; aguardando autorização para iniciar P1.
+Ultimo passo concluido: P28, Prompt 1 Fase A auditada e linha de base registrada; aguardando autorização.
 Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
