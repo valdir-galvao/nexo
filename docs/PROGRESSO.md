@@ -510,6 +510,19 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: disponibilizar método autenticado de `workflow_dispatch` e
   executar somente `unity-tests.yml`.
 
+## P37 — Fase C: testes completos pré-build — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Manifesto com 36 dependências versus lockfile com 2 entradas; resolução real
+  requer Unity e permanece bloqueada. Nenhuma edição manual foi feita.
+- Suíte: 15 testes NUnit EditMode potenciais; nenhum PlayMode/UnityTest.
+  Validadores locais pedagógico e estático passaram.
+- K-005 confirmado: transferência pedagógica tem contrato/conteúdo, mas não tem
+  UI nem registro de resposta durante a missão. Correção aguarda Unity/GameCI.
+- Relatório: `docs/PHASE_C_PREBUILD_TEST_REPORT.md`.
+- Próxima ação: executar GameCI, resolver pacotes, testar persistência e integrar
+  K-005 com regressão.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

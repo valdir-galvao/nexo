@@ -40,6 +40,8 @@ Ao iniciar um marco, subdividir em tarefas pequenas com ID (ex.: J04.01), dono,
 escopo de arquivos, entrada minima e criterio de aceite. Registrar a subdivisao
 aqui antes de distribuir trabalho. Ao concluir cada tarefa, registrar progresso
 e atualizar a retomada imediatamente.
+J23 — Fase C pré-build — Bloqueado. Manifest/lockfile aguardam Package Manager
+Unity; testes Unity e integração K-005 dependem de GameCI.
 J22 — Fase B3: primeiro teste Unity GameCI — Bloqueado. Depende de canal
 autenticado para `workflow_dispatch` e secrets Unity verificáveis sem exposição;
 nenhum runner foi iniciado.

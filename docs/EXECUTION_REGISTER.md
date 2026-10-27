@@ -108,6 +108,19 @@ artifacts before attempting Android or iOS builds.
 - Importação, resolução de pacotes, compilação e testes Unity: `NOT_RUN`.
 - Relatório: `docs/PHASE_B3_GAMECI_TEST_REPORT.md`.
 
+## Fase C — testes completos pré-build
+
+- Commit auditado: `37b4246`; branch isolada; nenhum pacote móvel gerado.
+- Manifesto: 36 dependências; lockfile: 2 entradas. Resolução Unity real
+  `BLOCKED`; lockfile não foi editado manualmente.
+- Assemblies: runtime separado; testes limitados a Editor; 15 `[Test]`, nenhum
+  `[UnityTest]`/PlayMode. EditMode, PlayMode e persistência runtime `NOT_RUN`.
+- K-005 confirmado em `docs/KNOWN_ISSUES.md` e `docs/QA_REPORT.md`: contrato de
+  transferência existe, UI/registro durante a missão não estão integrados.
+- Validadores locais: `validate_learning_content.py` e `run_static_qa.py` PASS.
+- Relatório: `docs/PHASE_C_PREBUILD_TEST_REPORT.md`.
+- Estado: `BLOCKED`; depende de Unity/GameCI para resolução, testes e integração.
+
 ## Fase B1 — validação local (execução atual)
 
 - Início: 27/10/2026, America/Sao_Paulo.
