@@ -17,7 +17,7 @@ Updated: 27/10/2026, America/Sao_Paulo.
 |---|---|---|
 | INSPECTION | PASS | repository, Git, tools, workflows and secrets tracking inspected |
 | BASELINE | PASS | version, packages, source structure and static validators recorded |
-| INFRASTRUCTURE | BLOCKED | Unity secrets and Editor execution unavailable |
+| INFRASTRUCTURE | BLOCKED | Unity secrets and Editor execution unavailable; config static PASS |
 | TESTS | NOT_RUN | Unity EditMode/PlayMode cannot run locally |
 | BUILD_ANDROID | BLOCKED | GameCI/secrets not executed; no APK |
 | BUILD_IOS | BLOCKED | GameCI/macOS not executed; no Xcode artifact |
@@ -38,6 +38,12 @@ Updated: 27/10/2026, America/Sao_Paulo.
 
 GitHub secrets `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD`; Unity/GameCI
 execution; Android/iOS devices; legal, ethical and qualified pedagogical review.
+
+## Fase B
+
+Configuration review: PASS. YAML, versions, permissions, cache and artifact
+metadata validated. Execution result: BLOCKED because credentials and Unity/GameCI
+are unavailable. Full details: `docs/PHASE_B_INFRASTRUCTURE.md`.
 
 ## Next authorized action
 

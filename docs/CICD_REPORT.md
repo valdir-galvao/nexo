@@ -1,5 +1,13 @@
 # NEXO — Relatório de CI/CD GameCI
 
+## Atualização da Fase B
+
+O projeto Unity já contém `ProjectSettings/ProjectVersion.txt` com `6000.3.0f1`.
+Os quatro workflows foram revisados: usam permissões mínimas, verificam a versão
+antes do import, propagam falhas sem `continue-on-error`, e identificam artifacts
+por plataforma, commit, versão e `run_id`. Nenhum workflow foi executado nesta
+máquina; secrets Unity continuam sendo dependências externas.
+
 Status: estrutura criada localmente; nenhum workflow foi publicado ou executado
 no GitHub remoto. O repositório ainda não contém um projeto Unity (`ProjectSettings/
 ProjectVersion.txt` não existe), portanto os jobs de teste/build ficam pulados até

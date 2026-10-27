@@ -27,6 +27,10 @@ jobs:
         with:
           lfs: true
 
+      - name: Verify Unity project version
+        run: |
+          grep -q "m_EditorVersion: ${UNITY_VERSION}" ProjectSettings/ProjectVersion.txt
+
       - name: Restore Unity Library cache
         uses: actions/cache@v4
         with:
@@ -49,6 +53,10 @@ jobs:
           targetPlatform: Android
           buildMethod: Nexo.Editor.Build.AndroidBuild.PerformBuild
           buildPath: build/Android
+
+      - name: Write build metadata
+        run: |
+          printf 'platform=Android\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/Android/BUILD_METADATA.txt
 
       - name: Upload Android artifact
         uses: actions/upload-artifact@v4

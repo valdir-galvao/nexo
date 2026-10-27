@@ -422,6 +422,18 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   permanecem BLOCKED/NOT_RUN por ferramentas e secrets ausentes.
 - Próxima ação: aguardar autorização explícita; não avançar automaticamente.
 
+## P29 — Prompt 2, Fase B: infraestrutura e CI — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- PASS: quatro YAML parseados; versão Unity e pacotes coerentes; permissões,
+  falhas e artifacts revisados; validadores locais passaram.
+- Correções: verificação de versão antes do import, metadata de commit/run/version,
+  permissão mínima no activation e relatório CI atualizado.
+- BLOCKED: secrets Unity não configurados e Unity/GameCI não executados; nenhum
+  teste ou build pode ser marcado PASS.
+- Relatório: `docs/PHASE_B_INFRASTRUCTURE.md`.
+- Próxima ação: configurar secrets no GitHub e executar `Unity tests`.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

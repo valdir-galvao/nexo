@@ -1,7 +1,7 @@
 # Ponto de retomada
 
 Ultima atualizacao: 26/10/2026, America/Sao_Paulo.
-Ultimo passo concluido: P28, Prompt 1 Fase A auditada e linha de base registrada; aguardando autorização.
+Ultimo passo concluido: P29, Fase B configurada estaticamente; execução BLOCKED por secrets/Unity.
 Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 

@@ -5,6 +5,9 @@ on:
 
 # This job only requests the activation artifact. It does not upload a license
 # or modify repository secrets. Manual steps are documented in docs/CICD_REPORT.md.
+permissions:
+  contents: read
+
 jobs:
   request-activation:
     name: Request Unity activation file
@@ -20,6 +23,6 @@ jobs:
       - name: Upload activation artifact
         uses: actions/upload-artifact@v4
         with:
-          name: unity-activation-file
+          name: unity-activation-file-${{ github.run_id }}
           path: ${{ steps.getManualLicenseFile.outputs.filePath }}
           if-no-files-found: error

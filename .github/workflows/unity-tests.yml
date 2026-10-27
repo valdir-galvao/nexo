@@ -28,6 +28,10 @@ jobs:
         with:
           lfs: true
 
+      - name: Verify Unity project version
+        run: |
+          grep -q "m_EditorVersion: ${UNITY_VERSION}" ProjectSettings/ProjectVersion.txt
+
       - name: Restore Unity Library cache
         uses: actions/cache@v4
         with:
@@ -49,10 +53,16 @@ jobs:
           testMode: editmode
           artifactsPath: test-results
 
+      - name: Write test metadata
+        if: always()
+        run: |
+          mkdir -p test-results
+          printf 'platform=EditMode\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > test-results/BUILD_METADATA.txt
+
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: unity-editmode-results
+          name: nexo-tests-${{ env.UNITY_VERSION }}-${{ github.sha }}
           path: test-results
           if-no-files-found: warn
