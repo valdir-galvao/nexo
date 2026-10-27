@@ -632,3 +632,10 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Secrets Unity continuam ausentes; não houve build nesta etapa.
 - Relatório: `docs/PHASE_10_LICENSE_BUILD_FIX.md`.
 - Próxima ação: configurar os secrets Personal em canal seguro e repetir primeiro `unity-tests.yml`.
+
+## P47 — Fase 13: auditoria de licença automática GameCI — BLOCKED
+
+- A documentação atual do GameCI exige `UNITY_LICENSE`/`.ulf` para Unity Personal; email e senha são complementares.
+- `unityLicensingServer` não é um método Personal gratuito.
+- Nenhum YAML foi alterado, nenhum commit/push de configuração inválida foi feito.
+- Relatório: `docs/PHASE_13_GAMECI_LICENSE_AUDIT.md`.

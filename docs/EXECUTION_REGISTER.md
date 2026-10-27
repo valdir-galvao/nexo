@@ -213,3 +213,5 @@ workflow ou build foi executado. Fase C permanece `BLOCKED`.
 P45 — 27/10/2026 — Fase 08 GameCI: diagnóstico de licenciamento. Captura de logs adicionada e YAML validado; push `bb06877`; runs de testes/Android falharam na etapa Unity. API de secrets retornou zero nomes; causa primária é ausência de `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD`. C#/packages ainda não determinados. Relatório `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`.
 
 P46 — 27/10/2026 — Fase 10: `buildsPath` corrigido, dump de Editor.log adicionado e fluxo Unity Personal gratuito documentado. YAML validado; execução bloqueada por secrets externos ausentes. Relatório `docs/PHASE_10_LICENSE_BUILD_FIX.md`.
+
+P47 — 27/10/2026 — Fase 13: auditoria GameCI v6. Pedido de licença Personal somente por email/senha é incompatível com a documentação atual; nenhuma alteração de workflow aplicada. Relatório `docs/PHASE_13_GAMECI_LICENSE_AUDIT.md`.

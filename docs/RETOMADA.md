@@ -110,3 +110,5 @@ Se os registros locais estiverem ausentes, nao presumir consumo zero.
 Atualização P45: Fase 08 bloqueada por licenciamento. Commits `7920de8`/`bb06877` preservados na branch `orchestrator/phase-a-baseline`; runs `40459086676`, `40459086685`, `40459086672`; API confirmou zero secrets no repositório. Relatório: `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`. Próximo passo é configurar secrets Unity fora do Git e repetir testes.
 
 Atualização P46: Fase 10 corrigiu `buildsPath` Android/iOS, adicionou dump explícito de Editor.log e documentou ativação gratuita Unity Personal. YAML válido. Secrets continuam ausentes; próximo passo é configurá-los fora do Git.
+
+Atualização P47: a Fase 13 foi bloqueada após verificação da documentação oficial GameCI. Não remover ativação nem `UNITY_LICENSE` sem método alternativo suportado.

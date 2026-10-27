@@ -78,3 +78,5 @@ Unity/GameCI e dispositivo ou simulador; matriz e pendÃªncias em
 J28 — Fase 08: Diagnóstico GameCI/licenciamento — Bloqueado. Secrets Unity ausentes (`COUNT=0`), portanto testes/builds falham antes de evidenciar C#/packages. Aguardar configuração segura de `UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`; depois repetir somente `unity-tests.yml`.
 
 J29 — Fase 10: correção de `buildsPath` e documentação Unity Personal — Parcial/Bloqueado. Workflows validados; ativação depende de secrets Personal externos.
+
+J30 — Fase 13: licença automática Personal GameCI — Bloqueado por incompatibilidade com o método solicitado. A configuração suportada continua exigindo `UNITY_LICENSE`.
