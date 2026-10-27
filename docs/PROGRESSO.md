@@ -434,6 +434,17 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Relatório: `docs/PHASE_B_INFRASTRUCTURE.md`.
 - Próxima ação: configurar secrets no GitHub e executar `Unity tests`.
 
+## P30 — Prompt 3, Fase C: importação, compilação e testes — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Motivo: Fase B permanece BLOCKED; Unity Editor, secrets e GameCI não foram
+  comprovados nesta sessão.
+- PASS apenas estático: `run_static_qa.py` (`json=4`, `cs=23`) e validador
+  pedagógico; isso não é compilação nem teste Unity.
+- Import, EditMode, PlayMode, persistência runtime, Android e iOS: NOT_RUN.
+- Relatório: `docs/PHASE_C_TEST_REPORT.md`.
+- Próxima ação: configurar secrets e executar o workflow `Unity tests`.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
