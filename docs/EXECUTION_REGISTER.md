@@ -121,6 +121,12 @@ artifacts before attempting Android or iOS builds.
 - Relatório: `docs/PHASE_C_PREBUILD_TEST_REPORT.md`.
 - Estado: `BLOCKED`; depende de Unity/GameCI para resolução, testes e integração.
 
+## Continuação P38
+
+Nenhum canal autenticado de dispatch foi encontrado (`gh` ausente); apenas nomes
+de variáveis locais foram inspecionados, sem leitura de valores. Nenhuma API,
+workflow ou build foi executado. Fase C permanece `BLOCKED`.
+
 ## Fase B1 — validação local (execução atual)
 
 - Início: 27/10/2026, America/Sao_Paulo.

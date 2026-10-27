@@ -523,6 +523,16 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: executar GameCI, resolver pacotes, testar persistência e integrar
   K-005 com regressão.
 
+## P38 — Continuação da Fase C: canal GameCI não disponível — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Verificação: `.env.txt` contém apenas nomes de variáveis locais; nenhum valor
+  foi lido ou exposto. `gh` continua ausente e não há workflow dispatch seguro
+  configurado nesta sessão.
+- Resultado: nenhuma chamada externa, execução Unity ou build foi iniciada.
+- Próxima ação: disponibilizar canal autenticado autorizado para executar
+  `unity-tests.yml`; preservar a Fase C como `BLOCKED` até haver relatório real.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

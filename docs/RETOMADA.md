@@ -6,6 +6,9 @@ Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
+Atualização P38: tentativa de continuidade encerrada sem chamada externa;
+`gh` e dispatch autenticado continuam indisponíveis. Fase C permanece
+`BLOCKED`. Executar somente `unity-tests.yml` quando o canal seguro existir.
 Atualização P37: Fase C `BLOCKED`. Lockfile aguarda resolução Unity; EditMode,
 PlayMode e persistência runtime não foram executados. K-005 continua sem UI de
 transferência. Relatório: `docs/PHASE_C_PREBUILD_TEST_REPORT.md`.
