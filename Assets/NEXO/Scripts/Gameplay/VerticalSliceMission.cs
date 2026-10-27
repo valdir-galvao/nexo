@@ -22,6 +22,7 @@ namespace Nexo.Gameplay
         {
             saveStore = store;
             save = store.Load() ?? new SaveData();
+            if (save.audio == null) save.audio = new AudioSettingsData();
             if (save.activeMission == null || save.activeMission.missionId != MissionId)
                 save.activeMission = NewState();
             stateMachine = new MissionStateMachine();

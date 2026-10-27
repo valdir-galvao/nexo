@@ -333,6 +333,20 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   GameCI e dispositivos. Rota Garden permanece domínio-only nesta fatia.
 - Próxima ação: configurar secrets e executar `Unity tests`, depois Android/iOS.
 
+## P22 — Produção visual, UI e áudio P4 — concluída parcialmente
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Entregas: `NexoVisualTheme`, menu inicial, HUD, diário, ajuda, pausa,
+  configurações de áudio, layout em `Screen.safeArea` e `NexoAudioDirector`.
+- Resultado: estados críticos têm representação textual/visual e ações reais;
+  mute e volume são configuráveis; tons de descoberta/feedback têm fallback leve.
+- Verificação: `git diff --check`, ASMDEF/JSON e contagem estrutural de C#; Unity
+  não está instalado, portanto contraste, safe area, FPS e áudio não foram medidos.
+- Limitações: cubos, cápsula e tons procedurais são temporários; arte final,
+  animações, partículas, música e profiling ficam após validação da câmera.
+- Próxima ação: executar `Unity tests`, validar telas em Android/iOS e medir o
+  orçamento de 30 FPS antes de produzir assets finais.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

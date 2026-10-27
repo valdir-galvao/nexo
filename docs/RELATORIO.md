@@ -98,6 +98,11 @@ de ilha temporária, controles de teste, interação com três pistas, puzzle da
 válvula, feedback, conclusão e desbloqueio narrativo. A implementação é parcial
 até a importação no Unity e o teste em dispositivo.
 
+P4 integrou a paleta compartilhada, menu inicial, HUD, diário, pausa,
+configurações de áudio e tons procedurais leves. O greybox continua deliberadamente
+temporário até câmera e desempenho serem validados; nenhum pacote de arte pesado
+foi adicionado.
+
 ## Persistencia
 
 Documentos e codigo ficam nesta pasta e sobrevivem a queda da sessao, desde que

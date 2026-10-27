@@ -46,6 +46,7 @@ namespace Nexo.Progression
         public MasteryEvidence[] masteryEvidence = new MasteryEvidence[0];
         public ReviewItem[] scheduledReviews = new ReviewItem[0];
         public AccessibilitySettings accessibility = new AccessibilitySettings();
+        public AudioSettingsData audio = new AudioSettingsData();
         public string checksum;
 
         public int SchemaVersion { get { return schemaVersion; } }
@@ -66,6 +67,15 @@ namespace Nexo.Progression
         public bool subtitles = true;
         public bool reducedMotion;
         public bool vibration = true;
+    }
+
+    [Serializable]
+    public sealed class AudioSettingsData
+    {
+        public float master = 1f;
+        public float music = 0.65f;
+        public float effects = 0.8f;
+        public bool muted;
     }
 
     public interface IMissionDefinition

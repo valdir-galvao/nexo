@@ -1,7 +1,7 @@
 # Ponto de retomada
 
 Ultima atualizacao: 26/10/2026, America/Sao_Paulo.
-Ultimo passo concluido: P21, gameplay P3 versionado; compilacao Unity pendente.
+Ultimo passo concluido: P22, integração visual/UI/áudio P4 versionada; profiling Unity pendente.
 Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
@@ -29,7 +29,8 @@ P1, confirmar ADR-009/ADR-010 e decidir D-001/D-002/D-008/D-009: Unity/SDKs,
 dispositivos mínimos, espaço e CI iOS. Não iniciar implementação ou instalações grandes antes
 dessas decisoes e de uma verificacao de toolchain.
 
-Atualizacao P21: o pacote de design P1, a arquitetura P2 e o gameplay P3 foram
+Atualizacao P22: o pacote de design P1, a arquitetura P2, o gameplay P3 e a
+integração visual/UI/áudio P4 foram
 versionados; as decisoes D-001 a D-009
 continuam fechadas como baseline do
 prototipo. A proxima acao e cadastrar os secrets Unity e executar `Unity tests`;
