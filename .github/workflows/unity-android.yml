@@ -48,6 +48,15 @@ jobs:
           buildMethod: Nexo.Editor.Build.AndroidBuild.PerformBuild
           buildPath: build/Android
 
+      - name: Capture Unity failure diagnostics
+        if: failure()
+        run: |
+          mkdir -p diagnostics
+          for path in /root/.config/unity3d/Editor.log /root/.config/unity3d/Unity/Editor.log /github/home/.config/unity3d/Editor.log "$HOME/.config/unity3d/Editor.log"; do
+            if [ -f "$path" ]; then echo "===== $path =====" | tee -a diagnostics/unity-editor.log; tail -n 300 "$path" | tee -a diagnostics/unity-editor.log; fi
+          done
+          find build -maxdepth 4 -type f -print > diagnostics/build-files.log 2>&1 || true
+
       - name: Write build metadata
         run: |
           printf 'platform=Android\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/Android/BUILD_METADATA.txt
@@ -58,3 +67,11 @@ jobs:
           name: nexo-android-${{ github.sha }}
           path: build/Android
           if-no-files-found: error
+
+      - name: Upload failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nexo-android-diagnostics-${{ env.UNITY_VERSION }}-${{ github.sha }}
+          path: diagnostics
+          if-no-files-found: warn
