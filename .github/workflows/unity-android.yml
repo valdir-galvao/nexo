@@ -14,7 +14,6 @@ env:
 jobs:
   android:
     name: Build Android APK
-    if: ${{ hashFiles('ProjectSettings/ProjectVersion.txt') != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout with LFS

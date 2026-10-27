@@ -22,7 +22,6 @@ env:
 jobs:
   unity-tests:
     name: ${{ matrix.testMode }} tests
-    if: ${{ hashFiles('ProjectSettings/ProjectVersion.txt') != '' }}
     strategy:
       fail-fast: false
       matrix:
