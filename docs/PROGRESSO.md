@@ -566,6 +566,14 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Nenhum push ou dispatch executado. O workflow atual ainda cobre somente
   EditMode; PlayMode não deve ser declarado aprovado.
 
+## P42 — Fase 05: PlayMode no workflow CI — concluído
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- `unity-tests.yml` agora executa matriz EditMode e PlayMode, com artefatos
+  separados e `fail-fast: false`.
+- YAML parseado com sucesso; nenhum workflow ou build foi disparado.
+- Próxima ação: fazer push da branch e executar a matriz no GameCI.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

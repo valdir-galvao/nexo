@@ -144,7 +144,13 @@ workflow ou build foi executado. Fase C permanece `BLOCKED`.
 - Arquivos K-005, teste PlayMode, `.meta` e script de resolução estão rastreados.
 - Guia: `docs/PHASE_04_PUSH_DISPATCH_GUIDE.md`.
 - Nenhum push ou dispatch foi executado. O workflow atual cobre somente
-  EditMode; PlayMode requer job adicional antes de ser declarado aprovado.
+  EditMode; PlayMode requer execução real antes de ser declarado aprovado.
+
+## Fase 05 — matriz PlayMode no CI
+
+- `unity-tests.yml` ajustado para matriz `editmode`/`playmode`, com artefatos e
+  metadata separados por modalidade.
+- YAML validado com PyYAML; nenhum workflow foi disparado.
 
 ## Fase 02 — correções locais
 

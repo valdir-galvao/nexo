@@ -42,10 +42,9 @@ valores:
 7. Depois, executar **Unity iOS Xcode project**; o resultado é Xcode não
    assinado, não um pacote instalável em iPhone.
 
-## Limitação importante
+## Cobertura de testes
 
-O workflow atualmente configurado executa apenas `testMode: editmode`. O teste
-`Nexo.PlayModeTests` foi versionado, mas não será executado até existir um job
-PlayMode explícito no workflow. Não relatar cobertura PlayMode como aprovada.
+O workflow agora usa uma matriz explícita `testMode: [editmode, playmode]`, com
+artefatos separados. A execução real ainda precisa ocorrer no GameCI.
 
 Nenhum push ou dispatch foi executado nesta sessão.

@@ -8,7 +8,7 @@ Commit inicial da auditoria: `e59d126`. Nenhum workflow foi disparado.
 | Workflow | YAML | Gatilho | Runner | Secrets | Testes/build | Artefatos | Estado |
 |---|---|---|---|---|---|---|---|
 | `unity-activation.yml` | PASS, PyYAML | manual | `ubuntu-latest` | nenhum | solicita `.alf` manual | activation + `run_id` | PASS estático |
-| `unity-tests.yml` | PASS, PyYAML | manual e `pull_request` | `ubuntu-latest` | três Unity | EditMode apenas | resultados sempre; metadata com SHA/run | PASS estático; PlayMode ausente |
+| `unity-tests.yml` | PASS, PyYAML | manual e `pull_request` | `ubuntu-latest` | três Unity | matriz EditMode + PlayMode | artefatos separados; metadata com SHA/run | PASS estático |
 | `unity-android.yml` | PASS, PyYAML | manual | `ubuntu-latest` | três Unity | APK via builder v6 | diretório Android + SHA/run | PASS estático; execução bloqueada |
 | `unity-ios.yml` | PASS, PyYAML | manual | `macos-latest` | três Unity | projeto Xcode não assinado | diretório iOS + SHA/run | PASS estático; execução bloqueada |
 
@@ -25,10 +25,9 @@ nesta fase. Builds de plataforma agora exigem `workflow_dispatch` explícito.
   `ProjectSettings/ProjectVersion.txt`.
 - Falha de uma etapa interrompe as etapas seguintes por comportamento padrão do
   GitHub Actions; não há `continue-on-error`.
-- O job de testes não possui dependências entre jobs: existe somente EditMode.
-- Testes PlayMode não são executados por nenhum workflow atual. O projeto não
-  possui job PlayMode configurado; isso requer Unity Editor/GameCI e uma decisão
-  de cobertura, não apenas uma troca textual.
+- O job de testes usa matriz explícita `editmode`/`playmode`, com artefatos
+  separados e `fail-fast: false`; ambos os resultados são necessários para o
+  diagnóstico completo.
 - iOS chama `BuildTarget.iOS` e faz upload do projeto Xcode. Não há `xcodebuild`,
   assinatura, provisionamento, instalação ou distribuição.
 - Não há publicação em lojas, deploy externo ou operação destrutiva.
