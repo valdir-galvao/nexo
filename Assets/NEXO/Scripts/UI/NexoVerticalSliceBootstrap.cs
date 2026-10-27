@@ -4,6 +4,7 @@ using Nexo.Audio;
 using Nexo.Gameplay;
 using Nexo.Persistence;
 using Nexo.Progression;
+using Nexo.Safety;
 
 namespace Nexo.UI
 {
@@ -20,6 +21,8 @@ namespace Nexo.UI
         private bool showDiary;
         private bool showSettings;
         private NexoAudioDirector audioDirector;
+        private LocalDataControls dataControls;
+        private bool confirmDelete;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void CreateIfMissing()
@@ -35,6 +38,7 @@ namespace Nexo.UI
             BuildWorld();
             audioDirector = gameObject.AddComponent<NexoAudioDirector>();
             audioDirector.Configure(mission.Save.audio);
+            dataControls = new LocalDataControls();
             showIntro = mission.StateMachine.State == GameState.Intro;
         }
 
@@ -166,7 +170,7 @@ namespace Nexo.UI
 
         private void DrawSettings(Rect safe)
         {
-            GUI.Box(new Rect(safe.x + 40, safe.y + 60, safe.width - 80, 260), "Configurações");
+                GUI.Box(new Rect(safe.x + 40, safe.y + 60, safe.width - 80, 390), "Configurações");
             GUI.Label(new Rect(safe.x + 70, safe.y + 105, 250, 32), "Áudio: " + (mission.Save.audio.muted ? "silenciado" : "ativo"));
             if (GUI.Button(new Rect(safe.x + 70, safe.y + 145, 190, 40), mission.Save.audio.muted ? "Ativar áudio" : "Silenciar áudio"))
             {
@@ -174,6 +178,22 @@ namespace Nexo.UI
                 audioDirector.Configure(mission.Save.audio);
             }
             GUI.Label(new Rect(safe.x + 70, safe.y + 205, 400, 32), "Legendas: sempre disponíveis");
+            if (!confirmDelete && GUI.Button(new Rect(safe.x + 220, safe.y + 255, 190, 36), "Apagar dados locais")) confirmDelete = true;
+            if (confirmDelete)
+            {
+                GUI.Label(new Rect(safe.x + 70, safe.y + 290, safe.width - 120, 30), "Isso remove o save e o backup deste dispositivo.");
+                if (GUI.Button(new Rect(safe.x + 70, safe.y + 325, 120, 36), "Confirmar"))
+                {
+                    dataControls.DeleteAll();
+                    mission = new VerticalSliceMission(new JsonFileSaveStore());
+                    mission.Initialize();
+                    showIntro = true;
+                    confirmDelete = false;
+                    showSettings = false;
+                    showMenu = true;
+                }
+                if (GUI.Button(new Rect(safe.x + 205, safe.y + 325, 120, 36), "Cancelar")) confirmDelete = false;
+            }
             if (GUI.Button(new Rect(safe.x + 70, safe.y + 255, 120, 36), "Fechar")) showSettings = false;
         }
     }

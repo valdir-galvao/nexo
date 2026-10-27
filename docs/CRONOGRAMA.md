@@ -27,6 +27,7 @@ Responsavel final de cada marco: gerente. Colaboradores entram sob demanda.
 | J11 | Implementar gameplay da missão e máquina de estados | Concluido parcialmente | J10; validação Unity | Código, bootstrap de cena e testes versionados; import/build pendente |
 | J12 | Integrar direção visual, UI responsiva e áudio configurável | Concluido parcialmente | J11; validação Unity/profiling | Tema, menu/HUD/diário/pausa, áudio e documentação versionados; profiling pendente |
 | J13 | Definir pedagogia, avaliação adaptativa e conteúdo versionado | Concluído — entregáveis 100% | J11 | Framework, instrumentos, regras, JSON, validador e testes entregues; validação externa é gate separado |
+| J14 | Revisar trust & safety, privacidade e acessibilidade | Concluído — entregáveis 100% | J12/J13 | Threat model, mapa de dados, checklist, política e controles locais entregues; gates de piloto separados |
 
 Pendencias tecnicas independentes de J01: A01 Mistral HTTP 429;
 A02 Gemini HTTP 404; A03 Groq HTTP 403. Nao bloqueiam o briefing.

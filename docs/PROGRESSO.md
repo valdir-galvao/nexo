@@ -363,6 +363,19 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   publicação.
 - Próxima ação: executar os gates externos quando Unity e revisor estiverem disponíveis.
 
+## P24 — Trust & Safety, privacidade e acessibilidade P6 — entregáveis 100% concluídos
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Entregas: `THREAT_MODEL.md`, `PRIVACY_DATA_MAP.md`, `ACCESSIBILITY_CHECKLIST.md`,
+  `SAFETY_ACCEPTANCE.md`, `SafetyPolicy.cs` e `LocalDataControls.cs`.
+- Resultado: MVP sem chat, compras, anúncios, permissões sensíveis ou rede
+  obrigatória; save tem exclusão/exportação local e a UI oferece confirmação.
+- Verificação: busca de dependências/permissões, testes estruturais C# e
+  `git diff --check`; Unity e auditoria de pacote não estão disponíveis localmente.
+- Gates de piloto: revisão jurídica/ética, auditoria Android/iOS, teste físico e
+  consentimentos aplicáveis. Não há coleta de dados reais de menores.
+- Próxima ação: executar Unity/GameCI e revisar o pacote antes de qualquer piloto.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

@@ -109,6 +109,11 @@ e conteúdo versionado da missão. O modelo não trata pausa, ajuda ou dificulda
 compreensão como incapacidade. Revisão por pessoa qualificada e evidência
 experimental são gates externos de publicação, não itens faltantes do pacote P5.
 
+P6 está 100% concluído quanto aos entregáveis de revisão: threat model, mapa de
+dados, checklist de acessibilidade, política de aceite e controles locais de
+exclusão/exportação. O projeto não declara conformidade jurídica certificada;
+auditoria de pacote, revisão jurídica/ética e testes físicos são gates de piloto.
+
 ## Persistencia
 
 Documentos e codigo ficam nesta pasta e sobrevivem a queda da sessao, desde que
