@@ -45,6 +45,10 @@ J18 — Fase E: builds Android/iOS — Bloqueado. Android e iOS aguardam C/D=`PA
 GameCI e, para iOS, runner macOS com Xcode e assinatura autorizada. Relatório:
 `docs/PHASE_E_BUILD_REPORT.md`.
 
+J19 — Fase F: QA em dispositivos, desempenho e acessibilidade — Bloqueado.
+Depende de builds Android/iOS reais da Fase E e dispositivos ou simuladores;
+matriz em `docs/PHASE_F_DEVICE_QA_REPORT.md`.
+
 J17 — Fase D: integração e QA funcional — Bloqueado. Depende de Fase C=`PASS`,
 Unity/GameCI e dispositivo ou simulador; matriz e pendências em
 `docs/PHASE_D_FUNCTIONAL_REPORT.md`.

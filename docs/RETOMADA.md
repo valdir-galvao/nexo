@@ -7,6 +7,10 @@ iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
 
+Atualização P33: a Fase F está `BLOCKED` porque a Fase E não produziu builds e
+nenhum dispositivo ou simulador foi disponibilizado. Relatório:
+`docs/PHASE_F_DEVICE_QA_REPORT.md`.
+
 Atualização P32: a Fase E está `BLOCKED` para Android e iOS. Nenhum build foi
 iniciado; depende da aprovação de C e D e dos workflows GameCI.
 

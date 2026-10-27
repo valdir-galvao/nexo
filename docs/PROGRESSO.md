@@ -466,6 +466,16 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: aprovar C e D com evidências reais; depois executar os workflows
   GameCI por plataforma e registrar artefatos e testes separadamente.
 
+## P33 — Prompt 6, Fase F: QA em dispositivos e desempenho — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Resultado: Android e iOS `BLOCKED`; a Fase E não produziu artefatos e não há
+  dispositivos/simuladores disponíveis para teste.
+- Evidência: matriz completa em `docs/PHASE_F_DEVICE_QA_REPORT.md`; todos os
+  testes físicos e de desempenho estão `NOT_RUN`.
+- Próxima ação: gerar builds E identificados por commit e disponibilizar os
+  ambientes de teste antes de repetir a matriz.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

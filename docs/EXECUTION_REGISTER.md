@@ -64,6 +64,13 @@ build was started. Unity/adb/xcodebuild are unavailable locally; no APK, AAB,
 Xcode artifact, installation test, or artifact hash exists. Details:
 `docs/PHASE_E_BUILD_REPORT.md`.
 
+## Fase F
+
+Result: `BLOCKED`. Fase E has no Android or iOS artifact, and no device or
+simulator test was run. Installation, mission flow, offline behavior,
+accessibility, performance, suspension, and resume remain `NOT_RUN`. Details:
+`docs/PHASE_F_DEVICE_QA_REPORT.md`.
+
 ## Next authorized action
 
 Do not advance automatically. After the owner authorizes continuation, configure
