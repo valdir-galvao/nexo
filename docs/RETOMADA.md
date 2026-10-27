@@ -6,6 +6,9 @@ Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
+Atualização P44: triggers corrigidos e jobs remotos instanciados, mas EditMode,
+PlayMode, Android e iOS falharam na etapa Unity/GameCI. Logs detalhados exigem
+permissão Actions adequada. Relatório: `docs/PHASE_07_CI_TRIGGER_REPORT.md`.
 Atualização P43: push concluído em `aa0eeee`, mas runs remotos falharam com zero
 jobs; dispatch manual retornou 422. Não repetir builds até confirmar a versão do
 workflow e a permissão Actions. Relatório:

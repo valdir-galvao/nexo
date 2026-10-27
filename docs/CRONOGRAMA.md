@@ -40,6 +40,8 @@ Ao iniciar um marco, subdividir em tarefas pequenas com ID (ex.: J04.01), dono,
 escopo de arquivos, entrada minima e criterio de aceite. Registrar a subdivisao
 aqui antes de distribuir trabalho. Ao concluir cada tarefa, registrar progresso
 e atualizar a retomada imediatamente.
+J27 — Fase 07 CI — Parcial. Triggers e jobs desbloqueados; execução Unity/GameCI
+falhou em todas as modalidades e aguarda logs detalhados para correção.
 J26 — Fase 06 push/monitoramento — Bloqueado. Push ocorreu, mas runs remotos
 falharam antes dos jobs e dispatch manual retornou 422; revisar permissão e
 workflow efetivo antes de repetir.

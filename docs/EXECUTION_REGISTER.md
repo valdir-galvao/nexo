@@ -162,6 +162,17 @@ workflow ou build foi executado. Fase C permanece `BLOCKED`.
   não confirmados. Não houve repetição de builds.
 - Relatório: `docs/PHASE_06_REMOTE_RUN_REPORT.md`.
 
+## Fase 07 — desbloqueio de triggers e runs
+
+- Gatilhos `push` adicionados à branch de validação; guard `hashFiles` em nível
+  de job removido. YAML válido.
+- Commit remoto testado: `5e348f8`.
+- Runs `40457436612`, `40457436774` e `40457436628` instanciaram jobs, mas
+  falharam nas etapas Unity/GameCI. Testes não produziram JUnit; builds não
+  produziram artefatos.
+- Logs detalhados não foram acessíveis com a credencial disponível.
+- Relatório: `docs/PHASE_07_CI_TRIGGER_REPORT.md`.
+
 ## Fase 02 — correções locais
 
 - Base: `f32e74c`; alterações mantidas na branch isolada.

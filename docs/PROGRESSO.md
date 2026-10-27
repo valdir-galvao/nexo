@@ -584,6 +584,17 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: corrigir a disponibilidade/permissão do workflow dispatch e
   verificar a configuração efetiva no GitHub antes de nova execução.
 
+## P44 — Fase 07: diagnóstico e desbloqueio CI — parcial
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Removido guard inválido `hashFiles` dos jobs e adicionados triggers `push` na
+  branch de validação. Jobs passaram a ser instanciados.
+- Runs finais: testes `40457436612`, Android `40457436774`, iOS `40457436628`;
+  todos falharam na etapa Unity/GameCI. Sem JUnit, APK ou Xcode.
+- Relatório: `docs/PHASE_07_CI_TRIGGER_REPORT.md`.
+- Próxima ação: obter logs detalhados/diagnóstico de licença, pacotes ou
+  compilação no GitHub Actions antes de repetir qualquer build.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
