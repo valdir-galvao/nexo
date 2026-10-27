@@ -376,6 +376,19 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   consentimentos aplicáveis. Não há coleta de dados reais de menores.
 - Próxima ação: executar Unity/GameCI e revisar o pacote antes de qualquer piloto.
 
+## P25 — Integração e QA P7 — concluída para validação estática
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Entregas: `QA_REPORT.md`, `KNOWN_ISSUES.md`, `run_static_qa.py`, testes de fluxo
+  completo, offline, migração V0 e retomada após reabertura.
+- Correção aplicada: missão restaura estado inicial a partir do save; conclusão
+  permanece idempotente e estado impossível continua rejeitado.
+- Verificação: `python tools/run_static_qa.py` passou (`json=4`, `cs=23`),
+  `python tools/validate_learning_content.py` passou e `git diff --check` passou.
+- Pendente: Unity EditMode/PlayMode, Android/iOS, proporções, input físico,
+  profiling, suspensão e teste de pacote. Nenhum build é declarado compatível.
+- Próxima ação: executar workflows GameCI quando os secrets Unity estiverem disponíveis.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

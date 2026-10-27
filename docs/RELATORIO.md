@@ -114,6 +114,11 @@ dados, checklist de acessibilidade, política de aceite e controles locais de
 exclusão/exportação. O projeto não declara conformidade jurídica certificada;
 auditoria de pacote, revisão jurídica/ética e testes físicos são gates de piloto.
 
+P7 adicionou testes de fluxo completo, retomada após reabertura, migração de save
+V0, política offline, `QA_REPORT.md`, `KNOWN_ISSUES.md` e `run_static_qa.py`.
+A integração está verificada estaticamente; o Editor Unity e dispositivos não
+estão disponíveis para executar EditMode/PlayMode, builds ou profiling.
+
 ## Persistencia
 
 Documentos e codigo ficam nesta pasta e sobrevivem a queda da sessao, desde que

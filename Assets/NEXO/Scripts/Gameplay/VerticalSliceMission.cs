@@ -25,11 +25,12 @@ namespace Nexo.Gameplay
             if (save.audio == null) save.audio = new AudioSettingsData();
             if (save.activeMission == null || save.activeMission.missionId != MissionId)
                 save.activeMission = NewState();
-            stateMachine = new MissionStateMachine();
+            stateMachine = new MissionStateMachine(ResolveInitialState(save.activeMission));
         }
 
         public bool Initialize()
         {
+            if (stateMachine.State != GameState.Initializing) return true;
             if (!stateMachine.TryTransition(GameSignal.Initialized)) return false;
             save.activeMission.started = true;
             save.activeMission.checkpoint = "intro";
@@ -92,6 +93,13 @@ namespace Nexo.Gameplay
         private MissionRuntimeState NewState()
         {
             return new MissionRuntimeState { missionId = MissionId, phase = MissionPhase.Arrival, water = StartingWater, valveIndex = 0 };
+        }
+
+        private static GameState ResolveInitialState(MissionRuntimeState state)
+        {
+            if (state == null || !state.started) return GameState.Initializing;
+            if (state.completed || state.checkpoint == "complete") return GameState.MissionComplete;
+            return GameState.Exploring;
         }
 
         private bool Checkpoint(string checkpoint)

@@ -1,7 +1,7 @@
 # Ponto de retomada
 
 Ultima atualizacao: 26/10/2026, America/Sao_Paulo.
-Ultimo passo concluido: P24, entregáveis P6 de segurança, privacidade e acessibilidade 100% concluídos; gates de piloto pendentes.
+Ultimo passo concluido: P25, QA estática P7 concluída; execução Unity/dispositivos pendente.
 Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 

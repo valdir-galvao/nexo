@@ -12,6 +12,11 @@ namespace Nexo.Core
             State = GameState.Initializing;
         }
 
+        public MissionStateMachine(GameState initialState)
+        {
+            State = initialState;
+        }
+
         public bool TryTransition(GameSignal signal)
         {
             GameState next;
