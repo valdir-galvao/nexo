@@ -103,6 +103,11 @@ configurações de áudio e tons procedurais leves. O greybox continua deliberad
 temporário até câmera e desempenho serem validados; nenhum pacote de arte pesado
 foi adicionado.
 
+P5 adicionou o framework de competências, diagnóstico, pós-teste, transferência,
+revisões configuráveis, regras adaptativas e conteúdo versionado da missão. O
+modelo não trata pausa, ajuda ou dificuldade de compreensão como incapacidade;
+revisão por pessoa qualificada e evidência experimental continuam obrigatórias.
+
 ## Persistencia
 
 Documentos e codigo ficam nesta pasta e sobrevivem a queda da sessao, desde que

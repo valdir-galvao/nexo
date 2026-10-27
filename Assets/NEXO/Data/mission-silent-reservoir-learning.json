@@ -1,0 +1,60 @@
+{
+  "contentVersion": { "major": 1, "minor": 0, "build": "p5" },
+  "missionId": "mission-silent-reservoir",
+  "objectives": [
+    {
+      "id": "objective-water-priority",
+      "competencyId": "MAT-WATER-01",
+      "description": "Relacionar quantidade disponível, custo e consequência.",
+      "difficulty": 1,
+      "prerequisites": ["count-to-six"],
+      "evidenceExpected": "Escolha uma alocação de 2 unidades e antecipe o efeito.",
+      "criteria": ["allocation-is-valid", "consequence-is-recognized"],
+      "explanation": "Uma unidade usada em uma rota deixa menos recurso para outra.",
+      "validAlternatives": ["reservoir-first", "garden-first"],
+      "transferMethod": "energy-routing-equivalent"
+    },
+    {
+      "id": "objective-evidence-flow",
+      "competencyId": "SCI-EVIDENCE-01",
+      "description": "Observar evidência, formular hipótese e testar.",
+      "difficulty": 2,
+      "prerequisites": ["read-simple-symbol"],
+      "evidenceExpected": "Conectar fonte, canal e válvula antes de testar.",
+      "criteria": ["clue-source", "clue-channel", "test-hypothesis"],
+      "explanation": "A hipótese é apoiada por marcas que aparecem em mais de um local.",
+      "validAlternatives": ["inspect-in-order", "inspect-revisit"],
+      "transferMethod": "energy-routing-equivalent"
+    },
+    {
+      "id": "objective-read-diagram",
+      "competencyId": "READ-SOURCE-01",
+      "description": "Interpretar marcas de entrada e saída.",
+      "difficulty": 2,
+      "prerequisites": ["recognize-before-after"],
+      "evidenceExpected": "Alinhar a posição que conecta os dois marcadores.",
+      "criteria": ["valve-index-correct"],
+      "explanation": "O símbolo indica direção; a posição correta forma um caminho contínuo.",
+      "validAlternatives": ["position-two"],
+      "transferMethod": "energy-routing-equivalent"
+    }
+  ],
+  "diagnostic": [
+    { "id": "diag-count", "difficulty": 1, "prompt": "Há 3 unidades e chegam mais 3. Quantas há?", "answer": "6" },
+    { "id": "diag-route", "difficulty": 1, "prompt": "Qual marca indica a entrada?", "answer": "blue" },
+    { "id": "diag-cause", "difficulty": 2, "prompt": "O que deve ser observado antes de concluir a causa?", "answer": "evidence" }
+  ],
+  "postTest": [
+    { "id": "post-water", "difficulty": 1, "prompt": "Com 6 unidades, qual custo deixa 4?", "answer": "2" },
+    { "id": "post-route", "difficulty": 2, "prompt": "Qual sequência testa a hipótese?", "answer": "source-channel-valve" },
+    { "id": "post-symbol", "difficulty": 2, "prompt": "O que os dois marcadores em linha significam?", "answer": "continuous-flow" },
+    { "id": "post-cause", "difficulty": 3, "prompt": "Qual afirmação separa observação de explicação?", "answer": "water-stopped-is-observation" }
+  ],
+  "transfer": {
+    "id": "transfer-energy-route",
+    "difficulty": 3,
+    "prompt": "Uma estação tem 4 unidades de energia e duas rotas. Qual prioridade mantém o sinal e que evidência confirma a escolha?",
+    "validAnswers": ["choose-critical-route-with-evidence", "compare-cost-and-effect"]
+  },
+  "reviews": [7, 30]
+}

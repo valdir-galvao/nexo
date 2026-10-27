@@ -347,6 +347,20 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: executar `Unity tests`, validar telas em Android/iOS e medir o
   orçamento de 30 FPS antes de produzir assets finais.
 
+## P23 — Pedagogia e aprendizagem adaptativa P5 — concluída parcialmente
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Entregas: `LEARNING_FRAMEWORK.md`, `ASSESSMENT_PLAN.md`, `ADAPTIVE_RULES.md`,
+  JSON pedagógico da missão, `LearningAssessment.cs`, testes e
+  `tools/validate_learning_content.py`.
+- Resultado: competências, pré-requisitos, diagnóstico, evidências, alternativas,
+  erros, pistas, pós-teste, transferência e revisões de 7/30 dias definidos.
+- Verificação: validador de conteúdo passou; testes estruturais C# passaram; Unity
+  não está instalado, portanto EditMode não foi executado.
+- Limitações: conteúdo factual/instrumento precisam de revisão qualificada; não há
+  dados para afirmar eficácia ou domínio real.
+- Próxima ação: revisão pedagógica humana e execução dos testes Unity/GameCI.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

@@ -26,6 +26,7 @@ Responsavel final de cada marco: gerente. Colaboradores entram sob demanda.
 | J10 | Definir arquitetura modular, contratos, persistencia e testes de regras | Concluido parcialmente | J09; Unity Editor para compilacao | Docs, contratos C# e testes EditMode versionados; compilacao GameCI pendente |
 | J11 | Implementar gameplay da missão e máquina de estados | Concluido parcialmente | J10; validação Unity | Código, bootstrap de cena e testes versionados; import/build pendente |
 | J12 | Integrar direção visual, UI responsiva e áudio configurável | Concluido parcialmente | J11; validação Unity/profiling | Tema, menu/HUD/diário/pausa, áudio e documentação versionados; profiling pendente |
+| J13 | Definir pedagogia, avaliação adaptativa e conteúdo versionado | Concluido parcialmente | J11; revisão qualificada e Unity | Framework, instrumentos, regras, JSON e testes locais; revisão humana e Unity pendentes |
 
 Pendencias tecnicas independentes de J01: A01 Mistral HTTP 429;
 A02 Gemini HTTP 404; A03 Groq HTTP 403. Nao bloqueiam o briefing.
