@@ -40,6 +40,9 @@ Ao iniciar um marco, subdividir em tarefas pequenas com ID (ex.: J04.01), dono,
 escopo de arquivos, entrada minima e criterio de aceite. Registrar a subdivisao
 aqui antes de distribuir trabalho. Ao concluir cada tarefa, registrar progresso
 e atualizar a retomada imediatamente.
+J26 — Fase 06 push/monitoramento — Bloqueado. Push ocorreu, mas runs remotos
+falharam antes dos jobs e dispatch manual retornou 422; revisar permissão e
+workflow efetivo antes de repetir.
 J25 — Fase 03 CI/GameCI — Parcial. Workflows e script de resolução preparados;
 execução Unity, lockfile e testes remotos aguardam runner autorizado.
 J24 — Fase 02: blindagem local — Parcial. K-005 e teste PlayMode preparados;

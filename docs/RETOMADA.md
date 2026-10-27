@@ -6,6 +6,10 @@ Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
+Atualização P43: push concluído em `aa0eeee`, mas runs remotos falharam com zero
+jobs; dispatch manual retornou 422. Não repetir builds até confirmar a versão do
+workflow e a permissão Actions. Relatório:
+`docs/PHASE_06_REMOTE_RUN_REPORT.md`.
 Atualização P42: workflow de testes ajustado para matriz EditMode/PlayMode e
 validado localmente. Nenhum dispatch foi executado; próximo passo é push e
 execução GameCI.

@@ -152,6 +152,16 @@ workflow ou build foi executado. Fase C permanece `BLOCKED`.
   metadata separados por modalidade.
 - YAML validado com PyYAML; nenhum workflow foi disparado.
 
+## Fase 06 — push e monitoramento remoto
+
+- Push da branch concluído no commit `aa0eeee`.
+- GitHub criou runs `40457020841` (tests), `40457019766` (Android) e
+  `40457018772` (iOS); todos terminaram `failure` com zero jobs e sem logs de
+  Unity. Nenhum artefato foi produzido.
+- Dispatch manual retornou HTTP 422; `gh` ausente e permissão/canal de Actions
+  não confirmados. Não houve repetição de builds.
+- Relatório: `docs/PHASE_06_REMOTE_RUN_REPORT.md`.
+
 ## Fase 02 — correções locais
 
 - Base: `f32e74c`; alterações mantidas na branch isolada.

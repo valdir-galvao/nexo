@@ -574,6 +574,16 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - YAML parseado com sucesso; nenhum workflow ou build foi disparado.
 - Próxima ação: fazer push da branch e executar a matriz no GameCI.
 
+## P43 — Fase 06: push e monitoramento remoto — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Push concluído para `origin/orchestrator/phase-a-baseline`, commit `aa0eeee`.
+- Runs remotos de testes, Android e iOS falharam antes de criar jobs; não há
+  logs Unity nem artefatos. Dispatch manual retornou HTTP 422.
+- Relatório: `docs/PHASE_06_REMOTE_RUN_REPORT.md`.
+- Próxima ação: corrigir a disponibilidade/permissão do workflow dispatch e
+  verificar a configuração efetiva no GitHub antes de nova execução.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
