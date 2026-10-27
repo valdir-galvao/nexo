@@ -119,6 +119,10 @@ V0, política offline, `QA_REPORT.md`, `KNOWN_ISSUES.md` e `run_static_qa.py`.
 A integração está verificada estaticamente; o Editor Unity e dispositivos não
 estão disponíveis para executar EditMode/PlayMode, builds ou profiling.
 
+P8 preparou a release candidata `0.1.0-rc1`: versionamento Unity/Android/iOS,
+notas de release, checklist interno, manifesto SHA256 de fonte e instruções de
+reprodução. Nenhum APK/Xcode foi inventado; os artefatos dependem do GameCI.
+
 ## Persistencia
 
 Documentos e codigo ficam nesta pasta e sobrevivem a queda da sessao, desde que

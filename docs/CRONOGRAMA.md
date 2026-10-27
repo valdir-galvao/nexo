@@ -29,6 +29,7 @@ Responsavel final de cada marco: gerente. Colaboradores entram sob demanda.
 | J13 | Definir pedagogia, avaliação adaptativa e conteúdo versionado | Concluído — entregáveis 100% | J11 | Framework, instrumentos, regras, JSON, validador e testes entregues; validação externa é gate separado |
 | J14 | Revisar trust & safety, privacidade e acessibilidade | Concluído — entregáveis 100% | J12/J13 | Threat model, mapa de dados, checklist, política e controles locais entregues; gates de piloto separados |
 | J15 | Integrar e executar QA de domínio, fluxo, save e migração | Concluído — QA estática; Unity pendente | J10–J14 | QA report, known issues, testes de integração e scripts locais; execução Unity/dispositivo pendente |
+| J16 | Preparar release candidata, manifesto e checklist de distribuição | Concluído — fonte rastreável; builds pendentes | J15 | Versão rc1, notas, checklist, manifesto e limitações publicados |
 
 Pendencias tecnicas independentes de J01: A01 Mistral HTTP 429;
 A02 Gemini HTTP 404; A03 Groq HTTP 403. Nao bloqueiam o briefing.

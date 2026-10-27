@@ -389,6 +389,19 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   profiling, suspensão e teste de pacote. Nenhum build é declarado compatível.
 - Próxima ação: executar workflows GameCI quando os secrets Unity estiverem disponíveis.
 
+## P26 — Release e distribuição P8 — fonte candidata concluída
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Entregas: `RELEASE_CHECKLIST.md`, `RELEASE_NOTES.md`, `RELEASE_MANIFEST.md`,
+  `BUILD_GUIDE.md` atualizado e `tools/release_manifest.py`.
+- Configuração: bundle `0.1.0-rc1`, Android code `2`, iOS build `1`, Unity
+  `6000.3.0f1`; builds usam `BuildOptions.None` e analytics estão desativados.
+- Verificação: manifesto gerado, Git sem segredos/builds e `git diff --check`.
+- Bloqueio: Unity/GameCI/secrets não executados; APK e Xcode ainda não existem,
+  portanto não há hashes de artefatos nem compatibilidade de plataforma declarada.
+- Próxima ação: executar workflows, preencher hashes e repetir checklist antes de
+  qualquer distribuição interna autorizada.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

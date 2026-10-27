@@ -28,6 +28,9 @@ Android/iOS é declarado suportado antes de evidência dos respectivos runners.
 
 ## Regras de release
 
+Release candidata atual: `0.1.0-rc1`, Unity `6000.3.0f1`, Android version code `2`,
+iOS build number `1`.
+
 Builds são identificados por commit e versão de conteúdo. Segredos ficam somente
 em GitHub Actions Secrets; certificados Apple nunca entram no repositório. A
 primeira missão deve completar em modo avião após a instalação.
