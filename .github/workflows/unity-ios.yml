@@ -34,6 +34,9 @@ jobs:
             Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-iOS-
             Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-
 
+      - name: Prepare Unity log directory
+        run: mkdir -p diagnostics
+
       - name: Build unsigned iOS Xcode project
         uses: game-ci/unity-builder@v6
         env:
@@ -46,6 +49,7 @@ jobs:
           unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: iOS
           buildMethod: Nexo.Editor.Build.IosBuild.PerformBuild
+          customParameters: -logFile /github/workspace/diagnostics/unity-editor.log
           buildPath: build/iOS
 
       - name: Capture Unity failure diagnostics

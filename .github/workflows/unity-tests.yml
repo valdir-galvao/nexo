@@ -46,6 +46,9 @@ jobs:
             Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-
             Library-${{ runner.os }}-
 
+      - name: Prepare Unity log directory
+        run: mkdir -p diagnostics/${{ matrix.testMode }}
+
       - name: Run Unity tests
         uses: game-ci/unity-test-runner@v4
         env:
@@ -57,6 +60,7 @@ jobs:
           unityVersion: ${{ env.UNITY_VERSION }}
           testMode: ${{ matrix.testMode }}
           artifactsPath: test-results/${{ matrix.testMode }}
+          customParameters: -logFile /github/workspace/diagnostics/${{ matrix.testMode }}/unity-editor.log
 
       - name: Capture Unity failure diagnostics
         if: failure()

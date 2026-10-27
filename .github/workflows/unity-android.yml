@@ -34,6 +34,9 @@ jobs:
             Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-Android-
             Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-
 
+      - name: Prepare Unity log directory
+        run: mkdir -p diagnostics
+
       - name: Build Android package
         uses: game-ci/unity-builder@v6
         env:
@@ -46,6 +49,7 @@ jobs:
           unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: Android
           buildMethod: Nexo.Editor.Build.AndroidBuild.PerformBuild
+          customParameters: -logFile /github/workspace/diagnostics/unity-editor.log
           buildPath: build/Android
 
       - name: Capture Unity failure diagnostics
