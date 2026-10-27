@@ -6,6 +6,9 @@ Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
+Atualização P41: commits e rastreamento confirmados; guia de push/dispatch criado.
+Nenhum push foi executado. Antes de builds, executar `unity-tests.yml` e conferir
+que PlayMode ainda requer job explícito.
 Atualização P40: Fase 03 preparada. Script de resolução Unity criado e validado,
 mas Unity/gh ausentes; nenhum dispatch ou build ocorreu. Relatório:
 `docs/PHASE_03_CI_PREPARATION.md`.

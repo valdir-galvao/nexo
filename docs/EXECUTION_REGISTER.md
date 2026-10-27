@@ -138,6 +138,14 @@ workflow ou build foi executado. Fase C permanece `BLOCKED`.
 - Relatório: `docs/PHASE_03_CI_PREPARATION.md`.
 - Estado: preparação `PASS`; execução CI e lockfile `BLOCKED`.
 
+## Fase 04 — preparação de push/dispatch
+
+- HEAD confirmado: `2d0cf2d`; commits `9499032` e `2d0cf2d` presentes.
+- Arquivos K-005, teste PlayMode, `.meta` e script de resolução estão rastreados.
+- Guia: `docs/PHASE_04_PUSH_DISPATCH_GUIDE.md`.
+- Nenhum push ou dispatch foi executado. O workflow atual cobre somente
+  EditMode; PlayMode requer job adicional antes de ser declarado aprovado.
+
 ## Fase 02 — correções locais
 
 - Base: `f32e74c`; alterações mantidas na branch isolada.

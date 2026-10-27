@@ -557,6 +557,15 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Relatório: `docs/PHASE_03_CI_PREPARATION.md`.
 - Próxima ação: executar o script e `unity-tests.yml` em runner autorizado.
 
+## P41 — Fase 04: guia de push e dispatch — concluído
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Histórico confirmado: `9499032` e `2d0cf2d`; HEAD `2d0cf2d`; árvore limpa.
+- Arquivos e `.meta` relevantes estão rastreados.
+- Guia criado em `docs/PHASE_04_PUSH_DISPATCH_GUIDE.md`.
+- Nenhum push ou dispatch executado. O workflow atual ainda cobre somente
+  EditMode; PlayMode não deve ser declarado aprovado.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
