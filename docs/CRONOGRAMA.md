@@ -74,3 +74,5 @@ matriz em `docs/PHASE_F_DEVICE_QA_REPORT.md`.
 J17 â€” Fase D: integraÃ§Ã£o e QA funcional â€” Bloqueado. Depende de Fase C=`PASS`,
 Unity/GameCI e dispositivo ou simulador; matriz e pendÃªncias em
 `docs/PHASE_D_FUNCTIONAL_REPORT.md`.
+
+J28 — Fase 08: Diagnóstico GameCI/licenciamento — Bloqueado. Secrets Unity ausentes (`COUNT=0`), portanto testes/builds falham antes de evidenciar C#/packages. Aguardar configuração segura de `UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`; depois repetir somente `unity-tests.yml`.

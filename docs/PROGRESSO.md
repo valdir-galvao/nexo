@@ -612,3 +612,13 @@ Decisoes e pendencias:
 Proxima acao e dependencias:
 Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 ```
+
+## P45 — Fase 08: diagnóstico GameCI/licenciamento — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Commits `7920de8` e `bb06877` adicionaram captura diagnóstica e foram enviados à branch de validação.
+- Runs `40459086676` (testes) e `40459086685` (Android) falharam na etapa Unity; iOS `40459086672` ainda estava em execução na última consulta.
+- API de Actions reportou zero secrets no repositório. Como os workflows exigem `UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`, o bloqueio primário é licenciamento ausente.
+- Nenhuma causa C#/packages foi comprovada; não houve JUnit, APK ou Xcode.
+- Relatório: `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`.
+- Próxima ação: configurar secrets Unity em canal seguro e repetir primeiro o workflow de testes.

@@ -209,3 +209,5 @@ workflow ou build foi executado. Fase C permanece `BLOCKED`.
 - Estado B1: `PASS` para valida√ß√µes locais e corre√ß√£o demonstrada; Unity/CI,
   importa√ß√£o, compila√ß√£o, PlayMode, dispositivos e assinatura permanecem
   `BLOCKED`/`NOT_RUN`.
+
+P45 ó 27/10/2026 ó Fase 08 GameCI: diagnÛstico de licenciamento. Captura de logs adicionada e YAML validado; push `bb06877`; runs de testes/Android falharam na etapa Unity. API de secrets retornou zero nomes; causa prim·ria È ausÍncia de `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD`. C#/packages ainda n„o determinados. RelatÛrio `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`.

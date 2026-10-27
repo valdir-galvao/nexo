@@ -106,3 +106,5 @@ Se os registros locais estiverem ausentes, nao presumir consumo zero.
 > preparado; DeepSeek e TypeSafe responderam aos testes. O jogo nao foi iniciado,
 > a engine nao foi escolhida e falta o briefing do usuario. Siga CRONOGRAMA.md,
 > preserve o ledger/cache e documente cada passo concluido em PROGRESSO.md.
+
+Atualização P45: Fase 08 bloqueada por licenciamento. Commits `7920de8`/`bb06877` preservados na branch `orchestrator/phase-a-baseline`; runs `40459086676`, `40459086685`, `40459086672`; API confirmou zero secrets no repositório. Relatório: `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`. Próximo passo é configurar secrets Unity fora do Git e repetir testes.
