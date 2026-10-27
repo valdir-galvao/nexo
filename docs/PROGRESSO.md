@@ -402,6 +402,17 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: executar workflows, preencher hashes e repetir checklist antes de
   qualquer distribuição interna autorizada.
 
+## P27 — Revalidação do gate P0 pelo orquestrador mestre — concluída
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Escopo executado: somente P0; nenhuma fase posterior foi iniciada neste passo.
+- Verificação: os seis documentos P0 estão presentes; `PRODUCT_REQUIREMENTS.md`
+  contém 29 IDs únicos; critérios de validação estão preenchidos; `RISK_REGISTER.md`
+  contém 12 riscos; nenhum `.env` ou segredo está versionado.
+- Resultado: Gate P0 satisfeito. P1 não foi reexecutado nem declarado aprovado por
+  este passo; aguarda autorização para avançar conforme o protocolo mestre.
+- Próxima ação: aguardar aprovação humana para iniciar P1.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
