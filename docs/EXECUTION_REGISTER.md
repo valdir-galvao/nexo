@@ -127,6 +127,17 @@ Nenhum canal autenticado de dispatch foi encontrado (`gh` ausente); apenas nomes
 de variáveis locais foram inspecionados, sem leitura de valores. Nenhuma API,
 workflow ou build foi executado. Fase C permanece `BLOCKED`.
 
+## Fase 03 — preparação CI/GameCI
+
+- Workflows revalidados com Unity `6000.3.0f1`; testes são manuais/EditMode e
+  Android/iOS continuam sem gatilho automático.
+- Criado `tools/resolve_unity_packages.ps1` para resolução real pelo Unity
+  Package Manager e verificação de dependências diretas no lockfile.
+- Script parseado, YAML parseado, validadores estáticos e pedagógicos PASS.
+- Unity/gh ausentes; nenhum dispatch, resolução real, build ou upload ocorreu.
+- Relatório: `docs/PHASE_03_CI_PREPARATION.md`.
+- Estado: preparação `PASS`; execução CI e lockfile `BLOCKED`.
+
 ## Fase 02 — correções locais
 
 - Base: `f32e74c`; alterações mantidas na branch isolada.

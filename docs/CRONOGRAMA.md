@@ -40,6 +40,8 @@ Ao iniciar um marco, subdividir em tarefas pequenas com ID (ex.: J04.01), dono,
 escopo de arquivos, entrada minima e criterio de aceite. Registrar a subdivisao
 aqui antes de distribuir trabalho. Ao concluir cada tarefa, registrar progresso
 e atualizar a retomada imediatamente.
+J25 — Fase 03 CI/GameCI — Parcial. Workflows e script de resolução preparados;
+execução Unity, lockfile e testes remotos aguardam runner autorizado.
 J24 — Fase 02: blindagem local — Parcial. K-005 e teste PlayMode preparados;
 lockfile e execução Unity aguardam Package Manager/GameCI.
 J23 — Fase C pré-build — Bloqueado. Manifest/lockfile aguardam Package Manager

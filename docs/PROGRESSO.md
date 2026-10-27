@@ -546,6 +546,17 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: executar Unity Package Manager e `unity-tests.yml` em ambiente
   autorizado; revisar o resultado antes de qualquer pacote móvel.
 
+## P40 — Fase 03: preparação CI/GameCI — parcial
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Workflows revalidados; Unity `6000.3.0f1` coerente e builds continuam manuais.
+- Criado `tools/resolve_unity_packages.ps1`, parseado sem erros; ele exige Unity
+  real e não foi executado por ferramenta ausente.
+- YAML, static QA e conteúdo pedagógico passaram; nenhum workflow ou build foi
+  disparado.
+- Relatório: `docs/PHASE_03_CI_PREPARATION.md`.
+- Próxima ação: executar o script e `unity-tests.yml` em runner autorizado.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.
