@@ -103,10 +103,11 @@ configurações de áudio e tons procedurais leves. O greybox continua deliberad
 temporário até câmera e desempenho serem validados; nenhum pacote de arte pesado
 foi adicionado.
 
-P5 adicionou o framework de competências, diagnóstico, pós-teste, transferência,
-revisões configuráveis, regras adaptativas e conteúdo versionado da missão. O
-modelo não trata pausa, ajuda ou dificuldade de compreensão como incapacidade;
-revisão por pessoa qualificada e evidência experimental continuam obrigatórias.
+P5 está 100% concluído quanto aos entregáveis: framework de competências,
+diagnóstico, pós-teste, transferência, revisões configuráveis, regras adaptativas
+e conteúdo versionado da missão. O modelo não trata pausa, ajuda ou dificuldade de
+compreensão como incapacidade. Revisão por pessoa qualificada e evidência
+experimental são gates externos de publicação, não itens faltantes do pacote P5.
 
 ## Persistencia
 

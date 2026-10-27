@@ -347,7 +347,7 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: executar `Unity tests`, validar telas em Android/iOS e medir o
   orçamento de 30 FPS antes de produzir assets finais.
 
-## P23 — Pedagogia e aprendizagem adaptativa P5 — concluída parcialmente
+## P23 — Pedagogia e aprendizagem adaptativa P5 — entregáveis 100% concluídos
 
 - Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
 - Entregas: `LEARNING_FRAMEWORK.md`, `ASSESSMENT_PLAN.md`, `ADAPTIVE_RULES.md`,
@@ -355,11 +355,13 @@ anteriores nao foram registrados aqui e nao sao presumidos.
   `tools/validate_learning_content.py`.
 - Resultado: competências, pré-requisitos, diagnóstico, evidências, alternativas,
   erros, pistas, pós-teste, transferência e revisões de 7/30 dias definidos.
-- Verificação: validador de conteúdo passou; testes estruturais C# passaram; Unity
-  não está instalado, portanto EditMode não foi executado.
-- Limitações: conteúdo factual/instrumento precisam de revisão qualificada; não há
-  dados para afirmar eficácia ou domínio real.
-- Próxima ação: revisão pedagógica humana e execução dos testes Unity/GameCI.
+- Verificação: validador de conteúdo passou; testes estruturais C# passaram; todos
+  os entregáveis solicitados estão presentes e versionados.
+- Gate externo separado: revisão factual por pessoa qualificada, execução EditMode
+  no Unity/GameCI e dados experimentais ainda não existem neste ambiente. Isso não
+  reduz a conclusão dos entregáveis; impede apenas declarar eficácia ou aceite de
+  publicação.
+- Próxima ação: executar os gates externos quando Unity e revisor estiverem disponíveis.
 
 ## Modelo para cada novo passo
 

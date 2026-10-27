@@ -1,7 +1,7 @@
 # Ponto de retomada
 
 Ultima atualizacao: 26/10/2026, America/Sao_Paulo.
-Ultimo passo concluido: P23, pedagogia e avaliação P5 versionadas; revisão qualificada pendente.
+Ultimo passo concluido: P23, entregáveis de pedagogia e avaliação P5 100% concluídos; gates externos pendentes.
 Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
