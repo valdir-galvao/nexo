@@ -71,6 +71,13 @@ simulator test was run. Installation, mission flow, offline behavior,
 accessibility, performance, suspension, and resume remain `NOT_RUN`. Details:
 `docs/PHASE_F_DEVICE_QA_REPORT.md`.
 
+## Fase G
+
+Result: `BLOCKED`. No functional version or device-tested build exists. Technical
+privacy review, legal review, pedagogical review, and ethics review are all
+`PENDING`; no compliance or educational efficacy claim is made. Details:
+`docs/PHASE_G_TRUST_SAFETY_REPORT.md`.
+
 ## Next authorized action
 
 Do not advance automatically. After the owner authorizes continuation, configure

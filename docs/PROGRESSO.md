@@ -476,6 +476,16 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: gerar builds E identificados por commit e disponibilizar os
   ambientes de teste antes de repetir a matriz.
 
+## P34 — Prompt 7, Fase G: privacidade, segurança infantil e pedagogia — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Resultado: fase bloqueada por ausência de versão funcional. Estados técnico,
+  jurídico, pedagógico e ético: `PENDENTE`.
+- Relatório: `docs/PHASE_G_TRUST_SAFETY_REPORT.md`; nenhum teste com menores,
+  coleta real ou declaração de conformidade foi realizado.
+- Próxima ação: aprovar C–F, revisar o pacote candidato e obter pareceres
+  qualificados antes de qualquer piloto.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

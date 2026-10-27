@@ -41,6 +41,10 @@ escopo de arquivos, entrada minima e criterio de aceite. Registrar a subdivisao
 aqui antes de distribuir trabalho. Ao concluir cada tarefa, registrar progresso
 e atualizar a retomada imediatamente.
 
+J20 — Fase G: privacidade, segurança infantil e validação pedagógica — Bloqueado.
+Depende de uma versão funcional e de revisões técnica, jurídica, pedagógica e
+ética; estados e evidências em `docs/PHASE_G_TRUST_SAFETY_REPORT.md`.
+
 J18 — Fase E: builds Android/iOS — Bloqueado. Android e iOS aguardam C/D=`PASS`,
 GameCI e, para iOS, runner macOS com Xcode e assinatura autorizada. Relatório:
 `docs/PHASE_E_BUILD_REPORT.md`.
