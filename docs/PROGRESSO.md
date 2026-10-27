@@ -445,6 +445,16 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Relatório: `docs/PHASE_C_TEST_REPORT.md`.
 - Próxima ação: configurar secrets e executar o workflow `Unity tests`.
 
+## P31 — Prompt 4, Fase D: integração da missão e testes funcionais — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Motivo: a Fase C continua BLOCKED; Unity/GameCI e execução de gameplay não
+  estão disponíveis. Nenhum teste funcional foi executado ou convertido em PASS.
+- Relatório: `docs/PHASE_D_FUNCTIONAL_REPORT.md`; matriz integral marcada
+  `NOT_RUN`, com pendências visuais, sonoras e de dispositivo registradas.
+- Próxima ação: configurar os secrets Unity, obter C=`PASS` com evidências reais
+  e então repetir o fluxo funcional da Fase D.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

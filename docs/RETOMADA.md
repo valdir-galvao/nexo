@@ -7,6 +7,10 @@ iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
 
+Atualização P31: a Fase D foi registrada como `BLOCKED` porque a Fase C não foi
+aprovada. A matriz funcional está em `docs/PHASE_D_FUNCTIONAL_REPORT.md`; não
+há evidência runtime. Próxima dependência: secrets Unity e workflow GameCI.
+
 1. Ler `AGENTS.md`, este arquivo, `CRONOGRAMA.md` e as entradas recentes de
    `PROGRESSO.md`. Consultar `RELATORIO.md` e `AMBIENTE.md` quando necessario.
 2. Inspecionar `git status --short` e os arquivos antes de alterar; preservar

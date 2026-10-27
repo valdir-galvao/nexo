@@ -51,6 +51,12 @@ Result: BLOCKED. Static validators PASS, but import, compilation, EditMode,
 PlayMode and persistence runtime tests are NOT_RUN. Details:
 `docs/PHASE_C_TEST_REPORT.md`.
 
+## Fase D
+
+Result: `BLOCKED`. The prerequisite Fase C is not approved, so no mission flow,
+save/resume, device, or UI functional test was executed. The complete matrix is
+in `docs/PHASE_D_FUNCTIONAL_REPORT.md`; all runtime rows are `NOT_RUN`.
+
 ## Next authorized action
 
 Do not advance automatically. After the owner authorizes continuation, configure

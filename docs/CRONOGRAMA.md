@@ -40,3 +40,7 @@ Ao iniciar um marco, subdividir em tarefas pequenas com ID (ex.: J04.01), dono,
 escopo de arquivos, entrada minima e criterio de aceite. Registrar a subdivisao
 aqui antes de distribuir trabalho. Ao concluir cada tarefa, registrar progresso
 e atualizar a retomada imediatamente.
+
+J17 — Fase D: integração e QA funcional — Bloqueado. Depende de Fase C=`PASS`,
+Unity/GameCI e dispositivo ou simulador; matriz e pendências em
+`docs/PHASE_D_FUNCTIONAL_REPORT.md`.
