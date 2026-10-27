@@ -83,3 +83,28 @@ privacy review, legal review, pedagogical review, and ethics review are all
 Do not advance automatically. After the owner authorizes continuation, configure
 the approved Unity secrets and run `Unity tests`; record the workflow URL and
 artifacts before attempting Android or iOS builds.
+
+## Fase B1 — validação local (execução atual)
+
+- Início: 27/10/2026, America/Sao_Paulo.
+- Commit inicial confirmado: `eddb705b52f5007c7a9263bbad21b32907ba151e`.
+- Branch de trabalho: `orchestrator/phase-a-baseline`; `main` remoto permanece
+  em `0c0c281e04cbdb1b2f8a8ec2a675dcde0d5769e0`.
+- Árvore inicial: limpa. Ferramentas Unity, dotnet, adb e xcodebuild continuam
+  indisponíveis; nenhum build ou workflow foi iniciado.
+- `python tools/run_static_qa.py`: PASS, exit 0, 125 ms antes da correção;
+  PASS, exit 0, 120 ms após a correção (`json=4`, `cs=23`).
+- `python tools/validate_learning_content.py`: PASS, exit 0, 100 ms antes;
+  PASS, exit 0, 113 ms após (`mission-silent-reservoir-learning.json`).
+- `python tools/test_agents.py -v`: PASS, exit 0, 554 ms antes;
+  PASS, exit 0, 361 ms após; 9 testes executados.
+- Defeito encontrado: `.gitignore` ignorava `Assets/Scripts/Editor/Build/` por
+  causa de `[Bb]uild/`, embora os workflows referenciem esses scripts.
+- Correção: exceções específicas adicionadas ao `.gitignore`; scripts Android/iOS
+  e seus `.meta` preparados para versionamento. Correção local ainda não foi
+  enviada à `main`.
+- `git diff --cached --check`: PASS. `tools/__pycache__` continua ignorado;
+  nenhum arquivo gerado indevido rastreável foi encontrado.
+- Estado B1: `PASS` para validações locais e correção demonstrada; Unity/CI,
+  importação, compilação, PlayMode, dispositivos e assinatura permanecem
+  `BLOCKED`/`NOT_RUN`.

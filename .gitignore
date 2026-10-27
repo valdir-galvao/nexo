@@ -13,6 +13,9 @@ DerivedDataCache/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
+!Assets/Scripts/Editor/Build/
+!Assets/Scripts/Editor/Build/*.cs
+!Assets/Scripts/Editor/Build/*.meta
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
 MemoryCaptures/
