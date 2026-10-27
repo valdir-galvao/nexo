@@ -5,6 +5,7 @@ using Nexo.Gameplay;
 using Nexo.Persistence;
 using Nexo.Progression;
 using Nexo.Safety;
+using Nexo.Learning;
 
 namespace Nexo.UI
 {
@@ -23,6 +24,10 @@ namespace Nexo.UI
         private NexoAudioDirector audioDirector;
         private LocalDataControls dataControls;
         private bool confirmDelete;
+        private bool showTransfer;
+        private bool transferAnswered;
+
+        public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void CreateIfMissing()
@@ -40,6 +45,7 @@ namespace Nexo.UI
             audioDirector.Configure(mission.Save.audio);
             dataControls = new LocalDataControls();
             showIntro = mission.StateMachine.State == GameState.Intro;
+            transferAnswered = HasTransferEvidence();
         }
 
         private void BuildWorld()
@@ -145,6 +151,8 @@ namespace Nexo.UI
             }
             if (mission.Save.activeMission.completed)
                 GUI.Box(new Rect(30, 250, Screen.width - 60, 100), "Missão concluída — nova área desbloqueada: o sinal distante.");
+            if (mission.Save.activeMission.completed && !transferAnswered && GUI.Button(new Rect(250, 360, 220, 36), "Demonstrar compreensao")) showTransfer = true;
+            if (showTransfer) DrawTransfer(safe);
             if (mission.StateMachine.State == GameState.Feedback)
             {
                 GUI.Box(new Rect(safe.x + 30, safe.y + safe.height / 2 - 70, safe.width - 60, 140), mission.LastFeedbackId);
@@ -166,6 +174,29 @@ namespace Nexo.UI
             GUI.Label(new Rect(safe.x + 55, safe.y + 135, safe.width - 110, 80), "Pistas encontradas: " + clues);
             GUI.Label(new Rect(safe.x + 55, safe.y + 205, safe.width - 110, 60), "Hipótese: a água segue uma rede que atravessa as ilhas.");
             if (GUI.Button(new Rect(safe.x + 55, safe.y + 255, 120, 36), "Fechar")) showDiary = false;
+        }
+
+        private bool HasTransferEvidence()
+        {
+            MasteryEvidence[] evidence = mission == null ? null : mission.Save.masteryEvidence;
+            if (evidence == null) return false;
+            for (int i = 0; i < evidence.Length; i++)
+                if (evidence[i].objectiveId == VerticalSliceMission.TransferObjectiveId) return true;
+            return false;
+        }
+
+        private void DrawTransfer(Rect safe)
+        {
+            GUI.Box(new Rect(safe.x + 25, safe.y + 105, safe.width - 50, 210), "Transferencia: rota de energia");
+            GUI.Label(new Rect(safe.x + 45, safe.y + 145, safe.width - 90, 50), "Uma estacao tem 4 unidades e duas rotas. Qual escolha mantem o sinal?");
+            if (GUI.Button(new Rect(safe.x + 45, safe.y + 215, safe.width - 90, 36), "Priorizar a rota critica e verificar a evidencia"))
+            {
+                mission.RecordTransfer(true); transferAnswered = true; showTransfer = false; prompt = "Resposta registrada: compare custo, efeito e evidencia.";
+            }
+            if (GUI.Button(new Rect(safe.x + 45, safe.y + 260, safe.width - 90, 36), "Escolher sem comparar as consequencias"))
+            {
+                mission.RecordTransfer(false); transferAnswered = true; showTransfer = false; prompt = "Tentativa registrada. Reveja custo, efeito e evidencia.";
+            }
         }
 
         private void DrawSettings(Rect safe)

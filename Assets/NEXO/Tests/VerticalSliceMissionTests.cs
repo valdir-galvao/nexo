@@ -44,6 +44,20 @@ namespace Nexo.Tests
             Assert.AreEqual(StartingWaterForTest(), mission.Save.activeMission.water);
         }
 
+        [Test] public void TransferAttemptIsPersistedAfterMissionCompletion()
+        {
+            MemorySaveStore store = new MemorySaveStore();
+            VerticalSliceMission mission = new VerticalSliceMission(store);
+            mission.Initialize(); mission.SkipIntro();
+            Assert.IsTrue(mission.EvaluateValve(1));
+            Assert.IsTrue(mission.Allocate(WaterAllocation.Reservoir));
+            Assert.IsTrue(mission.Complete());
+            Assert.IsTrue(mission.RecordTransfer(true));
+            Assert.AreEqual(1, mission.Save.masteryEvidence.Length);
+            Assert.AreEqual(VerticalSliceMission.TransferObjectiveId, mission.Save.masteryEvidence[0].objectiveId);
+            Assert.IsTrue(mission.Save.masteryEvidence[0].demonstrated);
+        }
+
         private static int StartingWaterForTest() { return VerticalSliceMission.StartingWater; }
     }
 }

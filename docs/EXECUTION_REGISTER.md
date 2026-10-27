@@ -127,6 +127,18 @@ Nenhum canal autenticado de dispatch foi encontrado (`gh` ausente); apenas nomes
 de variáveis locais foram inspecionados, sem leitura de valores. Nenhuma API,
 workflow ou build foi executado. Fase C permanece `BLOCKED`.
 
+## Fase 02 — correções locais
+
+- Base: `f32e74c`; alterações mantidas na branch isolada.
+- K-005 implementado com registro persistente e UI de transferência; teste NUnit
+  de regressão adicionado.
+- Assembly PlayMode e `[UnityTest]` de inicialização da cena adicionados.
+- Validadores locais: PASS (`json=5`, `cs=24`), conteúdo PASS, 9 testes de
+  executor PASS.
+- Lockfile: regeneração Unity `BLOCKED`; não foi editado manualmente.
+- Unity compilation, EditMode, PlayMode e Package Manager: `NOT_RUN`.
+- Relatório: `docs/PHASE_02_HARDENING_REPORT.md`.
+
 ## Fase B1 — validação local (execução atual)
 
 - Início: 27/10/2026, America/Sao_Paulo.

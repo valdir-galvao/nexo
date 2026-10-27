@@ -6,6 +6,9 @@ Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
 iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
+Atualização P39: correção local de K-005 e teste PlayMode foram adicionados;
+validadores locais passaram. Lockfile e testes Unity ainda aguardam Unity/GameCI.
+Relatório: `docs/PHASE_02_HARDENING_REPORT.md`.
 Atualização P38: tentativa de continuidade encerrada sem chamada externa;
 `gh` e dispatch autenticado continuam indisponíveis. Fase C permanece
 `BLOCKED`. Executar somente `unity-tests.yml` quando o canal seguro existir.

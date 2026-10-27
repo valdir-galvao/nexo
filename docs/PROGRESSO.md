@@ -533,6 +533,19 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: disponibilizar canal autenticado autorizado para executar
   `unity-tests.yml`; preservar a Fase C como `BLOCKED` até haver relatório real.
 
+## P39 — Fase 02: blindagem local — parcial
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- K-005 corrigido com UI, persistência e teste de regressão; assembly/teste
+  PlayMode adicionados.
+- Validadores locais passaram: static `json=5/cs=24`, conteúdo e 9 testes de
+  executor.
+- Lockfile, compilação Unity, EditMode e PlayMode permanecem bloqueados ou
+  não executados sem Unity/GameCI.
+- Relatório: `docs/PHASE_02_HARDENING_REPORT.md`.
+- Próxima ação: executar Unity Package Manager e `unity-tests.yml` em ambiente
+  autorizado; revisar o resultado antes de qualquer pacote móvel.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

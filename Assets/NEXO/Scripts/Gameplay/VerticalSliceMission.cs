@@ -2,6 +2,7 @@ using System;
 using Nexo.Core;
 using Nexo.Persistence;
 using Nexo.Progression;
+using Nexo.Learning;
 
 namespace Nexo.Gameplay
 {
@@ -17,6 +18,7 @@ namespace Nexo.Gameplay
         public SaveData Save { get { return save; } }
         public string LastFeedbackId { get; private set; }
         public string LastExplanation { get; private set; }
+        public const string TransferObjectiveId = "transfer-energy-route";
 
         public VerticalSliceMission(ISaveStore store)
         {
@@ -84,6 +86,31 @@ namespace Nexo.Gameplay
             save.activeMission.completed = true;
             save.activeMission.checkpoint = "complete";
             save.completedMissionIds = new[] { MissionId };
+            return SaveNow();
+        }
+
+        public bool RecordTransfer(bool correct)
+        {
+            if (!save.activeMission.completed) return false;
+            MasteryEvidence[] current = save.masteryEvidence ?? new MasteryEvidence[0];
+            int index = -1;
+            for (int i = 0; i < current.Length; i++)
+                if (current[i].objectiveId == TransferObjectiveId) { index = i; break; }
+            MasteryEvidence evidence = index >= 0 ? current[index] : new MasteryEvidence { objectiveId = TransferObjectiveId };
+            evidence.attempts++;
+            evidence.demonstrated = correct;
+            if (index < 0)
+            {
+                MasteryEvidence[] updated = new MasteryEvidence[current.Length + 1];
+                Array.Copy(current, updated, current.Length);
+                updated[current.Length] = evidence;
+                save.masteryEvidence = updated;
+            }
+            else
+            {
+                current[index] = evidence;
+                save.masteryEvidence = current;
+            }
             return SaveNow();
         }
 
