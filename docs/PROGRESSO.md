@@ -455,6 +455,17 @@ anteriores nao foram registrados aqui e nao sao presumidos.
 - Próxima ação: configurar os secrets Unity, obter C=`PASS` com evidências reais
   e então repetir o fluxo funcional da Fase D.
 
+## P32 — Prompt 5, Fase E: compilações Android e iOS — BLOCKED
+
+- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
+- Resultado: Android=`BLOCKED`; iOS=`BLOCKED`. As Fases C e D não foram
+  aprovadas e nenhum build foi iniciado.
+- Evidência: Unity, `adb` e `xcodebuild` não foram localizados; não existem APK,
+  AAB, projeto Xcode ou hashes de artefatos desta execução.
+- Relatório: `docs/PHASE_E_BUILD_REPORT.md`.
+- Próxima ação: aprovar C e D com evidências reais; depois executar os workflows
+  GameCI por plataforma e registrar artefatos e testes separadamente.
+
 ## Modelo para cada novo passo
 
 Copiar e preencher ao concluir uma tarefa; registrar interrupcoes tambem.

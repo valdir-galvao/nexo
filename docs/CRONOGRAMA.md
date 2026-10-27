@@ -41,6 +41,10 @@ escopo de arquivos, entrada minima e criterio de aceite. Registrar a subdivisao
 aqui antes de distribuir trabalho. Ao concluir cada tarefa, registrar progresso
 e atualizar a retomada imediatamente.
 
+J18 — Fase E: builds Android/iOS — Bloqueado. Android e iOS aguardam C/D=`PASS`,
+GameCI e, para iOS, runner macOS com Xcode e assinatura autorizada. Relatório:
+`docs/PHASE_E_BUILD_REPORT.md`.
+
 J17 — Fase D: integração e QA funcional — Bloqueado. Depende de Fase C=`PASS`,
 Unity/GameCI e dispositivo ou simulador; matriz e pendências em
 `docs/PHASE_D_FUNCTIONAL_REPORT.md`.

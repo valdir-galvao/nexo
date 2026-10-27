@@ -7,6 +7,9 @@ iniciada por este passo. Nao ha engine ou build validada.
 
 ## Como retomar
 
+Atualização P32: a Fase E está `BLOCKED` para Android e iOS. Nenhum build foi
+iniciado; depende da aprovação de C e D e dos workflows GameCI.
+
 Atualização P31: a Fase D foi registrada como `BLOCKED` porque a Fase C não foi
 aprovada. A matriz funcional está em `docs/PHASE_D_FUNCTIONAL_REPORT.md`; não
 há evidência runtime. Próxima dependência: secrets Unity e workflow GameCI.

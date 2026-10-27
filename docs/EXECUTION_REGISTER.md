@@ -57,6 +57,13 @@ Result: `BLOCKED`. The prerequisite Fase C is not approved, so no mission flow,
 save/resume, device, or UI functional test was executed. The complete matrix is
 in `docs/PHASE_D_FUNCTIONAL_REPORT.md`; all runtime rows are `NOT_RUN`.
 
+## Fase E
+
+Result: `BLOCKED` for Android and iOS. Fases C and D are not approved and no
+build was started. Unity/adb/xcodebuild are unavailable locally; no APK, AAB,
+Xcode artifact, installation test, or artifact hash exists. Details:
+`docs/PHASE_E_BUILD_REPORT.md`.
+
 ## Next authorized action
 
 Do not advance automatically. After the owner authorizes continuation, configure
