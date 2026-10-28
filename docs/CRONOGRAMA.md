@@ -88,3 +88,5 @@ J32 — Verificar `Unity_lic.ulf` — Localmente concluído; GitHub bloqueado até cad
 J33 — Verificação dos Secrets após cadastro informado — Bloqueado. GitHub ainda retorna zero secrets no repositório `valdir-galvao/nexo`.
 
 J34 — Corrigir escopo de credenciais — Bloqueado até migrar Repository variables para Repository secrets e rotacionar valores expostos.
+
+J35 — Confirmar Secrets Unity — Concluído. Três secrets presentes; remover variables duplicadas antes da execução GameCI.

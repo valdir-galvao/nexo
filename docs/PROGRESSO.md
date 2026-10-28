@@ -673,3 +673,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - O cadastro foi feito na aba Repository variables, portanto GameCI não recebe esses valores via `secrets.*`.
 - Credenciais foram expostas na mensagem do usuário; orientar rotação imediata da senha Unity e renovação/reativação da licença antes de qualquer build.
 - Próxima ação: criar os três itens na aba Repository secrets, sem compartilhar valores, remover as variables sensíveis e repetir a verificação por nomes.
+
+## P52 — Secrets Unity confirmados
+
+- Data: 28/10/2026; responsável: diretor de projeto.
+- API confirmou `SECRET_COUNT=3`: `UNITY_EMAIL`, `UNITY_LICENSE`, `UNITY_PASSWORD`.
+- Ainda existem quatro Repository variables com os mesmos nomes mais `UNITY_SERIAL`; não são usadas pelos workflows, mas devem ser removidas para evitar duplicidade.
+- Nenhum valor foi lido ou registrado.
+- Gate de configuração de credenciais: `PASS`.
+- Próxima ação: remover variables duplicadas e executar primeiro `unity-tests.yml`; builds Android/iOS continuam dependentes do resultado dos testes.

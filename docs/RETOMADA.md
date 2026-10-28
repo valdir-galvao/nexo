@@ -120,3 +120,5 @@ Atualização P49: `Unity_lic.ulf` validado localmente como XML de licença Unity e
 Atualização P50: o cadastro informado não aparece via API; `total_count=0`. Confirmar escopo Repository secrets no repositório correto antes de disparar GameCI.
 
 Atualização P51: valores estão em Repository variables, não Secrets; API confirmou 4 variables e 0 secrets. Rotacionar credenciais expostas e cadastrar corretamente antes do GameCI.
+
+Atualização P52: `UNITY_EMAIL`, `UNITY_LICENSE` e `UNITY_PASSWORD` confirmados como Repository secrets. Variables duplicadas permanecem; remover antes de iniciar os testes.
