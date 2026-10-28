@@ -28,6 +28,15 @@ jobs:
         testMode: [editmode, playmode]
     runs-on: ubuntu-latest
     steps:
+      - name: Free runner disk space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          android: true
+          tool-cache: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
       - name: Checkout with LFS
         uses: actions/checkout@v4
         with:

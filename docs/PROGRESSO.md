@@ -692,3 +692,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Artefatos não contêm JUnit nem `Editor.log`; API de logs de job permanece inacessível.
 - Android/iOS não foram executados.
 - Estado: `FAIL` para testes, `BLOCKED` para diagnóstico detalhado.
+
+## P54 — causa raiz dos erros GameCI 40659354080
+
+- Data: 28/10/2026; responsável: diretor de projeto.
+- Logs reais dos jobs `122718189797` (EditMode) e `122718189521` (PlayMode) foram recuperados seguindo o redirect 302 da API para o blob de logs.
+- Causa exata: Docker não conseguiu registrar a camada da imagem `unityci/editor:ubuntu-6000.3.0f1-linux-il2cpp-3`; erro `no space left on device` em `/opt/unity/Editor/...`.
+- O Unity não chegou a executar os testes; não é falha C#, packages ou licença.
+- Correção aplicada: `jlumbroso/free-disk-space@v1.3.1` antes do GameCI em `unity-tests.yml` e `unity-android.yml`, removendo SDKs/cache/pacotes grandes e liberando swap/espaço Docker.
+- YAML e diff validados. Próxima ação: push e repetir primeiro `unity-tests.yml`.
