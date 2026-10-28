@@ -130,3 +130,6 @@ Atualização P54: logs do run `40659354080` confirmaram `no space left on device`
 Atualização P55: assemblies EditMode/PlayMode separadas e refs duplicadas removidas no commit `992586a`; nova rodada aguardando conclusão.
 
 Atualização P56: Fase 10 quantitativa não executável neste repositório; artefato `meta_filter_phase10_status.json` registra BLOCKED sem métricas inventadas.
+
+Atualização P57: runs GameCI da Fase 15 falharam no commit 992586a; causa comum é BuildFailedException não resolvido nos scripts Editor Android/iOS. Licença Personal foi resolvida e não houve novo no-space. Consultar docs/PHASE_15_RUN_MONITORING.md; corrigir scripts e repetir unity-tests.yml antes dos builds móveis.
+

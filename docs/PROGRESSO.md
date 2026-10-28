@@ -720,3 +720,14 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Paper Trading, produção e ordens reais permaneceram bloqueados/não executados.
 - Validadores disponíveis passaram: static QA (`json=5`, `cs=24`), conteúdo e 9 testes de agentes.
 - Relatório: `artifacts/audit_package/meta_filter_phase10_status.json` (`status=BLOCKED`).
+
+## P57 — monitoramento dos runs GameCI (Fase 15)
+
+- Data: 28/10/2026; responsável: diretor de projeto.
+- Runs monitorados no commit 992586a: testes 40661478289, Android 40661478460, iOS 40661478368.
+- Resultado: os três falharam na compilação C# por BuildFailedException não resolvido em Assets/Scripts/Editor/Build/AndroidBuild.cs e IosBuild.cs.
+- A licença Personal foi resolvida com sucesso; não houve novo erro de espaço em disco.
+- Não foram gerados APK, BUILD_METADATA.txt ou projeto Xcode; artefatos disponíveis são somente diagnósticos/logs.
+- Relatório detalhado: docs/PHASE_15_RUN_MONITORING.md.
+- Próxima ação: correção mínima dos dois scripts e repetir Unity tests antes de builds móveis.
+

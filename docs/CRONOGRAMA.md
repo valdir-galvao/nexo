@@ -98,3 +98,6 @@ J37 — Diagnóstico GameCI — concluído: falha era espaço insuficiente do runner Ub
 J38 — Correção de assemblies Unity — concluído local/push; nova rodada GameCI em execução.
 
 J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness no repositório Unity.
+
+- Fase 15 — runs 40661478289/40661478460/40661478368: FAIL. Bloqueio comum de compilação C# (BuildFailedException); licença PASS, espaço PASS. Retornar à correção de scripts antes de nova rodada.
+
