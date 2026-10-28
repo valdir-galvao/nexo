@@ -80,3 +80,5 @@ J28 — Fase 08: Diagnóstico GameCI/licenciamento — Bloqueado. Secrets Unity ausen
 J29 — Fase 10: correção de `buildsPath` e documentação Unity Personal — Parcial/Bloqueado. Workflows validados; ativação depende de secrets Personal externos.
 
 J30 — Fase 13: licença automática Personal GameCI — Bloqueado por incompatibilidade com o método solicitado. A configuração suportada continua exigindo `UNITY_LICENSE`.
+
+J31 — Fase 14: auditoria de `manual.alf` e workflows — Bloqueado. Falta converter `.alf` em `.ulf` e cadastrar secrets no GitHub.

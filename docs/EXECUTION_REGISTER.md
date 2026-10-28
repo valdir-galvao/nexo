@@ -215,3 +215,5 @@ P45 — 27/10/2026 — Fase 08 GameCI: diagnóstico de licenciamento. Captura de logs
 P46 — 27/10/2026 — Fase 10: `buildsPath` corrigido, dump de Editor.log adicionado e fluxo Unity Personal gratuito documentado. YAML validado; execução bloqueada por secrets externos ausentes. Relatório `docs/PHASE_10_LICENSE_BUILD_FIX.md`.
 
 P47 — 27/10/2026 — Fase 13: auditoria GameCI v6. Pedido de licença Personal somente por email/senha é incompatível com a documentação atual; nenhuma alteração de workflow aplicada. Relatório `docs/PHASE_13_GAMECI_LICENSE_AUDIT.md`.
+
+P48 — 28/10/2026 — Fase 14: auditoria local de licença/workflows. `manual.alf` não é licença final; `.gitignore` atualizado. Workflows sem novo erro estrutural; secrets GitHub ausentes. Relatório `docs/PHASE_14_WORKFLOW_LICENSE_AUDIT.md`.

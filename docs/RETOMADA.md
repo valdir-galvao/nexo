@@ -112,3 +112,5 @@ Atualização P45: Fase 08 bloqueada por licenciamento. Commits `7920de8`/`bb06877
 Atualização P46: Fase 10 corrigiu `buildsPath` Android/iOS, adicionou dump explícito de Editor.log e documentou ativação gratuita Unity Personal. YAML válido. Secrets continuam ausentes; próximo passo é configurá-los fora do Git.
 
 Atualização P47: a Fase 13 foi bloqueada após verificação da documentação oficial GameCI. Não remover ativação nem `UNITY_LICENSE` sem método alternativo suportado.
+
+Atualização P48: `manual.alf` local é pedido de ativação e foi adicionado ao `.gitignore`; workflows estão coerentes. A API ainda retorna zero secrets no repositório; próximo passo externo é obter `.ulf` e cadastrar os três secrets.

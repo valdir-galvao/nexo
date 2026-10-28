@@ -36,3 +36,7 @@ Recordings/
 !Assets/**/*.meta
 !Packages/**/*.json
 !Packages/**/*.lock
+# Unity license and activation artifacts (never version)
+*.alf
+*.ulf
+manual.alf
