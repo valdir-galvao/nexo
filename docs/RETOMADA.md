@@ -116,3 +116,5 @@ Atualização P47: a Fase 13 foi bloqueada após verificação da documentação oficia
 Atualização P48: `manual.alf` local é pedido de ativação e foi adicionado ao `.gitignore`; workflows estão coerentes. A API ainda retorna zero secrets no repositório; próximo passo externo é obter `.ulf` e cadastrar os três secrets.
 
 Atualização P49: `Unity_lic.ulf` validado localmente como XML de licença Unity e protegido pelo `.gitignore`; o GitHub ainda não possui secrets (`COUNT=0`).
+
+Atualização P50: o cadastro informado não aparece via API; `total_count=0`. Confirmar escopo Repository secrets no repositório correto antes de disparar GameCI.

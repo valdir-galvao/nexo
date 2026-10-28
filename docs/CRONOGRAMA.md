@@ -84,3 +84,5 @@ J30 — Fase 13: licença automática Personal GameCI — Bloqueado por incompatibilid
 J31 — Fase 14: auditoria de `manual.alf` e workflows — Bloqueado. Falta converter `.alf` em `.ulf` e cadastrar secrets no GitHub.
 
 J32 — Verificar `Unity_lic.ulf` — Localmente concluído; GitHub bloqueado até cadastrar `UNITY_LICENSE`.
+
+J33 — Verificação dos Secrets após cadastro informado — Bloqueado. GitHub ainda retorna zero secrets no repositório `valdir-galvao/nexo`.

@@ -657,3 +657,11 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - A API do repositório ainda retorna `GITHUB_SECRET_COUNT=0`; o conteúdo ainda não está cadastrado como `UNITY_LICENSE` no GitHub.
 - Os workflows já referenciam `secrets.UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`; nenhuma alteração de YAML é necessária para usar este arquivo.
 - Próxima ação: cadastrar o conteúdo do arquivo, por canal seguro, no secret `UNITY_LICENSE`; depois repetir primeiro o workflow de testes.
+
+## P50 — verificação dos Secrets após cadastro informado — BLOCKED
+
+- Data: 28/10/2026; responsável: diretor de projeto.
+- YAML dos workflows: válido.
+- API `repos/valdir-galvao/nexo/actions/secrets` retornou `total_count=0`; nenhum nome de secret foi exposto porque não há secrets listados.
+- O repositório confirmado é `valdir-galvao/nexo` (privado). A execução GameCI não deve ser iniciada até os secrets estarem visíveis nesse escopo.
+- Conferir em Settings ? Secrets and variables ? Actions ? Repository secrets os nomes exatos `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD`.

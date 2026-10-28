@@ -219,3 +219,5 @@ P47 — 27/10/2026 — Fase 13: auditoria GameCI v6. Pedido de licença Personal some
 P48 — 28/10/2026 — Fase 14: auditoria local de licença/workflows. `manual.alf` não é licença final; `.gitignore` atualizado. Workflows sem novo erro estrutural; secrets GitHub ausentes. Relatório `docs/PHASE_14_WORKFLOW_LICENSE_AUDIT.md`.
 
 P49 — 28/10/2026 — `Unity_lic.ulf` verificado: XML de licença Unity válido, ignorado e não rastreado. Secrets do GitHub continuam ausentes; workflows já apontam para `UNITY_LICENSE`. Nenhum valor foi exibido.
+
+P50 — 28/10/2026 — Verificação de Secrets: API do repositório `valdir-galvao/nexo` retornou zero. YAML válido; execução bloqueada até os três nomes aparecerem no escopo correto.
