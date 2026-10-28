@@ -761,3 +761,10 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Android run 40665422007 permanecia in_progress.
 - Gate de liberação: não aprovado.
 
+## P61 — versão iOS válida e novo gate (Fase 19)
+
+- Data: 28/10/2026; `IosBuild.cs` define `PlayerSettings.bundleVersion = "1.0.0"` e `PlayerSettings.iOS.buildNumber = "1"` antes do build.
+- `python tools/run_static_qa.py`: PASS, exit 0.
+- Commit/push: `abca64a`.
+- Novo Unity tests `40667016837` permanece `in_progress`; EditMode/PlayMode ainda sem resultado formal.
+- Nenhuma aprovação K-005 ou liberação móvel pode ser declarada enquanto o gate estiver ativo.
