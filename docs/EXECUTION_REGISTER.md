@@ -245,3 +245,6 @@ P59 — 28/10/2026 — Fase 17: cena explícita nos pipelines Android/iOS, static QA 
 
 P60 — 28/10/2026 — Fase 18: gate Unity tests 40665421997 IN_PROGRESS; iOS 40665421999 FAIL por iOS Version has not been set up correctly; Android 40665422007 IN_PROGRESS. K-005 e builds não aprovados.
 
+
+P61 — 28/10/2026 — Fase 19: bundleVersion/buildNumber iOS válidos em bca64a, static QA PASS. Unity tests 40667016837 IN_PROGRESS; K-005 e builds não aprovados.
+

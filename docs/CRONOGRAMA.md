@@ -110,3 +110,6 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 
 - Fase 18: Unity tests ainda IN_PROGRESS; iOS FAIL por iOS Version inválida; Android IN_PROGRESS. Gate não aprovado.
 
+
+- Fase 19: PlayerSettings iOS corrigido e enviado; Unity tests 40667016837 IN_PROGRESS. Gate pendente.
+

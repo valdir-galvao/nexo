@@ -145,3 +145,6 @@ Atualização P59: cena principal configurada explicitamente nos scripts de build,
 
 Atualização P60: Unity tests 40665421997 ainda IN_PROGRESS. iOS 40665421999 falhou por versão iOS inválida no PlayerSettings; Android 40665422007 em execução. Não liberar builds.
 
+
+Atualização P61: versão iOS corrigida em bca64a; run Unity tests 40667016837 ainda IN_PROGRESS. Aguardar resultado formal de EditMode/PlayMode.
+
