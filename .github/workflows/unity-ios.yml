@@ -5,29 +5,23 @@ on:
 
 jobs:
   build-ios:
-    name: Build iOS Project
+    name: Build iOS Xcode Project
     runs-on: macos-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Autenticação automática com a conta Unity Personal gratuita
-      - name: Activate Unity License
-        uses: game-ci/unity-action@v2
+      # Executa o build para iOS gerando o projeto Xcode no runner macOS
+      - name: Build iOS
+        uses: game-ci/unity-builder@v4
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      # Compilação do projeto para iOS (Gera o projeto Xcode)
-      - name: Build iOS
-        uses: game-ci/unity-builder@v4
-        with:
-          targetIOS: true
+          targetPlatform: iOS
           versioning: Semantic
 
-      # Salva o projeto Xcode gerado como artefato
+      # Salva o projeto Xcode gerado para download ou assinatura futura
       - name: Upload iOS Artifact
         uses: actions/upload-artifact@v4
         with:
