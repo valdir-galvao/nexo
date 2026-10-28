@@ -114,3 +114,5 @@ Atualização P46: Fase 10 corrigiu `buildsPath` Android/iOS, adicionou dump explí
 Atualização P47: a Fase 13 foi bloqueada após verificação da documentação oficial GameCI. Não remover ativação nem `UNITY_LICENSE` sem método alternativo suportado.
 
 Atualização P48: `manual.alf` local é pedido de ativação e foi adicionado ao `.gitignore`; workflows estão coerentes. A API ainda retorna zero secrets no repositório; próximo passo externo é obter `.ulf` e cadastrar os três secrets.
+
+Atualização P49: `Unity_lic.ulf` validado localmente como XML de licença Unity e protegido pelo `.gitignore`; o GitHub ainda não possui secrets (`COUNT=0`).

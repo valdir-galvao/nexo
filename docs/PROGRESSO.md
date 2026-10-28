@@ -648,3 +648,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - API do GitHub reportou zero secrets; configuração local não equivale a Secrets do repositório.
 - Nenhum secret foi lido ou exposto; nenhum workflow foi disparado por esta auditoria.
 - Relatório: `docs/PHASE_14_WORKFLOW_LICENSE_AUDIT.md`.
+
+## P49 — Verificação de Unity_lic.ulf — concluído local / bloqueado no GitHub
+
+- Data: 28/10/2026; responsável: diretor de projeto.
+- `Unity_lic.ulf` existe na raiz, tamanho 2517 bytes, XML válido com estrutura de licença Unity (`License`, `Entitlement`, `MachineBindings` e assinatura XML).
+- O arquivo está ignorado por `*.ulf`, não rastreado e não foi exposto.
+- A API do repositório ainda retorna `GITHUB_SECRET_COUNT=0`; o conteúdo ainda não está cadastrado como `UNITY_LICENSE` no GitHub.
+- Os workflows já referenciam `secrets.UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`; nenhuma alteração de YAML é necessária para usar este arquivo.
+- Próxima ação: cadastrar o conteúdo do arquivo, por canal seguro, no secret `UNITY_LICENSE`; depois repetir primeiro o workflow de testes.
