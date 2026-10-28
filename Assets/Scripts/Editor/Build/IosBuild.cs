@@ -16,6 +16,8 @@ namespace Nexo.Editor.Build
             const string scenePath = "Assets/Scenes/NexoVerticalSlice.unity";
             if (!File.Exists(scenePath)) throw new InvalidOperationException($"Required scene is missing: {scenePath}");
             var scenes = new[] { scenePath };
+            PlayerSettings.bundleVersion = "1.0.0";
+            PlayerSettings.iOS.buildNumber = "1";
             var report = BuildPipeline.BuildPlayer(scenes, output, BuildTarget.iOS, BuildOptions.None);
             if (report.summary.result != BuildResult.Succeeded)
                 throw new BuildFailedException($"iOS build failed: {report.summary.result}");
