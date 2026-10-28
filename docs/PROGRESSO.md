@@ -753,3 +753,11 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Novo Unity tests: run 40665421997, ainda in_progress na última consulta; não há aprovação do gate.
 - Android/iOS também foram disparados automaticamente, mas permanecem sem aprovação até os testes Unity concluírem.
 
+
+## P60 — gate Unity tests e build iOS (Fase 18)
+
+- Run Unity tests 40665421997 permanecia in_progress na última consulta; EditMode/PlayMode ainda sem conclusão e K-005 não pode ser declarado aprovado.
+- iOS run 40665421999 terminou FAIL por UnityException: iOS Version has not been set up correctly; o erro de cena não reapareceu.
+- Android run 40665422007 permanecia in_progress.
+- Gate de liberação: não aprovado.
+

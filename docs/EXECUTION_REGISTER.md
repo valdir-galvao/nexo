@@ -242,3 +242,6 @@ P58 — 28/10/2026 — Fase 16: correção CS0246 em 3d9ab9a, static QA PASS. Run 4066
 
 P59 — 28/10/2026 — Fase 17: cena explícita nos pipelines Android/iOS, static QA PASS, commit 74556d0. Run 40665421997 Unity tests IN_PROGRESS; gate não aprovado.
 
+
+P60 — 28/10/2026 — Fase 18: gate Unity tests 40665421997 IN_PROGRESS; iOS 40665421999 FAIL por iOS Version has not been set up correctly; Android 40665422007 IN_PROGRESS. K-005 e builds não aprovados.
+

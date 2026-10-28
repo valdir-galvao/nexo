@@ -107,3 +107,6 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 
 - Fase 17: cena explícita corrigida em 74556d0; Unity tests 40665421997 IN_PROGRESS. Gate de builds pendente.
 
+
+- Fase 18: Unity tests ainda IN_PROGRESS; iOS FAIL por iOS Version inválida; Android IN_PROGRESS. Gate não aprovado.
+

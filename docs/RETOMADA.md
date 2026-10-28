@@ -142,3 +142,6 @@ Run iOS 40663615981 terminou FAIL por nenhuma cena habilitada configurada; Unity
 
 Atualização P59: cena principal configurada explicitamente nos scripts de build, commit 74556d0 enviado. Run Unity tests 40665421997 ainda em execução; aguardar EditMode/PlayMode antes de liberar builds.
 
+
+Atualização P60: Unity tests 40665421997 ainda IN_PROGRESS. iOS 40665421999 falhou por versão iOS inválida no PlayerSettings; Android 40665422007 em execução. Não liberar builds.
+
