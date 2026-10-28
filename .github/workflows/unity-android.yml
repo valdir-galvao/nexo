@@ -14,23 +14,17 @@ jobs:
       - name: Free Disk Space
         uses: jlumbroso/free-disk-space@main
 
-      # Autenticação automática com a conta Unity Personal gratuita
-      - name: Activate Unity License
-        uses: game-ci/unity-action@v2
+      # O unity-builder v4 lida diretamente com as credenciais da conta Personal
+      - name: Build Android
+        uses: game-ci/unity-builder@v4
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      # Compilação do projeto para Android
-      - name: Build Android
-        uses: game-ci/unity-builder@v4
-        with:
-          targetAndroid: true
+          targetPlatform: Android
           versioning: Semantic
 
-      # Salva o arquivo gerado para você baixar após o build
+      # Salva o resultado do build para download no GitHub
       - name: Upload Android Artifact
         uses: actions/upload-artifact@v4
         with:
