@@ -96,3 +96,5 @@ J36 — Primeiro GameCI com Secrets — Falhou em EditMode/PlayMode; diagnóstico det
 J37 — Diagnóstico GameCI — concluído: falha era espaço insuficiente do runner Ubuntu; correção de limpeza adicionada aos jobs Ubuntu.
 
 J38 — Correção de assemblies Unity — concluído local/push; nova rodada GameCI em execução.
+
+J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness no repositório Unity.

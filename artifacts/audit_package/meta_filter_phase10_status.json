@@ -1,0 +1,34 @@
+{
+  "phase": "10_resampling_5m_wfo",
+  "status": "BLOCKED",
+  "timestamp": "2026-10-28T00:00:00-03:00",
+  "repository_scope": "Unity NEXO project",
+  "requested_symbols": ["BTC", "ETH", "BNB", "SOL"],
+  "requested_timeframe": "5m",
+  "feature_pipeline": "NOT_FOUND",
+  "input_market_data": "NOT_FOUND",
+  "wfo_implementation": "NOT_FOUND",
+  "purge_logic": "NOT_FOUND",
+  "model_ensemble": "NOT_FOUND",
+  "auc_by_fold": null,
+  "auc_gate": "NOT_RUN",
+  "passive_harness": {
+    "path": "scripts/run_motor_a_phase6_forward_eval.py",
+    "status": "NOT_FOUND",
+    "sqlite_database": "NOT_FOUND",
+    "read_only_verified": false
+  },
+  "trading_governance": {
+    "paper_trading": "NOT_RUN",
+    "production": "BLOCKED",
+    "real_orders": "BLOCKED"
+  },
+  "available_validation": {
+    "static_qa": "PASS",
+    "learning_content": "PASS",
+    "agent_unit_tests": "PASS",
+    "counts": {"static_json": 5, "static_csharp": 24, "agent_tests": 9}
+  },
+  "reason": "The repository contains the Unity NEXO game and no quantitative ML pipeline, market data, SQLite holdout, WFO implementation, or passive harness. No AUC or fold result was fabricated.",
+  "next_action": "Provide the quantitative repository/data bundle and the exact harness contract; then execute the phase in an isolated read-only environment."
+}
