@@ -665,3 +665,11 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - API `repos/valdir-galvao/nexo/actions/secrets` retornou `total_count=0`; nenhum nome de secret foi exposto porque não há secrets listados.
 - O repositório confirmado é `valdir-galvao/nexo` (privado). A execução GameCI não deve ser iniciada até os secrets estarem visíveis nesse escopo.
 - Conferir em Settings ? Secrets and variables ? Actions ? Repository secrets os nomes exatos `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD`.
+
+## P51 — distinção entre Variables e Secrets
+
+- Data: 28/10/2026; responsável: diretor de projeto.
+- API confirmou `VARIABLE_COUNT=4` (`UNITY_EMAIL`, `UNITY_LICENSE`, `UNITY_PASSWORD`, `UNITY_SERIAL`) e `SECRET_COUNT=0`.
+- O cadastro foi feito na aba Repository variables, portanto GameCI não recebe esses valores via `secrets.*`.
+- Credenciais foram expostas na mensagem do usuário; orientar rotação imediata da senha Unity e renovação/reativação da licença antes de qualquer build.
+- Próxima ação: criar os três itens na aba Repository secrets, sem compartilhar valores, remover as variables sensíveis e repetir a verificação por nomes.

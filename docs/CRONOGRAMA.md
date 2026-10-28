@@ -86,3 +86,5 @@ J31 — Fase 14: auditoria de `manual.alf` e workflows — Bloqueado. Falta converte
 J32 — Verificar `Unity_lic.ulf` — Localmente concluído; GitHub bloqueado até cadastrar `UNITY_LICENSE`.
 
 J33 — Verificação dos Secrets após cadastro informado — Bloqueado. GitHub ainda retorna zero secrets no repositório `valdir-galvao/nexo`.
+
+J34 — Corrigir escopo de credenciais — Bloqueado até migrar Repository variables para Repository secrets e rotacionar valores expostos.
