@@ -126,3 +126,5 @@ Atualização P52: `UNITY_EMAIL`, `UNITY_LICENSE` e `UNITY_PASSWORD` confirmados c
 Atualização P53: Secrets aceitos pelo GameCI; run `40659354080` iniciou Unity e falhou nos dois modos. Próxima ação é obter logs do job ou adicionar diagnóstico de compilação/importação antes de builds móveis.
 
 Atualização P54: logs do run `40659354080` confirmaram `no space left on device` ao registrar a imagem Unity IL2CPP. Limpeza de disco adicionada a testes/Android; repetir `unity-tests.yml` após push.
+
+Atualização P55: assemblies EditMode/PlayMode separadas e refs duplicadas removidas no commit `992586a`; nova rodada aguardando conclusão.

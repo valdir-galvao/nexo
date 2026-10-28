@@ -94,3 +94,5 @@ J35 — Confirmar Secrets Unity — Concluído. Três secrets presentes; remover varia
 J36 — Primeiro GameCI com Secrets — Falhou em EditMode/PlayMode; diagnóstico detalhado bloqueado por logs inacessíveis.
 
 J37 — Diagnóstico GameCI — concluído: falha era espaço insuficiente do runner Ubuntu; correção de limpeza adicionada aos jobs Ubuntu.
+
+J38 — Correção de assemblies Unity — concluído local/push; nova rodada GameCI em execução.

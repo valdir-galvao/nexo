@@ -701,3 +701,13 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - O Unity não chegou a executar os testes; não é falha C#, packages ou licença.
 - Correção aplicada: `jlumbroso/free-disk-space@v1.3.1` antes do GameCI em `unity-tests.yml` e `unity-android.yml`, removendo SDKs/cache/pacotes grandes e liberando swap/espaço Docker.
 - YAML e diff validados. Próxima ação: push e repetir primeiro `unity-tests.yml`.
+
+## P55 — correção de assemblies Unity
+
+- Data: 28/10/2026; responsável: diretor de projeto.
+- Logs do run `40660301000` confirmaram assemblies duplicadas em `Assets/NEXO/Tests/` e referências duplicadas.
+- `Nexo.PlayModeTests` foi movida para `Assets/NEXO/Tests/PlayMode/`; referências automáticas de TestAssemblies foram mantidas sem duplicação explícita.
+- Meta de `Nexo.Tests.asmdef` ausente foi criado.
+- `python tools/run_static_qa.py` passou (`json=5 cs=24`).
+- Commit/push: `992586a`.
+- Nova rodada `40661478289` (testes), `40661478460` (Android) e `40661478368` (iOS) ainda estava em execução no registro desta atualização.

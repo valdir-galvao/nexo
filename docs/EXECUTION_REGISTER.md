@@ -229,3 +229,5 @@ P52 — 28/10/2026 — Secrets Unity confirmados via API por nome; nenhum valor expo
 P53 — 28/10/2026 — `unity-tests.yml` executado com secrets presentes. EditMode e PlayMode falharam no passo Unity; sem JUnit/Editor.log e sem acesso aos logs de job. Licenciamento deixou de ser o bloqueio primário. Android/iOS não executados.
 
 P54 — 28/10/2026 — Auditoria dos jobs GameCI: causa raiz `no space left on device` ao baixar imagem IL2CPP; licenciamento e C# não foram a causa. Workflows Ubuntu receberam `jlumbroso/free-disk-space@v1.3.1`; YAML validado. Logs recuperados via redirect 302 da API.
+
+P55 — 28/10/2026 — Correção das assemblies de testes enviada em `992586a`; static QA passou. Runs `40661478289`, `40661478460`, `40661478368` em execução.
