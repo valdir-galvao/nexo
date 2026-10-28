@@ -133,3 +133,6 @@ Atualização P56: Fase 10 quantitativa não executável neste repositório; artefato
 
 Atualização P57: runs GameCI da Fase 15 falharam no commit 992586a; causa comum é BuildFailedException não resolvido nos scripts Editor Android/iOS. Licença Personal foi resolvida e não houve novo no-space. Consultar docs/PHASE_15_RUN_MONITORING.md; corrigir scripts e repetir unity-tests.yml antes dos builds móveis.
 
+
+Atualização P58: namespace UnityEditor.Build adicionado aos scripts Editor e commit 3d9ab9a enviado. Run 40663615864 ainda em execução; não liberar builds móveis até PASS dos dois modos.
+

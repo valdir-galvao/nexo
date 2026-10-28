@@ -731,3 +731,13 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Relatório detalhado: docs/PHASE_15_RUN_MONITORING.md.
 - Próxima ação: correção mínima dos dois scripts e repetir Unity tests antes de builds móveis.
 
+
+## P58 — correção CS0246 e reexecução (Fase 16)
+
+- Data: 28/10/2026; correção aplicada nos scripts Editor com using UnityEditor.Build;.
+- python tools/run_static_qa.py: PASS, exit 0 (static_qa_ok: json=5 cs=24).
+- Commit/push: 3d9ab9a em orchestrator/phase-a-baseline.
+- Novo workflow Unity tests: run 40663615864; no último monitoramento permanecia in_progress (jobs EditMode/PlayMode ativos).
+- Android 40663615889 e iOS 40663615981 também foram acionados pelo push, mas não são considerados aprovados.
+- Liberação para reconstrução móvel: pendente até conclusão PASS de EditMode e PlayMode.
+

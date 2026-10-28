@@ -236,3 +236,6 @@ P56 — 28/10/2026 — Auditoria quantitativa: pipeline 5m/WFO, dados, SQLite e harn
 
 P57 — 28/10/2026 — Fase 15 monitorada: runs 40661478289 (testes), 40661478460 (Android), 40661478368 (iOS), commit 992586a, todos FAIL por CS0246 BuildFailedException em scripts Editor. Licença Personal resolvida; sem APK/Xcode. Relatório docs/PHASE_15_RUN_MONITORING.md. Próxima ação: correção de código e regressão Unity.
 
+
+P58 — 28/10/2026 — Fase 16: correção CS0246 em 3d9ab9a, static QA PASS. Run 40663615864 Unity tests ainda IN_PROGRESS; Android/iOS acionados, aprovação pendente.
+

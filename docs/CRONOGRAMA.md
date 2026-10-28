@@ -101,3 +101,6 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 
 - Fase 15 — runs 40661478289/40661478460/40661478368: FAIL. Bloqueio comum de compilação C# (BuildFailedException); licença PASS, espaço PASS. Retornar à correção de scripts antes de nova rodada.
 
+
+- Fase 16: correção CS0246 enviada em 3d9ab9a; Unity tests 40663615864 ainda IN_PROGRESS. Gate para Android/iOS permanece pendente.
+
