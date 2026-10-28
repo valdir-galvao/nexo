@@ -104,3 +104,6 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 
 - Fase 16: correção CS0246 enviada em 3d9ab9a; Unity tests 40663615864 ainda IN_PROGRESS. Gate para Android/iOS permanece pendente.
 
+
+- Fase 17: cena explícita corrigida em 74556d0; Unity tests 40665421997 IN_PROGRESS. Gate de builds pendente.
+

@@ -139,3 +139,6 @@ Atualização P58: namespace UnityEditor.Build adicionado aos scripts Editor e com
 
 Run iOS 40663615981 terminou FAIL por nenhuma cena habilitada configurada; Unity tests 40663615864 ainda estava IN_PROGRESS na última consulta.
 
+
+Atualização P59: cena principal configurada explicitamente nos scripts de build, commit 74556d0 enviado. Run Unity tests 40665421997 ainda em execução; aguardar EditMode/PlayMode antes de liberar builds.
+

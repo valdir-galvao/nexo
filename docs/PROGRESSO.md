@@ -744,3 +744,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 
 - Atualização: iOS run 40663615981 terminou FAIL por InvalidOperationException: No enabled scenes are configured; isso é um bloqueio separado e não autoriza build móvel.
 
+
+## P59 — configuração explícita da cena (Fase 17)
+
+- Data: 28/10/2026; AndroidBuild.cs e IosBuild.cs passaram a usar Assets/Scenes/NexoVerticalSlice.unity explicitamente e validar sua existência.
+- python tools/run_static_qa.py: PASS, exit 0 (json=5 cs=24).
+- Commit/push: 74556d0.
+- Novo Unity tests: run 40665421997, ainda in_progress na última consulta; não há aprovação do gate.
+- Android/iOS também foram disparados automaticamente, mas permanecem sem aprovação até os testes Unity concluírem.
+

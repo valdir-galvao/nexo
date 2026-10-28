@@ -239,3 +239,6 @@ P57 — 28/10/2026 — Fase 15 monitorada: runs 40661478289 (testes), 40661478460 (A
 
 P58 — 28/10/2026 — Fase 16: correção CS0246 em 3d9ab9a, static QA PASS. Run 40663615864 Unity tests ainda IN_PROGRESS; Android/iOS acionados, aprovação pendente.
 
+
+P59 — 28/10/2026 — Fase 17: cena explícita nos pipelines Android/iOS, static QA PASS, commit 74556d0. Run 40665421997 Unity tests IN_PROGRESS; gate não aprovado.
+
