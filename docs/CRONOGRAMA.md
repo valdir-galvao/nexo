@@ -90,3 +90,5 @@ J33 — Verificação dos Secrets após cadastro informado — Bloqueado. GitHub ainda 
 J34 — Corrigir escopo de credenciais — Bloqueado até migrar Repository variables para Repository secrets e rotacionar valores expostos.
 
 J35 — Confirmar Secrets Unity — Concluído. Três secrets presentes; remover variables duplicadas antes da execução GameCI.
+
+J36 — Primeiro GameCI com Secrets — Falhou em EditMode/PlayMode; diagnóstico detalhado bloqueado por logs inacessíveis.

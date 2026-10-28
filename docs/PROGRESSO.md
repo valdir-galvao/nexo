@@ -682,3 +682,13 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Nenhum valor foi lido ou registrado.
 - Gate de configuração de credenciais: `PASS`.
 - Próxima ação: remover variables duplicadas e executar primeiro `unity-tests.yml`; builds Android/iOS continuam dependentes do resultado dos testes.
+
+## P53 — primeiro GameCI com Secrets válidos
+
+- Data: 28/10/2026; responsável: diretor de projeto.
+- Workflow `Unity tests` disparado manualmente: run `40659354080`; duplicado `40659369480` cancelado para evitar custo.
+- Ambos os jobs iniciaram o Unity após checkout/cache: EditMode e PlayMode falharam em `Run Unity tests`.
+- Isso confirma que o bloqueio de secrets foi superado; o defeito restante está na etapa Unity/importação/testes.
+- Artefatos não contêm JUnit nem `Editor.log`; API de logs de job permanece inacessível.
+- Android/iOS não foram executados.
+- Estado: `FAIL` para testes, `BLOCKED` para diagnóstico detalhado.
