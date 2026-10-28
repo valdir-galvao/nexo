@@ -4,28 +4,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  get-license:
-    name: Request Unity cloud license
+  get-alf:
+    name: Request Unity .alf file
     runs-on: ubuntu-latest
     container:
-      # Utilize a imagem correspondente à versão do Unity que seu projeto usa (ex: 2022.3)
-      image: unityci/editor:ubuntu-2022.3.2f1-base-3
+      image: unityci/editor:ubuntu-2022.3.2f1-base-3 # Mantenha a versão do seu Unity
     steps:
-      - name: Request activation via CLI
-        env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      - name: Generate ALF file
         run: |
-          echo "Solicitando licenca na nuvem..."
-          /opt/unity/Editor/Unity -quit -batchmode -nographics -logFile /dev/stdout -username "$UNITY_EMAIL" -password "$UNITY_PASSWORD" || true
+          /opt/unity/Editor/Unity -quit -batchmode -nographics -logFile /dev/stdout -createManualActivationFile || true
           
-          LICENSE_PATH="/root/.local/share/unity3d/Unity/Unity_lic.ulf"
+          ALF_PATH=$(find / -name "*.alf" 2>/dev/null | head -n 1)
           
-          if [ -f "$LICENSE_PATH" ]; then
-            echo "=================== INICIO DO .ULF ==================="
-            cat "$LICENSE_PATH"
-            echo "==================== FIM DO .ULF ====================="
+          if [ -n "$ALF_PATH" ]; then
+            echo "=================== INICIO DO .ALF ==================="
+            cat "$ALF_PATH"
+            echo "==================== FIM DO .ALF ====================="
           else
-            echo "Erro: Arquivo de licenca nao foi gerado."
+            echo "Erro: Arquivo .alf nao foi gerado."
             exit 1
           fi
