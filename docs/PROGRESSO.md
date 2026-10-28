@@ -741,3 +741,6 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Android 40663615889 e iOS 40663615981 também foram acionados pelo push, mas não são considerados aprovados.
 - Liberação para reconstrução móvel: pendente até conclusão PASS de EditMode e PlayMode.
 
+
+- Atualização: iOS run 40663615981 terminou FAIL por InvalidOperationException: No enabled scenes are configured; isso é um bloqueio separado e não autoriza build móvel.
+
