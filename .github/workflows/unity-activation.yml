@@ -1,26 +1,26 @@
-name: Unity activation
+name: Unity Build
 
 on:
   workflow_dispatch:
 
 jobs:
-  get-alf:
-    name: Request Unity .alf file
+  build:
+    name: Build project for Android / Windows
     runs-on: ubuntu-latest
-    container:
-      image: unityci/editor:ubuntu-2022.3.2f1-base-3 # Mantenha a versão do seu Unity
     steps:
-      - name: Generate ALF file
-        run: |
-          /opt/unity/Editor/Unity -quit -batchmode -nographics -logFile /dev/stdout -createManualActivationFile || true
-          
-          ALF_PATH=$(find / -name "*.alf" 2>/dev/null | head -n 1)
-          
-          if [ -n "$ALF_PATH" ]; then
-            echo "=================== INICIO DO .ALF ==================="
-            cat "$ALF_PATH"
-            echo "==================== FIM DO .ALF ====================="
-          else
-            echo "Erro: Arquivo .alf nao foi gerado."
-            exit 1
-          fi
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # (Opcional) Passo para liberar espaço em disco no runner do GitHub, recomendado para o Unity
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@main
+
+      - name: Build project
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          # Não é necessário definir UNITY_LICENSE para este método de autenticação automática da conta Personal
+        with:
+          targetAndroid: true # Ajuste para a plataforma desejada (ex: targetStandaloneWindows64: true)
+          versioning: Semantic
