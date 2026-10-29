@@ -24,3 +24,5 @@ A limpeza e tolerante a caminhos ausentes e nao falha por arquivos opcionais ine
 ## Recomendacao
 
 A estrategia remove o gargalo observado no step de limpeza de disco. Antes de uma nova rodada GameCI, liberar billing/quota de runners privados ou configurar runner self-hosted. Depois executar smoke manual, Unity tests e somente entao Android/iOS.
+
+Fase 34: com visibilidade publica, o shell passou; Unity/Android chegaram ao GameCI mas ficaram sem progresso por mais de oito minutos e foram cancelados; iOS falhou no GameCI. Nenhum APK foi gerado. Repositorio restaurado para privado.
