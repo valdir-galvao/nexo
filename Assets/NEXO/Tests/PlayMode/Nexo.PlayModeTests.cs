@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using System.Collections;
+using System.IO;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,16 @@ namespace Nexo.Tests
 {
     public sealed class NexoPlayModeTests
     {
+        [SetUp]
+        public void ClearPersistentMissionState()
+        {
+            // Keep the bootstrap assertion deterministic across EditMode/PlayMode
+            // jobs and repeated CI runs. This touches only the test save files.
+            string root = Application.persistentDataPath;
+            File.Delete(Path.Combine(root, "nexo-save.json"));
+            File.Delete(Path.Combine(root, "nexo-save.json.bak"));
+            File.Delete(Path.Combine(root, "nexo-save.json.tmp"));
+        }
         // NUnit categories cannot contain '-' in Unity's test runner. Keep the
         // stable K005 identifier and map it to requirement K-005 in reports.
         [UnityTest, Category("K005")]
