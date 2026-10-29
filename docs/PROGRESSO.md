@@ -864,3 +864,11 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Android `40822563109`: ainda `in_progress` na última consulta, sem artefato confirmado.
 - iOS `40822563115`: FAIL, apenas diagnóstico.
 - Gate: **FAIL**; APK não disponível.
+## P74 — adaptação bootstrap/K-005 Fase 31
+
+- Data: 29/10/2026; teste PlayMode recebeu espera de 0,5 s, `FindFirstObjectByType` com fallback de instanciação e categoria `K-005`.
+- `python tools/run_static_qa.py`: PASS, exit 0.
+- Commit/push: `41596d2`.
+- Run Unity tests `40824140558` terminou FAIL em ~3 s; jobs EditMode/PlayMode não chegaram a iniciar steps e a API retornou BlobNotFound para logs. Não há XML NUnit nem evidência K-005.
+- Android `40824141095` e iOS `40824140545` também terminaram FAIL; nenhum APK/Xcode confirmado.
+- Gate: FAIL/BLOCKED por execução sem steps e logs indisponíveis.

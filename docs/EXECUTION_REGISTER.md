@@ -272,3 +272,5 @@ P71 — 29/10/2026 — Fase 29: BUILD_SCENES/buildScenes estático nos três workflows
 P72 — 29/10/2026 — Fase 30: run 40822563212 ainda IN_PROGRESS; Android 40822563109 IN_PROGRESS; iOS 40822563115 FAIL. Sem conclusão de PlayMode/K-005 ou APK.
 
 P73 — 29/10/2026 — Fase 30 encerrada: EditMode 16/16, PlayMode 0/1 (cena carregou, bootstrap nulo), K-005 NOT_RUN. Android ainda IN_PROGRESS; iOS FAIL. Sem APK.
+
+P74 — 29/10/2026 — Fase 31: teste async/FindFirst/K-005 enviado em 41596d2; run 40824140558 FAIL sem steps/logs (BlobNotFound), K-005 NOT_RUN. Android/iOS FAIL sem artefatos.

@@ -172,3 +172,5 @@ Atualização P71: configuração estática BUILD_SCENES/uildScenes adicionada e Ens
 Atualização P72: Fase 30 ainda em execução; consultar 40822563212 antes de classificar gate. iOS falhou; APK não confirmado.
 
 Atualização P73: GameCI carregou a cena por caminho, mas bootstrap ficou nulo no PlayMode; ajustar espera/instanciação antes de novo gate. EditMode 16/16; K-005 pendente; APK não confirmado.
+
+Atualização P74: Fase 31 enviada, mas run 40824140558 falhou antes de iniciar steps; logs BlobNotFound. Não há evidência K-005 ou builds.

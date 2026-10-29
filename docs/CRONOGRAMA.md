@@ -137,3 +137,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 - Fase 30: IN_PROGRESS; Unity tests e Android ativos, iOS FAIL. Gate pendente.
 
 - Fase 30: FAIL. Cena carregada mas bootstrap nulo no PlayMode; Android ainda ativo e iOS falhou; K-005 pendente.
+
+- Fase 31: FAIL/BLOCKED. Run falhou sem steps/logs após push; K-005 e builds não validados.
