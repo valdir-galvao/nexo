@@ -295,3 +295,6 @@ P82 - 29/10/2026 America/Sao_Paulo - Auditoria profunda dos logs: GameCI CLI fix
 P83 - 29/10/2026 - Teste publico controlado: run 40828275631 FAIL em PlayMode por categoria NUnit K-005 invalida; EditMode passou 16/16. Android/iOS em andamento.
 P84 - 29/10/2026 - Commits 148fd33 e c9746a8 corrigiram categoria e isolamento de save. Run 40829558218 PASS (EditMode 16/16; PlayMode 1/1; K005). Android 40829558400 FAIL por colisao build/Android/Android; iOS 40829558264 FAIL apos gerar Xcode, na validacao GameCI.
 P85 - 29/10/2026 - Commit b4713f2 normalizou BUILD_PATH Android. Run 40830355578 PASS (16/16 + 1/1 K005). Android 40830355608 cancelado por permanecer em Build Android sem concluir; nenhum APK. iOS 40830355598 gerou projeto Xcode, mas GameCI classificou FAIL na validacao pos-build. Repositorio restaurado privado e confirmado; nenhum segredo exposto.
+
+
+P86 - 29/10/2026 - Ajustes locais: cache actions/cache v4 documentado e configurado com chaves estaveis; `buildName: Nexo` adicionado aos builders; iOS usa `AcceptExternalModificationsToPlayer` para export sem assinatura. `python tools/run_static_qa.py` PASS (json=5, cs=24), YAML PASS e diff check PASS. Push nao executado.

@@ -36,18 +36,28 @@ jobs:
       - name: Prepare Unity log directory
         run: mkdir -p diagnostics
 
+      - name: Cache Unity iOS project
+        uses: actions/cache@v4
+        with:
+          path: |
+            Library
+            ~/Library/Unity
+          key: ios-cache-${{ runner.os }}-${{ env.UNITY_VERSION }}-${{ hashFiles('Packages/packages-lock.json', 'ProjectSettings/ProjectVersion.txt') }}
+          restore-keys: |
+            ios-cache-${{ runner.os }}-${{ env.UNITY_VERSION }}-
+
       - name: Build unsigned iOS Xcode project
         uses: game-ci/unity-builder@v6
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          BUILD_PATH: build/iOS
         with:
           projectPath: .
           unityVersion: ${{ env.UNITY_VERSION }}
           cliVersion: v0.1.72
           gitPrivateToken: ${{ github.token }}
           targetPlatform: iOS
+          buildName: Nexo
           buildMethod: Nexo.Editor.Build.IosBuild.PerformBuild
           customParameters: -logFile /github/workspace/diagnostics/unity-editor.log
           buildsPath: build/iOS

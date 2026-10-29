@@ -174,3 +174,6 @@ Atualização P74: Fase 31 enviada, mas run 40824140558 falhou antes de iniciar st
 
 
 Atualizacao P85: rodada publica encerrada e repositorio confirmado privado. Testes Unity PASS no commit b4713f2 (run 40830355578; EditMode 16/16, PlayMode 1/1, K005). Nenhum APK disponivel: Android 40830355608 cancelado apos Build Android sem artefato. iOS 40830355598 gerou Xcode em build/iOS/iOS, mas o GameCI falhou na validacao pos-build. Proxima acao: corrigir contrato de saida/validacao do builder iOS e executar Android em runner com tempo suficiente, mantendo repositorio privado.
+
+
+Atualizacao P86: workflows Android/iOS ajustados localmente com cache actions/cache v4, `buildName: Nexo` e export iOS sem assinatura (`AcceptExternalModificationsToPlayer`). Validacoes locais PASS. Nao houve push nem novos runs; repositorio permanece privado. Proxima acao: revisar diff, fazer push autorizado e monitorar Android/iOS.

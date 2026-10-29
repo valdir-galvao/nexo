@@ -158,3 +158,6 @@ P82 - 29/10/2026 America/Sao_Paulo - Auditoria profunda dos logs: GameCI CLI fix
 
 
 J30 - Fase publica controlada: Unity tests PASS no run 40830355578 (EditMode 16/16, PlayMode 1/1 K005). Android bloqueado por build longa/cancelada no run 40830355608; iOS bloqueado por validacao GameCI pos-export no run 40830355598. Repositorio restaurado privado.
+
+
+J31 - Otimizacao de builds: cache Unity/Library e nomes de build estaveis configurados localmente; export iOS sem assinatura explicita. Aguardando push e novo teste controlado com repositorio privado.

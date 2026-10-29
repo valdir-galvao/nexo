@@ -18,7 +18,13 @@ namespace Nexo.Editor.Build
             var scenes = new[] { scenePath };
             PlayerSettings.bundleVersion = "1.0.0";
             PlayerSettings.iOS.buildNumber = "1";
-            var report = BuildPipeline.BuildPlayer(scenes, output, BuildTarget.iOS, BuildOptions.None);
+            // Export the Xcode project only. Signing and archiving are separate
+            // Apple/Xcode steps and are intentionally absent from this CI job.
+            var report = BuildPipeline.BuildPlayer(
+                scenes,
+                output,
+                BuildTarget.iOS,
+                BuildOptions.AcceptExternalModificationsToPlayer);
             if (report.summary.result != BuildResult.Succeeded)
                 throw new BuildFailedException($"iOS build failed: {report.summary.result}");
         }
