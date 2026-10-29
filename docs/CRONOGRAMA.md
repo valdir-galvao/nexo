@@ -113,3 +113,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 
 - Fase 19: PlayerSettings iOS corrigido e enviado; Unity tests 40667016837 IN_PROGRESS. Gate pendente.
 
+
+- Fase 20: FAIL. Corrigir acesso/versão do GameCI CLI e ctiveInputHandler; K-005 ainda NOT_RUN; builds móveis sem artefatos aprovados.

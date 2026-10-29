@@ -148,3 +148,5 @@ Atualização P60: Unity tests 40665421997 ainda IN_PROGRESS. iOS 40665421999 falh
 
 Atualização P61: versão iOS corrigida em bca64a; run Unity tests 40667016837 ainda IN_PROGRESS. Aguardar resultado formal de EditMode/PlayMode.
 
+
+Atualização P62: gate 40667016837 FAIL. EditMode não executou por 403 do GameCI CLI; PlayMode reprovou por ctiveInputHandler = -1; K-005 não executado. Android/iOS sem APK/Xcode final. Consultar docs/PHASE_20_FINAL_GATE.md.

@@ -248,3 +248,5 @@ P60 — 28/10/2026 — Fase 18: gate Unity tests 40665421997 IN_PROGRESS; iOS 406654
 
 P61 — 28/10/2026 — Fase 19: bundleVersion/buildNumber iOS válidos em bca64a, static QA PASS. Unity tests 40667016837 IN_PROGRESS; K-005 e builds não aprovados.
 
+
+P62 — 29/10/2026 — Fase 20: 40667016837 FAIL; EditMode bloqueado por CLI 403, PlayMode 0/1, K-005 NOT_RUN. Android/iOS FAIL sem artefatos finais. Relatório docs/PHASE_20_FINAL_GATE.md.

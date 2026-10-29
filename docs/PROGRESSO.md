@@ -768,3 +768,11 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Commit/push: `abca64a`.
 - Novo Unity tests `40667016837` permanece `in_progress`; EditMode/PlayMode ainda sem resultado formal.
 - Nenhuma aprovação K-005 ou liberação móvel pode ser declarada enquanto o gate estiver ativo.
+## P62 — confirmação final do gate e builds
+
+- Data: 29/10/2026; run Unity tests `40667016837` terminou FAIL.
+- EditMode falhou antes de descobrir testes por erro 403 ao resolver o GameCI CLI; pass rate não calculável.
+- PlayMode executou 1 teste e reprovou 1 (`activeInputHandler = -1`); pass rate 0%.
+- K-005 não foi executado neste run.
+- Android `40667016637` e iOS `40667016611` terminaram FAIL; nenhum APK, `BUILD_METADATA.txt` de build ou exportação Xcode final disponível.
+- Relatório: `docs/PHASE_20_FINAL_GATE.md`. Gate global: FAIL.
