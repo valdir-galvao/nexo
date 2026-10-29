@@ -133,3 +133,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 - Fase 28: FAIL. BuildProfile não aplicado ao perfil efetivo do runner; K-005 pendente; Android/iOS sem artefatos.
 
 - Fase 29: configuração estática GameCI/Unity 6 enviada em 930945a; testes/builds IN_PROGRESS.
+
+- Fase 30: IN_PROGRESS; Unity tests e Android ativos, iOS FAIL. Gate pendente.

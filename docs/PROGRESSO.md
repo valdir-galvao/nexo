@@ -850,3 +850,8 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Commit/push: `930945a`.
 - Novos runs: Unity tests `40822563212`, Android `40822563109`, iOS `40822563115`; todos `in_progress` na última consulta.
 - Gate e artefatos ainda pendentes.
+## P72 — auditoria Fase 30 (em andamento)
+
+- Data: 29/10/2026; Unity tests `40822563212` ainda `in_progress` na última consulta, com EditMode/PlayMode no passo Run Unity tests.
+- Android `40822563109` ainda `in_progress`; iOS `40822563115` terminou FAIL.
+- Nenhum resultado NUnit final, K-005 ou artefato APK pode ser declarado enquanto o run de testes não encerrar.
