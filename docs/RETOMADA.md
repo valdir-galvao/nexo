@@ -158,3 +158,5 @@ Atualização P64: ctiveInputHandler: 0 removeu o erro anterior. PlayMode agora f
 Atualização P65: EnsureBuildScenes garante NexoVerticalSlice no EditorBuildSettings em CI; commit 3ecbbe0. Novo run 40815968590 ainda IN_PROGRESS.
 
 Atualização P66: EditMode executou 16/16, mas job falhou ao criar Check Run. PlayMode ainda não carrega cena pelo active build profile apesar de EnsureBuildScenes. K-005 NOT_RUN; Android sem APK confirmado.
+
+Atualização P67: workflow ganhou checks/statuses write e teste PlayMode injeta cena no SetUp; commit 196920d. Novo run 40817889017 ainda IN_PROGRESS.

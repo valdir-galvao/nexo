@@ -808,3 +808,11 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Android `40815968420`: ainda `in_progress` na última consulta; nenhum APK confirmado.
 - iOS `40815968435`: FAIL, somente diagnóstico; nenhum Xcode final.
 - Gate: **FAIL**. Não há APK para download.
+## P67 — permissões CI e injeção de cena PlayMode (Fase 25)
+
+- Data: 29/10/2026; workflow `unity-tests.yml` recebeu `contents: read`, `checks: write`, `statuses: write`.
+- `NexoPlayModeTests` recebeu `[SetUp]` editor-only para registrar `NexoVerticalSlice.unity` habilitada antes do carregamento.
+- `python tools/run_static_qa.py`: PASS, exit 0.
+- Commit/push: `196920d`.
+- Novo Unity tests: `40817889017`, ainda `in_progress` (EditMode/PlayMode em preparação).
+- Android `40817889158` e iOS `40817889035` foram acionados; gate permanece pendente.
