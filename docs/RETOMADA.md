@@ -1,5 +1,5 @@
 Ultima atualizacao: 29/10/2026 America/Sao_Paulo.
-Ultimo passo concluido: P75 Fase 32; caches Library removidos e runs novos falharam antes dos steps.
+Ultimo passo concluido: P76; smoke runner sem Unity falhou antes dos steps, confirmando bloqueio externo do GitHub-hosted runner.
 Tarefa de jogo em execucao: nenhuma.
 
 ## Como retomar
