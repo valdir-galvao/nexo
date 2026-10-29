@@ -20,6 +20,7 @@ permissions:
 
 env:
   UNITY_VERSION: 6000.3.0f1
+  BUILD_SCENES: Assets/Scenes/NexoVerticalSlice.unity
 
 jobs:
   unity-tests:
@@ -69,6 +70,7 @@ jobs:
         with:
           projectPath: .
           unityVersion: ${{ env.UNITY_VERSION }}
+          buildScenes: ${{ env.BUILD_SCENES }}
           testMode: ${{ matrix.testMode }}
           artifactsPath: test-results/${{ matrix.testMode }}
           customParameters: -logFile /github/workspace/diagnostics/${{ matrix.testMode }}/unity-editor.log

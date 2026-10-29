@@ -10,6 +10,7 @@ permissions:
 
 env:
   UNITY_VERSION: 6000.3.0f1
+  BUILD_SCENES: Assets/Scenes/NexoVerticalSlice.unity
 
 jobs:
   ios:
@@ -47,6 +48,7 @@ jobs:
         with:
           projectPath: .
           unityVersion: ${{ env.UNITY_VERSION }}
+          buildScenes: ${{ env.BUILD_SCENES }}
           targetPlatform: iOS
           buildMethod: Nexo.Editor.Build.IosBuild.PerformBuild
           customParameters: -logFile /github/workspace/diagnostics/unity-editor.log

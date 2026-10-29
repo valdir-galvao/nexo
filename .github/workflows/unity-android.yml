@@ -10,6 +10,7 @@ permissions:
 
 env:
   UNITY_VERSION: 6000.3.0f1
+  BUILD_SCENES: Assets/Scenes/NexoVerticalSlice.unity
 
 jobs:
   android:
@@ -56,6 +57,7 @@ jobs:
         with:
           projectPath: .
           unityVersion: ${{ env.UNITY_VERSION }}
+          buildScenes: ${{ env.BUILD_SCENES }}
           targetPlatform: Android
           buildMethod: Nexo.Editor.Build.AndroidBuild.PerformBuild
           customParameters: -logFile /github/workspace/diagnostics/unity-editor.log
