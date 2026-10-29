@@ -59,6 +59,8 @@ jobs:
         with:
           projectPath: .
           unityVersion: ${{ env.UNITY_VERSION }}
+          cliVersion: v0.1.72
+          gitPrivateToken: ${{ github.token }}
           buildScenes: ${{ env.BUILD_SCENES }}
           testMode: ${{ matrix.testMode }}
           artifactsPath: test-results/${{ matrix.testMode }}

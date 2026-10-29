@@ -46,6 +46,8 @@ jobs:
         with:
           projectPath: .
           unityVersion: ${{ env.UNITY_VERSION }}
+          cliVersion: v0.1.72
+          gitPrivateToken: ${{ github.token }}
           buildScenes: ${{ env.BUILD_SCENES }}
           targetPlatform: Android
           buildMethod: Nexo.Editor.Build.AndroidBuild.PerformBuild

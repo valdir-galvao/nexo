@@ -1,5 +1,5 @@
 Ultima atualizacao: 29/10/2026 America/Sao_Paulo.
-Ultimo passo concluido: P79; teste publico executado, shell PASS, GameCI Unity/Android sem progresso e iOS FAIL; repositorio restaurado para privado.
+Ultimo passo concluido: P80; causa iOS identificada como consulta anonima do GameCI CLI (HTTP 403); CLI fixado em v0.1.72 nos workflows.
 Tarefa de jogo em execucao: nenhuma.
 
 ## Como retomar
