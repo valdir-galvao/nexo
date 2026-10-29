@@ -16,3 +16,5 @@ gitPrivateToken: ${{ github.token }}
 A versao `v0.1.72` existe no repositorio oficial `game-ci/cli`. O token nativo do workflow evita acesso anonimo ao GitHub quando a action precisar consultar o repositorio.
 
 Validacao local: YAML PASS; `python tools/run_static_qa.py` PASS (`json=5`, `cs=24`); `git diff --check` PASS.
+
+Validacao remota P81: iOS passou pela fase de resolucao do CLI e entrou no GameCI apos a correcao; o erro 403 nao reapareceu. A execucao foi cancelada por falta de progresso prolongada antes de artefato.

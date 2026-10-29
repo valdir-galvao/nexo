@@ -1,5 +1,5 @@
 Ultima atualizacao: 29/10/2026 America/Sao_Paulo.
-Ultimo passo concluido: P80; causa iOS identificada como consulta anonima do GameCI CLI (HTTP 403); CLI fixado em v0.1.72 nos workflows.
+Ultimo passo concluido: P81; 403 do GameCI CLI corrigido com CLI fixado/token; rodada entrou no Unity mas foi cancelada por falta de progresso; repositorio privado.
 Tarefa de jogo em execucao: nenhuma.
 
 ## Como retomar
