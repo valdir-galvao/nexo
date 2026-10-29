@@ -146,3 +146,5 @@ Atualizacao P88: causa raiz confirmada no contrato de validacao GameCI e no cras
 Atualizacao P89: CLI rejeitou noCoverageEnabled antes do Unity; input removido e causa documentada.
 
 Atualizacao P90: causa iOS confirmada como BuildOptions.AcceptExternalModificationsToPlayer em projeto inexistente; alterado para BuildOptions.None.
+
+Atualizacao P91: candidato tecnico aprovado para testes privados; APK e Xcode preservados localmente, repositorio privado.

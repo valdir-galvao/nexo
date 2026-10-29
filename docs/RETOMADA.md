@@ -186,3 +186,5 @@ Atualizacao P88: corrigidos marcador Build succeeded!, Code Coverage PlayMode, c
 Atualizacao P89: removido coverageEnabled incompatível com CLI v0.1.72; aguardar builds publicas da rodada atual e repetir testes depois do push.
 
 Atualizacao P90: iOS corrigido para BuildOptions.None; aguardar push e nova build. Android da rodada 40845528603 ainda em execucao.
+
+Atualizacao P91: testes PASS e APK/Xcode baixados; repositorio privado confirmado. Proxima acao: validar APK em dispositivo/emulador e manter sem publicacao.

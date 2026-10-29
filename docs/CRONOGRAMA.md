@@ -170,3 +170,5 @@ J33 - Fase 38: correcoes de marcador GameCI, Code Coverage headless, cache e upl
 J34 - Fase 38b: corrigir argumento coverageEnabled incompatível e aguardar rodada publica.
 
 J35 - Fase 38c: corrigir exportacao iOS append-only e repetir build.
+
+J36 - Fase 38 concluida tecnicamente: Unity tests, Android APK e iOS Xcode PASS; QA fisico pendente.
