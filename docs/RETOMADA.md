@@ -156,3 +156,5 @@ Atualização P63: ctiveInputHandler: 0 configurado para batchmode no commit 5f7a
 Atualização P64: ctiveInputHandler: 0 removeu o erro anterior. PlayMode agora falha porque NexoVerticalSlice não está na lista de cenas ativa/compartilhada; EditMode continua bloqueado por CLI 403. K-005 não executado.
 
 Atualização P65: EnsureBuildScenes garante NexoVerticalSlice no EditorBuildSettings em CI; commit 3ecbbe0. Novo run 40815968590 ainda IN_PROGRESS.
+
+Atualização P66: EditMode executou 16/16, mas job falhou ao criar Check Run. PlayMode ainda não carrega cena pelo active build profile apesar de EnsureBuildScenes. K-005 NOT_RUN; Android sem APK confirmado.

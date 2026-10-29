@@ -121,3 +121,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 - Fase 22: FAIL. Corrigir inclusão da cena no perfil/lista de build e resolver CLI 403 antes de novo gate; builds ainda sem artefatos.
 
 - Fase 23: garantia programática da cena enviada em 3ecbbe0; Unity tests 40815968590 IN_PROGRESS.
+
+- Fase 24: FAIL. CLI 403 superado; EditMode 16/16 mas integração Checks falhou; PlayMode 0/1 por active build profile; K-005 pendente; APK não confirmado.

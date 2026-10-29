@@ -799,3 +799,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Commit/push: `3ecbbe0`.
 - Novo Unity tests: run `40815968590`, `in_progress` na última consulta; EditMode/PlayMode ainda sem conclusão.
 - Android `40815968420` e iOS `40815968435` foram acionados; não há aprovação enquanto o gate permanecer ativo.
+## P66 — auditoria Fase 24
+
+- Data: 29/10/2026; run Unity tests `40815968590` terminou **FAIL**.
+- EditMode: os testes NUnit foram executados e o relatório mostra `16/16` aprovados; o job ficou FAIL por `Resource not accessible by integration` ao criar o Check Run, não por HTTP 403 do GameCI CLI. Portanto o workflow não é PASS formal.
+- PlayMode: `0/1`; `VerticalSliceSceneInitializesIntoIntro` continua falhando porque `NexoVerticalSlice` não está no active build profile/shared scene list. `EnsureBuildScenes` não resolveu a lista usada pelo runner.
+- K-005: sem teste dedicado/evidência formal neste run; **NOT_RUN**.
+- Android `40815968420`: ainda `in_progress` na última consulta; nenhum APK confirmado.
+- iOS `40815968435`: FAIL, somente diagnóstico; nenhum Xcode final.
+- Gate: **FAIL**. Não há APK para download.
