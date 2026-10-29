@@ -1,5 +1,5 @@
 Ultima atualizacao: 29/10/2026 America/Sao_Paulo.
-Ultimo passo concluido: P77; teste publico confirmou runner, repositorio restaurado para privado; Unity/Android cancelados no free-disk e iOS falhou no GameCI.
+Ultimo passo concluido: P78; free-disk-space substituido por limpeza shell leve; validacao local PASS; commit local sem push.
 Tarefa de jogo em execucao: nenhuma.
 
 ## Como retomar

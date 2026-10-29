@@ -17,6 +17,13 @@ jobs:
     name: Build iOS Xcode project
     runs-on: macos-latest
     steps:
+      - name: Free Disk Space (Lightweight Shell)
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo rm -rf /usr/share/dotnet /torch /usr/local/lib/android/sdk/sample-data 2>/dev/null || true
+          df -h
+
       - name: Checkout with LFS
         uses: actions/checkout@v4
         with:
