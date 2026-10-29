@@ -125,3 +125,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 - Fase 24: FAIL. CLI 403 superado; EditMode 16/16 mas integração Checks falhou; PlayMode 0/1 por active build profile; K-005 pendente; APK não confirmado.
 
 - Fase 25: permissões e injeção de cena enviadas em 196920d; Unity tests 40817889017 IN_PROGRESS.
+
+- Fase 26: FAIL. Resolver active build profile Unity 6 e criar teste/evidência K-005; Android/iOS sem artefatos aprovados.

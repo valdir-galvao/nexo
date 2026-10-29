@@ -260,3 +260,5 @@ P65 — 29/10/2026 — Fase 23: cena já habilitada no asset; adicionada garantia pro
 P66 — 29/10/2026 — Fase 24: EditMode 16/16 passou, mas job FAIL por integração Checks API; CLI 403 superado. PlayMode 0/1 por cena fora do active build profile; K-005 NOT_RUN. Android IN_PROGRESS sem APK; iOS FAIL sem Xcode.
 
 P67 — 29/10/2026 — Fase 25: permissões checks/statuses adicionadas e cena injetada no SetUp PlayMode, commit 196920d, static QA PASS. Unity tests 40817889017 IN_PROGRESS.
+
+P68 — 29/10/2026 — Fase 26: EditMode 16/16, porém workflow FAIL; PlayMode 0/1 por active build profile; K-005 NOT_RUN. Android FAIL sem APK/metadata; iOS FAIL sem Xcode.

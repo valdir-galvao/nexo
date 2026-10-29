@@ -160,3 +160,5 @@ Atualização P65: EnsureBuildScenes garante NexoVerticalSlice no EditorBuildSetti
 Atualização P66: EditMode executou 16/16, mas job falhou ao criar Check Run. PlayMode ainda não carrega cena pelo active build profile apesar de EnsureBuildScenes. K-005 NOT_RUN; Android sem APK confirmado.
 
 Atualização P67: workflow ganhou checks/statuses write e teste PlayMode injeta cena no SetUp; commit 196920d. Novo run 40817889017 ainda IN_PROGRESS.
+
+Atualização P68: Fase 26 FAIL. EditMode passou 16/16 mas runner não fechou PASS; PlayMode continua sem carregar cena no perfil Unity 6; K-005 não testado; Android sem APK.

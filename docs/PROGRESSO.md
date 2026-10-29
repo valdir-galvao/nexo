@@ -816,3 +816,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Commit/push: `196920d`.
 - Novo Unity tests: `40817889017`, ainda `in_progress` (EditMode/PlayMode em preparação).
 - Android `40817889158` e iOS `40817889035` foram acionados; gate permanece pendente.
+## P68 — auditoria final Fase 26
+
+- Data: 29/10/2026; run `40817889017` terminou **FAIL**.
+- EditMode: Unity/NUnit executou `16/16` com sucesso. O job ainda terminou FAIL por código de saída do runner/integração, apesar do relatório de testes aprovado; não há PASS formal do workflow.
+- PlayMode: `VerticalSliceSceneInitializesIntoIntro` reprovou (`0/1`); a cena ainda não é reconhecida pelo active build profile/shared scene list. A injeção no SetUp não resolveu a limitação do perfil Unity 6.
+- K-005: **NOT_RUN**; não existe evidência de teste dedicado no workflow.
+- Android `40817889158`: **FAIL**, somente diagnóstico de 146 bytes; sem `Nexo.apk` e sem `BUILD_METADATA.txt` de build.
+- iOS `40817889035`: **FAIL**, sem exportação Xcode aprovada.
+- Gate: **FAIL**; não há APK para download.
