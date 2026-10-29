@@ -144,3 +144,5 @@ Atualizacao P87: janela publica da Fase 37 concluida e privacidade restaurada. C
 Atualizacao P88: causa raiz confirmada no contrato de validacao GameCI e no crash de Code Coverage Unity 6; correcoes locais aplicadas e static QA PASS. Nenhuma build nova declarada antes de execucao remota.
 
 Atualizacao P89: CLI rejeitou noCoverageEnabled antes do Unity; input removido e causa documentada.
+
+Atualizacao P90: causa iOS confirmada como BuildOptions.AcceptExternalModificationsToPlayer em projeto inexistente; alterado para BuildOptions.None.

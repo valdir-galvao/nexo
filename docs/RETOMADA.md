@@ -184,3 +184,5 @@ Atualizacao P87: repositorio restaurado privado apos runs 40842677684/4084267771
 Atualizacao P88: corrigidos marcador Build succeeded!, Code Coverage PlayMode, cache Library e uploads always. Proxima acao: commit/push, executar testes e builds em janela autorizada, baixar artefatos e confirmar privacidade.
 
 Atualizacao P89: removido coverageEnabled incompatível com CLI v0.1.72; aguardar builds publicas da rodada atual e repetir testes depois do push.
+
+Atualizacao P90: iOS corrigido para BuildOptions.None; aguardar push e nova build. Android da rodada 40845528603 ainda em execucao.

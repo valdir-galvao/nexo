@@ -168,3 +168,5 @@ J32 - Fase 37 encerrada: cache executado; APK gerado no workspace do runner mas 
 J33 - Fase 38: correcoes de marcador GameCI, Code Coverage headless, cache e upload; validacao local PASS; aguardar push/build controlado.
 
 J34 - Fase 38b: corrigir argumento coverageEnabled incompatível e aguardar rodada publica.
+
+J35 - Fase 38c: corrigir exportacao iOS append-only e repetir build.
