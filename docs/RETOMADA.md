@@ -154,3 +154,5 @@ Atualização P62: gate 40667016837 FAIL. EditMode não executou por 403 do GameCI 
 Atualização P63: ctiveInputHandler: 0 configurado para batchmode no commit 5f7adbb. Run Unity tests 40814474545 ainda IN_PROGRESS; aguardar resultado.
 
 Atualização P64: ctiveInputHandler: 0 removeu o erro anterior. PlayMode agora falha porque NexoVerticalSlice não está na lista de cenas ativa/compartilhada; EditMode continua bloqueado por CLI 403. K-005 não executado.
+
+Atualização P65: EnsureBuildScenes garante NexoVerticalSlice no EditorBuildSettings em CI; commit 3ecbbe0. Novo run 40815968590 ainda IN_PROGRESS.

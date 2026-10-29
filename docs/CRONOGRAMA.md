@@ -119,3 +119,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 - Fase 21: Input System headless ajustado (5f7adbb); Unity tests 40814474545 IN_PROGRESS. Gate pendente.
 
 - Fase 22: FAIL. Corrigir inclusão da cena no perfil/lista de build e resolver CLI 403 antes de novo gate; builds ainda sem artefatos.
+
+- Fase 23: garantia programática da cena enviada em 3ecbbe0; Unity tests 40815968590 IN_PROGRESS.

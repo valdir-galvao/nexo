@@ -254,3 +254,5 @@ P62 — 29/10/2026 — Fase 20: 40667016837 FAIL; EditMode bloqueado por CLI 403, Pl
 P63 — 29/10/2026 — Fase 21: activeInputHandler definido como 0, static QA PASS, push 5f7adbb. Run 40814474545 IN_PROGRESS; builds móveis não aprovados.
 
 P64 — 29/10/2026 — Fase 22: run 40814474545 FAIL; InputSystem -1 resolvido, mas PlayMode falhou porque cena não está no perfil/lista ativa. EditMode falhou por CLI 403; K-005 NOT_RUN. Android/iOS ainda IN_PROGRESS sem artefatos.
+
+P65 — 29/10/2026 — Fase 23: cena já habilitada no asset; adicionada garantia programática EnsureBuildScenes, commit 3ecbbe0, static QA PASS. Unity tests 40815968590 IN_PROGRESS; builds pendentes.

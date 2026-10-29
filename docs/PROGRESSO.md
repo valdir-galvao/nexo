@@ -792,3 +792,10 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Android `40814474532` e iOS `40814474576` permaneciam `in_progress` na última consulta; nenhum artefato final confirmado.
 - Não há APK `Nexo.apk` nem `BUILD_METADATA.txt` de build disponível.
 - Gate: **FAIL**.
+## P65 — registro programático da cena e novo disparo (Fase 23)
+
+- Data: 29/10/2026; `EditorBuildSettings.asset` já continha a cena habilitada e o commit adicionou `EnsureBuildScenes` com `[InitializeOnLoad]` para garantir a entrada em sessões do Editor/CI.
+- `python tools/run_static_qa.py`: PASS, exit 0.
+- Commit/push: `3ecbbe0`.
+- Novo Unity tests: run `40815968590`, `in_progress` na última consulta; EditMode/PlayMode ainda sem conclusão.
+- Android `40815968420` e iOS `40815968435` foram acionados; não há aprovação enquanto o gate permanecer ativo.
