@@ -11,3 +11,5 @@ Runs do push: 40824551082 Unity tests FAIL; 40824551010 Android FAIL; 4082455099
 Resultado: correcao de configuracao PASS; validacao operacional BLOCKED por falha de inicializacao/log do runner.
 
 Investigacao adicional: o runner smoke `40825064094` / job `123286108200`, sem Unity e em `ubuntu-22.04`, falhou em 3 s com zero steps e runner_name vazio. A causa primaria e externa ao repositorio: provisionamento, quota/billing ou politica do GitHub Actions.
+
+Teste controlado P77: repositorio publico permitiu smoke PASS (`40825528099`). Unity `40825567214` e Android `40825569992` provisionaram runners, mas travaram em `Free runner disk space` e foram cancelados. iOS `40825572493` passou por checkout/verificacao e falhou no GameCI. O repositorio foi restaurado para privado.
