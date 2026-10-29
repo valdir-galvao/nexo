@@ -1,0 +1,29 @@
+﻿name: CI runner health check
+
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: Runner label to validate
+        required: false
+        default: ubuntu-22.04
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Runner smoke test
+    runs-on: ${{ inputs.runner || 'ubuntu-22.04' }}
+    timeout-minutes: 5
+    steps:
+      - name: Inspect runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "runner=${RUNNER_NAME}"
+          echo "os=${RUNNER_OS}"
+          uname -a
+          df -h /
+          git --version
