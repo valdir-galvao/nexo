@@ -39,7 +39,6 @@ jobs:
       - name: Build unsigned iOS Xcode project
         uses: game-ci/unity-builder@v6
         env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           BUILD_PATH: build/iOS
@@ -48,7 +47,6 @@ jobs:
           unityVersion: ${{ env.UNITY_VERSION }}
           cliVersion: v0.1.72
           gitPrivateToken: ${{ github.token }}
-          buildScenes: ${{ env.BUILD_SCENES }}
           targetPlatform: iOS
           buildMethod: Nexo.Editor.Build.IosBuild.PerformBuild
           customParameters: -logFile /github/workspace/diagnostics/unity-editor.log
@@ -66,6 +64,8 @@ jobs:
 
       - name: Write build metadata
         run: |
+          sudo chown -R "$(id -u):$(id -g)" build diagnostics 2>/dev/null || true
+          mkdir -p build/iOS
           printf 'platform=iOS-Xcode\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/iOS/BUILD_METADATA.txt
 
       - name: Upload Xcode project

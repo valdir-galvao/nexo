@@ -18,3 +18,5 @@ A versao `v0.1.72` existe no repositorio oficial `game-ci/cli`. O token nativo d
 Validacao local: YAML PASS; `python tools/run_static_qa.py` PASS (`json=5`, `cs=24`); `git diff --check` PASS.
 
 Validacao remota P81: iOS passou pela fase de resolucao do CLI e entrou no GameCI apos a correcao; o erro 403 nao reapareceu. A execucao foi cancelada por falta de progresso prolongada antes de artefato.
+
+Auditoria P82: logs mostraram ativacao por conta bem-sucedida apos rejeicao do ULF vinculado a outra maquina. O input buildScenes foi rejeitado pela action v6 e ownership root causava falha secundaria de metadata. Esses pontos foram corrigidos nos workflows.

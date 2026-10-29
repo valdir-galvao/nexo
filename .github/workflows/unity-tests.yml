@@ -53,7 +53,6 @@ jobs:
       - name: Run Unity tests
         uses: game-ci/unity-test-runner@v4
         env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
@@ -61,7 +60,6 @@ jobs:
           unityVersion: ${{ env.UNITY_VERSION }}
           cliVersion: v0.1.72
           gitPrivateToken: ${{ github.token }}
-          buildScenes: ${{ env.BUILD_SCENES }}
           testMode: ${{ matrix.testMode }}
           artifactsPath: test-results/${{ matrix.testMode }}
           customParameters: -logFile /github/workspace/diagnostics/${{ matrix.testMode }}/unity-editor.log
@@ -85,6 +83,7 @@ jobs:
       - name: Write test metadata
         if: always()
         run: |
+          sudo chown -R "$(id -u):$(id -g)" test-results diagnostics 2>/dev/null || true
           mkdir -p test-results
           mkdir -p "test-results/${{ matrix.testMode }}"
           printf 'platform=%s\nunity=%s\ncommit=%s\nrun_id=%s\n' "${{ matrix.testMode }}" "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > "test-results/${{ matrix.testMode }}/BUILD_METADATA.txt"
