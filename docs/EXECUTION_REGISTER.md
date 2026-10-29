@@ -274,3 +274,5 @@ P72 — 29/10/2026 — Fase 30: run 40822563212 ainda IN_PROGRESS; Android 408225631
 P73 — 29/10/2026 — Fase 30 encerrada: EditMode 16/16, PlayMode 0/1 (cena carregou, bootstrap nulo), K-005 NOT_RUN. Android ainda IN_PROGRESS; iOS FAIL. Sem APK.
 
 P74 — 29/10/2026 — Fase 31: teste async/FindFirst/K-005 enviado em 41596d2; run 40824140558 FAIL sem steps/logs (BlobNotFound), K-005 NOT_RUN. Android/iOS FAIL sem artefatos.
+
+P75 - 29/10/2026 America/Sao_Paulo - Fase 32: removed the three actions/cache Library restore steps from unity-tests.yml, unity-android.yml and unity-ios.yml. Unity remains 6000.3.0f1. YAML parser PASS; static QA PASS json=5 cs=24; git diff check PASS; commit 7e5f4d4 pushed. Push runs 40824551082 tests, 40824551010 Android and 40824550999 iOS all FAILED in 3-4 seconds with no steps. Job logs unavailable (404/BlobNotFound). No Unity, NUnit, K-005, APK or Xcode evidence. Operational gate BLOCKED.

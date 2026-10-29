@@ -1,9 +1,6 @@
-# Ponto de retomada
-
-Ultima atualizacao: 26/10/2026, America/Sao_Paulo.
-Ultimo passo concluido: P30, Fase C bloqueada corretamente; execução Unity ainda não iniciada.
-Tarefa de jogo em execucao: nenhuma. Chamadas externas em andamento: nenhuma
-iniciada por este passo. Nao ha engine ou build validada.
+Ultima atualizacao: 29/10/2026 America/Sao_Paulo.
+Ultimo passo concluido: P75 Fase 32; caches Library removidos e runs novos falharam antes dos steps.
+Tarefa de jogo em execucao: nenhuma.
 
 ## Como retomar
 Atualização P44: triggers corrigidos e jobs remotos instanciados, mas EditMode,

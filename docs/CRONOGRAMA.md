@@ -139,3 +139,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 - Fase 30: FAIL. Cena carregada mas bootstrap nulo no PlayMode; Android ainda ativo e iOS falhou; K-005 pendente.
 
 - Fase 31: FAIL/BLOCKED. Run falhou sem steps/logs após push; K-005 e builds não validados.
+
+P75 ? 29/10/2026 ? Fase 32: removidos os tr?s steps `actions/cache@v4` que restauravam `Library` nos workflows `unity-tests.yml`, `unity-android.yml` e `unity-ios.yml`, eliminando chaves/restore-keys legadas associadas ao BlobNotFound. A vers?o declarada permanece `6000.3.0f1`. Parser YAML: PASS nos quatro workflows; `python tools/run_static_qa.py`: PASS (`json=5`, `cs=24`); `git diff --check`: PASS. Commit `7e5f4d4` enviado para `orchestrator/phase-a-baseline`. O push disparou runs `40824551082` (tests), `40824551010` (Android) e `40824550999` (iOS), todos encerrados FAIL em ~3?4 s, sem steps executados; logs de job retornam HTTP 404/BlobNotFound ou n?o est?o dispon?veis. N?o h? evid?ncia de Unity, NUnit, K-005, APK ou Xcode. Gate: BLOCKED/FAIL por falha de inicializa??o do runner/logs; repetir ap?s diagnosticar a infraestrutura Actions.
