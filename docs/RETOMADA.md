@@ -162,3 +162,5 @@ Atualização P66: EditMode executou 16/16, mas job falhou ao criar Check Run. Pla
 Atualização P67: workflow ganhou checks/statuses write e teste PlayMode injeta cena no SetUp; commit 196920d. Novo run 40817889017 ainda IN_PROGRESS.
 
 Atualização P68: Fase 26 FAIL. EditMode passou 16/16 mas runner não fechou PASS; PlayMode continua sem carregar cena no perfil Unity 6; K-005 não testado; Android sem APK.
+
+Atualização P69: EnsureBuildScenes usa API Unity 6 BuildProfile ativo e fallback legado; commit d838499. Novos runs ainda IN_PROGRESS.

@@ -262,3 +262,5 @@ P66 — 29/10/2026 — Fase 24: EditMode 16/16 passou, mas job FAIL por integração C
 P67 — 29/10/2026 — Fase 25: permissões checks/statuses adicionadas e cena injetada no SetUp PlayMode, commit 196920d, static QA PASS. Unity tests 40817889017 IN_PROGRESS.
 
 P68 — 29/10/2026 — Fase 26: EditMode 16/16, porém workflow FAIL; PlayMode 0/1 por active build profile; K-005 NOT_RUN. Android FAIL sem APK/metadata; iOS FAIL sem Xcode.
+
+P69 — 29/10/2026 — Fase 27: BuildProfile.GetActiveBuildProfile + scenes injection implementado em d838499, static QA PASS. Runs 40820112279/40820112292/40820112467 IN_PROGRESS.

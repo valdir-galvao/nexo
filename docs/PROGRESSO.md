@@ -825,3 +825,10 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Android `40817889158`: **FAIL**, somente diagnóstico de 146 bytes; sem `Nexo.apk` e sem `BUILD_METADATA.txt` de build.
 - iOS `40817889035`: **FAIL**, sem exportação Xcode aprovada.
 - Gate: **FAIL**; não há APK para download.
+## P69 — Unity 6 Build Profile ativo (Fase 27)
+
+- Data: 29/10/2026; `EnsureBuildScenes.cs` atualizado para consultar `BuildProfile.GetActiveBuildProfile()`, inserir/habilitar `NexoVerticalSlice` na propriedade `scenes`, marcar o asset dirty e salvar; fallback legado preservado.
+- `python tools/run_static_qa.py`: PASS, exit 0.
+- Commit/push: `d838499`.
+- Novos runs: Unity tests `40820112279`, Android `40820112292`, iOS `40820112467`; todos `in_progress` na última consulta.
+- Gate ainda pendente; nenhum artefato ou aprovação declarados.
