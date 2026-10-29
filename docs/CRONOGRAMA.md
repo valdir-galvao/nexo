@@ -166,3 +166,5 @@ J31 - Otimizacao de builds: cache Unity/Library e nomes de build estaveis config
 J32 - Fase 37 encerrada: cache executado; APK gerado no workspace do runner mas nao publicado por falha pos-build; iOS Xcode exportado mas validacao GameCI falhou; PlayMode bloqueado por SIGSEGV. Repositorio privado novamente.
 
 J33 - Fase 38: correcoes de marcador GameCI, Code Coverage headless, cache e upload; validacao local PASS; aguardar push/build controlado.
+
+J34 - Fase 38b: corrigir argumento coverageEnabled incompatível e aguardar rodada publica.

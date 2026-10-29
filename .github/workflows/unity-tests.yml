@@ -61,10 +61,6 @@ jobs:
           cliVersion: v0.1.72
           gitPrivateToken: ${{ github.token }}
           testMode: ${{ matrix.testMode }}
-          # Unity 6 can crash in headless PlayMode while instrumenting
-          # assemblies for Code Coverage. Coverage is not a release gate for
-          # this smoke suite, so disable the instrumentation explicitly.
-          coverageEnabled: false
           artifactsPath: test-results/${{ matrix.testMode }}
           customParameters: -logFile /github/workspace/diagnostics/${{ matrix.testMode }}/unity-editor.log
 
