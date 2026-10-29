@@ -171,3 +171,6 @@ Atualização P72: Fase 30 ainda em execução; consultar 40822563212 antes de class
 Atualização P73: GameCI carregou a cena por caminho, mas bootstrap ficou nulo no PlayMode; ajustar espera/instanciação antes de novo gate. EditMode 16/16; K-005 pendente; APK não confirmado.
 
 Atualização P74: Fase 31 enviada, mas run 40824140558 falhou antes de iniciar steps; logs BlobNotFound. Não há evidência K-005 ou builds.
+
+
+Atualizacao P85: rodada publica encerrada e repositorio confirmado privado. Testes Unity PASS no commit b4713f2 (run 40830355578; EditMode 16/16, PlayMode 1/1, K005). Nenhum APK disponivel: Android 40830355608 cancelado apos Build Android sem artefato. iOS 40830355598 gerou Xcode em build/iOS/iOS, mas o GameCI falhou na validacao pos-build. Proxima acao: corrigir contrato de saida/validacao do builder iOS e executar Android em runner com tempo suficiente, mantendo repositorio privado.
