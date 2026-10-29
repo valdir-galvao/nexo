@@ -832,3 +832,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Commit/push: `d838499`.
 - Novos runs: Unity tests `40820112279`, Android `40820112292`, iOS `40820112467`; todos `in_progress` na última consulta.
 - Gate ainda pendente; nenhum artefato ou aprovação declarados.
+## P70 — auditoria Build Profile Fase 28
+
+- Data: 29/10/2026; run `40820112279` terminou **FAIL**.
+- EditMode: relatório NUnit `16/16` aprovado, mas job falhou no encerramento do runner; não há PASS formal.
+- PlayMode: `0/1`; `VerticalSliceSceneInitializesIntoIntro` ainda acusa cena fora do active build profile/shared scene list. A implementação `BuildProfile.GetActiveBuildProfile()` não alterou o perfil efetivo usado pelo runner.
+- K-005: **NOT_RUN**.
+- Android `40820112292`: FAIL, somente diagnóstico de 146 bytes; sem `Nexo.apk`/`BUILD_METADATA.txt`.
+- iOS `40820112467`: FAIL, somente diagnóstico de 772 bytes; sem Xcode final.
+- Gate oficial: **FAIL**; nenhum APK disponível.

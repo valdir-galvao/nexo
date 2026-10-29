@@ -129,3 +129,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 - Fase 26: FAIL. Resolver active build profile Unity 6 e criar teste/evidência K-005; Android/iOS sem artefatos aprovados.
 
 - Fase 27: Build Profile Unity 6 configurado em d838499; testes/builds IN_PROGRESS.
+
+- Fase 28: FAIL. BuildProfile não aplicado ao perfil efetivo do runner; K-005 pendente; Android/iOS sem artefatos.
