@@ -190,3 +190,5 @@ Atualizacao P90: iOS corrigido para BuildOptions.None; aguardar push e nova buil
 Atualizacao P91: testes PASS e APK/Xcode baixados; repositorio privado confirmado. Proxima acao: validar APK em dispositivo/emulador e manter sem publicacao.
 
 Atualização P92: workflow iOS agora tenta gerar build/iOS/Nexo.ipa sem assinatura a partir do projeto Xcode no runner macOS. Static QA PASS. Próxima ação: commit/push e executar workflow; verificar se xcodebuild headless conclui.
+
+Atualização P93: Nexo.ipa gerado no run 40852640118 e baixado em C:/Temp/nexo-ios-ipa-40852640118/Nexo.ipa. SHA256 2c92748b8807a6a7fbfc72869fdb0c5135a8049314f7dde000985a1d7fec758c. Repositório privado confirmado. IPA não assinado; próxima ação é assinatura local/Apple se instalação for necessária.
