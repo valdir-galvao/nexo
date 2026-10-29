@@ -131,3 +131,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 - Fase 27: Build Profile Unity 6 configurado em d838499; testes/builds IN_PROGRESS.
 
 - Fase 28: FAIL. BuildProfile não aplicado ao perfil efetivo do runner; K-005 pendente; Android/iOS sem artefatos.
+
+- Fase 29: configuração estática GameCI/Unity 6 enviada em 930945a; testes/builds IN_PROGRESS.

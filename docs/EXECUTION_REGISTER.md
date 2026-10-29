@@ -266,3 +266,5 @@ P68 — 29/10/2026 — Fase 26: EditMode 16/16, porém workflow FAIL; PlayMode 0/1 po
 P69 — 29/10/2026 — Fase 27: BuildProfile.GetActiveBuildProfile + scenes injection implementado em d838499, static QA PASS. Runs 40820112279/40820112292/40820112467 IN_PROGRESS.
 
 P70 — 29/10/2026 — Fase 28: BuildProfile API não resolveu cena no runner; PlayMode 0/1, EditMode 16/16 mas job FAIL, K-005 NOT_RUN. Android/iOS FAIL apenas diagnósticos; sem APK.
+
+P71 — 29/10/2026 — Fase 29: BUILD_SCENES/buildScenes estático nos três workflows, injetor removido, PlayMode usa LoadSceneAsyncInPlayMode; commit 930945a, static QA PASS. Runs 40822563212/40822563109/40822563115 IN_PROGRESS.

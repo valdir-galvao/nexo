@@ -166,3 +166,5 @@ Atualização P68: Fase 26 FAIL. EditMode passou 16/16 mas runner não fechou PASS;
 Atualização P69: EnsureBuildScenes usa API Unity 6 BuildProfile ativo e fallback legado; commit d838499. Novos runs ainda IN_PROGRESS.
 
 Atualização P70: 40820112279 FAIL; cena continua fora do active Build Profile no PlayMode, apesar de BuildProfile.GetActiveBuildProfile. EditMode 16/16 sem PASS formal. Builds sem artefatos finais.
+
+Atualização P71: configuração estática BUILD_SCENES/uildScenes adicionada e EnsureBuildScenes removido; teste PlayMode carrega caminho no Editor. Run 40822563212 ainda IN_PROGRESS.

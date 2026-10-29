@@ -841,3 +841,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Android `40820112292`: FAIL, somente diagnóstico de 146 bytes; sem `Nexo.apk`/`BUILD_METADATA.txt`.
 - iOS `40820112467`: FAIL, somente diagnóstico de 772 bytes; sem Xcode final.
 - Gate oficial: **FAIL**; nenhum APK disponível.
+## P71 — configuração estática GameCI/Unity 6 (Fase 29)
+
+- Data: 29/10/2026; workflows de testes/Android/iOS receberam `BUILD_SCENES=Assets/Scenes/NexoVerticalSlice.unity` e input `buildScenes`.
+- Removidos `EnsureBuildScenes.cs` e `.meta`, evitando mutação concorrente de EditorBuildSettings.
+- PlayMode passou a carregar a cena por caminho com `EditorSceneManager.LoadSceneAsyncInPlayMode` no Editor headless.
+- `python tools/run_static_qa.py`: PASS, exit 0.
+- Commit/push: `930945a`.
+- Novos runs: Unity tests `40822563212`, Android `40822563109`, iOS `40822563115`; todos `in_progress` na última consulta.
+- Gate e artefatos ainda pendentes.
