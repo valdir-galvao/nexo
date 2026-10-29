@@ -14,7 +14,9 @@ namespace Nexo.Tests
 {
     public sealed class NexoPlayModeTests
     {
-        [UnityTest, Category("K-005")]
+        // NUnit categories cannot contain '-' in Unity's test runner. Keep the
+        // stable K005 identifier and map it to requirement K-005 in reports.
+        [UnityTest, Category("K005")]
         public IEnumerator VerticalSliceSceneInitializesIntoIntro()
         {
 #if UNITY_EDITOR
