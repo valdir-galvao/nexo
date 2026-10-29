@@ -1,6 +1,8 @@
 ﻿name: CI runner health check
 
 on:
+  push:
+    branches: [orchestrator/phase-a-baseline]
   workflow_dispatch:
     inputs:
       runner:
@@ -27,3 +29,4 @@ jobs:
           uname -a
           df -h /
           git --version
+
