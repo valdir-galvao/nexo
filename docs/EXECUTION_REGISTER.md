@@ -298,3 +298,6 @@ P85 - 29/10/2026 - Commit b4713f2 normalizou BUILD_PATH Android. Run 40830355578
 
 
 P86 - 29/10/2026 - Ajustes locais: cache actions/cache v4 documentado e configurado com chaves estaveis; `buildName: Nexo` adicionado aos builders; iOS usa `AcceptExternalModificationsToPlayer` para export sem assinatura. `python tools/run_static_qa.py` PASS (json=5, cs=24), YAML PASS e diff check PASS. Push nao executado.
+
+
+P87 - 29/10/2026 - Push dos commits locais concluido no commit 4120620 durante janela publica. Cache Android executou com sucesso. Unity tests falhou por crash nativo SIGSEGV em PlayMode; Android produziu APK local no runner (26 MB) mas GameCI falhou antes do upload; iOS exportou Xcode mas GameCI falhou na validacao. Nao ha artefato APK baixavel. Test artifacts em C:/Temp/nexo-ci-public-40842677684. Visibilidade restaurada para private.

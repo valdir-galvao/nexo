@@ -898,3 +898,6 @@ P85 - 29/10/2026 America/Sao_Paulo - AndroidBuild normalizou BUILD_PATH sem exte
 
 
 P86 - 29/10/2026 America/Sao_Paulo - Fase 35 ajuste de build: workflows Android/iOS receberam cache actions/cache v4 com chaves android-cache/ios-cache derivadas de Unity e lockfile; buildName Nexo foi explicitado para alinhar buildsPath e eliminar caminhos duplicados. IosBuild passou a exportar Xcode com AcceptExternalModificationsToPlayer, sem assinatura. static QA PASS json=5 cs=24; YAML parser PASS; git diff check PASS. Alteracoes ainda locais, nao enviadas; nenhum novo run disparado.
+
+
+P87 - 29/10/2026 America/Sao_Paulo - Fase 37 publicada no commit 4120620. Runs: Unity tests 40842677684 FAIL por SIGSEGV do Unity/Burst durante inicializacao PlayMode; Android 40842677712 FAIL no GameCI pos-build, embora tenha gerado Nexo.apk de 26 MB em build/Android/Android/Nexo.apk; iOS 40842677727 FAIL na validacao pos-export. Cache Android executou PASS. Artefatos de testes baixados em C:/Temp/nexo-ci-public-40842677684; APK nao foi publicado pelo workflow. Repositorio restaurado PRIVATE e confirmado via API.

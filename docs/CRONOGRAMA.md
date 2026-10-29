@@ -161,3 +161,6 @@ J30 - Fase publica controlada: Unity tests PASS no run 40830355578 (EditMode 16/
 
 
 J31 - Otimizacao de builds: cache Unity/Library e nomes de build estaveis configurados localmente; export iOS sem assinatura explicita. Aguardando push e novo teste controlado com repositorio privado.
+
+
+J32 - Fase 37 encerrada: cache executado; APK gerado no workspace do runner mas nao publicado por falha pos-build; iOS Xcode exportado mas validacao GameCI falhou; PlayMode bloqueado por SIGSEGV. Repositorio privado novamente.

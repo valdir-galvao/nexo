@@ -177,3 +177,6 @@ Atualizacao P85: rodada publica encerrada e repositorio confirmado privado. Test
 
 
 Atualizacao P86: workflows Android/iOS ajustados localmente com cache actions/cache v4, `buildName: Nexo` e export iOS sem assinatura (`AcceptExternalModificationsToPlayer`). Validacoes locais PASS. Nao houve push nem novos runs; repositorio permanece privado. Proxima acao: revisar diff, fazer push autorizado e monitorar Android/iOS.
+
+
+Atualizacao P87: repositorio restaurado privado apos runs 40842677684/40842677712/40842677727. Android gerou Nexo.apk de 26 MB no runner, mas o workflow falhou antes do upload; nao existe link de download. PlayMode caiu com SIGSEGV durante recompilacao Unity/Burst; EditMode nao e suficiente para aprovar a rodada. Proxima acao: remover/ajustar cache Library para evitar estado nativo compartilhado, reduzir Code Coverage em PlayMode CI e garantir upload em `if: always()` apos build bem-sucedido.

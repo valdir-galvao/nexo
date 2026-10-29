@@ -137,3 +137,6 @@ Estado operacional 29/10/2026: Unity tests PASS no run 40830355578 (16/16 EditMo
 
 
 Atualizacao P86: builds Android/iOS ajustados localmente com cache actions/cache v4 e buildName estavel; export iOS configurado sem assinatura via AcceptExternalModificationsToPlayer. Validacoes locais PASS; push e execucao remota ainda pendentes.
+
+
+Atualizacao P87: janela publica da Fase 37 concluida e privacidade restaurada. Cache Android executou, mas o APK de 26 MB permaneceu apenas no workspace do runner porque GameCI falhou na validacao pos-build; iOS teve o mesmo padrao apos exportar Xcode. PlayMode teve SIGSEGV nativo durante recompilacao. Nenhum build movel e considerado aprovado.
