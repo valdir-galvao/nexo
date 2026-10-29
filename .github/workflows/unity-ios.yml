@@ -26,15 +26,6 @@ jobs:
         run: |
           grep -q "m_EditorVersion: ${UNITY_VERSION}" ProjectSettings/ProjectVersion.txt
 
-      - name: Restore Unity Library cache
-        uses: actions/cache@v4
-        with:
-          path: Library
-          key: Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-iOS-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-          restore-keys: |
-            Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-iOS-
-            Library-${{ runner.os }}-${{ env.UNITY_VERSION }}-
-
       - name: Prepare Unity log directory
         run: mkdir -p diagnostics
 
