@@ -170,3 +170,5 @@ Atualização P70: 40820112279 FAIL; cena continua fora do active Build Profile no
 Atualização P71: configuração estática BUILD_SCENES/uildScenes adicionada e EnsureBuildScenes removido; teste PlayMode carrega caminho no Editor. Run 40822563212 ainda IN_PROGRESS.
 
 Atualização P72: Fase 30 ainda em execução; consultar 40822563212 antes de classificar gate. iOS falhou; APK não confirmado.
+
+Atualização P73: GameCI carregou a cena por caminho, mas bootstrap ficou nulo no PlayMode; ajustar espera/instanciação antes de novo gate. EditMode 16/16; K-005 pendente; APK não confirmado.

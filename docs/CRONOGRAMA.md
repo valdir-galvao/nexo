@@ -135,3 +135,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 - Fase 29: configuração estática GameCI/Unity 6 enviada em 930945a; testes/builds IN_PROGRESS.
 
 - Fase 30: IN_PROGRESS; Unity tests e Android ativos, iOS FAIL. Gate pendente.
+
+- Fase 30: FAIL. Cena carregada mas bootstrap nulo no PlayMode; Android ainda ativo e iOS falhou; K-005 pendente.

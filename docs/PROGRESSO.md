@@ -855,3 +855,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Data: 29/10/2026; Unity tests `40822563212` ainda `in_progress` na última consulta, com EditMode/PlayMode no passo Run Unity tests.
 - Android `40822563109` ainda `in_progress`; iOS `40822563115` terminou FAIL.
 - Nenhum resultado NUnit final, K-005 ou artefato APK pode ser declarado enquanto o run de testes não encerrar.
+## P73 — encerramento Fase 30
+
+- Data: 29/10/2026; run Unity tests `40822563212` terminou **FAIL**.
+- EditMode: `16/16` aprovados no XML NUnit. O job encerrou com exit code 1 no pós-processamento; portanto o workflow não tem PASS formal.
+- PlayMode: a cena agora foi carregada pelo caminho, mas `NexoVerticalSliceBootstrap` ficou nulo após a carga; teste `VerticalSliceSceneInitializesIntoIntro` reprovou `0/1`.
+- K-005: não foi executado neste workflow; **NOT_RUN**.
+- Android `40822563109`: ainda `in_progress` na última consulta, sem artefato confirmado.
+- iOS `40822563115`: FAIL, apenas diagnóstico.
+- Gate: **FAIL**; APK não disponível.
