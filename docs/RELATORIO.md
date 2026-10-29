@@ -134,3 +134,6 @@ e incerto: nao repetir tarefas pagas ate reconciliar o estado.
 
 
 Estado operacional 29/10/2026: Unity tests PASS no run 40830355578 (16/16 EditMode, 1/1 PlayMode K005). Android e iOS ainda nao sao builds aprovados: Android 40830355608 foi cancelado sem APK; iOS 40830355598 gerou Xcode, mas falhou na validacao GameCI. Repositorio restaurado privado.
+
+
+Atualizacao P86: builds Android/iOS ajustados localmente com cache actions/cache v4 e buildName estavel; export iOS configurado sem assinatura via AcceptExternalModificationsToPlayer. Validacoes locais PASS; push e execucao remota ainda pendentes.
