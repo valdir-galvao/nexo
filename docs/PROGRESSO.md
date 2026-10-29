@@ -776,3 +776,10 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - K-005 não foi executado neste run.
 - Android `40667016637` e iOS `40667016611` terminaram FAIL; nenhum APK, `BUILD_METADATA.txt` de build ou exportação Xcode final disponível.
 - Relatório: `docs/PHASE_20_FINAL_GATE.md`. Gate global: FAIL.
+## P63 — Input System headless e novo teste (Fase 21)
+
+- Data: 29/10/2026; `ProjectSettings/ProjectSettings.asset` recebeu `activeInputHandler: 0`, evitando o valor inválido `-1` no Unity batchmode.
+- `python tools/run_static_qa.py`: PASS, exit 0.
+- Commit/push: `5f7adbb`.
+- Novo Unity tests: run `40814474545`, ainda `in_progress` na última consulta; EditMode e PlayMode sem resultado final.
+- Android `40814474532` e iOS `40814474576` foram disparados pelo push; não estão aprovados.

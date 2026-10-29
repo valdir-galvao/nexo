@@ -250,3 +250,5 @@ P61 — 28/10/2026 — Fase 19: bundleVersion/buildNumber iOS válidos em bca64a, st
 
 
 P62 — 29/10/2026 — Fase 20: 40667016837 FAIL; EditMode bloqueado por CLI 403, PlayMode 0/1, K-005 NOT_RUN. Android/iOS FAIL sem artefatos finais. Relatório docs/PHASE_20_FINAL_GATE.md.
+
+P63 — 29/10/2026 — Fase 21: activeInputHandler definido como 0, static QA PASS, push 5f7adbb. Run 40814474545 IN_PROGRESS; builds móveis não aprovados.

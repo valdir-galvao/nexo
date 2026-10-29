@@ -115,3 +115,5 @@ J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness
 
 
 - Fase 20: FAIL. Corrigir acesso/versão do GameCI CLI e ctiveInputHandler; K-005 ainda NOT_RUN; builds móveis sem artefatos aprovados.
+
+- Fase 21: Input System headless ajustado (5f7adbb); Unity tests 40814474545 IN_PROGRESS. Gate pendente.
