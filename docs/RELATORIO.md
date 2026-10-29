@@ -148,3 +148,5 @@ Atualizacao P89: CLI rejeitou noCoverageEnabled antes do Unity; input removido e
 Atualizacao P90: causa iOS confirmada como BuildOptions.AcceptExternalModificationsToPlayer em projeto inexistente; alterado para BuildOptions.None.
 
 Atualizacao P91: candidato tecnico aprovado para testes privados; APK e Xcode preservados localmente, repositorio privado.
+
+Atualização P92: o workflow iOS foi ampliado para gerar um arquivo Nexo.ipa sem assinatura após a exportação Xcode. O artefato só comprovará empacotamento; instalação exige assinatura Apple posterior.

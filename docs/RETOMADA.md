@@ -188,3 +188,5 @@ Atualizacao P89: removido coverageEnabled incompatível com CLI v0.1.72; aguardar
 Atualizacao P90: iOS corrigido para BuildOptions.None; aguardar push e nova build. Android da rodada 40845528603 ainda em execucao.
 
 Atualizacao P91: testes PASS e APK/Xcode baixados; repositorio privado confirmado. Proxima acao: validar APK em dispositivo/emulador e manter sem publicacao.
+
+Atualização P92: workflow iOS agora tenta gerar build/iOS/Nexo.ipa sem assinatura a partir do projeto Xcode no runner macOS. Static QA PASS. Próxima ação: commit/push e executar workflow; verificar se xcodebuild headless conclui.

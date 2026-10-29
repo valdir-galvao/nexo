@@ -62,6 +62,32 @@ jobs:
           customParameters: -logFile /github/workspace/diagnostics/unity-editor.log
           buildsPath: build/iOS
 
+      - name: Package unsigned IPA from Xcode output
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcodeproj="$(find build/iOS -maxdepth 5 -name '*.xcodeproj' -print -quit)"
+          test -n "$xcodeproj"
+          scheme="$(basename "$xcodeproj" .xcodeproj)"
+          derived="build/ios-derived"
+          xcodebuild \
+            -project "$xcodeproj" \
+            -scheme "$scheme" \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath "$derived" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            build
+          app="$(find "$derived/Build/Products" -maxdepth 4 -type d -name '*.app' -print -quit)"
+          test -n "$app"
+          rm -rf build/ipa
+          mkdir -p build/ipa/Payload
+          cp -R "$app" build/ipa/Payload/
+          (cd build/ipa && zip -qry ../iOS/Nexo.ipa Payload)
+          file build/iOS/Nexo.ipa
+
       - name: Capture Unity failure diagnostics
         if: failure()
         run: |
@@ -77,7 +103,7 @@ jobs:
         run: |
           sudo chown -R "$(id -u):$(id -g)" build diagnostics 2>/dev/null || true
           mkdir -p build/iOS
-          printf 'platform=iOS-Xcode\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/iOS/BUILD_METADATA.txt
+          printf 'platform=iOS-Xcode-IPA\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/iOS/BUILD_METADATA.txt
 
       - name: Upload Xcode project
         if: always()

@@ -172,3 +172,5 @@ J34 - Fase 38b: corrigir argumento coverageEnabled incompatível e aguardar rodad
 J35 - Fase 38c: corrigir exportacao iOS append-only e repetir build.
 
 J36 - Fase 38 concluida tecnicamente: Unity tests, Android APK e iOS Xcode PASS; QA fisico pendente.
+
+J37 - Configuração de empacotamento IPA sem assinatura no runner macOS concluída localmente; aguarda execução remota e download.
