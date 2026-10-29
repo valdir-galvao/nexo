@@ -40,7 +40,6 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            Library
             ~/Library/Unity
           key: ios-cache-${{ runner.os }}-${{ env.UNITY_VERSION }}-${{ hashFiles('Packages/packages-lock.json', 'ProjectSettings/ProjectVersion.txt') }}
           restore-keys: |
@@ -59,6 +58,7 @@ jobs:
           targetPlatform: iOS
           buildName: Nexo
           buildMethod: Nexo.Editor.Build.IosBuild.PerformBuild
+          runAsHostUser: true
           customParameters: -logFile /github/workspace/diagnostics/unity-editor.log
           buildsPath: build/iOS
 
@@ -73,17 +73,19 @@ jobs:
           find build -maxdepth 4 -type f -print > diagnostics/build-files.log 2>&1 || true
 
       - name: Write build metadata
+        if: always()
         run: |
           sudo chown -R "$(id -u):$(id -g)" build diagnostics 2>/dev/null || true
           mkdir -p build/iOS
           printf 'platform=iOS-Xcode\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/iOS/BUILD_METADATA.txt
 
       - name: Upload Xcode project
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: nexo-ios-xcode-${{ github.sha }}
           path: build/iOS
-          if-no-files-found: error
+          if-no-files-found: warn
 
       - name: Upload failure diagnostics
         if: failure()

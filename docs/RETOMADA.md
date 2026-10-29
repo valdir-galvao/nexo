@@ -180,3 +180,5 @@ Atualizacao P86: workflows Android/iOS ajustados localmente com cache actions/ca
 
 
 Atualizacao P87: repositorio restaurado privado apos runs 40842677684/40842677712/40842677727. Android gerou Nexo.apk de 26 MB no runner, mas o workflow falhou antes do upload; nao existe link de download. PlayMode caiu com SIGSEGV durante recompilacao Unity/Burst; EditMode nao e suficiente para aprovar a rodada. Proxima acao: remover/ajustar cache Library para evitar estado nativo compartilhado, reduzir Code Coverage em PlayMode CI e garantir upload em `if: always()` apos build bem-sucedido.
+
+Atualizacao P88: corrigidos marcador Build succeeded!, Code Coverage PlayMode, cache Library e uploads always. Proxima acao: commit/push, executar testes e builds em janela autorizada, baixar artefatos e confirmar privacidade.

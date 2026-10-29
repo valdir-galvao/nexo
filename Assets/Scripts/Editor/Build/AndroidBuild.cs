@@ -24,6 +24,11 @@ namespace Nexo.Editor.Build
             var report = BuildPipeline.BuildPlayer(scenes, output, BuildTarget.Android, BuildOptions.None);
             if (report.summary.result != BuildResult.Succeeded)
                 throw new BuildFailedException($"Android build failed: {report.summary.result}");
+
+            // GameCI v6 validates custom build methods by this exact marker.
+            // Unity's BuildPipeline summary alone is not sufficient for the
+            // wrapper's post-build validation step.
+            Console.WriteLine("Build succeeded!");
         }
     }
 }

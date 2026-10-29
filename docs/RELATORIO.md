@@ -140,3 +140,5 @@ Atualizacao P86: builds Android/iOS ajustados localmente com cache actions/cache
 
 
 Atualizacao P87: janela publica da Fase 37 concluida e privacidade restaurada. Cache Android executou, mas o APK de 26 MB permaneceu apenas no workspace do runner porque GameCI falhou na validacao pos-build; iOS teve o mesmo padrao apos exportar Xcode. PlayMode teve SIGSEGV nativo durante recompilacao. Nenhum build movel e considerado aprovado.
+
+Atualizacao P88: causa raiz confirmada no contrato de validacao GameCI e no crash de Code Coverage Unity 6; correcoes locais aplicadas e static QA PASS. Nenhuma build nova declarada antes de execucao remota.

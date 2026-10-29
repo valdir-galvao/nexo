@@ -27,6 +27,9 @@ namespace Nexo.Editor.Build
                 BuildOptions.AcceptExternalModificationsToPlayer);
             if (report.summary.result != BuildResult.Succeeded)
                 throw new BuildFailedException($"iOS build failed: {report.summary.result}");
+
+            // GameCI v6 validates custom build methods by this exact marker.
+            Console.WriteLine("Build succeeded!");
         }
     }
 }
