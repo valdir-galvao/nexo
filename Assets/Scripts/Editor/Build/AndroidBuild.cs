@@ -12,6 +12,11 @@ namespace Nexo.Editor.Build
         {
             var output = Environment.GetEnvironmentVariable("BUILD_PATH");
             if (string.IsNullOrWhiteSpace(output)) output = Path.Combine("build", "Android", "Nexo.apk");
+            // GameCI may pass buildsPath-derived directories (for example
+            // build/Android/Android) through BUILD_PATH. Normalize those values
+            // to an APK file before invoking BuildPipeline.
+            if (!output.EndsWith(".apk", StringComparison.OrdinalIgnoreCase))
+                output = Path.Combine(output, "Nexo.apk");
             Directory.CreateDirectory(Path.GetDirectoryName(output)!);
             const string scenePath = "Assets/Scenes/NexoVerticalSlice.unity";
             if (!File.Exists(scenePath)) throw new InvalidOperationException($"Required scene is missing: {scenePath}");
