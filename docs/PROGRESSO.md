@@ -783,3 +783,12 @@ Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 - Commit/push: `5f7adbb`.
 - Novo Unity tests: run `40814474545`, ainda `in_progress` na última consulta; EditMode e PlayMode sem resultado final.
 - Android `40814474532` e iOS `40814474576` foram disparados pelo push; não estão aprovados.
+## P64 — validação Input System e gate Fase 22
+
+- Data: 29/10/2026; run Unity tests `40814474545` terminou **FAIL**.
+- EditMode: **FAIL** antes da execução por HTTP 403 ao resolver o GameCI CLI.
+- PlayMode: **FAIL**, 1 teste executado e 0 aprovados. O erro `activeInputHandler = -1` deixou de ocorrer; a nova causa é que `NexoVerticalSlice` não está na lista de cenas ativa/compartilhada do perfil de build.
+- K-005: **NOT_RUN**; não existe evidência pedagógica neste run.
+- Android `40814474532` e iOS `40814474576` permaneciam `in_progress` na última consulta; nenhum artefato final confirmado.
+- Não há APK `Nexo.apk` nem `BUILD_METADATA.txt` de build disponível.
+- Gate: **FAIL**.
