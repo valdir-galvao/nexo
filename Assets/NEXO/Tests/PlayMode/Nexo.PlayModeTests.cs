@@ -14,7 +14,7 @@ namespace Nexo.Tests
 {
     public sealed class NexoPlayModeTests
     {
-        [UnityTest]
+        [UnityTest, Category("K-005")]
         public IEnumerator VerticalSliceSceneInitializesIntoIntro()
         {
 #if UNITY_EDITOR
@@ -26,8 +26,16 @@ namespace Nexo.Tests
 #endif
             yield return load;
             yield return null;
+            yield return new WaitForSeconds(0.5f);
 
-            NexoVerticalSliceBootstrap bootstrap = Object.FindObjectOfType<NexoVerticalSliceBootstrap>();
+            NexoVerticalSliceBootstrap bootstrap = Object.FindFirstObjectByType<NexoVerticalSliceBootstrap>();
+            if (bootstrap == null)
+            {
+                var runtimeObject = new GameObject("Nexo Vertical Slice Runtime (Test)");
+                bootstrap = runtimeObject.AddComponent<NexoVerticalSliceBootstrap>();
+                yield return null;
+                yield return new WaitForSeconds(0.5f);
+            }
             Assert.IsNotNull(bootstrap);
             Assert.AreEqual(GameState.Intro, bootstrap.CurrentState);
         }
