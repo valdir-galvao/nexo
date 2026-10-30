@@ -195,3 +195,5 @@ Atualiza??o Fase 47 (30/10/2026 03:44 -03): a blindagem URP e a transi??o segura
 Atualiza??o Fase 48 (30/10/2026 06:46 -03): material URP expl?cito e teste PlayMode foram adicionados. A etapa de compila??o/download foi adiada conforme orienta??o; n?o h? novo APK nesta fase.
 
 Atualizacao Fase 49 (30/10/2026): blindagem IL2CPP e particulas aplicada localmente. O link.xml preserva modulos de fisica/UI; curvas x/y/z usam TwoConstants; primitivas e CharacterController tem fallback seguro. Static QA PASS. Nao houve build, APK ou alteracao de visibilidade; gh nao instalado e Unity ausente.
+
+Atualizacao Fase 49 remoto (30/10/2026): link.xml/particulas/fallback foram compilados. Android 41036558774 PASS e APK baixado em C:/Temp/nexo-android-41036558774/Android/Nexo.apk; iOS 41036558638 PASS. Unity tests 41036558837 FAIL no PlayMode; EditMode passou. O repositorio foi restaurado PRIVATE. A causa detalhada do PlayMode exige token com leitura de logs/artefatos.

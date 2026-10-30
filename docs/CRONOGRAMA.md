@@ -259,3 +259,5 @@ Fase 48 ? material Resources (30/10/2026 06:46 -03)
 - Static QA PASS; build remoto NOT_RUN por orienta??o.
 
 P109 | Fase 49 | concluido localmente / remoto bloqueado | Unity/GameCI e canal GitHub autenticado | link.xml, curva de particulas e fallback seguros; QA PASS |
+
+P110 | Fase 49 remoto | parcial | PlayMode FAIL e logs detalhados bloqueados por 401 | Android/iOS PASS; APK preservado; gate global nao aprovado |
