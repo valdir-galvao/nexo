@@ -237,3 +237,5 @@ J51 - Fase 48: material URP expl?cito criado em Resources, fallback e teste Play
 Atualizacao P109: Fase 49 corrigiu link.xml, curvas de particulas e protecao de primitivas. Static QA PASS. Push/build ainda nao executados; gh ausente e Unity indisponivel. Retomar verificando canal autenticado antes de qualquer ciclo publico.
 
 Atualizacao P110: ciclo remoto Fase 49 encerrado. Android 41036558774 PASS com APK baixado; iOS 41036558638 PASS; Unity tests 41036558837 FAIL no PlayMode. Repositorio PRIVATE restaurado. Investigar PlayMode com escopo Actions/logs adequado antes de novo ciclo.
+
+Atualizacao P111: PlayMode corrigido. Causas confirmadas: Arial.ttf invalida no Unity 6 e cena ausente no Build Profile ativo. Run 41044424896 PASS com EditMode/PlayMode. Repositorio PRIVATE restaurado. Codigo remoto em 663e32e; revisar/commitar apenas documentacao local antes de nova janela.
