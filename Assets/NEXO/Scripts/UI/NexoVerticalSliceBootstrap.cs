@@ -6,6 +6,7 @@ using Nexo.Persistence;
 using Nexo.Progression;
 using Nexo.Safety;
 using Nexo.Learning;
+using UnityEngine.UI;
 
 namespace Nexo.UI
 {
@@ -26,6 +27,7 @@ namespace Nexo.UI
         private bool confirmDelete;
         private bool showTransfer;
         private bool transferAnswered;
+        private float introElapsed;
 
         public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
 
@@ -38,6 +40,7 @@ namespace Nexo.UI
 
         private void Start()
         {
+            EnsureMobileCanvas();
             mission = new VerticalSliceMission(new JsonFileSaveStore());
             mission.Initialize();
             BuildWorld();
@@ -45,7 +48,28 @@ namespace Nexo.UI
             audioDirector.Configure(mission.Save.audio);
             dataControls = new LocalDataControls();
             showIntro = mission.StateMachine.State == GameState.Intro;
+            introElapsed = 0f;
             transferAnswered = HasTransferEvidence();
+        }
+
+        private void EnsureMobileCanvas()
+        {
+            Canvas canvas = GetComponentInChildren<Canvas>(true);
+            if (canvas == null)
+            {
+                var canvasObject = new GameObject("Nexo Mobile UI Canvas");
+                canvasObject.transform.SetParent(transform, false);
+                canvas = canvasObject.AddComponent<Canvas>();
+                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+                canvasObject.AddComponent<GraphicRaycaster>();
+            }
+
+            var scaler = canvas.GetComponent<CanvasScaler>();
+            if (scaler == null) scaler = canvas.gameObject.AddComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920f, 1080f);
+            scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+            scaler.matchWidthOrHeight = 0.5f;
         }
 
         private void BuildWorld()
@@ -79,6 +103,7 @@ namespace Nexo.UI
         private void Update()
         {
             if (mission == null || player == null) return;
+            if (showIntro) introElapsed += Time.unscaledDeltaTime;
             if (showMenu || showDiary || showSettings) return;
             if (mission.StateMachine.State == GameState.Paused) return;
             Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -123,9 +148,12 @@ namespace Nexo.UI
             GUI.Label(new Rect(safe.x + 16, safe.y + 16, safe.width - 32, 32), "NEXO | " + mission.StateMachine.State + " | Água: " + mission.Save.activeMission.water);
             if (showIntro)
             {
+                float introAlpha = Mathf.Clamp01(introElapsed / 0.45f);
+                GUI.color = new Color(1f, 1f, 1f, introAlpha);
                 GUI.Box(new Rect(safe.x + 30, safe.y + 70, safe.width - 60, 180), "O reservatório silencioso");
                 GUI.Label(new Rect(safe.x + 55, safe.y + 110, safe.width - 110, 60), "Observe a fonte, siga o canal e restaure o fluxo.");
-                if (GUI.Button(new Rect(safe.x + 55, safe.y + 180, 180, 42), "Começar (pular prólogo)")) { mission.SkipIntro(); showIntro = false; audioDirector.PlayDiscovery(); }
+                if (GUI.Button(new Rect(safe.x + 55, safe.y + 180, 180, 42), "Começar (pular prólogo)")) { mission.SkipIntro(); showIntro = false; introElapsed = 0f; audioDirector.PlayDiscovery(); }
+                GUI.color = Color.white;
                 return;
             }
             if (GUI.Button(new Rect(safe.x + 16, safe.yMax - 62, 70, 44), "Pausa")) { mission.Pause(); }

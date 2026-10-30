@@ -176,3 +176,5 @@ J36 - Fase 38 concluida tecnicamente: Unity tests, Android APK e iOS Xcode PASS;
 J37 - Configuração de empacotamento IPA sem assinatura no runner macOS concluída localmente; aguarda execução remota e download.
 
 J38 - IPA iOS sem assinatura gerado no runner macOS e baixado localmente; gate técnico de empacotamento PASS, instalação física pendente.
+
+J39 - Correcao de shaders URP e escala de UI aplicada localmente; aguarda validacao Unity/GameCI e teste em dispositivo.

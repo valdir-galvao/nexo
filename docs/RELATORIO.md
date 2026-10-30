@@ -152,3 +152,5 @@ Atualizacao P91: candidato tecnico aprovado para testes privados; APK e Xcode pr
 Atualização P92: o workflow iOS foi ampliado para gerar um arquivo Nexo.ipa sem assinatura após a exportação Xcode. O artefato só comprovará empacotamento; instalação exige assinatura Apple posterior.
 
 Atualização P93: run 40852640118 PASS. O workflow agora gera Nexo.ipa sem assinatura via xcodebuild e o artefato foi baixado em C:/Temp/nexo-ios-ipa-40852640118/Nexo.ipa (SHA256 2c92748b8807a6a7fbfc72869fdb0c5135a8049314f7dde000985a1d7fec758c). Repositório restaurado privado. A assinatura Apple não foi realizada.
+
+Atualizacao P94: como GraphicsSettings.asset nao existia no projeto, a inclusao de shaders foi implementada por editor bootstrap versionado, evitando GUIDs inventados. O CanvasScaler e configurado no bootstrap da cena e a intro recebeu fade sincrono. Static QA PASS; validacao Unity e dispositivo pendente.
