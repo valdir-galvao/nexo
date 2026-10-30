@@ -156,3 +156,5 @@ Atualização P93: run 40852640118 PASS. O workflow agora gera Nexo.ipa sem assina
 Atualizacao P94: como GraphicsSettings.asset nao existia no projeto, a inclusao de shaders foi implementada por editor bootstrap versionado, evitando GUIDs inventados. O CanvasScaler e configurado no bootstrap da cena e a intro recebeu fade sincrono. Static QA PASS; validacao Unity e dispositivo pendente.
 
 Atualizacao P95: os runs automaticos privados do commit beafb4b falharam sem executar steps, portanto a implementacao mobile ainda nao tem evidencia Unity/GameCI. Static QA continua PASS; o bloqueio e infraestrutura de runner.
+
+Atualizacao P96: a primeira rodada publica da Fase 38 falhou por CS0117 em EnsureIncludedShaders; a correção agora usa SerializedObject na propriedade m_AlwaysIncludedShaders, sem API inexistente. Android publicou apenas metadata/diagnostico, sem APK.

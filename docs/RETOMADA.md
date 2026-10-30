@@ -196,3 +196,5 @@ Atualização P93: Nexo.ipa gerado no run 40852640118 e baixado em C:/Temp/nexo-io
 Atualizacao P94: correcoes moveis locais aplicadas para shaders URP, CanvasScaler e intro. Novo editor script com meta criado; static QA PASS. Proxima acao: executar Unity/GameCI para confirmar serializacao dos shaders, UI e APK.
 
 Atualizacao P95: push beafb4b feito. Runs privados 41002545099/41002545093/41002544992 falharam antes de steps, bloqueio de runner/quota; rerun publico controlado necessario para validar shaders/UI/intro.
+
+Atualizacao P96: corrigida API Unity 6 invalida no EnsureIncludedShaders apos evidencias dos runs publicos 41002823668/41002826486. Proxima acao: commit/push e janela publica para repetir testes/builds.
