@@ -85,6 +85,11 @@ namespace Nexo.UI
             Shader worldShader = Shader.Find("Universal Render Pipeline/Lit");
             if (worldShader == null) worldShader = Shader.Find("Universal Render Pipeline/Unlit");
             if (worldShader == null) worldShader = Shader.Find("Standard");
+            var resourceMaterial = Resources.Load<Material>("Materials/URP_Default_Gameplay");
+            if (resourceMaterial != null && resourceMaterial.shader == null && worldShader != null)
+                resourceMaterial.shader = worldShader;
+            if (resourceMaterial != null && resourceMaterial.shader != null)
+                defaultWorldMaterial = resourceMaterial;
             if (worldShader != null && defaultWorldMaterial == null)
                 defaultWorldMaterial = new Material(worldShader) { name = "Nexo Runtime World Material" };
         }

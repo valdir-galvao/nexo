@@ -51,6 +51,9 @@ namespace Nexo.Tests
             }
             Assert.IsNotNull(bootstrap);
             Assert.AreEqual(GameState.Intro, bootstrap.CurrentState);
+            Material gameplayMaterial = Resources.Load<Material>("Materials/URP_Default_Gameplay");
+            Assert.IsNotNull(gameplayMaterial, "URP gameplay material must be packaged in Resources.");
+            Assert.IsNotNull(gameplayMaterial.shader, "URP gameplay material must resolve a shader before gameplay starts.");
         }
     }
 }

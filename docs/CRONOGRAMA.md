@@ -250,3 +250,10 @@ Fase 47 ? resultado remoto (30/10/2026 03:44 -03)
 - iOS 41013991290: PASS.
 - Unity tests 41013991357: FAIL; PlayMode ainda bloqueia aprova??o global.
 - Reposit?rio restaurado PRIVATE.
+
+
+Fase 48 ? material Resources (30/10/2026 06:46 -03)
+- URP_Default_Gameplay.mat versionado em Assets/Resources/Materials.
+- Bootstrap carrega material por Resources e resolve shader se necess?rio.
+- PlayMode verifica material/shader.
+- Static QA PASS; build remoto NOT_RUN por orienta??o.

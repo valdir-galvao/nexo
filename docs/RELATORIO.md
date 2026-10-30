@@ -190,3 +190,6 @@ Atualiza??o Fase 47 (30/10/2026 03:25 -03): corrigida a regress?o estrutural de 
 
 
 Atualiza??o Fase 47 (30/10/2026 03:44 -03): a blindagem URP e a transi??o segura foram compiladas pelo GameCI. O APK foi obtido e o iOS tamb?m concluiu; o gate de testes Unity falhou separadamente, portanto o artefato m?vel n?o representa aprova??o completa de PlayMode.
+
+
+Atualiza??o Fase 48 (30/10/2026 06:46 -03): material URP expl?cito e teste PlayMode foram adicionados. A etapa de compila??o/download foi adiada conforme orienta??o; n?o h? novo APK nesta fase.

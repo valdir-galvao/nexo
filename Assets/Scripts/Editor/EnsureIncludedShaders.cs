@@ -71,6 +71,15 @@ namespace Nexo.Editor
                 }
             }
 
+            var gameplayMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/Resources/Materials/URP_Default_Gameplay.mat");
+            var gameplayShader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Universal Render Pipeline/Unlit");
+            if (gameplayMaterial != null && gameplayShader != null && gameplayMaterial.shader != gameplayShader)
+            {
+                gameplayMaterial.shader = gameplayShader;
+                EditorUtility.SetDirty(gameplayMaterial);
+                changed = true;
+            }
+
             if (!changed) return;
             serialized.ApplyModifiedPropertiesWithoutUndo();
             AssetDatabase.SaveAssets();

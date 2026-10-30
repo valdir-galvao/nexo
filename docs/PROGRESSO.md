@@ -951,3 +951,6 @@ P106 - 30/10/2026 03:25 -03 - Fase 47: blindagem URP e transi??o bootstrap/gamep
 
 
 P107 - 30/10/2026 03:44 -03 - Fase 47 conclu?da para builds m?veis. Commit `ed6a49e` enviado em janela p?blica; Android run `41013991314` SUCCESS, artefato baixado em `C:/Temp/nexo-android-41013991314/Android/Nexo.apk` (26.933.361 bytes; SHA256 `569c02a42679fa7efb92835bf0c213b219c0269f82a5840b640a4f5fbf74f3a0`) com metadata vinculando Unity 6000.3.0f1 e commit. iOS `41013991290` SUCCESS. Unity tests `41013991357` FAILURE; gate PlayMode permanece pendente. Reposit?rio restaurado e confirmado PRIVATE.
+
+
+P108 - 30/10/2026 06:46 -03 - Fase 48 implementada localmente sem gerar app. Criado `Assets/Resources/Materials/URP_Default_Gameplay.mat` e `.meta`; o editor resolve `Universal Render Pipeline/Lit` (fallback Unlit) e serializa o shader no asset. `NexoVerticalSliceBootstrap` prioriza `Resources.Load<Material>("Materials/URP_Default_Gameplay")`, corrige shader ausente em runtime e mant?m fallback. PlayMode agora verifica material e shader antes de concluir a inicializa??o. Static QA: PASS (`json=5`, `cs=24`); `git diff --check`: PASS. Push/build/download deliberadamente n?o executados por orienta??o do usu?rio.
