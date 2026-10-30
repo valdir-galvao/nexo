@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Nexo.Core;
 using Nexo.Audio;
@@ -35,7 +36,10 @@ namespace Nexo.UI
         private Text introTitle;
         private Text introSubtitle;
         private Text introActionLabel;
+        private RectTransform introButtonRect;
+        private ParticleSystem introParticles;
         private bool modernUiReady;
+        private Coroutine introTransition;
 
         public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
 
@@ -50,6 +54,7 @@ namespace Nexo.UI
         {
             EnsureMobileCanvas();
             EnsurePresentationCamera();
+            BuildIntroParticles();
             mission = new VerticalSliceMission(new JsonFileSaveStore());
             mission.Initialize();
             audioDirector = gameObject.AddComponent<NexoAudioDirector>();
@@ -59,6 +64,7 @@ namespace Nexo.UI
             introElapsed = 0f;
             transferAnswered = HasTransferEvidence();
             RefreshModernIntro();
+            if (modernUiReady) StartCoroutine(FadeIntroIn());
             // Keep the intro path UI-only. Build gameplay physics only after entry.
             if (!showIntro) EnsureWorldBuilt();
         }
@@ -142,11 +148,11 @@ namespace Nexo.UI
 
             var buttonObject = new GameObject("Start Mission Button");
             buttonObject.transform.SetParent(panel.transform, false);
-            var buttonRect = buttonObject.AddComponent<RectTransform>();
-            buttonRect.anchorMin = new Vector2(0.20f, 0.08f);
-            buttonRect.anchorMax = new Vector2(0.80f, 0.25f);
-            buttonRect.offsetMin = Vector2.zero;
-            buttonRect.offsetMax = Vector2.zero;
+            introButtonRect = buttonObject.AddComponent<RectTransform>();
+            introButtonRect.anchorMin = new Vector2(0.20f, 0.08f);
+            introButtonRect.anchorMax = new Vector2(0.80f, 0.25f);
+            introButtonRect.offsetMin = Vector2.zero;
+            introButtonRect.offsetMax = Vector2.zero;
             var buttonImage = buttonObject.AddComponent<Image>();
             buttonImage.color = new Color(0.10f, 0.58f, 0.82f, 1f);
             var button = buttonObject.AddComponent<Button>();
@@ -156,10 +162,38 @@ namespace Nexo.UI
             buttonColors.highlightedColor = new Color(0.18f, 0.72f, 0.95f, 1f);
             buttonColors.pressedColor = new Color(0.06f, 0.36f, 0.60f, 1f);
             button.colors = buttonColors;
-            button.onClick.AddListener(BeginModernMission);
+            button.onClick.AddListener(HandleStartButtonPressed);
             introActionLabel = CreateIntroText(buttonObject.transform, "INICIAR MISSAO", 32, FontStyle.Bold, Vector2.zero, Vector2.one);
             introActionLabel.alignment = TextAnchor.MiddleCenter;
             modernUiReady = true;
+        }
+
+        private void BuildIntroParticles()
+        {
+            if (view == null || introParticles != null) return;
+            var particleObject = new GameObject("Nexo Intro Floating Lights");
+            particleObject.transform.SetParent(view.transform, false);
+            particleObject.transform.localPosition = new Vector3(0f, 0f, 5f);
+            introParticles = particleObject.AddComponent<ParticleSystem>();
+            var main = introParticles.main;
+            main.loop = true;
+            main.playOnAwake = true;
+            main.simulationSpace = ParticleSystemSimulationSpace.Local;
+            main.maxParticles = 28;
+            main.startLifetime = 6f;
+            main.startSpeed = 0.05f;
+            main.startSize = 0.06f;
+            main.startColor = new Color(0.35f, 0.85f, 1f, 0.75f);
+            var emission = introParticles.emission;
+            emission.rateOverTime = 6f;
+            var shape = introParticles.shape;
+            shape.shapeType = ParticleSystemShapeType.Box;
+            shape.scale = new Vector3(12f, 7f, 0.5f);
+            var velocity = introParticles.velocityOverLifetime;
+            velocity.enabled = true;
+            velocity.space = ParticleSystemSimulationSpace.Local;
+            velocity.y = new ParticleSystem.MinMaxCurve(0.12f, 0.28f);
+            introParticles.Play();
         }
 
         private Text CreateIntroText(Transform parent, string value, int size, FontStyle style, Vector2 anchorMin, Vector2 anchorMax)
@@ -204,8 +238,69 @@ namespace Nexo.UI
                 introElapsed = 0f;
                 EnsureWorldBuilt();
                 if (audioDirector != null) audioDirector.PlayDiscovery();
+                if (introTransition != null) StopCoroutine(introTransition);
+                introTransition = StartCoroutine(FadeIntoMission());
+                return;
             }
             RefreshModernIntro();
+        }
+
+        private void HandleStartButtonPressed()
+        {
+            if (introButtonRect != null) StartCoroutine(PunchButton(introButtonRect));
+            BeginModernMission();
+        }
+
+        private IEnumerator PunchButton(RectTransform target)
+        {
+            Vector3 baseScale = Vector3.one;
+            float duration = 0.28f;
+            float elapsed = 0f;
+            while (elapsed < duration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.Clamp01(elapsed / duration);
+                float pulse = Mathf.Sin(t * Mathf.PI) * 0.12f;
+                target.localScale = baseScale * (1f + pulse);
+                yield return null;
+            }
+            target.localScale = baseScale;
+        }
+
+        private IEnumerator FadeIntroIn()
+        {
+            if (introGroup == null) yield break;
+            introGroup.alpha = 0f;
+            float elapsed = 0f;
+            while (elapsed < 0.55f)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                introGroup.alpha = EaseInOut(Mathf.Clamp01(elapsed / 0.55f));
+                yield return null;
+            }
+            introGroup.alpha = 1f;
+        }
+
+        private IEnumerator FadeIntoMission()
+        {
+            if (introGroup == null) yield break;
+            float startAlpha = introGroup.alpha;
+            float elapsed = 0f;
+            while (elapsed < 0.5f)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                introGroup.alpha = Mathf.Lerp(startAlpha, 0f, EaseInOut(Mathf.Clamp01(elapsed / 0.5f)));
+                yield return null;
+            }
+            introGroup.alpha = 0f;
+            introGroup.gameObject.SetActive(false);
+            if (introParticles != null) introParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            introTransition = null;
+        }
+
+        private static float EaseInOut(float value)
+        {
+            return value * value * (3f - 2f * value);
         }
 
         private void BuildWorld()
@@ -241,6 +336,11 @@ namespace Nexo.UI
                 introElapsed += Time.unscaledDeltaTime;
                 if (modernUiReady && introGroup != null)
                     introGroup.alpha = Mathf.Lerp(0.86f, 1f, Mathf.Clamp01(introElapsed / 0.6f));
+                if (modernUiReady && introTitle != null)
+                {
+                    float glow = 0.5f + 0.5f * Mathf.Sin(Time.unscaledTime * 2.4f);
+                    introTitle.color = Color.Lerp(Color.white, new Color(0.42f, 0.86f, 1f, 1f), glow);
+                }
             }
             if (mission == null || player == null) return;
             if (showMenu || showDiary || showSettings) return;

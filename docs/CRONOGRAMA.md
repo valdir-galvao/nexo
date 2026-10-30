@@ -209,3 +209,10 @@ Fase 42 ? UI inicial responsiva (30/10/2026 02:46 -03)
 - CanvasScaler, GraphicRaycaster, painel, textos grandes e bot?o funcional implementados.
 - Intro usa CanvasGroup para transi??o suave; f?sica continua adiada.
 - Static QA PASS; revalida??o PlayMode/Android pendente.
+
+
+Fase 44 ? game juice e transi??es (30/10/2026 02:53 -03)
+- Punch el?stico, estados visuais do bot?o e pulso de t?tulo.
+- Part?culas leves em c?mera, limitadas a 28.
+- Fade de entrada/sa?da com EaseInOut e limpeza ao iniciar gameplay.
+- Static QA PASS; build m?vel pendente.

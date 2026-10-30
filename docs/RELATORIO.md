@@ -172,3 +172,6 @@ Atualiza??o Fase 41 (30/10/2026 02:38 -03): ciclo p?blico autorizado executado. 
 
 
 Atualiza??o Fase 42 (30/10/2026 02:46 -03): a tela inicial foi reconstru?da no Canvas do bootstrap. O caminho de apresenta??o agora n?o depende de uma c?mera pr?-existente nem de textos OnGUI pequenos; utiliza fundo s?lido, escalonamento por resolu??o, tipografia leg?vel e a??o de in?cio conectada ao fluxo da miss?o. O modo batchmode n?o cria EventSystem, reduzindo risco para testes headless.
+
+
+Atualiza??o Fase 44 (30/10/2026 02:53 -03): a tela inicial recebeu anima??es e feedback visual nativos, sem depend?ncias externas pesadas. O sistema mant?m o caminho batchmode sem EventSystem e interrompe part?culas ao entrar na miss?o. A valida??o local passou; a confirma??o final depende do GameCI.

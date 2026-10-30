@@ -315,3 +315,6 @@ P100 - 30/10/2026 02:38 -03 - Fase 41 conclu?da parcialmente. Reposit?rio foi to
 
 
 P101 - 30/10/2026 02:46 -03 - Fase 42: reconstru??o visual da tela inicial aplicada em `NexoVerticalSliceBootstrap`. O bootstrap agora garante Main Camera com fundo s?lido azul profundo, CanvasScaler responsivo 1920x1080/Match 0.5, GraphicRaycaster, EventSystem fora de batchmode, painel de introdu??o, t?tulo 76 px, subt?tulo 32 px, instru??o 26 px e bot?o de a??o 32 px. A UI usa CanvasGroup para entrada suave e o bot?o chama a transi??o real para a miss?o, sem criar f?sica durante o Intro. Static QA: PASS (`json=5`, `cs=24`); `git diff --check`: PASS. Unity/GameCI visual e PlayMode ainda precisam ser reexecutados; a rodada anterior teve PlayMode FAIL.
+
+
+P102 - 30/10/2026 02:53 -03 - Fase 44: game juice nativo aplicado no bootstrap. O bot?o principal recebeu punch el?stico por coroutine e ColorBlock de estados; o t?tulo pulsa entre branco e ciano; part?culas leves (28 m?ximas) sobem em plano de fundo; FadeIntroIn/FadeIntoMission usam easing suave e param as part?culas na entrada do gameplay. N?o foram adicionados plugins externos. `python tools/run_static_qa.py`: PASS (`json=5`, `cs=24`); `git diff --check`: PASS. Unity/GameCI ainda precisa comprovar compila??o e runtime.

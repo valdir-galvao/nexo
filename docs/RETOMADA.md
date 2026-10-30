@@ -212,3 +212,6 @@ J43 - Fase 41: Android PASS no run 41008010979; APK baixado em C:/Temp/nexo-andr
 
 
 J44 - Fase 42: tela inicial reconstru?da no Canvas com c?mera/fundo garantidos, escala responsiva e tipografia leg?vel. Bot?o de in?cio usa `BeginModernMission`, oculta o painel e aciona `EnsureWorldBuilt()` somente ap?s entrar na miss?o. Static QA PASS; valida??o Unity/GameCI pendente.
+
+
+J45 - Fase 44: game juice implementado com punch de bot?o, t?tulo pulsante, part?culas de fundo e transi??es easing. Static QA PASS. Pr?ximo passo: commit/push, janela p?blica controlada e download do APK; PlayMode anterior ainda estava pendente.
