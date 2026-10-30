@@ -187,3 +187,11 @@ Fase 39 ? Bootstrap e stripping (conclu?da localmente em 30/10/2026 02:09 -03)
 - Managed Stripping Low (1) para Standalone/Android/iPhone; Physics/Physics2D j? declarados.
 - Static QA e diff check PASS.
 - Depend?ncia: validar compila??o Unity/GameCI e runtime m?vel.
+
+
+Fase 40 ? Auditoria pr?-compila??o (30/10/2026 02:16 -03)
+- EditorBuildSettings: cena principal habilitada no ?ndice 0; cenas de teste ausentes.
+- Build Profile Unity 6: n?o verific?vel sem Editor/asset serializado.
+- Android: autorrota??o, Min API 29, Target API 35; sem AndroidManifest customizado.
+- UI: Canvas runtime defensivo; nenhum script nulo detectado na cena.
+- Static QA PASS; compila??o/runtimes pendentes.

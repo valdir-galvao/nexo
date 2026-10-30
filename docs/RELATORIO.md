@@ -163,3 +163,6 @@ Atualização P97: rodada publica 41003465778/41003469023/41003471413 PASS. APK e 
 
 
 Atualiza??o Fase 39 (30/10/2026 02:09 -03): corrigido o risco de inicializa??o f?sica no bootstrap. `BuildWorld()` n?o ? mais executado durante a tela de Intro; a constru??o com `CreatePrimitive` e `CharacterController` ocorre somente ao iniciar a miss?o, mantendo as intera??es funcionais. O stripping foi definido como Low em todas as plataformas. O pacote `com.unity.modules.physics` j? estava declarado no manifest. Static QA PASS; execu??o Unity/GameCI ainda depende de runner externo.
+
+
+Atualiza??o Fase 40 (30/10/2026 02:16 -03): auditoria preventiva confirmou a cena principal no ?ndice 0 do EditorBuildSettings, aus?ncia de cenas de teste na build principal e configura??o Android compat?vel com Unity 6 (autorrota??o, API 29/35). N?o existe AndroidManifest customizado nem Build Profile Unity 6 serializado no reposit?rio; esses pontos exigem confirma??o no Unity Editor/GameCI. A UI ? criada pelo bootstrap com CanvasScaler e GraphicRaycaster protegidos contra refer?ncias nulas. Static QA PASS.

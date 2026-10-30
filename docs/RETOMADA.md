@@ -203,3 +203,6 @@ Atualização P97: testes e builds publicos passaram no commit 3c9055d. APK e IPA 
 
 
 J41 - Fase 39: corre??o local aplicada e validada. O caminho de Intro n?o monta o mundo f?sico; `EnsureWorldBuilt()` ? chamado somente ap?s `SkipIntro()` ou quando o progresso j? est? em gameplay. Stripping ficou Low em todas as plataformas e Physics j? est? no manifest. Static QA PASS; sem evid?ncia nova de Unity/GameCI nesta m?quina. Ap?s retomada, confirmar o commit/push e executar o workflow Unity em janela autorizada.
+
+
+J42 - Fase 40: auditoria pr?-compila??o conclu?da. Cena principal est? no ?ndice 0 do EditorBuildSettings e n?o h? cenas de teste na lista. Build Profile Unity 6 n?o est? versionado/detect?vel localmente; confirmar no Editor/runner. Android usa PlayerSettings (sem manifest customizado): autorrota??o, API m?nima 29 e alvo 35. UI ? criada defensivamente pelo bootstrap e n?o h? script nulo na cena. Static QA PASS. Pr?xima a??o: validar o perfil ativo e executar compila??o Unity/GameCI.
