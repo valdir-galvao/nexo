@@ -18,6 +18,7 @@ namespace Nexo.Editor
             "UI/Default",
             "TextMeshPro/Distance Field"
         };
+        private static int retryCount;
 
         static EnsureIncludedShaders()
         {
@@ -29,7 +30,8 @@ namespace Nexo.Editor
             var settingsAsset = AssetDatabase.LoadAssetAtPath<Object>("ProjectSettings/GraphicsSettings.asset");
             if (settingsAsset == null)
             {
-                Debug.LogWarning("NEXO GraphicsSettings.asset is not available yet; shader inclusion will be retried on the next editor import.");
+                if (retryCount++ < 20) EditorApplication.delayCall += Ensure;
+                else Debug.LogWarning("NEXO GraphicsSettings.asset was not available after editor retries; shader inclusion remains pending.");
                 return;
             }
 
@@ -37,7 +39,7 @@ namespace Nexo.Editor
             var included = serialized.FindProperty("m_AlwaysIncludedShaders");
             if (included == null)
             {
-                Debug.LogWarning("NEXO GraphicsSettings has no m_AlwaysIncludedShaders property in this Unity version.");
+                Debug.LogError("NEXO GraphicsSettings has no m_AlwaysIncludedShaders property; URP shader inclusion cannot be verified.");
                 return;
             }
 

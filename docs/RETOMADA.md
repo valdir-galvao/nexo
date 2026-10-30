@@ -224,3 +224,6 @@ J47 - Fase 45 bloqueada na Porta 3: GitHub rejeitou push com 403 `Your repositor
 
 
 J48 - Fase 46: Android run 41011579731 PASS; APK em C:/Temp/nexo-android-41011579731/Android/Nexo.apk, SHA256 18c79151ec8bad6fc46183baee891b39306a13ab832df49f4f750dd0a6a054a7. Reposit?rio privado confirmado. Unity tests 41011579727 FAIL; corrigir PlayMode antes de declarar gate global.
+
+
+J49 - Fase 47: shaders URP protegidos por inclus?o serializada/retry e fallback de material runtime; transi??o agora pr?-carrega recursos, faz fade seguro e constr?i mundo ap?s prepara??o. Static QA PASS. Pr?ximo passo: push e build Android controlada.

@@ -236,3 +236,10 @@ Fase 46 ? resultado (30/10/2026 03:18 -03)
 - Android 41011579731: PASS, APK baixado e hash registrado.
 - Unity tests 41011579727: FAIL; iOS 41011579762 permaneceu em execu??o durante a captura.
 - Privacidade restaurada PRIVATE.
+
+
+Fase 47 ? blindagem gr?fica (30/10/2026 03:25 -03)
+- Always Included Shaders: Lit, Unlit, UI/Default e TextMeshPro Distance Field.
+- Preload de shaders/material fallback antes de BuildWorld.
+- Fade bloqueia intera??o, aguarda frame e constr?i gameplay com materiais v?lidos.
+- Static QA PASS; build remota pendente.

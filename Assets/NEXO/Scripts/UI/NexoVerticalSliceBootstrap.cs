@@ -40,6 +40,7 @@ namespace Nexo.UI
         private ParticleSystem introParticles;
         private bool modernUiReady;
         private Coroutine introTransition;
+        private Material defaultWorldMaterial;
 
         public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
 
@@ -52,6 +53,7 @@ namespace Nexo.UI
 
         private void Start()
         {
+            PreloadGraphics();
             EnsureMobileCanvas();
             EnsurePresentationCamera();
             BuildIntroParticles();
@@ -67,6 +69,24 @@ namespace Nexo.UI
             if (modernUiReady) StartCoroutine(FadeIntroIn());
             // Keep the intro path UI-only. Build gameplay physics only after entry.
             if (!showIntro) EnsureWorldBuilt();
+        }
+
+        private void PreloadGraphics()
+        {
+            string[] requiredShaders =
+            {
+                "Universal Render Pipeline/Lit",
+                "Universal Render Pipeline/Unlit",
+                "UI/Default",
+                "TextMeshPro/Distance Field"
+            };
+            for (int i = 0; i < requiredShaders.Length; i++) Shader.Find(requiredShaders[i]);
+
+            Shader worldShader = Shader.Find("Universal Render Pipeline/Lit");
+            if (worldShader == null) worldShader = Shader.Find("Universal Render Pipeline/Unlit");
+            if (worldShader == null) worldShader = Shader.Find("Standard");
+            if (worldShader != null && defaultWorldMaterial == null)
+                defaultWorldMaterial = new Material(worldShader) { name = "Nexo Runtime World Material" };
         }
 
         private void EnsureWorldBuilt()
@@ -236,8 +256,6 @@ namespace Nexo.UI
                 mission.SkipIntro();
                 showIntro = false;
                 introElapsed = 0f;
-                EnsureWorldBuilt();
-                if (audioDirector != null) audioDirector.PlayDiscovery();
                 if (introTransition != null) StopCoroutine(introTransition);
                 introTransition = StartCoroutine(FadeIntoMission());
                 return;
@@ -284,6 +302,8 @@ namespace Nexo.UI
         private IEnumerator FadeIntoMission()
         {
             if (introGroup == null) yield break;
+            introGroup.interactable = false;
+            introGroup.blocksRaycasts = false;
             float startAlpha = introGroup.alpha;
             float elapsed = 0f;
             while (elapsed < 0.5f)
@@ -292,6 +312,10 @@ namespace Nexo.UI
                 introGroup.alpha = Mathf.Lerp(startAlpha, 0f, EaseInOut(Mathf.Clamp01(elapsed / 0.5f)));
                 yield return null;
             }
+            PreloadGraphics();
+            yield return null;
+            EnsureWorldBuilt();
+            if (audioDirector != null) audioDirector.PlayDiscovery();
             introGroup.alpha = 0f;
             introGroup.gameObject.SetActive(false);
             if (introParticles != null) introParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
@@ -325,7 +349,11 @@ namespace Nexo.UI
             GameObject item = GameObject.CreatePrimitive(type);
             item.name = name; item.transform.position = position; item.transform.localScale = scale;
             Renderer renderer = item.GetComponent<Renderer>();
-            if (renderer != null) renderer.material.color = color;
+            if (renderer != null)
+            {
+                if (defaultWorldMaterial != null) renderer.sharedMaterial = new Material(defaultWorldMaterial);
+                if (renderer.material != null) renderer.material.color = color;
+            }
             return item;
         }
 
