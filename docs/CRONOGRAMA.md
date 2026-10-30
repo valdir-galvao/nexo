@@ -275,3 +275,4 @@ P114 | Fase 50 release | concluido | runs 41050092394/41050092233/41050092372 | 
 | P117 | Auditoria forense de materiais e shaders nulos | Conclu?do localmente | Unity/GameCI para confirma??o visual | 0 shaders nulos; configura??o e bootstrap auditados; QA PASS |
 | P118 | Auditoria preventiva IL2CPP, PlayerSettings, bootstrap e manifesto Android | Conclu?do localmente | Unity/GameCI para confirma??o de build | link.xml ampliado, paisagem/API 29-35, null checks e manifesto m?nimo; QA PASS |
 | P119 | Blindagem de FPS, energia, pausa/foco e UI mobile | Conclu?do localmente | Unity/GameCI/dispositivo para medi??o | 60 FPS, NeverSleep, callbacks seguros e scaler auditado; QA PASS |
+| P120 | Gate Unity e builds nativas Android/iOS | Conclu?do | GameCI runs 41059686100/41059686028/41059686091 | Testes PASS; APK e IPA baixados e hash verificado; reposit?rio privado |

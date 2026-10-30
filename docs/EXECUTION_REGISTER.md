@@ -387,3 +387,12 @@ P114 - 30/10/2026 America/Sao_Paulo - Fase 50 compilada com sucesso no commit `f
 - Travas mobile e callbacks de ciclo de vida aplicados no bootstrap.
 - Auditoria CanvasScaler: nenhum prefab/cena serializado; scaler runtime conforme contrato.
 - Evid?ncia: Static QA exit 0 (`json=5`, `cs=24`), `git diff --check` exit 0. Estado: PASS local / Unity GameCI NOT_RUN.
+
+
+## Execution NEXO-20261030-RELEASE54
+
+- Commit testado: `d5c1af98e17c934c405aba1b1c259199fa50b7c3`.
+- Unity Tests `41059686100`: PASS (EditMode e PlayMode).
+- Android `41059686028`: PASS; APK `C:/Temp/nexo-android-41059686028/Android/Nexo.apk`, SHA256 `a32ce8d42cf1e294089f9fddc9f9840fd574808c20ed47614d81cfadf9b4089e`.
+- iOS `41059686091`: PASS; IPA `C:/Temp/nexo-ios-41059686091/Nexo.ipa`, SHA256 `c8aa06ce737df79eede565486f96ed02cf78d9ee2e50853ee3d6a4a31c8648ae`; Xcode em `C:/Temp/nexo-ios-41059686091/iOS`.
+- Visibilidade restaurada para PRIVATE; API confirmou `disabled=false`.

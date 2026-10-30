@@ -981,3 +981,6 @@ P118 - 30/10/2026 America/Sao_Paulo - Fase 53: auditoria preventiva conclu?da. `
 
 
 P119 - 30/10/2026 America/Sao_Paulo - Fase 54: bootstrap configurado para 60 FPS sem VSync, tela sem sleep e ciclo de vida seguro em pausa/foco, preservando a escala de tempo anterior e controlando part?culas. Auditoria de UI encontrou zero CanvasScaler serializados; o ?nico scaler ? runtime e j? usa 1920x1080/Match 0.5. Static QA e `git diff --check` PASS. Relat?rio: `docs/PHASE_54_MOBILE_COMPATIBILITY.md`. Unity/GameCI NOT_RUN.
+
+
+P120 - 30/10/2026 America/Sao_Paulo - Valida??o e builds nativas conclu?das no commit `d5c1af98e17c934c405aba1b1c259199fa50b7c3`. Unity Tests run `41059686100`: PASS em EditMode e PlayMode. Android run `41059686028`: SUCCESS; APK em `C:/Temp/nexo-android-41059686028/Android/Nexo.apk`, 31.253.715 bytes, SHA256 `a32ce8d42cf1e294089f9fddc9f9840fd574808c20ed47614d81cfadf9b4089e`; `BUILD_METADATA.txt` presente. iOS run `41059686091`: SUCCESS; IPA em `C:/Temp/nexo-ios-41059686091/Nexo.ipa`, 40.222.535 bytes, SHA256 `c8aa06ce737df79eede565486f96ed02cf78d9ee2e50853ee3d6a4a31c8648ae`; projeto Xcode exportado em `C:/Temp/nexo-ios-41059686091/iOS`. Reposit?rio restaurado PRIVATE e `disabled=false`.
