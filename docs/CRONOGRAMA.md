@@ -265,3 +265,5 @@ P110 | Fase 49 remoto | parcial | PlayMode FAIL e logs detalhados bloqueados por
 P111 | Gate PlayMode | concluido | Unity 6 Build Profile e fonte LegacyRuntime | Run 41044424896 PASS; gate de testes aprovado |
 
 P112 | Release artefatos corrigidos | concluido | Runs GameCI 41044424896/41044424987/41044424886 | APK e IPA capturados e hashes registrados |
+
+P113 | Fase 50 | concluido localmente / remoto bloqueado | reativacao administrativa do GitHub | BuildWorld sem CreatePrimitive; QA PASS |

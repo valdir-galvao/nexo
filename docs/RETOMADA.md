@@ -241,3 +241,5 @@ Atualizacao P110: ciclo remoto Fase 49 encerrado. Android 41036558774 PASS com A
 Atualizacao P111: PlayMode corrigido. Causas confirmadas: Arial.ttf invalida no Unity 6 e cena ausente no Build Profile ativo. Run 41044424896 PASS com EditMode/PlayMode. Repositorio PRIVATE restaurado. Codigo remoto em 663e32e; revisar/commitar apenas documentacao local antes de nova janela.
 
 Atualizacao P112: builds corrigidos capturados. Unity Tests 41044424896 PASS; Android 41044424987 PASS com APK; iOS 41044424886 PASS com IPA. Artefatos em C:/Temp. Repositorio PRIVATE.
+
+Atualizacao P113: Fase 50 removendo primitivas procedurais concluida localmente no commit a1898c5. QA PASS. Push/build bloqueados pelo estado disabled do GitHub; repositorio PRIVATE restaurado. Nao declarar APK novo.

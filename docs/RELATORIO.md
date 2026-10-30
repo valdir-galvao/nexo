@@ -201,3 +201,5 @@ Atualizacao Fase 49 remoto (30/10/2026): link.xml/particulas/fallback foram comp
 Atualizacao PlayMode (30/10/2026): logs do runner confirmaram cena ausente no active Build Profile e uso invalido de Arial.ttf. O teste agora registra o perfil quando possivel e evita SceneManager quando nao confirmado, usando bootstrap controlado; UI usa LegacyRuntime.ttf. Run 41044424896 PASS. Repositorio restaurado PRIVATE.
 
 Atualizacao final (30/10/2026): commit 663e32e passou Unity Tests e gerou Android/iOS. APK e IPA foram baixados e validados por hash; repositorio permanece privado.
+
+Atualizacao Fase 50: gameplay usa malha cubica visual e BoxCollider simples apenas em interativos; avatar por Transform. Nenhuma chamada CreatePrimitive permanece no bootstrap. Static QA PASS. Build remoto nao executado porque GitHub recusou push com 403 de repositorio disabled; privacidade PRIVATE restaurada.
