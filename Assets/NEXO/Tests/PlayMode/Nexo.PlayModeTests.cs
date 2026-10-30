@@ -30,6 +30,12 @@ namespace Nexo.Tests
         [UnityTest, Category("K005")]
         public IEnumerator VerticalSliceSceneInitializesIntoIntro()
         {
+            // RuntimeInitializeOnLoad can leave a bootstrap created before the
+            // test scene. Remove it so the assertion observes one deterministic
+            // mission instance and a fresh save state.
+            var existing = Object.FindObjectsByType<NexoVerticalSliceBootstrap>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            for (int i = 0; i < existing.Length; i++) Object.Destroy(existing[i].gameObject);
+            if (existing.Length > 0) yield return null;
 #if UNITY_EDITOR
             AsyncOperation load = EditorSceneManager.LoadSceneAsyncInPlayMode(
                 "Assets/Scenes/NexoVerticalSlice.unity",
@@ -50,7 +56,14 @@ namespace Nexo.Tests
                 yield return new WaitForSeconds(0.5f);
             }
             Assert.IsNotNull(bootstrap);
-            Assert.AreEqual(GameState.Intro, bootstrap.CurrentState);
+            float readyTimeout = 5f;
+            while (bootstrap != null && (!bootstrap.GameplayMaterialReady || bootstrap.CurrentState == GameState.Initializing) && readyTimeout > 0f)
+            {
+                readyTimeout -= Time.unscaledDeltaTime;
+                yield return null;
+            }
+            Assert.AreEqual(GameState.Intro, bootstrap.CurrentState, "Bootstrap did not reach Intro before the readiness timeout.");
+            Assert.IsTrue(bootstrap.GameplayMaterialReady, "Bootstrap did not resolve a gameplay material/shader before the readiness timeout.");
             Material gameplayMaterial = Resources.Load<Material>("Materials/URP_Default_Gameplay");
             Assert.IsNotNull(gameplayMaterial, "URP gameplay material must be packaged in Resources.");
             Assert.IsNotNull(gameplayMaterial.shader, "URP gameplay material must resolve a shader before gameplay starts.");

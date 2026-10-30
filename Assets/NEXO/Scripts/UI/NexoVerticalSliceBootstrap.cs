@@ -43,6 +43,7 @@ namespace Nexo.UI
         private Material defaultWorldMaterial;
 
         public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
+        public bool GameplayMaterialReady { get { return defaultWorldMaterial != null && defaultWorldMaterial.shader != null; } }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void CreateIfMissing()
@@ -84,10 +85,13 @@ namespace Nexo.UI
 
             Shader worldShader = Shader.Find("Universal Render Pipeline/Lit");
             if (worldShader == null) worldShader = Shader.Find("Universal Render Pipeline/Unlit");
-            if (worldShader == null) worldShader = Shader.Find("Standard");
+            Shader fallbackShader = Shader.Find("Standard");
+            if (worldShader == null) worldShader = fallbackShader;
             var resourceMaterial = Resources.Load<Material>("Materials/URP_Default_Gameplay");
             if (resourceMaterial != null && resourceMaterial.shader == null && worldShader != null)
                 resourceMaterial.shader = worldShader;
+            if (resourceMaterial != null && resourceMaterial.shader == null && fallbackShader != null)
+                resourceMaterial.shader = fallbackShader;
             if (resourceMaterial != null && resourceMaterial.shader != null)
                 defaultWorldMaterial = resourceMaterial;
             if (worldShader != null && defaultWorldMaterial == null)
