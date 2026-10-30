@@ -229,3 +229,10 @@ Fase 45 ? gate estrito (30/10/2026 02:58 -03)
 - Porta 3: BLOCKED por 403 `Your repository is disabled` no push.
 - Portas 4?6: NOT_RUN; sem build/APK.
 - Reposit?rio restaurado PRIVATE.
+
+
+Fase 46 ? resultado (30/10/2026 03:18 -03)
+- Reposit?rio habilitado; push aceito e janela p?blica conclu?da.
+- Android 41011579731: PASS, APK baixado e hash registrado.
+- Unity tests 41011579727: FAIL; iOS 41011579762 permaneceu em execu??o durante a captura.
+- Privacidade restaurada PRIVATE.

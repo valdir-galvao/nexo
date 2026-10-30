@@ -221,3 +221,6 @@ J46 - Fase 44: runs 41010986193/41010986218/41010986188 falharam sem steps por B
 
 
 J47 - Fase 45 bloqueada na Porta 3: GitHub rejeitou push com 403 `Your repository is disabled` ap?s abertura p?blica. Nenhum workflow foi criado; visibilidade restaurada PRIVATE. Resolver o estado administrativo do reposit?rio antes de novo ciclo.
+
+
+J48 - Fase 46: Android run 41011579731 PASS; APK em C:/Temp/nexo-android-41011579731/Android/Nexo.apk, SHA256 18c79151ec8bad6fc46183baee891b39306a13ab832df49f4f750dd0a6a054a7. Reposit?rio privado confirmado. Unity tests 41011579727 FAIL; corrigir PlayMode antes de declarar gate global.

@@ -181,3 +181,6 @@ Atualiza??o Fase 44 (30/10/2026 02:54 -03): a implementa??o de game juice est? v
 
 
 Atualiza??o Fase 45 (30/10/2026 02:58 -03): a valida??o local e a presen?a do commit de game juice passaram. O GitHub rejeitou o push por o reposit?rio estar desabilitado, impedindo a cria??o dos runs. O ciclo foi interrompido conforme o gate estrito e a visibilidade foi restaurada para privada.
+
+
+Atualiza??o Fase 46 (30/10/2026 03:18 -03): o APK com game juice foi compilado pelo GameCI e baixado localmente. O artefato est? vinculado ao commit 1cbe67b e ao run 41011579731. O gate Unity tests n?o foi aprovado porque o run 41011579727 falhou; a visibilidade foi restaurada para privada ap?s a captura.

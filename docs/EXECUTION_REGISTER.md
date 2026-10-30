@@ -324,3 +324,6 @@ P103 - 30/10/2026 02:54 -03 - Fase 44: commit `7315dae` enviado durante janela p
 
 
 P104 - 30/10/2026 02:58 -03 - Fase 45 interrompida na Porta 3. Porta 1 PASS (`python tools/run_static_qa.py`: `json=5`, `cs=24`; `git diff --check` PASS). Porta 2 PASS: `7315dae` est? na branch `orchestrator/phase-a-baseline` e o HEAD local era `4bd6757`. A visibilidade foi alterada para PUBLIC, mas o push `--force-with-lease` foi rejeitado pelo GitHub com HTTP 403: `Your repository is disabled`. Nenhum run novo foi criado, portanto n?o houve build nem APK desta fase. Visibilidade restaurada e confirmada PRIVATE via API. Portas 4?6: NOT_RUN.
+
+
+P105 - 30/10/2026 03:18 -03 - Fase 46 conclu?da para Android. API confirmou reposit?rio habilitado (`disabled=false`); visibilidade p?blica aberta, commits enviados e run Android `41011579731` terminou SUCCESS sem BlobNotFound. Artefato baixado em `C:/Temp/nexo-android-41011579731/Android/Nexo.apk`, tamanho 26.929.197 bytes, SHA256 `18c79151ec8bad6fc46183baee891b39306a13ab832df49f4f750dd0a6a054a7`; `BUILD_METADATA.txt` vincula Unity 6000.3.0f1, commit `1cbe67b` e run. Visibilidade restaurada e confirmada PRIVATE. Testes Unity `41011579727` terminaram FAILURE; este APK comprova build Android, n?o aprova??o do gate PlayMode.
