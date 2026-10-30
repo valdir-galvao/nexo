@@ -222,3 +222,10 @@ Fase 44 ? resultado remoto (30/10/2026 02:54 -03)
 - Commit 7315dae enviado; static QA local PASS.
 - Unity tests/Android/iOS falharam antes dos steps; logs BlobNotFound.
 - Nenhum APK novo; privacidade restaurada PRIVATE.
+
+
+Fase 45 ? gate estrito (30/10/2026 02:58 -03)
+- Portas 1 e 2: PASS.
+- Porta 3: BLOCKED por 403 `Your repository is disabled` no push.
+- Portas 4?6: NOT_RUN; sem build/APK.
+- Reposit?rio restaurado PRIVATE.

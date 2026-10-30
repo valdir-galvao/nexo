@@ -321,3 +321,6 @@ P102 - 30/10/2026 02:53 -03 - Fase 44: game juice nativo aplicado no bootstrap. 
 
 
 P103 - 30/10/2026 02:54 -03 - Fase 44: commit `7315dae` enviado durante janela p?blica, mas runs Unity tests `41010986193`, Android `41010986218` e iOS `41010986188` falharam antes dos steps, sem runner executando; logs de jobs retornaram `404 BlobNotFound`. N?o h? evid?ncia de compila??o GameCI, APK novo ou teste PlayMode. Static QA local permaneceu PASS (`json=5`, `cs=24`). Reposit?rio restaurado e confirmado PRIVATE. Gate: BLOCKED por infraestrutura Actions; melhorias de game juice permanecem versionadas.
+
+
+P104 - 30/10/2026 02:58 -03 - Fase 45 interrompida na Porta 3. Porta 1 PASS (`python tools/run_static_qa.py`: `json=5`, `cs=24`; `git diff --check` PASS). Porta 2 PASS: `7315dae` est? na branch `orchestrator/phase-a-baseline` e o HEAD local era `4bd6757`. A visibilidade foi alterada para PUBLIC, mas o push `--force-with-lease` foi rejeitado pelo GitHub com HTTP 403: `Your repository is disabled`. Nenhum run novo foi criado, portanto n?o houve build nem APK desta fase. Visibilidade restaurada e confirmada PRIVATE via API. Portas 4?6: NOT_RUN.

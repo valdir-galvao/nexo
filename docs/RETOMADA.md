@@ -218,3 +218,6 @@ J45 - Fase 44: game juice implementado com punch de bot?o, t?tulo pulsante, part
 
 
 J46 - Fase 44: runs 41010986193/41010986218/41010986188 falharam sem steps por BlobNotFound; nenhum APK foi gerado. Reposit?rio privado confirmado. C?digo de game juice est?tico validado; repetir em janela com runner provisionado.
+
+
+J47 - Fase 45 bloqueada na Porta 3: GitHub rejeitou push com 403 `Your repository is disabled` ap?s abertura p?blica. Nenhum workflow foi criado; visibilidade restaurada PRIVATE. Resolver o estado administrativo do reposit?rio antes de novo ciclo.
