@@ -178,3 +178,5 @@ J37 - Configuração de empacotamento IPA sem assinatura no runner macOS concluída
 J38 - IPA iOS sem assinatura gerado no runner macOS e baixado localmente; gate técnico de empacotamento PASS, instalação física pendente.
 
 J39 - Correcao de shaders URP e escala de UI aplicada localmente; aguarda validacao Unity/GameCI e teste em dispositivo.
+
+J40 - Gate publico PASS: Unity tests, APK Android e IPA iOS empacotado baixados. Assinatura/instalacao iOS pendente; privacidade restaurada.

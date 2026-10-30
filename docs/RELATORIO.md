@@ -158,3 +158,5 @@ Atualizacao P94: como GraphicsSettings.asset nao existia no projeto, a inclusao 
 Atualizacao P95: os runs automaticos privados do commit beafb4b falharam sem executar steps, portanto a implementacao mobile ainda nao tem evidencia Unity/GameCI. Static QA continua PASS; o bloqueio e infraestrutura de runner.
 
 Atualizacao P96: a primeira rodada publica da Fase 38 falhou por CS0117 em EnsureIncludedShaders; a correção agora usa SerializedObject na propriedade m_AlwaysIncludedShaders, sem API inexistente. Android publicou apenas metadata/diagnostico, sem APK.
+
+Atualização P97: rodada publica 41003465778/41003469023/41003471413 PASS. APK e IPA sem assinatura foram baixados e hashes registrados. Repositório restaurado privado; nenhuma publicacao.

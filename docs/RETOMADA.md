@@ -198,3 +198,5 @@ Atualizacao P94: correcoes moveis locais aplicadas para shaders URP, CanvasScale
 Atualizacao P95: push beafb4b feito. Runs privados 41002545099/41002545093/41002544992 falharam antes de steps, bloqueio de runner/quota; rerun publico controlado necessario para validar shaders/UI/intro.
 
 Atualizacao P96: corrigida API Unity 6 invalida no EnsureIncludedShaders apos evidencias dos runs publicos 41002823668/41002826486. Proxima acao: commit/push e janela publica para repetir testes/builds.
+
+Atualização P97: testes e builds publicos passaram no commit 3c9055d. APK e IPA baixados localmente; o IPA nao contem embedded.mobileprovision e requer assinatura para instalar. Repositorio privado confirmado.
