@@ -218,3 +218,8 @@ A auditoria complementar confirmou que a aus?ncia de um Render Pipeline Asset at
 ## Fase 52 ? auditoria forense
 
 A varredura de materiais encontrou um ?nico `.mat`, com `m_Shader: {fileID: 0}`. A refer?ncia foi corrigida para Built-in Unlit e o runtime/editor passaram a substituir materiais incompat?veis com o pipeline ativo. Nenhum shader nulo permanece; a valida??o Unity/GameCI ainda ? necess?ria para confirmar a renderiza??o no APK.
+
+
+## Fase 53 ? auditoria preventiva
+
+IL2CPP, PlayerSettings, bootstrap e manifesto Android foram revisados e blindados. A configura??o t?cnica passou em valida??es locais; importa??o Unity e execu??o em dispositivo ainda precisam de evid?ncia remota.

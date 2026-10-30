@@ -975,3 +975,6 @@ P116 - 30/10/2026 America/Sao_Paulo - Auditoria adicional identificou aus?ncia d
 
 
 P117 - 30/10/2026 America/Sao_Paulo - Fase 52: varredura forense de materiais conclu?da. Foram inspecionados todos os `Assets/**/*.mat` (1 arquivo); `URP_Default_Gameplay.mat` tinha shader nulo e foi corrigido para Built-in Unlit (`fileID 10751`). Nenhum shader nulo ou campo `m_Shader` ausente restou. ProjectSettings e cena de build foram verificados. Bootstrap e resolvedor agora substituem materiais incompat?veis com o pipeline ativo. Static QA PASS (`json=5`, `cs=24`), `git diff --check` PASS. Relat?rio: `docs/PHASE_52_SHADER_FORENSICS.md`. Unity/GameCI NOT_RUN.
+
+
+P118 - 30/10/2026 America/Sao_Paulo - Fase 53: auditoria preventiva conclu?da. `Assets/link.xml` ampliado para sete m?dulos; orienta??o Android fixada em paisagem e APIs 29/35 confirmadas; bootstrap protegido contra refer?ncias nulas em cria??o de mundo/intera??es; manifesto Android m?nimo criado sem permiss?es desnecess?rias e com cleartext desabilitado. XML, Static QA (`json=5`, `cs=24`) e `git diff --check` PASS. Relat?rio: `docs/PHASE_53_PREBUILD_AUDIT.md`. Unity/GameCI NOT_RUN.

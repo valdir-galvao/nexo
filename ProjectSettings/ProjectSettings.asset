@@ -5,8 +5,8 @@ PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 27
   productGUID: 5b8b2e9f4f0d4d1b9e3f2b4a1c6d8e0f
-  defaultScreenOrientation: 4
-  useOSAutorotation: 1
+  defaultScreenOrientation: 3
+  useOSAutorotation: 0
   runInBackground: 1
   activeInputHandler: 0
   bundleVersion: 0.1.0-rc1

@@ -3,4 +3,7 @@
   <assembly fullname="UnityEngine.Physics2DModule" preserve="all" />
   <assembly fullname="UnityEngine.CoreModule" preserve="all" />
   <assembly fullname="UnityEngine.UI" preserve="all" />
+  <assembly fullname="UnityEngine.TextRenderingModule" preserve="all" />
+  <assembly fullname="UnityEngine.IMGUIModule" preserve="all" />
+  <assembly fullname="UnityEngine.AnimationModule" preserve="all" />
 </linker>

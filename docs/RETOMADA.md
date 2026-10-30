@@ -254,3 +254,6 @@ Atualiza??o P116 (30/10/2026): fallback gr?fico agora distingue URP ativo de ren
 
 
 Atualiza??o P117 (30/10/2026): Fase 52 corrigiu o ?nico material com shader nulo (`URP_Default_Gameplay.mat`) e adicionou sele??o de shader compat?vel com o pipeline ativo. Varredura final: 0 shaders nulos; QA local PASS. Relat?rio em `docs/PHASE_52_SHADER_FORENSICS.md`. Pr?ximo passo: importar no Unity/GameCI e verificar a tela ap?s ?Iniciar Miss?o?.
+
+
+Atualiza??o P118 (30/10/2026): Fase 53 ampliou link.xml, fixou orienta??o paisagem/API Android, adicionou manifesto m?nimo sem permiss?es e endureceu null checks do bootstrap. QA local PASS; Unity/GameCI ainda pendente.

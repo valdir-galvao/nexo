@@ -359,9 +359,17 @@ namespace Nexo.UI
             MakeCube("Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone, true);
             MakeCube("ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
             GameObject avatar = MakeCube("Explorer", new Vector3(-6, 1, -5), new Vector3(0.7f, 1.4f, 0.7f), NexoVisualTheme.Signal);
+            if (avatar == null)
+            {
+                Debug.LogError("Nexo: avatar n?o p?de ser criado; gameplay continuar? sem movimento.");
+                return;
+            }
             playerTransform = avatar.transform;
-            view.transform.position = new Vector3(-6, 6, -10);
-            view.transform.LookAt(avatar.transform);
+            if (view != null)
+            {
+                view.transform.position = new Vector3(-6, 6, -10);
+                view.transform.LookAt(avatar.transform);
+            }
         }
 
         private static void EnsureGameplayLight()
@@ -370,7 +378,9 @@ namespace Nexo.UI
             for (var i = 0; i < lights.Length; i++)
                 if (lights[i] != null && lights[i].type == LightType.Directional) return;
             var lightObject = new GameObject("DynamicDirectionalLight");
+            if (lightObject == null) return;
             var light = lightObject.AddComponent<Light>();
+            if (light == null) return;
             light.type = LightType.Directional;
             light.color = Color.white;
             light.intensity = 1.2f;
@@ -392,16 +402,35 @@ namespace Nexo.UI
             return mesh;
         }
 
+        private static void InitializeInteractable(GameObject item, ClueId clue, string description)
+        {
+            if (item == null) return;
+            var interactable = item.GetComponent<NexoInteractable>();
+            if (interactable == null) interactable = item.AddComponent<NexoInteractable>();
+            if (interactable != null) interactable.Initialize(clue, description);
+        }
+
         private GameObject MakeCube(string name, Vector3 position, Vector3 scale, Color color, bool addCollider = false)
         {
-            GameObject item = new GameObject(name);
-            item.name = name; item.transform.position = position; item.transform.localScale = scale;
+            var item = new GameObject(name);
+            if (item == null) return null;
+            item.name = name;
+            if (item.transform == null) return item;
+            item.transform.position = position;
+            item.transform.localScale = scale;
             var filter = item.AddComponent<MeshFilter>();
-            filter.sharedMesh = CreateCubeMesh();
+            var mesh = CreateCubeMesh();
+            if (filter != null && mesh != null) filter.sharedMesh = mesh;
+            else Debug.LogError("Nexo: MeshFilter ou malha n?o p?de ser criado para " + name);
             var renderer = item.AddComponent<MeshRenderer>();
-            if (defaultWorldMaterial != null) renderer.sharedMaterial = new Material(defaultWorldMaterial);
-            if (renderer.sharedMaterial != null) renderer.sharedMaterial.color = color;
-            if (addCollider) item.AddComponent<BoxCollider>();
+            if (renderer != null)
+            {
+                if (defaultWorldMaterial != null) renderer.sharedMaterial = new Material(defaultWorldMaterial);
+                if (renderer.sharedMaterial != null) renderer.sharedMaterial.color = color;
+            }
+            else Debug.LogError("Nexo: MeshRenderer n?o p?de ser criado para " + name);
+            if (addCollider && item.AddComponent<BoxCollider>() == null)
+                Debug.LogError("Nexo: BoxCollider n?o p?de ser criado para " + name);
             return item;
         }
 
@@ -437,6 +466,7 @@ namespace Nexo.UI
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 4f))
             {
+                if (hit.collider == null) return;
                 NexoInteractable target = hit.collider.GetComponent<NexoInteractable>();
                 if (target != null)
                 {
