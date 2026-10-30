@@ -987,3 +987,6 @@ P120 - 30/10/2026 America/Sao_Paulo - Valida??o e builds nativas conclu?das no c
 
 
 P121 - 30/10/2026 America/Sao_Paulo - Fase 55: diagn?stico forense do fechamento no boot aplicado. Bootstrap agora captura exce??es de inicializa??o, cria c?mera segura, protege callbacks de pausa/foco e valida componentes/recursos antes do uso. EditorBuildSettings confirma somente `NexoVerticalSlice.unity` habilitada no ?ndice 0. Static QA e `git diff --check` PASS. Relat?rio: `docs/PHASE_55_CRASH_FORENSICS.md`. A reprodu??o em aparelho/logcat ainda ? pendente.
+
+
+P122 - 30/10/2026 America/Sao_Paulo - Sistema de diagn?stico persistente adicionado ao app. O runtime registra sess?o, ambiente, cenas e erros com stack trace em `Application.persistentDataPath/nexo-runtime.log`, com limite de 2 MiB e aviso visual local. N?o h? rede nem segredos. Static QA PASS (`json=5`, `cs=25`), `git diff --check` PASS. Relat?rio: `docs/PHASE_56_RUNTIME_DIAGNOSTICS.md`.

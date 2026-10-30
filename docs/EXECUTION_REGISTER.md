@@ -404,3 +404,10 @@ P114 - 30/10/2026 America/Sao_Paulo - Fase 50 compilada com sucesso no commit `f
 - Cena de build: ?nica cena habilitada no ?ndice 0.
 - Evid?ncia: Static QA exit 0 (`json=5`, `cs=24`); `git diff --check` exit 0.
 - Estado: PASS est?tico / dispositivo e logcat NOT_RUN.
+
+
+## Execution NEXO-20261030-F56
+
+- Diagn?stico persistente instalado em `RuntimeDiagnostics.cs`; log local limitado a 2 MiB, sem rede/segredos.
+- Evid?ncia: Static QA exit 0 (`json=5`, `cs=25`), `git diff --check` exit 0.
+- Estado: PASS est?tico / APK com este diagn?stico ainda n?o gerado.
