@@ -175,3 +175,6 @@ Atualiza??o Fase 42 (30/10/2026 02:46 -03): a tela inicial foi reconstru?da no C
 
 
 Atualiza??o Fase 44 (30/10/2026 02:53 -03): a tela inicial recebeu anima??es e feedback visual nativos, sem depend?ncias externas pesadas. O sistema mant?m o caminho batchmode sem EventSystem e interrompe part?culas ao entrar na miss?o. A valida??o local passou; a confirma??o final depende do GameCI.
+
+
+Atualiza??o Fase 44 (30/10/2026 02:54 -03): a implementa??o de game juice est? versionada e passou a valida??o est?tica, mas a rodada p?blica n?o chegou ao GameCI devido ? falha de provisionamento/logs `BlobNotFound`. N?o h? APK novo para baixar; o reposit?rio foi restaurado para privado.

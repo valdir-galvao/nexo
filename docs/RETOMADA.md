@@ -215,3 +215,6 @@ J44 - Fase 42: tela inicial reconstru?da no Canvas com c?mera/fundo garantidos, 
 
 
 J45 - Fase 44: game juice implementado com punch de bot?o, t?tulo pulsante, part?culas de fundo e transi??es easing. Static QA PASS. Pr?ximo passo: commit/push, janela p?blica controlada e download do APK; PlayMode anterior ainda estava pendente.
+
+
+J46 - Fase 44: runs 41010986193/41010986218/41010986188 falharam sem steps por BlobNotFound; nenhum APK foi gerado. Reposit?rio privado confirmado. C?digo de game juice est?tico validado; repetir em janela com runner provisionado.

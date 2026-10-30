@@ -936,3 +936,6 @@ P101 - 30/10/2026 02:46 -03 - Fase 42: reconstru??o visual da tela inicial aplic
 
 
 P102 - 30/10/2026 02:53 -03 - Fase 44: game juice nativo aplicado no bootstrap. O bot?o principal recebeu punch el?stico por coroutine e ColorBlock de estados; o t?tulo pulsa entre branco e ciano; part?culas leves (28 m?ximas) sobem em plano de fundo; FadeIntroIn/FadeIntoMission usam easing suave e param as part?culas na entrada do gameplay. N?o foram adicionados plugins externos. `python tools/run_static_qa.py`: PASS (`json=5`, `cs=24`); `git diff --check`: PASS. Unity/GameCI ainda precisa comprovar compila??o e runtime.
+
+
+P103 - 30/10/2026 02:54 -03 - Fase 44: commit `7315dae` enviado durante janela p?blica, mas runs Unity tests `41010986193`, Android `41010986218` e iOS `41010986188` falharam antes dos steps, sem runner executando; logs de jobs retornaram `404 BlobNotFound`. N?o h? evid?ncia de compila??o GameCI, APK novo ou teste PlayMode. Static QA local permaneceu PASS (`json=5`, `cs=24`). Reposit?rio restaurado e confirmado PRIVATE. Gate: BLOCKED por infraestrutura Actions; melhorias de game juice permanecem versionadas.
