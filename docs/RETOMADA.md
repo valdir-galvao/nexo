@@ -251,3 +251,6 @@ Atualiza??o P115 (30/10/2026): Fase 51 conclu?da localmente. Fallback de materia
 
 
 Atualiza??o P116 (30/10/2026): fallback gr?fico agora distingue URP ativo de renderer Built-in; sem Render Pipeline Asset, usa `Unlit/Color` para evitar magenta. Commit `c68bf53`; QA local PASS. Pr?ximo passo ? confirmar em Unity/GameCI.
+
+
+Atualiza??o P117 (30/10/2026): Fase 52 corrigiu o ?nico material com shader nulo (`URP_Default_Gameplay.mat`) e adicionou sele??o de shader compat?vel com o pipeline ativo. Varredura final: 0 shaders nulos; QA local PASS. Relat?rio em `docs/PHASE_52_SHADER_FORENSICS.md`. Pr?ximo passo: importar no Unity/GameCI e verificar a tela ap?s ?Iniciar Miss?o?.

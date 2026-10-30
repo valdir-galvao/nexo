@@ -64,7 +64,10 @@ namespace Nexo.Editor
             }
 
             var gameplayMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/Resources/Materials/URP_Default_Gameplay.mat");
-            var gameplayShader = Shader.Find("Universal Render Pipeline/Unlit") ?? Shader.Find("Unlit/Color") ?? Shader.Find("UI/Default");
+            var urpActive = GraphicsSettings.currentRenderPipeline != null;
+            var gameplayShader = urpActive ? Shader.Find("Universal Render Pipeline/Unlit") : Shader.Find("Unlit/Color");
+            if (gameplayShader == null) gameplayShader = urpActive ? Shader.Find("Unlit/Color") : Shader.Find("Universal Render Pipeline/Unlit");
+            if (gameplayShader == null) gameplayShader = Shader.Find("UI/Default");
             if (gameplayMaterial != null && gameplayShader != null && gameplayMaterial.shader != gameplayShader)
             {
                 gameplayMaterial.shader = gameplayShader;

@@ -272,3 +272,4 @@ P114 | Fase 50 release | concluido | runs 41050092394/41050092233/41050092372 | 
 
 
 | P115 | Corrigir fallback magenta no bootstrap e auditar causas adicionais | Conclu?do localmente | Unity/GameCI para confirma??o visual | Unlit-first, luz direcional condicional, resolu??o de material desacoplada de GraphicsSettings; Static QA PASS |
+| P117 | Auditoria forense de materiais e shaders nulos | Conclu?do localmente | Unity/GameCI para confirma??o visual | 0 shaders nulos; configura??o e bootstrap auditados; QA PASS |

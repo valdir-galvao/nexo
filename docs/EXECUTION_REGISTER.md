@@ -365,3 +365,11 @@ P114 - 30/10/2026 America/Sao_Paulo - Fase 50 compilada com sucesso no commit `f
 - Corre??o incremental: sele??o de shader condicionada ao pipeline ativo (`GraphicsSettings.currentRenderPipeline`).
 - Evid?ncia: Static QA exit 0 (`json=5`, `cs=24`); `git diff --check` exit 0. Commit `c68bf53`.
 - Estado: PASS local / Unity GameCI NOT_RUN.
+
+
+## Execution NEXO-20261030-F52
+
+- Varredura de materiais: 1 `.mat` inspecionado; 0 nulos ap?s corre??o.
+- Arquivos de configura??o verificados: `ProjectSettings/EditorBuildSettings.asset`, `ProjectSettings/ProjectSettings.asset`; `GraphicsSettings.asset` ausente e tratado defensivamente.
+- Valida??o: Static QA exit 0 (`json=5`, `cs=24`), `git diff --check` exit 0.
+- Estado: PASS local / Unity GameCI NOT_RUN. Relat?rio: `docs/PHASE_52_SHADER_FORENSICS.md`.

@@ -92,7 +92,7 @@ namespace Nexo.UI
             if (fallbackShader == null) fallbackShader = Shader.Find("Standard");
             if (worldShader == null) worldShader = fallbackShader;
             var resourceMaterial = Resources.Load<Material>("Materials/URP_Default_Gameplay");
-            if (resourceMaterial != null && resourceMaterial.shader == null && worldShader != null)
+            if (resourceMaterial != null && worldShader != null && (resourceMaterial.shader == null || resourceMaterial.shader != worldShader))
                 resourceMaterial.shader = worldShader;
             if (resourceMaterial != null && resourceMaterial.shader == null && fallbackShader != null)
                 resourceMaterial.shader = fallbackShader;

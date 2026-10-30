@@ -213,3 +213,8 @@ A tela rosa ap?s ?Iniciar Miss?o? tinha dois riscos estruturais al?m da ilumina?
 
 
 A auditoria complementar confirmou que a aus?ncia de um Render Pipeline Asset ativo tamb?m podia causar magenta mesmo com o shader URP dispon?vel. A sele??o agora ? condicional ao pipeline efetivo.
+
+
+## Fase 52 ? auditoria forense
+
+A varredura de materiais encontrou um ?nico `.mat`, com `m_Shader: {fileID: 0}`. A refer?ncia foi corrigida para Built-in Unlit e o runtime/editor passaram a substituir materiais incompat?veis com o pipeline ativo. Nenhum shader nulo permanece; a valida??o Unity/GameCI ainda ? necess?ria para confirmar a renderiza??o no APK.

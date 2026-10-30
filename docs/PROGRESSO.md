@@ -972,3 +972,6 @@ P115 - 30/10/2026 America/Sao_Paulo - Fase 51 corrigiu a causa estrutural restan
 
 
 P116 - 30/10/2026 America/Sao_Paulo - Auditoria adicional identificou aus?ncia de Render Pipeline Asset ativo como risco de incompatibilidade: URP Unlit pode ficar magenta sob renderer Built-in. O bootstrap agora consulta `GraphicsSettings.currentRenderPipeline` e escolhe `Unlit/Color` quando URP n?o est? ativo, usando URP Unlit apenas com pipeline URP e mantendo fallbacks. Static QA e `git diff --check`: PASS. Commit `c68bf53`. Unity/GameCI visual ainda NOT_RUN.
+
+
+P117 - 30/10/2026 America/Sao_Paulo - Fase 52: varredura forense de materiais conclu?da. Foram inspecionados todos os `Assets/**/*.mat` (1 arquivo); `URP_Default_Gameplay.mat` tinha shader nulo e foi corrigido para Built-in Unlit (`fileID 10751`). Nenhum shader nulo ou campo `m_Shader` ausente restou. ProjectSettings e cena de build foram verificados. Bootstrap e resolvedor agora substituem materiais incompat?veis com o pipeline ativo. Static QA PASS (`json=5`, `cs=24`), `git diff --check` PASS. Relat?rio: `docs/PHASE_52_SHADER_FORENSICS.md`. Unity/GameCI NOT_RUN.
