@@ -239,3 +239,5 @@ Atualizacao P109: Fase 49 corrigiu link.xml, curvas de particulas e protecao de 
 Atualizacao P110: ciclo remoto Fase 49 encerrado. Android 41036558774 PASS com APK baixado; iOS 41036558638 PASS; Unity tests 41036558837 FAIL no PlayMode. Repositorio PRIVATE restaurado. Investigar PlayMode com escopo Actions/logs adequado antes de novo ciclo.
 
 Atualizacao P111: PlayMode corrigido. Causas confirmadas: Arial.ttf invalida no Unity 6 e cena ausente no Build Profile ativo. Run 41044424896 PASS com EditMode/PlayMode. Repositorio PRIVATE restaurado. Codigo remoto em 663e32e; revisar/commitar apenas documentacao local antes de nova janela.
+
+Atualizacao P112: builds corrigidos capturados. Unity Tests 41044424896 PASS; Android 41044424987 PASS com APK; iOS 41044424886 PASS com IPA. Artefatos em C:/Temp. Repositorio PRIVATE. Nao repetir runs privados instaveis sem necessidade.

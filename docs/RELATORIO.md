@@ -199,3 +199,5 @@ Atualizacao Fase 49 (30/10/2026): blindagem IL2CPP e particulas aplicada localme
 Atualizacao Fase 49 remoto (30/10/2026): link.xml/particulas/fallback foram compilados. Android 41036558774 PASS e APK baixado em C:/Temp/nexo-android-41036558774/Android/Nexo.apk; iOS 41036558638 PASS. Unity tests 41036558837 FAIL no PlayMode; EditMode passou. O repositorio foi restaurado PRIVATE. A causa detalhada do PlayMode exige token com leitura de logs/artefatos.
 
 Atualizacao PlayMode (30/10/2026): logs do runner confirmaram cena ausente no active Build Profile e uso invalido de Arial.ttf. O teste agora registra o perfil quando possivel e evita SceneManager quando nao confirmado, usando bootstrap controlado; UI usa LegacyRuntime.ttf. Run 41044424896 PASS. Repositorio restaurado PRIVATE.
+
+Atualizacao final (30/10/2026): commit 663e32e passou Unity Tests e gerou Android/iOS. APK e IPA foram baixados e validados por hash; repositorio permanece privado. Runs posteriores do push documental falharam por runner/quota, sem alterar os artefatos aprovados.
