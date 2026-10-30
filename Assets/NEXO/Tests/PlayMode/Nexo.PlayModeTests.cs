@@ -1,5 +1,6 @@
 using System.Collections;
 using System.IO;
+using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -36,6 +37,9 @@ namespace Nexo.Tests
             var existing = Object.FindObjectsByType<NexoVerticalSliceBootstrap>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             for (int i = 0; i < existing.Length; i++) Object.Destroy(existing[i].gameObject);
             if (existing.Length > 0) yield return null;
+#if UNITY_EDITOR
+            EnsureSceneInActiveBuildProfile();
+#endif
             // Prefer the same scene lookup used by a player build. This avoids
             // Unity 6 Build Profile differences in headless Editor tests.
             AsyncOperation load = SceneManager.LoadSceneAsync("NexoVerticalSlice", LoadSceneMode.Single);
@@ -73,5 +77,27 @@ namespace Nexo.Tests
             Assert.IsNotNull(gameplayMaterial, "URP gameplay material must be packaged in Resources.");
             Assert.IsNotNull(gameplayMaterial.shader, "URP gameplay material must resolve a shader before gameplay starts.");
         }
+
+#if UNITY_EDITOR
+        private static void EnsureSceneInActiveBuildProfile()
+        {
+            const string scenePath = "Assets/Scenes/NexoVerticalSlice.unity";
+            var legacy = EditorBuildSettings.scenes;
+            for (var i = 0; i < legacy.Length; i++)
+                if (legacy[i].path == scenePath) { legacy[i].enabled = true; EditorBuildSettings.scenes = legacy; break; }
+            var profileType = System.Type.GetType("UnityEditor.Build.Profile.BuildProfile, UnityEditor");
+            var getter = profileType == null ? null : profileType.GetMethod("GetActiveBuildProfile", BindingFlags.Public | BindingFlags.Static);
+            var profile = getter == null ? null : getter.Invoke(null, null);
+            var property = profile == null ? null : profile.GetType().GetProperty("scenes", BindingFlags.Public | BindingFlags.Instance);
+            if (property == null || !property.CanRead || !property.CanWrite) return;
+            var current = property.GetValue(profile) as EditorBuildSettingsScene[] ?? System.Array.Empty<EditorBuildSettingsScene>();
+            for (var i = 0; i < current.Length; i++)
+                if (current[i].path == scenePath) { current[i].enabled = true; property.SetValue(profile, current); return; }
+            var updated = new EditorBuildSettingsScene[current.Length + 1];
+            current.CopyTo(updated, 0);
+            updated[updated.Length - 1] = new EditorBuildSettingsScene(scenePath, true);
+            property.SetValue(profile, updated);
+        }
+#endif
     }
 }
