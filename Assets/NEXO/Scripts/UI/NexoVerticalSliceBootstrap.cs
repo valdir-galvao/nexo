@@ -445,9 +445,9 @@ namespace Nexo.UI
             RenderSettings.ambientLight = NexoVisualTheme.Sky;
             EnsureGameplayLight();
             MakeCube("Island", new Vector3(0, -0.5f, 0), new Vector3(18, 1, 18), new Color(0.3f, 0.45f, 0.3f));
-            MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true).AddComponent<NexoInteractable>().Initialize(ClueId.Source, "Fonte alta: siga as marcas de umidade.");
-            MakeCube("Channel", new Vector3(-1, 0.25f, 2), new Vector3(3.5f, 0.3f, 0.5f), NexoVisualTheme.Water, true).AddComponent<NexoInteractable>().Initialize(ClueId.Channel, "O canal aponta para o reservatório.");
-            MakeCube("Valve", new Vector3(2, 0.7f, 1), new Vector3(0.8f, 1.2f, 0.8f), NexoVisualTheme.Signal, true).AddComponent<NexoInteractable>().Initialize(ClueId.Valve, "Alinhe entrada e saída; há três posições.");
+            InitializeInteractable(MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true), ClueId.Source, "Fonte alta: siga as marcas de umidade.");
+            InitializeInteractable(MakeCube("Channel", new Vector3(-1, 0.25f, 2), new Vector3(3.5f, 0.3f, 0.5f), NexoVisualTheme.Water, true), ClueId.Channel, "O canal aponta para o reservat?rio.");
+            InitializeInteractable(MakeCube("Valve", new Vector3(2, 0.7f, 1), new Vector3(0.8f, 1.2f, 0.8f), NexoVisualTheme.Signal, true), ClueId.Valve, "Alinhe entrada e sa?da; h? tr?s posi??es.");
             MakeCube("Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone, true);
             MakeCube("ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
             GameObject avatar = MakeCube("Explorer", new Vector3(-6, 1, -5), new Vector3(0.7f, 1.4f, 0.7f), NexoVisualTheme.Signal);
