@@ -94,3 +94,56 @@ jobs:
           name: nexo-android-diagnostics-${{ env.UNITY_VERSION }}-${{ github.sha }}
           path: diagnostics
           if-no-files-found: warn
+
+  android-emulator:
+    name: Install and launch APK on Android emulator
+    needs: android
+    if: needs.android.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout smoke test script
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Download APK from this run
+        uses: actions/download-artifact@v4
+        with:
+          pattern: nexo-android-*
+          merge-multiple: true
+          path: .
+
+      - name: Locate APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          find . -type f -name 'Nexo.apk' -print
+          test -n "$(find . -type f -name 'Nexo.apk' -print -quit)"
+
+      - name: Enable KVM
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Run emulator smoke test
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          script: bash tools/android_smoke_test.sh
+
+      - name: Upload Android runtime diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-emulator-diagnostics-${{ github.run_id }}
+          path: diagnostics/android
+          if-no-files-found: warn
