@@ -241,3 +241,5 @@ P122 - 30/10/2026 America/Sao_Paulo - Sistema de diagn?stico persistente adicion
 P123 / 30-10-2026: final audit runtime PASS; Android artifact validated; iOS blocked by macOS runner capacity. See `docs/PHASE_57_FINAL_RUNTIME_AUDIT.md`.
 
 P124 / 30-10-2026: Android emulator smoke workflow prepared; remote dispatch blocked by workflow branch visibility (404), no runtime result claimed.
+
+P125 / 30-10-2026: Android emulator job integrated; run cancelled before emulator due Unity build stall; no runtime conclusion.

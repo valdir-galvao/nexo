@@ -282,3 +282,5 @@ P114 | Fase 50 release | concluido | runs 41050092394/41050092233/41050092372 | 
 P123 concluida: Android aprovado; iOS bloqueado por capacidade externa do runner macOS. Proxima acao autorizada: nova janela iOS somente apos runner disponivel.
 
 P124 concluida: infraestrutura de emulador pronta; execucao depende de disponibilizar o workflow na branch padrao ou de push controlado.
+
+P125 concluida: smoke integrado, execucao pendente por travamento da compilacao Unity no runner.
