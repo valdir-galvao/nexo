@@ -7,6 +7,7 @@ using Nexo.Progression;
 using Nexo.Safety;
 using Nexo.Learning;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Nexo.UI
 {
@@ -29,6 +30,12 @@ namespace Nexo.UI
         private bool transferAnswered;
         private float introElapsed;
         private bool worldBuilt;
+        private Canvas uiCanvas;
+        private CanvasGroup introGroup;
+        private Text introTitle;
+        private Text introSubtitle;
+        private Text introActionLabel;
+        private bool modernUiReady;
 
         public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
 
@@ -42,6 +49,7 @@ namespace Nexo.UI
         private void Start()
         {
             EnsureMobileCanvas();
+            EnsurePresentationCamera();
             mission = new VerticalSliceMission(new JsonFileSaveStore());
             mission.Initialize();
             audioDirector = gameObject.AddComponent<NexoAudioDirector>();
@@ -50,6 +58,7 @@ namespace Nexo.UI
             showIntro = mission.StateMachine.State == GameState.Intro;
             introElapsed = 0f;
             transferAnswered = HasTransferEvidence();
+            RefreshModernIntro();
             // Keep the intro path UI-only. Build gameplay physics only after entry.
             if (!showIntro) EnsureWorldBuilt();
         }
@@ -73,12 +82,130 @@ namespace Nexo.UI
                 canvasObject.AddComponent<GraphicRaycaster>();
             }
 
+            uiCanvas = canvas;
+            if (!Application.isBatchMode && EventSystem.current == null)
+            {
+                var eventSystem = new GameObject("Nexo UI EventSystem");
+                eventSystem.AddComponent<EventSystem>();
+                eventSystem.AddComponent<StandaloneInputModule>();
+            }
+
             var scaler = canvas.GetComponent<CanvasScaler>();
             if (scaler == null) scaler = canvas.gameObject.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1920f, 1080f);
             scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
             scaler.matchWidthOrHeight = 0.5f;
+            BuildModernIntro(canvas);
+        }
+
+        private void EnsurePresentationCamera()
+        {
+            view = Camera.main;
+            if (view == null)
+            {
+                var cameraObject = new GameObject("Nexo Main Camera");
+                cameraObject.tag = "MainCamera";
+                view = cameraObject.AddComponent<Camera>();
+            }
+            view.clearFlags = CameraClearFlags.SolidColor;
+            view.backgroundColor = new Color(0.025f, 0.055f, 0.12f, 1f);
+            view.enabled = true;
+        }
+
+        private void BuildModernIntro(Canvas canvas)
+        {
+            if (canvas == null || introGroup != null) return;
+            var root = new GameObject("Nexo Intro Design System");
+            root.transform.SetParent(canvas.transform, false);
+            var rect = root.AddComponent<RectTransform>();
+            rect.anchorMin = Vector2.zero;
+            rect.anchorMax = Vector2.one;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+            introGroup = root.AddComponent<CanvasGroup>();
+
+            var panel = new GameObject("Intro Panel");
+            panel.transform.SetParent(root.transform, false);
+            var panelRect = panel.AddComponent<RectTransform>();
+            panelRect.anchorMin = new Vector2(0.08f, 0.12f);
+            panelRect.anchorMax = new Vector2(0.92f, 0.88f);
+            panelRect.offsetMin = Vector2.zero;
+            panelRect.offsetMax = Vector2.zero;
+            var panelImage = panel.AddComponent<Image>();
+            panelImage.color = new Color(0.035f, 0.09f, 0.18f, 0.96f);
+
+            introTitle = CreateIntroText(panel.transform, "NEXO", 76, FontStyle.Bold, new Vector2(0.08f, 0.60f), new Vector2(0.92f, 0.90f));
+            introSubtitle = CreateIntroText(panel.transform, "Reconstrua a conexao entre as ilhas.", 32, FontStyle.Normal, new Vector2(0.10f, 0.42f), new Vector2(0.90f, 0.62f));
+            var hint = CreateIntroText(panel.transform, "Observe. Descubra. Restaure.", 26, FontStyle.Italic, new Vector2(0.10f, 0.30f), new Vector2(0.90f, 0.42f));
+            hint.color = new Color(0.42f, 0.86f, 1f, 1f);
+
+            var buttonObject = new GameObject("Start Mission Button");
+            buttonObject.transform.SetParent(panel.transform, false);
+            var buttonRect = buttonObject.AddComponent<RectTransform>();
+            buttonRect.anchorMin = new Vector2(0.20f, 0.08f);
+            buttonRect.anchorMax = new Vector2(0.80f, 0.25f);
+            buttonRect.offsetMin = Vector2.zero;
+            buttonRect.offsetMax = Vector2.zero;
+            var buttonImage = buttonObject.AddComponent<Image>();
+            buttonImage.color = new Color(0.10f, 0.58f, 0.82f, 1f);
+            var button = buttonObject.AddComponent<Button>();
+            button.targetGraphic = buttonImage;
+            var buttonColors = button.colors;
+            buttonColors.normalColor = new Color(0.10f, 0.58f, 0.82f, 1f);
+            buttonColors.highlightedColor = new Color(0.18f, 0.72f, 0.95f, 1f);
+            buttonColors.pressedColor = new Color(0.06f, 0.36f, 0.60f, 1f);
+            button.colors = buttonColors;
+            button.onClick.AddListener(BeginModernMission);
+            introActionLabel = CreateIntroText(buttonObject.transform, "INICIAR MISSAO", 32, FontStyle.Bold, Vector2.zero, Vector2.one);
+            introActionLabel.alignment = TextAnchor.MiddleCenter;
+            modernUiReady = true;
+        }
+
+        private Text CreateIntroText(Transform parent, string value, int size, FontStyle style, Vector2 anchorMin, Vector2 anchorMax)
+        {
+            var textObject = new GameObject("Intro Text");
+            textObject.transform.SetParent(parent, false);
+            var rect = textObject.AddComponent<RectTransform>();
+            rect.anchorMin = anchorMin;
+            rect.anchorMax = anchorMax;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+            var text = textObject.AddComponent<Text>();
+            text.text = value;
+            text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            text.fontSize = size;
+            text.fontStyle = style;
+            text.alignment = TextAnchor.MiddleCenter;
+            text.horizontalOverflow = HorizontalWrapMode.Wrap;
+            text.verticalOverflow = VerticalWrapMode.Truncate;
+            text.color = Color.white;
+            return text;
+        }
+
+        private void RefreshModernIntro()
+        {
+            if (!modernUiReady || introGroup == null) return;
+            bool visible = showMenu || showIntro;
+            introGroup.gameObject.SetActive(visible);
+            if (!visible) return;
+            introGroup.alpha = 1f;
+            introSubtitle.text = showMenu ? "Reconstrua a conexao entre as ilhas." : "Observe a fonte, siga o canal e restaure o fluxo.";
+            introActionLabel.text = showMenu ? "INICIAR MISSAO" : "ENTRAR NA ILHA";
+        }
+
+        private void BeginModernMission()
+        {
+            showMenu = false;
+            if (showIntro)
+            {
+                mission.SkipIntro();
+                showIntro = false;
+                introElapsed = 0f;
+                EnsureWorldBuilt();
+                if (audioDirector != null) audioDirector.PlayDiscovery();
+            }
+            RefreshModernIntro();
         }
 
         private void BuildWorld()
@@ -94,8 +221,6 @@ namespace Nexo.UI
             avatar.name = "Explorer"; avatar.transform.position = new Vector3(-6, 1, -5);
             player = avatar.AddComponent<CharacterController>();
             Destroy(avatar.GetComponent<Collider>());
-            GameObject cameraObject = new GameObject("Nexo Camera");
-            view = cameraObject.AddComponent<Camera>();
             view.transform.position = new Vector3(-6, 6, -10);
             view.transform.LookAt(avatar.transform);
         }
@@ -111,8 +236,13 @@ namespace Nexo.UI
 
         private void Update()
         {
+            if (showMenu || showIntro)
+            {
+                introElapsed += Time.unscaledDeltaTime;
+                if (modernUiReady && introGroup != null)
+                    introGroup.alpha = Mathf.Lerp(0.86f, 1f, Mathf.Clamp01(introElapsed / 0.6f));
+            }
             if (mission == null || player == null) return;
-            if (showIntro) introElapsed += Time.unscaledDeltaTime;
             if (showMenu || showDiary || showSettings) return;
             if (mission.StateMachine.State == GameState.Paused) return;
             Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -144,6 +274,7 @@ namespace Nexo.UI
         private void OnGUI()
         {
             if (mission == null) return;
+            if (modernUiReady && (showMenu || showIntro)) return;
             Rect safe = Screen.safeArea;
             if (showMenu)
             {

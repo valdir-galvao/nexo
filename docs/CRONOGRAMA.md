@@ -202,3 +202,10 @@ Fase 41 ? ciclo p?blico/privado (30/10/2026 02:38 -03)
 - Unity tests 41008011072: EditMode PASS; PlayMode FAIL.
 - iOS run 41008010970: IN_PROGRESS no momento da restaura??o de privacidade.
 - Reposit?rio restaurado para PRIVATE.
+
+
+Fase 42 ? UI inicial responsiva (30/10/2026 02:46 -03)
+- Main Camera/fundo s?lido garantidos antes do gameplay.
+- CanvasScaler, GraphicRaycaster, painel, textos grandes e bot?o funcional implementados.
+- Intro usa CanvasGroup para transi??o suave; f?sica continua adiada.
+- Static QA PASS; revalida??o PlayMode/Android pendente.

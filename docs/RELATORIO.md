@@ -169,3 +169,6 @@ Atualiza??o Fase 40 (30/10/2026 02:16 -03): auditoria preventiva confirmou a cen
 
 
 Atualiza??o Fase 41 (30/10/2026 02:38 -03): ciclo p?blico autorizado executado. A build Android foi aprovada e o APK foi extra?do localmente; o artefato est? vinculado ao commit c11667a e ao run 41008010979. O gate de testes n?o foi aprovado porque PlayMode falhou no run 41008011072, embora EditMode tenha passado. O iOS ainda n?o tinha encerrado quando o reposit?rio foi restaurado para privado.
+
+
+Atualiza??o Fase 42 (30/10/2026 02:46 -03): a tela inicial foi reconstru?da no Canvas do bootstrap. O caminho de apresenta??o agora n?o depende de uma c?mera pr?-existente nem de textos OnGUI pequenos; utiliza fundo s?lido, escalonamento por resolu??o, tipografia leg?vel e a??o de in?cio conectada ao fluxo da miss?o. O modo batchmode n?o cria EventSystem, reduzindo risco para testes headless.

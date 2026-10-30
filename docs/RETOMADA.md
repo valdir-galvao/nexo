@@ -209,3 +209,6 @@ J42 - Fase 40: auditoria pr?-compila??o conclu?da. Cena principal est? no ?ndice
 
 
 J43 - Fase 41: Android PASS no run 41008010979; APK baixado em C:/Temp/nexo-android-41008010979/Android/Nexo.apk, SHA256 C225356933C5663BE87AB72D7AB6244E1B7EBD2349FE0C0EDB7E86888D2B0B99. EditMode PASS, PlayMode FAIL no run 41008011072; iOS 41008010970 estava em andamento. Privacidade restaurada PRIVATE. Diagnosticar PlayMode antes de nova libera??o m?vel.
+
+
+J44 - Fase 42: tela inicial reconstru?da no Canvas com c?mera/fundo garantidos, escala responsiva e tipografia leg?vel. Bot?o de in?cio usa `BeginModernMission`, oculta o painel e aciona `EnsureWorldBuilt()` somente ap?s entrar na miss?o. Static QA PASS; valida??o Unity/GameCI pendente.
