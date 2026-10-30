@@ -413,3 +413,5 @@ P114 - 30/10/2026 America/Sao_Paulo - Fase 50 compilada com sucesso no commit `f
 - Estado: PASS est?tico / APK com este diagn?stico ainda n?o gerado.
 
 P123 | 2026-10-30 | commit dffaf29 | runtime audit + GameCI validation | Unity Tests 41077497576 PASS; Android 41077501341 SUCCESS/APK; iOS 41077505847 cancelled and 41080123981 queued/cancelled | repo private, disabled=false | iOS runner macOS pending.
+
+P124 | 2026-10-30 | commit 58a8202 | headless Android emulator smoke workflow | local validators PASS; remote dispatch 404 (workflow not on default branch) | repo private.

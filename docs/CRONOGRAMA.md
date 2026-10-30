@@ -280,3 +280,5 @@ P114 | Fase 50 release | concluido | runs 41050092394/41050092233/41050092372 | 
 | P122 | Diagn?stico persistente de erros e crashes no app | Conclu?do localmente | Build e reprodu??o em dispositivo | Log local com stack trace, contexto e aviso visual; QA PASS |
 
 P123 concluida: Android aprovado; iOS bloqueado por capacidade externa do runner macOS. Proxima acao autorizada: nova janela iOS somente apos runner disponivel.
+
+P124 concluida: infraestrutura de emulador pronta; execucao depende de disponibilizar o workflow na branch padrao ou de push controlado.
