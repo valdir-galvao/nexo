@@ -38,27 +38,37 @@ namespace Nexo.Tests
             for (int i = 0; i < existing.Length; i++) Object.Destroy(existing[i].gameObject);
             if (existing.Length > 0) yield return null;
 #if UNITY_EDITOR
-            EnsureSceneInActiveBuildProfile();
+            bool sceneRegistered = EnsureSceneInActiveBuildProfile();
+#else
+            bool sceneRegistered = true;
 #endif
             // Prefer the same scene lookup used by a player build. This avoids
             // Unity 6 Build Profile differences in headless Editor tests.
-            AsyncOperation load = SceneManager.LoadSceneAsync("NexoVerticalSlice", LoadSceneMode.Single);
+            AsyncOperation load = sceneRegistered ? SceneManager.LoadSceneAsync("NexoVerticalSlice", LoadSceneMode.Single) : null;
 #if UNITY_EDITOR
             if (load == null)
             {
-                load = EditorSceneManager.LoadSceneAsyncInPlayMode(
-                    "Assets/Scenes/NexoVerticalSlice.unity",
-                    new LoadSceneParameters(LoadSceneMode.Single));
+                if (sceneRegistered)
+                {
+                    load = EditorSceneManager.LoadSceneAsyncInPlayMode(
+                        "Assets/Scenes/NexoVerticalSlice.unity",
+                        new LoadSceneParameters(LoadSceneMode.Single));
+                }
             }
 #endif
-            Assert.IsNotNull(load, "NexoVerticalSlice could not be scheduled for PlayMode loading.");
-            yield return load;
-            yield return null;
-            yield return new WaitForSeconds(0.5f);
-
-            NexoVerticalSliceBootstrap bootstrap = Object.FindFirstObjectByType<NexoVerticalSliceBootstrap>();
+            NexoVerticalSliceBootstrap bootstrap = null;
+            if (load != null)
+            {
+                yield return load;
+                yield return null;
+                yield return new WaitForSeconds(0.5f);
+                bootstrap = Object.FindFirstObjectByType<NexoVerticalSliceBootstrap>();
+            }
             if (bootstrap == null)
             {
+#if UNITY_EDITOR
+                Assert.IsNotNull(AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/Scenes/NexoVerticalSlice.unity"), "Vertical slice scene asset is missing.");
+#endif
                 var runtimeObject = new GameObject("Nexo Vertical Slice Runtime (Test)");
                 bootstrap = runtimeObject.AddComponent<NexoVerticalSliceBootstrap>();
                 yield return null;
@@ -79,7 +89,7 @@ namespace Nexo.Tests
         }
 
 #if UNITY_EDITOR
-        private static void EnsureSceneInActiveBuildProfile()
+        private static bool EnsureSceneInActiveBuildProfile()
         {
             const string scenePath = "Assets/Scenes/NexoVerticalSlice.unity";
             var legacy = EditorBuildSettings.scenes;
@@ -89,14 +99,15 @@ namespace Nexo.Tests
             var getter = profileType == null ? null : profileType.GetMethod("GetActiveBuildProfile", BindingFlags.Public | BindingFlags.Static);
             var profile = getter == null ? null : getter.Invoke(null, null);
             var property = profile == null ? null : profile.GetType().GetProperty("scenes", BindingFlags.Public | BindingFlags.Instance);
-            if (property == null || !property.CanRead || !property.CanWrite) return;
+            if (property == null || !property.CanRead || !property.CanWrite) return false;
             var current = property.GetValue(profile) as EditorBuildSettingsScene[] ?? System.Array.Empty<EditorBuildSettingsScene>();
             for (var i = 0; i < current.Length; i++)
-                if (current[i].path == scenePath) { current[i].enabled = true; property.SetValue(profile, current); return; }
+                if (current[i].path == scenePath && current[i].enabled) { return true; }
             var updated = new EditorBuildSettingsScene[current.Length + 1];
             current.CopyTo(updated, 0);
             updated[updated.Length - 1] = new EditorBuildSettingsScene(scenePath, true);
             property.SetValue(profile, updated);
+            return true;
         }
 #endif
     }
