@@ -28,13 +28,14 @@ namespace Nexo.UI
         private bool showTransfer;
         private bool transferAnswered;
         private float introElapsed;
+        private bool worldBuilt;
 
         public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void CreateIfMissing()
         {
-            if (FindObjectOfType<NexoVerticalSliceBootstrap>() == null)
+            if (FindFirstObjectByType<NexoVerticalSliceBootstrap>() == null)
                 new GameObject("Nexo Vertical Slice Runtime").AddComponent<NexoVerticalSliceBootstrap>();
         }
 
@@ -43,13 +44,21 @@ namespace Nexo.UI
             EnsureMobileCanvas();
             mission = new VerticalSliceMission(new JsonFileSaveStore());
             mission.Initialize();
-            BuildWorld();
             audioDirector = gameObject.AddComponent<NexoAudioDirector>();
             audioDirector.Configure(mission.Save.audio);
             dataControls = new LocalDataControls();
             showIntro = mission.StateMachine.State == GameState.Intro;
             introElapsed = 0f;
             transferAnswered = HasTransferEvidence();
+            // Keep the intro path UI-only. Build gameplay physics only after entry.
+            if (!showIntro) EnsureWorldBuilt();
+        }
+
+        private void EnsureWorldBuilt()
+        {
+            if (worldBuilt) return;
+            worldBuilt = true;
+            BuildWorld();
         }
 
         private void EnsureMobileCanvas()
@@ -152,7 +161,7 @@ namespace Nexo.UI
                 GUI.color = new Color(1f, 1f, 1f, introAlpha);
                 GUI.Box(new Rect(safe.x + 30, safe.y + 70, safe.width - 60, 180), "O reservatório silencioso");
                 GUI.Label(new Rect(safe.x + 55, safe.y + 110, safe.width - 110, 60), "Observe a fonte, siga o canal e restaure o fluxo.");
-                if (GUI.Button(new Rect(safe.x + 55, safe.y + 180, 180, 42), "Começar (pular prólogo)")) { mission.SkipIntro(); showIntro = false; introElapsed = 0f; audioDirector.PlayDiscovery(); }
+                if (GUI.Button(new Rect(safe.x + 55, safe.y + 180, 180, 42), "Começar (pular prólogo)")) { mission.SkipIntro(); showIntro = false; introElapsed = 0f; EnsureWorldBuilt(); audioDirector.PlayDiscovery(); }
                 GUI.color = Color.white;
                 return;
             }

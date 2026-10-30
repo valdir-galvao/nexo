@@ -180,3 +180,10 @@ J38 - IPA iOS sem assinatura gerado no runner macOS e baixado localmente; gate t
 J39 - Correcao de shaders URP e escala de UI aplicada localmente; aguarda validacao Unity/GameCI e teste em dispositivo.
 
 J40 - Gate publico PASS: Unity tests, APK Android e IPA iOS empacotado baixados. Assinatura/instalacao iOS pendente; privacidade restaurada.
+
+
+Fase 39 ? Bootstrap e stripping (conclu?da localmente em 30/10/2026 02:09 -03)
+- Bootstrap UI-only durante Intro; f?sica procedural constru?da sob demanda ap?s entrada.
+- Managed Stripping Low (1) para Standalone/Android/iPhone; Physics/Physics2D j? declarados.
+- Static QA e diff check PASS.
+- Depend?ncia: validar compila??o Unity/GameCI e runtime m?vel.

@@ -200,3 +200,6 @@ Atualizacao P95: push beafb4b feito. Runs privados 41002545099/41002545093/41002
 Atualizacao P96: corrigida API Unity 6 invalida no EnsureIncludedShaders apos evidencias dos runs publicos 41002823668/41002826486. Proxima acao: commit/push e janela publica para repetir testes/builds.
 
 Atualização P97: testes e builds publicos passaram no commit 3c9055d. APK e IPA baixados localmente; o IPA nao contem embedded.mobileprovision e requer assinatura para instalar. Repositorio privado confirmado.
+
+
+J41 - Fase 39: corre??o local aplicada e validada. O caminho de Intro n?o monta o mundo f?sico; `EnsureWorldBuilt()` ? chamado somente ap?s `SkipIntro()` ou quando o progresso j? est? em gameplay. Stripping ficou Low em todas as plataformas e Physics j? est? no manifest. Static QA PASS; sem evid?ncia nova de Unity/GameCI nesta m?quina. Ap?s retomada, confirmar o commit/push e executar o workflow Unity em janela autorizada.

@@ -160,3 +160,6 @@ Atualizacao P95: os runs automaticos privados do commit beafb4b falharam sem exe
 Atualizacao P96: a primeira rodada publica da Fase 38 falhou por CS0117 em EnsureIncludedShaders; a correção agora usa SerializedObject na propriedade m_AlwaysIncludedShaders, sem API inexistente. Android publicou apenas metadata/diagnostico, sem APK.
 
 Atualização P97: rodada publica 41003465778/41003469023/41003471413 PASS. APK e IPA sem assinatura foram baixados e hashes registrados. Repositório restaurado privado; nenhuma publicacao.
+
+
+Atualiza??o Fase 39 (30/10/2026 02:09 -03): corrigido o risco de inicializa??o f?sica no bootstrap. `BuildWorld()` n?o ? mais executado durante a tela de Intro; a constru??o com `CreatePrimitive` e `CharacterController` ocorre somente ao iniciar a miss?o, mantendo as intera??es funcionais. O stripping foi definido como Low em todas as plataformas. O pacote `com.unity.modules.physics` j? estava declarado no manifest. Static QA PASS; execu??o Unity/GameCI ainda depende de runner externo.

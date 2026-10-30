@@ -26,7 +26,7 @@ PlayerSettings:
     Android: 1
     iPhone: 1
   managedStrippingLevel:
-    Standalone: 4
+    Standalone: 1
     Android: 1
     iPhone: 1
   scriptingDefineSymbols: {}
