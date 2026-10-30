@@ -227,3 +227,6 @@ J48 - Fase 46: Android run 41011579731 PASS; APK em C:/Temp/nexo-android-4101157
 
 
 J49 - Fase 47: shaders URP protegidos por inclus?o serializada/retry e fallback de material runtime; transi??o agora pr?-carrega recursos, faz fade seguro e constr?i mundo ap?s prepara??o. Static QA PASS. Pr?ximo passo: push e build Android controlada.
+
+
+J50 - Fase 47: URP/bootstrap blindados e Android 41013991314 PASS; APK em C:/Temp/nexo-android-41013991314/Android/Nexo.apk, SHA256 569c02a42679fa7efb92835bf0c213b219c0269f82a5840b640a4f5fbf74f3a0. iOS 41013991290 PASS. Unity tests 41013991357 FAIL; investigar PlayMode antes do gate global. Privacidade PRIVATE confirmada.

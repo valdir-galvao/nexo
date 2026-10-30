@@ -187,3 +187,6 @@ Atualiza??o Fase 46 (30/10/2026 03:18 -03): o APK com game juice foi compilado p
 
 
 Atualiza??o Fase 47 (30/10/2026 03:25 -03): corrigida a regress?o estrutural de materiais no bootstrap. A prepara??o gr?fica agora ocorre antes da cria??o procedural, e a transi??o s? libera gameplay depois do fade e do prewarm. A lista de shaders essenciais continua sendo atualizada via SerializedObject do GraphicsSettings, sem GUIDs inventados.
+
+
+Atualiza??o Fase 47 (30/10/2026 03:44 -03): a blindagem URP e a transi??o segura foram compiladas pelo GameCI. O APK foi obtido e o iOS tamb?m concluiu; o gate de testes Unity falhou separadamente, portanto o artefato m?vel n?o representa aprova??o completa de PlayMode.

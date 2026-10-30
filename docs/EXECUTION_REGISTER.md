@@ -330,3 +330,6 @@ P105 - 30/10/2026 03:18 -03 - Fase 46 conclu?da para Android. API confirmou repo
 
 
 P106 - 30/10/2026 03:25 -03 - Fase 47: blindagem URP e transi??o bootstrap/gameplay aplicada. `EnsureIncludedShaders` mant?m os quatro shaders essenciais via `m_AlwaysIncludedShaders`, com retries quando GraphicsSettings.asset ainda n?o est? dispon?vel. O bootstrap pr?-carrega URP Lit/Unlit, UI/Default e TMP, cria material URP fallback para primitivas, desabilita intera??o durante o fade, aguarda um frame e s? ent?o executa `BuildWorld()`. Game Juice foi preservado. Static QA: PASS (`json=5`, `cs=24`); `git diff --check`: PASS.
+
+
+P107 - 30/10/2026 03:44 -03 - Fase 47 conclu?da para builds m?veis. Commit `ed6a49e` enviado em janela p?blica; Android run `41013991314` SUCCESS, artefato baixado em `C:/Temp/nexo-android-41013991314/Android/Nexo.apk` (26.933.361 bytes; SHA256 `569c02a42679fa7efb92835bf0c213b219c0269f82a5840b640a4f5fbf74f3a0`) com metadata vinculando Unity 6000.3.0f1 e commit. iOS `41013991290` SUCCESS. Unity tests `41013991357` FAILURE; gate PlayMode permanece pendente. Reposit?rio restaurado e confirmado PRIVATE.

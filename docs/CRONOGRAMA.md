@@ -243,3 +243,10 @@ Fase 47 ? blindagem gr?fica (30/10/2026 03:25 -03)
 - Preload de shaders/material fallback antes de BuildWorld.
 - Fade bloqueia intera??o, aguarda frame e constr?i gameplay com materiais v?lidos.
 - Static QA PASS; build remota pendente.
+
+
+Fase 47 ? resultado remoto (30/10/2026 03:44 -03)
+- Android 41013991314: PASS, APK baixado e hash registrado.
+- iOS 41013991290: PASS.
+- Unity tests 41013991357: FAIL; PlayMode ainda bloqueia aprova??o global.
+- Reposit?rio restaurado PRIVATE.
