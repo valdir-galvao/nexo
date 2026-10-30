@@ -16,7 +16,7 @@ namespace Nexo.UI
     public sealed class NexoVerticalSliceBootstrap : MonoBehaviour
     {
         private VerticalSliceMission mission;
-        private CharacterController player;
+        private Transform playerTransform;
         private Camera view;
         private Vector2 touchMove;
         private string prompt = "";
@@ -346,55 +346,43 @@ namespace Nexo.UI
         private void BuildWorld()
         {
             RenderSettings.ambientLight = NexoVisualTheme.Sky;
-            MakePrimitive(PrimitiveType.Cube, "Island", new Vector3(0, -0.5f, 0), new Vector3(18, 1, 18), new Color(0.3f, 0.45f, 0.3f));
-            MakePrimitive(PrimitiveType.Cube, "Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water).AddComponent<NexoInteractable>().Initialize(ClueId.Source, "Fonte alta: siga as marcas de umidade.");
-            MakePrimitive(PrimitiveType.Cube, "Channel", new Vector3(-1, 0.25f, 2), new Vector3(3.5f, 0.3f, 0.5f), NexoVisualTheme.Water).AddComponent<NexoInteractable>().Initialize(ClueId.Channel, "O canal aponta para o reservatório.");
-            MakePrimitive(PrimitiveType.Cube, "Valve", new Vector3(2, 0.7f, 1), new Vector3(0.8f, 1.2f, 0.8f), NexoVisualTheme.Signal).AddComponent<NexoInteractable>().Initialize(ClueId.Valve, "Alinhe entrada e saída; há três posições.");
-            MakePrimitive(PrimitiveType.Cube, "Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone);
-            MakePrimitive(PrimitiveType.Cube, "ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
-            GameObject avatar = CreatePrimitiveSafe(PrimitiveType.Capsule, "Explorer");
-            avatar.name = "Explorer"; avatar.transform.position = new Vector3(-6, 1, -5);
-            try
-            {
-                player = avatar.GetComponent<CharacterController>();
-                if (player == null) player = avatar.AddComponent<CharacterController>();
-                var generatedCollider = avatar.GetComponent<Collider>();
-                if (generatedCollider != null && !(generatedCollider is CharacterController)) Destroy(generatedCollider);
-            }
-            catch (System.Exception exception)
-            {
-                Debug.LogWarning($"Nexo: CharacterController indisponível; avatar visual continuará sem movimento. {exception.Message}");
-                player = null;
-            }
+            MakeCube("Island", new Vector3(0, -0.5f, 0), new Vector3(18, 1, 18), new Color(0.3f, 0.45f, 0.3f));
+            MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true).AddComponent<NexoInteractable>().Initialize(ClueId.Source, "Fonte alta: siga as marcas de umidade.");
+            MakeCube("Channel", new Vector3(-1, 0.25f, 2), new Vector3(3.5f, 0.3f, 0.5f), NexoVisualTheme.Water, true).AddComponent<NexoInteractable>().Initialize(ClueId.Channel, "O canal aponta para o reservatório.");
+            MakeCube("Valve", new Vector3(2, 0.7f, 1), new Vector3(0.8f, 1.2f, 0.8f), NexoVisualTheme.Signal, true).AddComponent<NexoInteractable>().Initialize(ClueId.Valve, "Alinhe entrada e saída; há três posições.");
+            MakeCube("Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone, true);
+            MakeCube("ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
+            GameObject avatar = MakeCube("Explorer", new Vector3(-6, 1, -5), new Vector3(0.7f, 1.4f, 0.7f), NexoVisualTheme.Signal);
+            playerTransform = avatar.transform;
             view.transform.position = new Vector3(-6, 6, -10);
             view.transform.LookAt(avatar.transform);
         }
 
-        private static GameObject CreatePrimitiveSafe(PrimitiveType type, string name)
+        private static Mesh CreateCubeMesh()
         {
-            try
+            var mesh = new Mesh { name = "Nexo Visual Cube Mesh" };
+            mesh.vertices = new[]
             {
-                var primitive = GameObject.CreatePrimitive(type);
-                primitive.name = name;
-                return primitive;
-            }
-            catch (System.Exception exception)
-            {
-                Debug.LogWarning($"Nexo: primitiva {type} indisponível; usando objeto visual vazio. {exception.Message}");
-                return new GameObject(name);
-            }
+                new Vector3(-0.5f, -0.5f, -0.5f), new Vector3(0.5f, -0.5f, -0.5f),
+                new Vector3(0.5f, 0.5f, -0.5f), new Vector3(-0.5f, 0.5f, -0.5f),
+                new Vector3(-0.5f, -0.5f, 0.5f), new Vector3(0.5f, -0.5f, 0.5f),
+                new Vector3(0.5f, 0.5f, 0.5f), new Vector3(-0.5f, 0.5f, 0.5f)
+            };
+            mesh.triangles = new[] { 0, 2, 1, 0, 3, 2, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 2, 3, 7, 2, 7, 6, 0, 4, 7, 0, 7, 3, 1, 2, 6, 1, 6, 5 };
+            mesh.RecalculateNormals();
+            return mesh;
         }
 
-        private GameObject MakePrimitive(PrimitiveType type, string name, Vector3 position, Vector3 scale, Color color)
+        private GameObject MakeCube(string name, Vector3 position, Vector3 scale, Color color, bool addCollider = false)
         {
-            GameObject item = CreatePrimitiveSafe(type, name);
+            GameObject item = new GameObject(name);
             item.name = name; item.transform.position = position; item.transform.localScale = scale;
-            Renderer renderer = item.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                if (defaultWorldMaterial != null) renderer.sharedMaterial = new Material(defaultWorldMaterial);
-                if (renderer.material != null) renderer.material.color = color;
-            }
+            var filter = item.AddComponent<MeshFilter>();
+            filter.sharedMesh = CreateCubeMesh();
+            var renderer = item.AddComponent<MeshRenderer>();
+            if (defaultWorldMaterial != null) renderer.sharedMaterial = new Material(defaultWorldMaterial);
+            if (renderer.sharedMaterial != null) renderer.sharedMaterial.color = color;
+            if (addCollider) item.AddComponent<BoxCollider>();
             return item;
         }
 
@@ -411,15 +399,15 @@ namespace Nexo.UI
                     introTitle.color = Color.Lerp(Color.white, new Color(0.42f, 0.86f, 1f, 1f), glow);
                 }
             }
-            if (mission == null || player == null) return;
+            if (mission == null || playerTransform == null) return;
             if (showMenu || showDiary || showSettings) return;
             if (mission.StateMachine.State == GameState.Paused) return;
             Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             input += new Vector3(touchMove.x, 0, touchMove.y);
             input = Vector3.ClampMagnitude(input, 1f);
-            player.Move(input * 3f * Time.deltaTime);
-            view.transform.position = Vector3.Lerp(view.transform.position, player.transform.position + new Vector3(0, 5, -8), 8f * Time.deltaTime);
-            view.transform.LookAt(player.transform.position + Vector3.up);
+            playerTransform.position += input * 3f * Time.deltaTime;
+            view.transform.position = Vector3.Lerp(view.transform.position, playerTransform.position + new Vector3(0, 5, -8), 8f * Time.deltaTime);
+            view.transform.LookAt(playerTransform.position + Vector3.up);
             if (Input.GetKeyDown(KeyCode.E)) Interact();
         }
 
