@@ -36,13 +36,18 @@ namespace Nexo.Tests
             var existing = Object.FindObjectsByType<NexoVerticalSliceBootstrap>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             for (int i = 0; i < existing.Length; i++) Object.Destroy(existing[i].gameObject);
             if (existing.Length > 0) yield return null;
+            // Prefer the same scene lookup used by a player build. This avoids
+            // Unity 6 Build Profile differences in headless Editor tests.
+            AsyncOperation load = SceneManager.LoadSceneAsync("NexoVerticalSlice", LoadSceneMode.Single);
 #if UNITY_EDITOR
-            AsyncOperation load = EditorSceneManager.LoadSceneAsyncInPlayMode(
-                "Assets/Scenes/NexoVerticalSlice.unity",
-                new LoadSceneParameters(LoadSceneMode.Single));
-#else
-            AsyncOperation load = SceneManager.LoadSceneAsync("NexoVerticalSlice");
+            if (load == null)
+            {
+                load = EditorSceneManager.LoadSceneAsyncInPlayMode(
+                    "Assets/Scenes/NexoVerticalSlice.unity",
+                    new LoadSceneParameters(LoadSceneMode.Single));
+            }
 #endif
+            Assert.IsNotNull(load, "NexoVerticalSlice could not be scheduled for PlayMode loading.");
             yield return load;
             yield return null;
             yield return new WaitForSeconds(0.5f);
