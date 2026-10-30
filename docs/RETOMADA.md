@@ -248,3 +248,6 @@ Atualizacao P114: Fase 50 PASS remoto. Unity Tests 41050092394, Android 41050092
 
 
 Atualiza??o P115 (30/10/2026): Fase 51 conclu?da localmente. Fallback de material passou a priorizar URP Unlit, com fallbacks nativos; `BuildWorld()` cria luz direcional somente quando necess?rio; resolu??o do material no Editor n?o ? mais bloqueada pela aus?ncia de `GraphicsSettings.asset`. Static QA e `git diff --check` PASS. N?o houve build remoto nesta etapa. Pr?ximo passo: testar importa??o/PlayMode no Unity/GameCI e validar a tela ap?s ?Iniciar Miss?o?.
+
+
+Atualiza??o P116 (30/10/2026): fallback gr?fico agora distingue URP ativo de renderer Built-in; sem Render Pipeline Asset, usa `Unlit/Color` para evitar magenta. Commit `c68bf53`; QA local PASS. Pr?ximo passo ? confirmar em Unity/GameCI.

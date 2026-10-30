@@ -358,3 +358,10 @@ P114 - 30/10/2026 America/Sao_Paulo - Fase 50 compilada com sucesso no commit `f
 - Achados adicionais: n?o existe `ProjectSettings/GraphicsSettings.asset` rastreado; `Assets/Resources/Materials/URP_Default_Gameplay.mat` tinha shader nulo serializado. O runtime agora resolve Unlit e o Editor tenta corrigir o material independentemente desse arquivo.
 - Estado: PASS local / Unity GameCI NOT_RUN.
 - Pr?xima a??o: executar importa??o e PlayMode em Unity/GameCI para confirmar o comportamento visual no dispositivo.
+
+
+## Execution NEXO-20261030-F51b
+
+- Corre??o incremental: sele??o de shader condicionada ao pipeline ativo (`GraphicsSettings.currentRenderPipeline`).
+- Evid?ncia: Static QA exit 0 (`json=5`, `cs=24`); `git diff --check` exit 0. Commit `c68bf53`.
+- Estado: PASS local / Unity GameCI NOT_RUN.

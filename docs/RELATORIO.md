@@ -210,3 +210,6 @@ Atualizacao final Fase 50: BuildWorld sem CreatePrimitive gerou Android e iOS co
 ## Atualiza??o Fase 51
 
 A tela rosa ap?s ?Iniciar Miss?o? tinha dois riscos estruturais al?m da ilumina??o: o material em `Resources` estava serializado sem shader (`fileID: 0`) e n?o havia `ProjectSettings/GraphicsSettings.asset` rastreado para garantir inclus?o de shaders. O bootstrap foi endurecido para usar URP Unlit primeiro, com fallbacks nativos, e para criar luz direcional apenas quando a cena n?o oferece uma. O resolvedor de Editor continua incluindo URP Lit/Unlit, UI/Default e TMP quando a propriedade serializada existe, mas tamb?m corrige o material sem exigir a exist?ncia pr?via de GraphicsSettings. A valida??o local passou; a confirma??o em Unity/GameCI permanece pendente.
+
+
+A auditoria complementar confirmou que a aus?ncia de um Render Pipeline Asset ativo tamb?m podia causar magenta mesmo com o shader URP dispon?vel. A sele??o agora ? condicional ao pipeline efetivo.
