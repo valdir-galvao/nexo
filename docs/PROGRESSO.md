@@ -990,3 +990,5 @@ P121 - 30/10/2026 America/Sao_Paulo - Fase 55: diagn?stico forense do fechamento
 
 
 P122 - 30/10/2026 America/Sao_Paulo - Sistema de diagn?stico persistente adicionado ao app. O runtime registra sess?o, ambiente, cenas e erros com stack trace em `Application.persistentDataPath/nexo-runtime.log`, com limite de 2 MiB e aviso visual local. N?o h? rede nem segredos. Static QA PASS (`json=5`, `cs=25`), `git diff --check` PASS. Relat?rio: `docs/PHASE_56_RUNTIME_DIAGNOSTICS.md`.
+
+P123 - 30/10/2026 America/Sao_Paulo - Auditoria final de inicializacao concluida no commit `dffaf29`. Corrigidas cadeias inseguras de `BuildWorld()` com validacao defensiva de objetos/componentes. Static QA, validacao de conteudo, testes de agentes e diff check PASS. Unity Tests `41077497576` SUCCESS (EditMode e PlayMode); Android `41077501341` SUCCESS, APK baixado e hash registrado. iOS `41077505847` foi cancelado aguardando macOS e a retentativa `41080123981` permaneceu sem runner; nenhum IPA novo. Repositorio restaurado PRIVATE (`disabled=false`). Relatorio: `docs/PHASE_57_FINAL_RUNTIME_AUDIT.md`.

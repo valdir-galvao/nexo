@@ -237,3 +237,5 @@ P121 - 30/10/2026 America/Sao_Paulo - Fase 55: diagn?stico forense do fechamento
 
 
 P122 - 30/10/2026 America/Sao_Paulo - Sistema de diagn?stico persistente adicionado ao app. O runtime registra sess?o, ambiente, cenas e erros com stack trace em `Application.persistentDataPath/nexo-runtime.log`, com limite de 2 MiB e aviso visual local. N?o h? rede nem segredos. Static QA PASS (`json=5`, `cs=25`), `git diff --check` PASS. Relat?rio: `docs/PHASE_56_RUNTIME_DIAGNOSTICS.md`.
+
+P123 / 30-10-2026: final audit runtime PASS; Android artifact validated; iOS blocked by macOS runner capacity. See `docs/PHASE_57_FINAL_RUNTIME_AUDIT.md`.

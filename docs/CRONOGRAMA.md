@@ -278,3 +278,5 @@ P114 | Fase 50 release | concluido | runs 41050092394/41050092233/41050092372 | 
 | P120 | Gate Unity e builds nativas Android/iOS | Conclu?do | GameCI runs 41059686100/41059686028/41059686091 | Testes PASS; APK e IPA baixados e hash verificado; reposit?rio privado |
 | P121 | Diagn?stico forense de crash no boot e blindagem de inicializa??o | Conclu?do localmente | Dispositivo Android/logcat | Bootstrap protegido, cena ?ndice 0 confirmada, QA PASS; reprodu??o f?sica pendente |
 | P122 | Diagn?stico persistente de erros e crashes no app | Conclu?do localmente | Build e reprodu??o em dispositivo | Log local com stack trace, contexto e aviso visual; QA PASS |
+
+P123 concluida: Android aprovado; iOS bloqueado por capacidade externa do runner macOS. Proxima acao autorizada: nova janela iOS somente apos runner disponivel.
