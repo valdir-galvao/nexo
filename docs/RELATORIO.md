@@ -193,3 +193,5 @@ Atualiza??o Fase 47 (30/10/2026 03:44 -03): a blindagem URP e a transi??o segura
 
 
 Atualiza??o Fase 48 (30/10/2026 06:46 -03): material URP expl?cito e teste PlayMode foram adicionados. A etapa de compila??o/download foi adiada conforme orienta??o; n?o h? novo APK nesta fase.
+
+Atualizacao Fase 49 (30/10/2026): blindagem IL2CPP e particulas aplicada localmente. O link.xml preserva modulos de fisica/UI; curvas x/y/z usam TwoConstants; primitivas e CharacterController tem fallback seguro. Static QA PASS. Nao houve build, APK ou alteracao de visibilidade; gh nao instalado e Unity ausente.

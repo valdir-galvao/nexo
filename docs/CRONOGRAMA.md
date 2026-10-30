@@ -257,3 +257,5 @@ Fase 48 ? material Resources (30/10/2026 06:46 -03)
 - Bootstrap carrega material por Resources e resolve shader se necess?rio.
 - PlayMode verifica material/shader.
 - Static QA PASS; build remoto NOT_RUN por orienta??o.
+
+P109 | Fase 49 | concluido localmente / remoto bloqueado | Unity/GameCI e canal GitHub autenticado | link.xml, curva de particulas e fallback seguros; QA PASS |

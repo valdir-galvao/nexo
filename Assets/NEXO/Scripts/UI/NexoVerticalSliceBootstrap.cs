@@ -217,7 +217,11 @@ namespace Nexo.UI
             var velocity = introParticles.velocityOverLifetime;
             velocity.enabled = true;
             velocity.space = ParticleSystemSimulationSpace.Local;
+            // Unity exige que os três eixos usem o mesmo modo de curva.
+            // TwoConstants evita a mistura entre Constant e TwoConstants em batchmode/IL2CPP.
+            velocity.x = new ParticleSystem.MinMaxCurve(0f, 0f);
             velocity.y = new ParticleSystem.MinMaxCurve(0.12f, 0.28f);
+            velocity.z = new ParticleSystem.MinMaxCurve(0f, 0f);
             introParticles.Play();
         }
 
@@ -341,17 +345,42 @@ namespace Nexo.UI
             MakePrimitive(PrimitiveType.Cube, "Valve", new Vector3(2, 0.7f, 1), new Vector3(0.8f, 1.2f, 0.8f), NexoVisualTheme.Signal).AddComponent<NexoInteractable>().Initialize(ClueId.Valve, "Alinhe entrada e saída; há três posições.");
             MakePrimitive(PrimitiveType.Cube, "Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone);
             MakePrimitive(PrimitiveType.Cube, "ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
-            GameObject avatar = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+            GameObject avatar = CreatePrimitiveSafe(PrimitiveType.Capsule, "Explorer");
             avatar.name = "Explorer"; avatar.transform.position = new Vector3(-6, 1, -5);
-            player = avatar.AddComponent<CharacterController>();
-            Destroy(avatar.GetComponent<Collider>());
+            try
+            {
+                player = avatar.GetComponent<CharacterController>();
+                if (player == null) player = avatar.AddComponent<CharacterController>();
+                var generatedCollider = avatar.GetComponent<Collider>();
+                if (generatedCollider != null && !(generatedCollider is CharacterController)) Destroy(generatedCollider);
+            }
+            catch (System.Exception exception)
+            {
+                Debug.LogWarning($"Nexo: CharacterController indisponível; avatar visual continuará sem movimento. {exception.Message}");
+                player = null;
+            }
             view.transform.position = new Vector3(-6, 6, -10);
             view.transform.LookAt(avatar.transform);
         }
 
+        private static GameObject CreatePrimitiveSafe(PrimitiveType type, string name)
+        {
+            try
+            {
+                var primitive = GameObject.CreatePrimitive(type);
+                primitive.name = name;
+                return primitive;
+            }
+            catch (System.Exception exception)
+            {
+                Debug.LogWarning($"Nexo: primitiva {type} indisponível; usando objeto visual vazio. {exception.Message}");
+                return new GameObject(name);
+            }
+        }
+
         private GameObject MakePrimitive(PrimitiveType type, string name, Vector3 position, Vector3 scale, Color color)
         {
-            GameObject item = GameObject.CreatePrimitive(type);
+            GameObject item = CreatePrimitiveSafe(type, name);
             item.name = name; item.transform.position = position; item.transform.localScale = scale;
             Renderer renderer = item.GetComponent<Renderer>();
             if (renderer != null)

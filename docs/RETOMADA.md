@@ -233,3 +233,5 @@ J50 - Fase 47: URP/bootstrap blindados e Android 41013991314 PASS; APK em C:/Tem
 
 
 J51 - Fase 48: material URP expl?cito criado em Resources, fallback e teste PlayMode alinhados. Static QA PASS. Nenhum push ou APK gerado; aguardar autoriza??o para ciclo p?blico/build.
+
+Atualizacao P109: Fase 49 corrigiu link.xml, curvas de particulas e protecao de primitivas. Static QA PASS. Push/build ainda nao executados; gh ausente e Unity indisponivel. Retomar verificando canal autenticado antes de qualquer ciclo publico.
