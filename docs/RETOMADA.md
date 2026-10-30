@@ -257,3 +257,6 @@ Atualiza??o P117 (30/10/2026): Fase 52 corrigiu o ?nico material com shader nulo
 
 
 Atualiza??o P118 (30/10/2026): Fase 53 ampliou link.xml, fixou orienta??o paisagem/API Android, adicionou manifesto m?nimo sem permiss?es e endureceu null checks do bootstrap. QA local PASS; Unity/GameCI ainda pendente.
+
+
+Atualiza??o P119 (30/10/2026): Fase 54 adicionou 60 FPS, NeverSleep, pausa/foco robustos e confirmou CanvasScaler runtime 1920x1080/0.5. QA local PASS; valida??o Unity/GameCI pendente.

@@ -978,3 +978,6 @@ P117 - 30/10/2026 America/Sao_Paulo - Fase 52: varredura forense de materiais co
 
 
 P118 - 30/10/2026 America/Sao_Paulo - Fase 53: auditoria preventiva conclu?da. `Assets/link.xml` ampliado para sete m?dulos; orienta??o Android fixada em paisagem e APIs 29/35 confirmadas; bootstrap protegido contra refer?ncias nulas em cria??o de mundo/intera??es; manifesto Android m?nimo criado sem permiss?es desnecess?rias e com cleartext desabilitado. XML, Static QA (`json=5`, `cs=24`) e `git diff --check` PASS. Relat?rio: `docs/PHASE_53_PREBUILD_AUDIT.md`. Unity/GameCI NOT_RUN.
+
+
+P119 - 30/10/2026 America/Sao_Paulo - Fase 54: bootstrap configurado para 60 FPS sem VSync, tela sem sleep e ciclo de vida seguro em pausa/foco, preservando a escala de tempo anterior e controlando part?culas. Auditoria de UI encontrou zero CanvasScaler serializados; o ?nico scaler ? runtime e j? usa 1920x1080/Match 0.5. Static QA e `git diff --check` PASS. Relat?rio: `docs/PHASE_54_MOBILE_COMPATIBILITY.md`. Unity/GameCI NOT_RUN.

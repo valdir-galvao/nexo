@@ -223,3 +223,8 @@ A varredura de materiais encontrou um ?nico `.mat`, com `m_Shader: {fileID: 0}`.
 ## Fase 53 ? auditoria preventiva
 
 IL2CPP, PlayerSettings, bootstrap e manifesto Android foram revisados e blindados. A configura??o t?cnica passou em valida??es locais; importa??o Unity e execu??o em dispositivo ainda precisam de evid?ncia remota.
+
+
+## Fase 54 ? compatibilidade mobile
+
+O bootstrap agora limita o frame rate a 60, evita suspens?o durante a miss?o e preserva o estado de tempo em pausas do sistema. N?o existem CanvasScaler serializados fora do runtime controlado pelo bootstrap.

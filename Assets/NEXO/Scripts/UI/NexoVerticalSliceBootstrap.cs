@@ -42,6 +42,7 @@ namespace Nexo.UI
         private bool modernUiReady;
         private Coroutine introTransition;
         private Material defaultWorldMaterial;
+        private float timeScaleBeforePause = 1f;
 
         public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
         public bool GameplayMaterialReady { get { return defaultWorldMaterial != null && defaultWorldMaterial.shader != null; } }
@@ -55,6 +56,7 @@ namespace Nexo.UI
 
         private void Start()
         {
+            ConfigureMobileRuntime();
             PreloadGraphics();
             EnsureMobileCanvas();
             EnsurePresentationCamera();
@@ -71,6 +73,40 @@ namespace Nexo.UI
             if (modernUiReady) StartCoroutine(FadeIntroIn());
             // Keep the intro path UI-only. Build gameplay physics only after entry.
             if (!showIntro) EnsureWorldBuilt();
+        }
+
+        private void ConfigureMobileRuntime()
+        {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 60;
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        }
+
+        private void OnApplicationPause(bool pauseStatus)
+        {
+            if (pauseStatus)
+            {
+                timeScaleBeforePause = Time.timeScale;
+                Time.timeScale = 0f;
+                if (introParticles != null) introParticles.Pause(true);
+            }
+            else
+            {
+                Time.timeScale = timeScaleBeforePause > 0f ? timeScaleBeforePause : 1f;
+                if (introParticles != null && (showIntro || showMenu)) introParticles.Play(true);
+            }
+        }
+
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            if (!hasFocus)
+            {
+                if (introParticles != null) introParticles.Pause(true);
+            }
+            else if (introParticles != null && (showIntro || showMenu) && Time.timeScale > 0f)
+            {
+                introParticles.Play(true);
+            }
         }
 
         private void PreloadGraphics()
