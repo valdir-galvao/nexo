@@ -203,3 +203,5 @@ Atualizacao PlayMode (30/10/2026): logs do runner confirmaram cena ausente no ac
 Atualizacao final (30/10/2026): commit 663e32e passou Unity Tests e gerou Android/iOS. APK e IPA foram baixados e validados por hash; repositorio permanece privado.
 
 Atualizacao Fase 50: gameplay usa malha cubica visual e BoxCollider simples apenas em interativos; avatar por Transform. Nenhuma chamada CreatePrimitive permanece no bootstrap. Static QA PASS. Build remoto nao executado porque GitHub recusou push com 403 de repositorio disabled; privacidade PRIVATE restaurada.
+
+Atualizacao final Fase 50: BuildWorld sem CreatePrimitive gerou Android e iOS com gate Unity PASS. APK/IPA baixados e verificados; repositorio privado.

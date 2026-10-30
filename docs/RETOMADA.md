@@ -243,3 +243,5 @@ Atualizacao P111: PlayMode corrigido. Causas confirmadas: Arial.ttf invalida no 
 Atualizacao P112: builds corrigidos capturados. Unity Tests 41044424896 PASS; Android 41044424987 PASS com APK; iOS 41044424886 PASS com IPA. Artefatos em C:/Temp. Repositorio PRIVATE.
 
 Atualizacao P113: Fase 50 removendo primitivas procedurais concluida localmente no commit a1898c5. QA PASS. Push/build bloqueados pelo estado disabled do GitHub; repositorio PRIVATE restaurado. Nao declarar APK novo.
+
+Atualizacao P114: Fase 50 PASS remoto. Unity Tests 41050092394, Android 41050092233 e iOS 41050092372 concluidos com sucesso. APK/IPA baixados em C:/Temp; repositorio PRIVATE restaurado.

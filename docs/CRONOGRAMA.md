@@ -267,3 +267,5 @@ P111 | Gate PlayMode | concluido | Unity 6 Build Profile e fonte LegacyRuntime |
 P112 | Release artefatos corrigidos | concluido | Runs GameCI 41044424896/41044424987/41044424886 | APK e IPA capturados e hashes registrados |
 
 P113 | Fase 50 | concluido localmente / remoto bloqueado | reativacao administrativa do GitHub | BuildWorld sem CreatePrimitive; QA PASS |
+
+P114 | Fase 50 release | concluido | runs 41050092394/41050092233/41050092372 | gate e artefatos PASS; hashes registrados |
