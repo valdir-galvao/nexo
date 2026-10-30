@@ -396,3 +396,11 @@ P114 - 30/10/2026 America/Sao_Paulo - Fase 50 compilada com sucesso no commit `f
 - Android `41059686028`: PASS; APK `C:/Temp/nexo-android-41059686028/Android/Nexo.apk`, SHA256 `a32ce8d42cf1e294089f9fddc9f9840fd574808c20ed47614d81cfadf9b4089e`.
 - iOS `41059686091`: PASS; IPA `C:/Temp/nexo-ios-41059686091/Nexo.ipa`, SHA256 `c8aa06ce737df79eede565486f96ed02cf78d9ee2e50853ee3d6a4a31c8648ae`; Xcode em `C:/Temp/nexo-ios-41059686091/iOS`.
 - Visibilidade restaurada para PRIVATE; API confirmou `disabled=false`.
+
+
+## Execution NEXO-20261030-F55
+
+- Crash forense: caminho `CreateIfMissing`/`Start`/callbacks auditado e protegido.
+- Cena de build: ?nica cena habilitada no ?ndice 0.
+- Evid?ncia: Static QA exit 0 (`json=5`, `cs=24`); `git diff --check` exit 0.
+- Estado: PASS est?tico / dispositivo e logcat NOT_RUN.

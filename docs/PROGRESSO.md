@@ -984,3 +984,6 @@ P119 - 30/10/2026 America/Sao_Paulo - Fase 54: bootstrap configurado para 60 FPS
 
 
 P120 - 30/10/2026 America/Sao_Paulo - Valida??o e builds nativas conclu?das no commit `d5c1af98e17c934c405aba1b1c259199fa50b7c3`. Unity Tests run `41059686100`: PASS em EditMode e PlayMode. Android run `41059686028`: SUCCESS; APK em `C:/Temp/nexo-android-41059686028/Android/Nexo.apk`, 31.253.715 bytes, SHA256 `a32ce8d42cf1e294089f9fddc9f9840fd574808c20ed47614d81cfadf9b4089e`; `BUILD_METADATA.txt` presente. iOS run `41059686091`: SUCCESS; IPA em `C:/Temp/nexo-ios-41059686091/Nexo.ipa`, 40.222.535 bytes, SHA256 `c8aa06ce737df79eede565486f96ed02cf78d9ee2e50853ee3d6a4a31c8648ae`; projeto Xcode exportado em `C:/Temp/nexo-ios-41059686091/iOS`. Reposit?rio restaurado PRIVATE e `disabled=false`.
+
+
+P121 - 30/10/2026 America/Sao_Paulo - Fase 55: diagn?stico forense do fechamento no boot aplicado. Bootstrap agora captura exce??es de inicializa??o, cria c?mera segura, protege callbacks de pausa/foco e valida componentes/recursos antes do uso. EditorBuildSettings confirma somente `NexoVerticalSlice.unity` habilitada no ?ndice 0. Static QA e `git diff --check` PASS. Relat?rio: `docs/PHASE_55_CRASH_FORENSICS.md`. A reprodu??o em aparelho/logcat ainda ? pendente.

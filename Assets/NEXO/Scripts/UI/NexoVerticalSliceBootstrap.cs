@@ -50,11 +50,36 @@ namespace Nexo.UI
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void CreateIfMissing()
         {
-            if (FindFirstObjectByType<NexoVerticalSliceBootstrap>() == null)
-                new GameObject("Nexo Vertical Slice Runtime").AddComponent<NexoVerticalSliceBootstrap>();
+            try
+            {
+                if (FindFirstObjectByType<NexoVerticalSliceBootstrap>() == null)
+                {
+                    var runtimeObject = new GameObject("Nexo Vertical Slice Runtime");
+                    if (runtimeObject != null && runtimeObject.AddComponent<NexoVerticalSliceBootstrap>() == null)
+                        Debug.LogError("Nexo: n?o foi poss?vel criar o componente de bootstrap.");
+                }
+            }
+            catch (System.Exception exception) { Debug.LogException(exception); }
         }
 
         private void Start()
+        {
+            try
+            {
+                StartCore();
+            }
+            catch (System.Exception exception)
+            {
+                Debug.LogException(exception);
+                // Keep the process alive even if a platform-specific service fails during boot.
+                showMenu = true;
+                showIntro = true;
+                modernUiReady = false;
+                EnsurePresentationCameraSafe();
+            }
+        }
+
+        private void StartCore()
         {
             ConfigureMobileRuntime();
             PreloadGraphics();
@@ -64,7 +89,7 @@ namespace Nexo.UI
             mission = new VerticalSliceMission(new JsonFileSaveStore());
             mission.Initialize();
             audioDirector = gameObject.AddComponent<NexoAudioDirector>();
-            audioDirector.Configure(mission.Save.audio);
+            if (audioDirector != null) audioDirector.Configure(mission.Save != null ? mission.Save.audio : null);
             dataControls = new LocalDataControls();
             showIntro = mission.StateMachine.State == GameState.Intro;
             introElapsed = 0f;
@@ -73,6 +98,29 @@ namespace Nexo.UI
             if (modernUiReady) StartCoroutine(FadeIntroIn());
             // Keep the intro path UI-only. Build gameplay physics only after entry.
             if (!showIntro) EnsureWorldBuilt();
+        }
+
+        private void EnsurePresentationCameraSafe()
+        {
+            try
+            {
+                if (view == null) view = Camera.main;
+                if (view == null)
+                {
+                    var cameraObject = new GameObject("Nexo Safe Camera");
+                    if (cameraObject != null) view = cameraObject.AddComponent<Camera>();
+                }
+                if (view != null)
+                {
+                    view.clearFlags = CameraClearFlags.SolidColor;
+                    view.backgroundColor = new Color(0.025f, 0.055f, 0.12f, 1f);
+                    view.enabled = true;
+                }
+            }
+            catch (System.Exception exception)
+            {
+                Debug.LogException(exception);
+            }
         }
 
         private void ConfigureMobileRuntime()
@@ -84,29 +132,37 @@ namespace Nexo.UI
 
         private void OnApplicationPause(bool pauseStatus)
         {
-            if (pauseStatus)
+            try
             {
-                timeScaleBeforePause = Time.timeScale;
-                Time.timeScale = 0f;
-                if (introParticles != null) introParticles.Pause(true);
+                if (pauseStatus)
+                {
+                    timeScaleBeforePause = Time.timeScale;
+                    Time.timeScale = 0f;
+                    if (introParticles != null) introParticles.Pause(true);
+                }
+                else
+                {
+                    Time.timeScale = timeScaleBeforePause > 0f ? timeScaleBeforePause : 1f;
+                    if (introParticles != null && (showIntro || showMenu)) introParticles.Play(true);
+                }
             }
-            else
-            {
-                Time.timeScale = timeScaleBeforePause > 0f ? timeScaleBeforePause : 1f;
-                if (introParticles != null && (showIntro || showMenu)) introParticles.Play(true);
-            }
+            catch (System.Exception exception) { Debug.LogException(exception); }
         }
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            if (!hasFocus)
+            try
             {
-                if (introParticles != null) introParticles.Pause(true);
+                if (!hasFocus)
+                {
+                    if (introParticles != null) introParticles.Pause(true);
+                }
+                else if (introParticles != null && (showIntro || showMenu) && Time.timeScale > 0f)
+                {
+                    introParticles.Play(true);
+                }
             }
-            else if (introParticles != null && (showIntro || showMenu) && Time.timeScale > 0f)
-            {
-                introParticles.Play(true);
-            }
+            catch (System.Exception exception) { Debug.LogException(exception); }
         }
 
         private void PreloadGraphics()
