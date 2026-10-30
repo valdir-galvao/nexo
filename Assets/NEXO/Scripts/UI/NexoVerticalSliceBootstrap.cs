@@ -9,6 +9,7 @@ using Nexo.Safety;
 using Nexo.Learning;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
 namespace Nexo.UI
 {
@@ -83,8 +84,9 @@ namespace Nexo.UI
             };
             for (int i = 0; i < requiredShaders.Length; i++) Shader.Find(requiredShaders[i]);
 
-            Shader worldShader = Shader.Find("Universal Render Pipeline/Unlit");
-            if (worldShader == null) worldShader = Shader.Find("Unlit/Color");
+            bool urpActive = GraphicsSettings.currentRenderPipeline != null;
+            Shader worldShader = urpActive ? Shader.Find("Universal Render Pipeline/Unlit") : Shader.Find("Unlit/Color");
+            if (worldShader == null) worldShader = urpActive ? Shader.Find("Unlit/Color") : Shader.Find("Universal Render Pipeline/Unlit");
             if (worldShader == null) worldShader = Shader.Find("Sprites/Default");
             Shader fallbackShader = Shader.Find("UI/Default");
             if (fallbackShader == null) fallbackShader = Shader.Find("Standard");
