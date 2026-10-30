@@ -348,3 +348,13 @@ P112 - 30/10/2026 America/Sao_Paulo - Artefatos corrigidos capturados do commit 
 P113 - 30/10/2026 America/Sao_Paulo - Fase 50 aplicada localmente. `NexoVerticalSliceBootstrap.BuildWorld` nao usa mais `GameObject.CreatePrimitive`, `PrimitiveType`, `CapsuleCollider` ou `CharacterController`. O mundo usa malha cubica visual gerada explicitamente, `MeshRenderer`/material URP e `BoxCollider` simples somente nos objetos interativos; o avatar move por Transform. Static QA PASS (`json=5`, `cs=24`); `git diff --check` PASS. Commit local `a1898c5`. Ciclo publico bloqueado: GitHub marcou o repositorio como disabled e recusou push HTTP 403; visibilidade restaurada para PRIVATE. Nenhuma nova APK foi gerada para este commit.
 
 P114 - 30/10/2026 America/Sao_Paulo - Fase 50 compilada com sucesso no commit `f3630de`. Unity Tests `41050092394` PASS; Android `41050092233` PASS com APK em `C:/Temp/nexo-android-41050092233/Android/Nexo.apk` (30.600.759 bytes; SHA256 `5574289E57EBA3D2F8F4215DA6366274B3FF0EBA18208985CE396D3386168852`); iOS `41050092372` PASS com IPA em `C:/Temp/nexo-ios-41050092372/Nexo.ipa` (39.328.261 bytes; SHA256 `CCC1BD4C1C28FD48415A7E20166969F1100C91C961236F8E64B86FA668BD4753`). BUILD_METADATA confirma Unity 6000.3.0f1 e commit. Repositorio restaurado PRIVATE e API confirmou disabled=false.
+
+
+## Execution NEXO-20261030-F51
+
+- Branch: `orchestrator/phase-a-baseline`; commit inicial: `bc05508` (documenta??o local); altera??es Fase 51 ainda n?o commitadas no momento do registro.
+- Escopo: corre??o local de fallback gr?fico e ilumina??o do bootstrap; sem altera??o de secrets, workflows ou assinatura.
+- Evid?ncia: `python tools/run_static_qa.py` retornou 0 (`json=5`, `cs=24`); `git diff --check` retornou 0.
+- Achados adicionais: n?o existe `ProjectSettings/GraphicsSettings.asset` rastreado; `Assets/Resources/Materials/URP_Default_Gameplay.mat` tinha shader nulo serializado. O runtime agora resolve Unlit e o Editor tenta corrigir o material independentemente desse arquivo.
+- Estado: PASS local / Unity GameCI NOT_RUN.
+- Pr?xima a??o: executar importa??o e PlayMode em Unity/GameCI para confirmar o comportamento visual no dispositivo.

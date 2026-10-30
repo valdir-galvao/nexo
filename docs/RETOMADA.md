@@ -245,3 +245,6 @@ Atualizacao P112: builds corrigidos capturados. Unity Tests 41044424896 PASS; An
 Atualizacao P113: Fase 50 removendo primitivas procedurais concluida localmente no commit a1898c5. QA PASS. Push/build bloqueados pelo estado disabled do GitHub; repositorio PRIVATE restaurado. Nao declarar APK novo.
 
 Atualizacao P114: Fase 50 PASS remoto. Unity Tests 41050092394, Android 41050092233 e iOS 41050092372 concluidos com sucesso. APK/IPA baixados em C:/Temp; repositorio PRIVATE restaurado.
+
+
+Atualiza??o P115 (30/10/2026): Fase 51 conclu?da localmente. Fallback de material passou a priorizar URP Unlit, com fallbacks nativos; `BuildWorld()` cria luz direcional somente quando necess?rio; resolu??o do material no Editor n?o ? mais bloqueada pela aus?ncia de `GraphicsSettings.asset`. Static QA e `git diff --check` PASS. N?o houve build remoto nesta etapa. Pr?ximo passo: testar importa??o/PlayMode no Unity/GameCI e validar a tela ap?s ?Iniciar Miss?o?.

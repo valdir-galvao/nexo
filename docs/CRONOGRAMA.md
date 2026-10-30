@@ -269,3 +269,6 @@ P112 | Release artefatos corrigidos | concluido | Runs GameCI 41044424896/410444
 P113 | Fase 50 | concluido localmente / remoto bloqueado | reativacao administrativa do GitHub | BuildWorld sem CreatePrimitive; QA PASS |
 
 P114 | Fase 50 release | concluido | runs 41050092394/41050092233/41050092372 | gate e artefatos PASS; hashes registrados |
+
+
+| P115 | Corrigir fallback magenta no bootstrap e auditar causas adicionais | Conclu?do localmente | Unity/GameCI para confirma??o visual | Unlit-first, luz direcional condicional, resolu??o de material desacoplada de GraphicsSettings; Static QA PASS |

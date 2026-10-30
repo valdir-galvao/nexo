@@ -83,10 +83,11 @@ namespace Nexo.UI
             };
             for (int i = 0; i < requiredShaders.Length; i++) Shader.Find(requiredShaders[i]);
 
-            Shader worldShader = Shader.Find("Universal Render Pipeline/Lit");
-            if (worldShader == null) worldShader = Shader.Find("Universal Render Pipeline/Unlit");
-            Shader fallbackShader = Shader.Find("Standard");
-            if (fallbackShader == null) fallbackShader = Shader.Find("UI/Default");
+            Shader worldShader = Shader.Find("Universal Render Pipeline/Unlit");
+            if (worldShader == null) worldShader = Shader.Find("Unlit/Color");
+            if (worldShader == null) worldShader = Shader.Find("Sprites/Default");
+            Shader fallbackShader = Shader.Find("UI/Default");
+            if (fallbackShader == null) fallbackShader = Shader.Find("Standard");
             if (worldShader == null) worldShader = fallbackShader;
             var resourceMaterial = Resources.Load<Material>("Materials/URP_Default_Gameplay");
             if (resourceMaterial != null && resourceMaterial.shader == null && worldShader != null)
@@ -97,6 +98,8 @@ namespace Nexo.UI
                 defaultWorldMaterial = resourceMaterial;
             if (worldShader != null && defaultWorldMaterial == null)
                 defaultWorldMaterial = new Material(worldShader) { name = "Nexo Runtime World Material" };
+            if (defaultWorldMaterial == null)
+                Debug.LogError("Nexo: nenhum shader de material disponivel; geometria sera ocultada para evitar magenta.");
         }
 
         private void EnsureWorldBuilt()
@@ -346,6 +349,7 @@ namespace Nexo.UI
         private void BuildWorld()
         {
             RenderSettings.ambientLight = NexoVisualTheme.Sky;
+            EnsureGameplayLight();
             MakeCube("Island", new Vector3(0, -0.5f, 0), new Vector3(18, 1, 18), new Color(0.3f, 0.45f, 0.3f));
             MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true).AddComponent<NexoInteractable>().Initialize(ClueId.Source, "Fonte alta: siga as marcas de umidade.");
             MakeCube("Channel", new Vector3(-1, 0.25f, 2), new Vector3(3.5f, 0.3f, 0.5f), NexoVisualTheme.Water, true).AddComponent<NexoInteractable>().Initialize(ClueId.Channel, "O canal aponta para o reservatório.");
@@ -356,6 +360,19 @@ namespace Nexo.UI
             playerTransform = avatar.transform;
             view.transform.position = new Vector3(-6, 6, -10);
             view.transform.LookAt(avatar.transform);
+        }
+
+        private static void EnsureGameplayLight()
+        {
+            var lights = FindObjectsByType<Light>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            for (var i = 0; i < lights.Length; i++)
+                if (lights[i] != null && lights[i].type == LightType.Directional) return;
+            var lightObject = new GameObject("DynamicDirectionalLight");
+            var light = lightObject.AddComponent<Light>();
+            light.type = LightType.Directional;
+            light.color = Color.white;
+            light.intensity = 1.2f;
+            light.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
         }
 
         private static Mesh CreateCubeMesh()

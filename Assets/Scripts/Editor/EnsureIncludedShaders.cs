@@ -15,6 +15,7 @@ namespace Nexo.Editor
         {
             "Universal Render Pipeline/Lit",
             "Universal Render Pipeline/Unlit",
+            "Unlit/Color",
             "UI/Default",
             "TextMeshPro/Distance Field"
         };
@@ -27,23 +28,13 @@ namespace Nexo.Editor
 
         private static void Ensure()
         {
-            var settingsAsset = AssetDatabase.LoadAssetAtPath<Object>("ProjectSettings/GraphicsSettings.asset");
-            if (settingsAsset == null)
-            {
-                if (retryCount++ < 20) EditorApplication.delayCall += Ensure;
-                else Debug.LogWarning("NEXO GraphicsSettings.asset was not available after editor retries; shader inclusion remains pending.");
-                return;
-            }
-
-            var serialized = new SerializedObject(settingsAsset);
-            var included = serialized.FindProperty("m_AlwaysIncludedShaders");
-            if (included == null)
-            {
-                Debug.LogError("NEXO GraphicsSettings has no m_AlwaysIncludedShaders property; URP shader inclusion cannot be verified.");
-                return;
-            }
-
             var changed = false;
+            var settingsAsset = AssetDatabase.LoadAssetAtPath<Object>("ProjectSettings/GraphicsSettings.asset");
+            SerializedObject serialized = settingsAsset == null ? null : new SerializedObject(settingsAsset);
+            var included = serialized == null ? null : serialized.FindProperty("m_AlwaysIncludedShaders");
+            if (settingsAsset != null && included == null)
+                Debug.LogWarning("NEXO GraphicsSettings nao possui m_AlwaysIncludedShaders; material sera resolvido independentemente.");
+
             foreach (var shaderName in RequiredShaderNames)
             {
                 var shader = Shader.Find(shaderName);
@@ -52,6 +43,7 @@ namespace Nexo.Editor
                     Debug.LogWarning("NEXO shader not found during editor setup: " + shaderName);
                     continue;
                 }
+                if (included == null) continue;
 
                 var alreadyIncluded = false;
                 for (var i = 0; i < included.arraySize; i++)
@@ -72,7 +64,7 @@ namespace Nexo.Editor
             }
 
             var gameplayMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/Resources/Materials/URP_Default_Gameplay.mat");
-            var gameplayShader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Universal Render Pipeline/Unlit");
+            var gameplayShader = Shader.Find("Universal Render Pipeline/Unlit") ?? Shader.Find("Unlit/Color") ?? Shader.Find("UI/Default");
             if (gameplayMaterial != null && gameplayShader != null && gameplayMaterial.shader != gameplayShader)
             {
                 gameplayMaterial.shader = gameplayShader;
@@ -81,7 +73,7 @@ namespace Nexo.Editor
             }
 
             if (!changed) return;
-            serialized.ApplyModifiedPropertiesWithoutUndo();
+            if (serialized != null) serialized.ApplyModifiedPropertiesWithoutUndo();
             AssetDatabase.SaveAssets();
             Debug.Log("NEXO mobile shaders registered in Always Included Shaders.");
         }
