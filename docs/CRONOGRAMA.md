@@ -195,3 +195,10 @@ Fase 40 ? Auditoria pr?-compila??o (30/10/2026 02:16 -03)
 - Android: autorrota??o, Min API 29, Target API 35; sem AndroidManifest customizado.
 - UI: Canvas runtime defensivo; nenhum script nulo detectado na cena.
 - Static QA PASS; compila??o/runtimes pendentes.
+
+
+Fase 41 ? ciclo p?blico/privado (30/10/2026 02:38 -03)
+- Android run 41008010979: PASS; APK e BUILD_METADATA baixados e hash registrado.
+- Unity tests 41008011072: EditMode PASS; PlayMode FAIL.
+- iOS run 41008010970: IN_PROGRESS no momento da restaura??o de privacidade.
+- Reposit?rio restaurado para PRIVATE.

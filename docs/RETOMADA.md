@@ -206,3 +206,6 @@ J41 - Fase 39: corre??o local aplicada e validada. O caminho de Intro n?o monta 
 
 
 J42 - Fase 40: auditoria pr?-compila??o conclu?da. Cena principal est? no ?ndice 0 do EditorBuildSettings e n?o h? cenas de teste na lista. Build Profile Unity 6 n?o est? versionado/detect?vel localmente; confirmar no Editor/runner. Android usa PlayerSettings (sem manifest customizado): autorrota??o, API m?nima 29 e alvo 35. UI ? criada defensivamente pelo bootstrap e n?o h? script nulo na cena. Static QA PASS. Pr?xima a??o: validar o perfil ativo e executar compila??o Unity/GameCI.
+
+
+J43 - Fase 41: Android PASS no run 41008010979; APK baixado em C:/Temp/nexo-android-41008010979/Android/Nexo.apk, SHA256 C225356933C5663BE87AB72D7AB6244E1B7EBD2349FE0C0EDB7E86888D2B0B99. EditMode PASS, PlayMode FAIL no run 41008011072; iOS 41008010970 estava em andamento. Privacidade restaurada PRIVATE. Diagnosticar PlayMode antes de nova libera??o m?vel.
