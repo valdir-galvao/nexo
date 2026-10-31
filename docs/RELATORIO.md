@@ -271,3 +271,7 @@ Preflight local aprovado. Game Juice, progressao, UI/raycasting e Safe Area esta
 Runs 41174760334 (Android), 41174760342 (tests) e 41174760333 (iOS) falharam sem steps e sem logs uteis, antes do Unity/GameCI. O estado global e `BLOQUEADO POR DEPENDENCIA EXTERNA`; a visibilidade voltou para privado e nao foram gerados novos pacotes.
 
 A retentativa confirmou o mesmo bloqueio de infraestrutura: jobs falhando em aproximadamente 3 segundos, sem runner e sem steps. O repositorio permanece privado e nenhum novo artefato foi produzido.
+
+## Diagnostico Fase 61
+
+O runner publico iniciou corretamente. A falha Android e falta de espaco no Docker/Unity; a falha PlayMode e um SIGSEGV nativo durante reload de assemblies no Unity 6000.3.0f1. EditMode passou. Nao declarar release ate resolver esses dois pontos e obter artefatos verificaveis.

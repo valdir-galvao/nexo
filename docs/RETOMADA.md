@@ -297,3 +297,5 @@ Atualizacao P134 (31/10/2026): Fase 61 preflight PASS. Relatorio final criado, v
 Atualizacao P135 (31/10/2026): o ciclo remoto da Fase 61 foi disparado e falhou antes da inicializacao dos steps nos tres workflows. Nao ha evidencia de falha Unity/C#; o bloqueio e de provisionamento/capacidade do runner. Repositorio restaurado privado e nenhum artefato novo foi declarado.
 
 Atualizacao P136 (31/10/2026): a retentativa dos runs falhou novamente antes de qualquer step, confirmando indisponibilidade do runner como causa raiz. Nao modificar codigo por esta falha; aguardar capacidade externa ou usar runner self-hosted autorizado.
+
+Atualizacao P137 (31/10/2026): visibilidade publica eliminou o bloqueio de provisionamento, mas revelou falta de disco no Android e SIGSEGV nativo no PlayMode. EditMode passou; iOS continuou em build. Repositorio voltou a private.

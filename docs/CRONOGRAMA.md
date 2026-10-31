@@ -306,3 +306,5 @@ P134 | Fase 61 | preflight concluido | GameCI Android/iOS | Static QA e diff che
 P135 | Fase 61 | bloqueado por dependencia externa | runs 41174760334/41174760342/41174760333 | jobs sem steps e logs vazios; visibilidade restaurada private | nenhum artefato novo | revisar quota/capacidade GitHub Actions antes de repetir
 
 P136 | Fase 61 | bloqueio confirmado apos retentativa | GitHub-hosted runners | attempt 2 falhou antes dos steps em Android/testes/iOS | nenhum artefato novo | usar janela de runner disponivel ou self-hosted autorizado
+
+P137 | Fase 61 | diagnostico parcial confirmado | runs 41174760334/41174760342/41174760333 | Android disco cheio; PlayMode SIGSEGV nativo; EditMode PASS; iOS em andamento | APK nao gerado; IPA pendente | corrigir estrategia de espaco e investigar crash Unity PlayMode

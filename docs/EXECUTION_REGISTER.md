@@ -439,3 +439,5 @@ P134 | 2026-10-31 America/Sao_Paulo | Fase 61 | orchestrator/phase-a-baseline | 
 P135 | 2026-10-31 America/Sao_Paulo | Fase 61 | 9233d4a | ciclo remoto executado | runs Android/tests/iOS falharam antes dos steps; logs vazios; repositorio private novamente | nenhum APK/IPA | revisar capacidade/quota de runners e repetir somente com evidencia de disponibilidade
 
 P136 | 2026-10-31 America/Sao_Paulo | Fase 61 | attempt 2 | retentativa remota | zero steps e runner vazio novamente; private confirmado | nenhum APK/IPA | aguardar runner GitHub-hosted ou habilitar self-hosted autorizado
+
+P137 | 2026-10-31 America/Sao_Paulo | Fase 61 | attempt 3 publico | diagnostico de falhas reais | Android sem disco; PlayMode SIGSEGV; EditMode PASS; iOS pendente | sem APK confirmado | revisar limpeza/runner e reproduzir crash Unity antes de nova build

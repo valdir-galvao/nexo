@@ -1018,3 +1018,5 @@ P134 - 31/10/2026 America/Sao_Paulo - Fase 61 preflight concluido: Static QA PAS
 P135 - 31/10/2026 America/Sao_Paulo - Fase 61: commit `9233d4a` enviado e visibilidade restaurada PRIVATE (`disabled=false`). Runs `41174760334` Android, `41174760342` Unity tests e `41174760333` iOS falharam antes dos steps, sem logs/artefatos; bloqueio classificado como provisionamento/capacidade de runner, nao como erro de codigo demonstrado. Nenhum APK/IPA novo foi gerado.
 
 P136 - 31/10/2026 America/Sao_Paulo - Retentativa dos runs da Fase 61 (attempt 2) falhou novamente antes dos steps: Android job 124460448114, testes 124460450339/124460450471, iOS 124460453792. Runner vazio e zero steps confirmados; repositorio private/disabled=false. Nenhuma alteracao de codigo resolve indisponibilidade externa; builds seguem bloqueadas.
+
+P137 - 31/10/2026 America/Sao_Paulo - Retentativa publica (attempt 3) provisionou runners. Android falhou por `no space left on device` ao puxar imagem Unity; EditMode passou e PlayMode abortou com SIGSEGV durante reload de assemblies; iOS ainda estava em build. Repositorio restaurado private/disabled=false; nenhum APK novo confirmado.

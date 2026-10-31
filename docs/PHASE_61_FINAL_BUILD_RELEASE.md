@@ -45,3 +45,13 @@ A retentativa dos mesmos runs (attempt 2) repetiu o bloqueio:
 - iOS job `124460453792`: failure, runner vazio, zero steps.
 
 A API confirma `visibility=private`, `private=true`, `disabled=false`. O diagnóstico fica fechado como indisponibilidade/provisionamento do GitHub-hosted runner; nao ha correcao de codigo a aplicar para esse sintoma. A proxima tentativa deve ocorrer somente apos disponibilidade confirmada dos runners ou em runner self-hosted autorizado.
+
+## Diagnostico da retentativa publica (attempt 3)
+
+A visibilidade publica permitiu provisionar runners reais. O resultado revelou duas falhas independentes:
+
+- Android run `41174760334`: o job iniciou, mas o Docker/Unity falhou por falta de disco. O log registra 21 MB livres e `no space left on device` ao registrar `unityci/editor:ubuntu-6000.3.0f1-android-3`. Nenhum APK foi produzido.
+- Unity tests run `41174760342`: EditMode SUCCESS; PlayMode falhou com `Caught fatal signal - signo:11` durante `Begin MonoManager ReloadAssembly` no Unity 6000.3.0f1. A licença foi resolvida e o projeto importou; a falha ocorreu no processo nativo antes da descoberta dos testes PlayMode.
+- iOS run `41174760333`: ainda em execução no passo `Build unsigned iOS Xcode project` quando a visibilidade foi restaurada; artefato ainda nao confirmado.
+
+A visibilidade foi restaurada para privada (`private=true`, `disabled=false`). O erro de runner vazio foi superado, mas nao houve release nova. As correcoes necessarias sao: limpeza de disco mais agressiva/runner com maior volume para GameCI Android e isolamento/reproducao do crash nativo PlayMode (sem alterar asserts por tentativa).
