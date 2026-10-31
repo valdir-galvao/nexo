@@ -106,8 +106,9 @@ namespace Nexo.UI
         {
             ConfigureMobileRuntime();
             PreloadGraphics();
-            EnsureMobileCanvas();
             EnsurePresentationCamera();
+            EnsureGameplayLight();
+            EnsureMobileCanvas();
             BuildIntroParticles();
             highScore = PlayerPrefs.GetInt(HighScoreKey, 0);
             activeStage = Mathf.Clamp(PlayerPrefs.GetInt(StageKey, 1), 1, 3);
@@ -157,10 +158,16 @@ namespace Nexo.UI
                 if (view == null)
                 {
                     var cameraObject = new GameObject("Nexo Safe Camera");
-                    if (cameraObject != null) view = cameraObject.AddComponent<Camera>();
+                    if (cameraObject != null)
+                    {
+                        cameraObject.tag = "MainCamera";
+                        view = cameraObject.AddComponent<Camera>();
+                    }
                 }
                 if (view != null)
                 {
+                    view.transform.position = new Vector3(0f, 0f, -10f);
+                    view.transform.LookAt(Vector3.zero);
                     view.clearFlags = CameraClearFlags.SolidColor;
                     view.backgroundColor = new Color(0.025f, 0.055f, 0.12f, 1f);
                     view.enabled = true;
@@ -267,11 +274,16 @@ namespace Nexo.UI
                 var canvasObject = new GameObject("Nexo Mobile UI Canvas");
                 canvasObject.transform.SetParent(transform, false);
                 canvas = canvasObject.AddComponent<Canvas>();
-                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
                 canvasObject.AddComponent<GraphicRaycaster>();
             }
 
             uiCanvas = canvas;
+            // Bind the runtime canvas to the guaranteed boot camera. This keeps
+            // procedural UI visible on mobile while retaining an explicit camera
+            // reference for render ordering and diagnostics.
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = view != null ? view : Camera.main;
+            canvas.planeDistance = 10f;
             canvas.gameObject.SetActive(true);
             canvas.transform.SetAsLastSibling();
             if (!Application.isBatchMode && EventSystem.current == null)
@@ -343,6 +355,9 @@ namespace Nexo.UI
                 cameraObject.tag = "MainCamera";
                 view = cameraObject.AddComponent<Camera>();
             }
+            if (view == null) return;
+            view.transform.position = new Vector3(0f, 0f, -10f);
+            view.transform.LookAt(Vector3.zero);
             view.clearFlags = CameraClearFlags.SolidColor;
             view.backgroundColor = new Color(0.025f, 0.055f, 0.12f, 1f);
             view.enabled = true;

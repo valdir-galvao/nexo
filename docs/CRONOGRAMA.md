@@ -315,3 +315,5 @@ P139 | Fase 61 | Android ainda bloqueado | GameCI Unity/IL2CPP | cleanup PASS; i
 
 
 P140 (31/10/2026): Android/iOS GameCI bloqueados por execu??o sem progresso; sem artefatos. EditMode passou, PlayMode falhou. Reposit?rio privado restaurado.
+
+P148 - Fase 68 concluída: correção de câmera, luz direcional e vínculo Canvas/câmera aplicada e validada localmente. Próximo passo: validar em Unity/GameCI quando autorizado.

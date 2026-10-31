@@ -303,3 +303,7 @@ Estado P146: build Android multi-arquitetura e tracing de boot configurados; nov
 
 
 Estado P147: build Android/iOS e testes aprovados; artefatos capturados e visibilidade privada restaurada.
+
+## Fase 68 - câmera, luz e Canvas
+
+A inicialização do bootstrap foi endurecida para criar/ativar uma Main Camera posicionada em (0,0,-10), garantir uma luz direcional antes do mundo procedural e vincular o Canvas runtime à câmera em ScreenSpaceCamera. A validação local passou; a confirmação em dispositivo permanece pendente.

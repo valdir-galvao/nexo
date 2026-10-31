@@ -327,3 +327,5 @@ Atualizacao P137 (31/10/2026): visibilidade publica eliminou o bloqueio de provi
 Atualizacao P138 (31/10/2026): correÃ§Ã£o de espaÃ§o funcionou atÃ© o inÃ­cio do GameCI; testes passaram e IPA foi capturado. Android ficou preso no build e foi cancelado; APK permanece pendente. Repositorio privado.
 
 Atualizacao P139: o problema de espaco foi corrigido; o novo bloqueio Android e hang no processo Unity/IL2CPP apos o pull da imagem. IPA e testes estao aprovados; APK segue pendente. Repositorio privado.
+
+Atualização P148: Fase 68 concluída no código local. StartCore agora ordena câmera -> luz -> Canvas; Canvas usa ScreenSpaceCamera e worldCamera explícito. Static QA e diff check passaram. Nenhum build foi executado. Próxima ação: inspeção/validação Unity ou novo ciclo remoto.
