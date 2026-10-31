@@ -288,3 +288,5 @@ P125 concluida: smoke integrado, execucao pendente por travamento da compilacao 
 P126 concluida: Activity launcher restaurada e abertura Android validada em AVD API 35. Proxima acao: testar fluxo de toque/Inicio da missao no dispositivo real.
 
 | P127 | Gameplay interativo e Game Juice | concluido localmente | Unity/GameCI e dispositivo | porta verde, quiz, score, feedback, pulse/tremor e particulas implementados; QA local PASS; builds NOT_RUN |
+
+| P128 | Progressao multi-fase e recorde local | concluido localmente | Unity/GameCI/dispositivo | tres temas, portais procedurais, PlayerPrefs e HUD implementados; QA PASS; builds NOT_RUN |

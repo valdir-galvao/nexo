@@ -51,6 +51,11 @@ namespace Nexo.UI
         private int score;
         private string challengeFeedback = "";
         private Coroutine challengePulse;
+        private NexoChallengeDoor activeChallengeDoor;
+        private int activeStage = 1;
+        private int highScore;
+        private const string HighScoreKey = "NEXO_High_Score";
+        private const string StageKey = "NEXO_Unlocked_Stage";
 
         public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
         public bool GameplayMaterialReady { get { return defaultWorldMaterial != null && defaultWorldMaterial.shader != null; } }
@@ -94,6 +99,8 @@ namespace Nexo.UI
             EnsureMobileCanvas();
             EnsurePresentationCamera();
             BuildIntroParticles();
+            highScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+            activeStage = Mathf.Clamp(PlayerPrefs.GetInt(StageKey, 1), 1, 3);
             mission = new VerticalSliceMission(new JsonFileSaveStore());
             mission.Initialize();
             audioDirector = gameObject.AddComponent<NexoAudioDirector>();
@@ -456,13 +463,16 @@ namespace Nexo.UI
             InitializeInteractable(MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true), ClueId.Source, "Fonte alta: siga as marcas de umidade.");
             InitializeInteractable(MakeCube("Channel", new Vector3(-1, 0.25f, 2), new Vector3(3.5f, 0.3f, 0.5f), NexoVisualTheme.Water, true), ClueId.Channel, "O canal aponta para o reservat?rio.");
             InitializeInteractable(MakeCube("Valve", new Vector3(2, 0.7f, 1), new Vector3(0.8f, 1.2f, 0.8f), NexoVisualTheme.Signal, true), ClueId.Valve, "Alinhe entrada e sa?da; h? tr?s posi??es.");
-            var greenDoor = MakeCube("GreenDoor", new Vector3(6, 1.2f, -1), new Vector3(1.2f, 2.4f, 0.35f), new Color(0.18f, 0.85f, 0.42f), true);
+            string initialPortalName = activeStage == 1 ? "GreenDoor" : (activeStage == 2 ? "EnergyPortal" : "LogicPortal");
+            Color initialPortalColor = activeStage == 1 ? new Color(0.18f, 0.85f, 0.42f) : (activeStage == 2 ? new Color(0.2f, 0.65f, 1f) : new Color(0.68f, 0.32f, 1f));
+            var greenDoor = MakeCube(initialPortalName, new Vector3(6, 1.2f, -1), new Vector3(1.2f, 2.4f, 0.35f), initialPortalColor, true);
             if (greenDoor != null)
             {
                 challengeDoorTransform = greenDoor.transform;
                 challengeDoorRenderer = greenDoor.GetComponent<Renderer>();
-                var challengeDoor = greenDoor.AddComponent<NexoChallengeDoor>();
-                if (challengeDoor == null) Debug.LogWarning("Nexo: porta verde sem componente de desafio.");
+                activeChallengeDoor = greenDoor.AddComponent<NexoChallengeDoor>();
+                if (activeChallengeDoor != null) activeChallengeDoor.stage = activeStage;
+                else Debug.LogWarning("Nexo: porta verde sem componente de desafio.");
             }
             MakeCube("Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone, true);
             MakeCube("ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
@@ -578,7 +588,7 @@ namespace Nexo.UI
                 if (hit.collider == null) return;
                 NexoChallengeDoor door = hit.collider.GetComponent<NexoChallengeDoor>();
                 NexoInteractable target = hit.collider.GetComponent<NexoInteractable>();
-                if (door != null)
+                if (door != null && door.unlocked && door.stage == activeStage)
                 {
                     OpenChallenge();
                 }
@@ -597,7 +607,7 @@ namespace Nexo.UI
             challengeOpen = true;
             challengeAnswered = false;
             challengeCorrect = false;
-            challengeFeedback = "Observe o fluxo: 6 unidades saem da fonte e 2 ficam no canal. Quantas chegam?";
+            challengeFeedback = GetChallengePrompt();
             if (challengeDoorTransform != null)
             {
                 if (challengePulse != null) StopCoroutine(challengePulse);
@@ -609,16 +619,23 @@ namespace Nexo.UI
         {
             if (!challengeOpen || challengeAnswered) return;
             challengeAnswered = true;
-            challengeCorrect = answer == 4;
+            challengeCorrect = answer == GetExpectedAnswer();
             if (challengeCorrect)
             {
                 score++;
-                challengeFeedback = "Acerto! 6 - 2 = 4. Voce identificou a perda no canal.";
+                if (score > highScore)
+                {
+                    highScore = score;
+                    PlayerPrefs.SetInt(HighScoreKey, highScore);
+                    PlayerPrefs.Save();
+                }
+                challengeFeedback = GetSuccessFeedback();
                 if (challengeDoorRenderer != null && challengeDoorRenderer.material != null)
                     challengeDoorRenderer.material.color = new Color(0.35f, 1f, 0.58f);
                 if (challengeDoorTransform != null)
                     challengePulse = StartCoroutine(PulseTransform(challengeDoorTransform, 0.2f));
                 SpawnSuccessParticles(challengeDoorTransform == null ? Vector3.zero : challengeDoorTransform.position);
+                UnlockNextStage();
             }
             else
             {
@@ -628,6 +645,58 @@ namespace Nexo.UI
                     challengePulse = StartCoroutine(PulseTransform(challengeDoorTransform, 0.08f));
                     StartCoroutine(ShakeTransform(challengeDoorTransform));
                 }
+            }
+        }
+
+        private string GetChallengePrompt()
+        {
+            if (activeStage == 2) return "Energia: 3 unidades sao produzidas e 1 e perdida no cabo. Quantas chegam?";
+            if (activeStage == 3) return "Logica: a sequencia dobra a cada passo: 2, 4, 8. Qual e o proximo numero?";
+            return "Fluxo: 6 unidades saem da fonte e 2 ficam no canal. Quantas chegam?";
+        }
+
+        private int GetExpectedAnswer()
+        {
+            if (activeStage == 2) return 2;
+            if (activeStage == 3) return 16;
+            return 4;
+        }
+
+        private int[] GetChallengeOptions()
+        {
+            if (activeStage == 2) return new[] { 2, 3, 4 };
+            if (activeStage == 3) return new[] { 16, 8, 12 };
+            return new[] { 4, 6, 8 };
+        }
+
+        private string GetSuccessFeedback()
+        {
+            if (activeStage == 2) return "Acerto! 3 - 1 = 2. Voce encontrou a perda de energia.";
+            if (activeStage == 3) return "Acerto! 2, 4, 8, 16. Voce reconheceu a regra da sequencia.";
+            return "Acerto! 6 - 2 = 4. Voce identificou a perda no canal.";
+        }
+
+        private void UnlockNextStage()
+        {
+            if (activeChallengeDoor != null) activeChallengeDoor.unlocked = false;
+            if (activeStage >= 3)
+            {
+                challengeFeedback = challengeFeedback + " Todas as fases iniciais foram restauradas. O arquipelago pode avancar.";
+                return;
+            }
+            activeStage++;
+            PlayerPrefs.SetInt(StageKey, activeStage);
+            PlayerPrefs.Save();
+            Color portalColor = activeStage == 2 ? new Color(0.2f, 0.65f, 1f) : new Color(0.68f, 0.32f, 1f);
+            string portalName = activeStage == 2 ? "EnergyPortal" : "LogicPortal";
+            var portal = MakeCube(portalName, new Vector3(6 + activeStage, 1.2f, -1), new Vector3(1.2f, 2.4f, 0.35f), portalColor, true);
+            if (portal != null)
+            {
+                challengeDoorTransform = portal.transform;
+                challengeDoorRenderer = portal.GetComponent<Renderer>();
+                activeChallengeDoor = portal.AddComponent<NexoChallengeDoor>();
+                if (activeChallengeDoor != null) activeChallengeDoor.stage = activeStage;
+                challengeFeedback = challengeFeedback + (activeStage == 2 ? " Novo portal: eficiencia energetica." : " Novo portal: logica de programacao.");
             }
         }
 
@@ -700,7 +769,7 @@ namespace Nexo.UI
                 DrawChallenge(safe);
                 return;
             }
-            GUI.Label(new Rect(safe.x + 16, safe.y + 48, 220, 30), "Pontuacao: " + score);
+            GUI.Label(new Rect(safe.x + 16, safe.y + 48, 360, 30), "Pontuacao: " + score + " | Recorde: " + highScore + " | Fase: " + activeStage + "/3");
             if (showMenu)
             {
                 GUI.Box(new Rect(safe.x + 24, safe.y + 40, safe.width - 48, 220), "NEXO");
@@ -766,12 +835,12 @@ namespace Nexo.UI
             GUI.Label(new Rect(safe.x + 55, safe.y + 130, safe.width - 110, 70), challengeFeedback);
             if (!challengeAnswered)
             {
+                int[] options = GetChallengeOptions();
                 GUI.color = new Color(0.55f, 1f, 0.68f, 1f);
-                if (GUI.Button(new Rect(safe.x + 55, safe.y + 215, safe.width - 110, 42), "4 unidades")) ResolveChallenge(4);
+                if (GUI.Button(new Rect(safe.x + 55, safe.y + 215, safe.width - 110, 42), options[0] + " unidades")) ResolveChallenge(options[0]);
                 GUI.color = new Color(1f, 0.72f, 0.48f, 1f);
-                if (GUI.Button(new Rect(safe.x + 55, safe.y + 265, safe.width - 110, 42), "6 unidades")) ResolveChallenge(6);
-                GUI.color = new Color(1f, 0.72f, 0.48f, 1f);
-                if (GUI.Button(new Rect(safe.x + 55, safe.y + 315, safe.width - 110, 42), "8 unidades")) ResolveChallenge(8);
+                if (GUI.Button(new Rect(safe.x + 55, safe.y + 265, safe.width - 110, 42), options[1] + " unidades")) ResolveChallenge(options[1]);
+                if (GUI.Button(new Rect(safe.x + 55, safe.y + 315, safe.width - 110, 42), options[2] + " unidades")) ResolveChallenge(options[2]);
                 GUI.color = Color.white;
             }
             else
@@ -837,6 +906,12 @@ namespace Nexo.UI
                 if (GUI.Button(new Rect(safe.x + 70, safe.y + 325, 120, 36), "Confirmar"))
                 {
                     dataControls.DeleteAll();
+                    PlayerPrefs.DeleteKey(HighScoreKey);
+                    PlayerPrefs.DeleteKey(StageKey);
+                    PlayerPrefs.Save();
+                    score = 0;
+                    highScore = 0;
+                    activeStage = 1;
                     mission = new VerticalSliceMission(new JsonFileSaveStore());
                     mission.Initialize();
                     showIntro = true;
@@ -850,7 +925,11 @@ namespace Nexo.UI
         }
     }
 
-    public sealed class NexoChallengeDoor : MonoBehaviour { }
+    public sealed class NexoChallengeDoor : MonoBehaviour
+    {
+        public int stage = 1;
+        public bool unlocked = true;
+    }
 
     public sealed class NexoInteractable : MonoBehaviour
     {

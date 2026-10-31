@@ -279,3 +279,5 @@ Atualizacao P125: smoke test esta integrado ao `unity-android.yml`. O run `41081
 Atualizacao P126: o fechamento Android foi corrigido e validado em AVD. O APK atual esta em `C:/Temp/nexo-android-41167786858/Android/Nexo.apk`; o log confirma Activity launcher e `Fully drawn`. Diagnosticos em `C:/Temp/nexo-emulator-41167786858`. Repositorio privado.
 
 P127: Fase 56 concluida localmente no bootstrap. Nao gerar APK/IPA nesta etapa. Validacoes locais PASS; proxima acao e executar Unity/GameCI para validar porta verde, quiz e feedback antes de qualquer build.
+
+P128: progressao multi-fase implementada no bootstrap e commitada localmente. Nao gerar apps nesta etapa. Proxima acao: validar no Unity/GameCI as transicoes, PlayerPrefs e reset.

@@ -1000,3 +1000,5 @@ P125 - 30/10/2026 America/Sao_Paulo - Job `android-emulator` integrado ao workfl
 P126 - 31/10/2026 America/Sao_Paulo - Smoke test no AVD reproduziu a causa do fechamento: APK antigo sem Activity launcher (`No activities found to run`). Removido manifesto Android customizado incompleto no commit `761fdcf`; Unity voltou a gerar `UnityPlayerActivity`. Build `41167786858` e smoke test Android SUCCESS; APK/hash e logs registrados em `docs/PHASE_60_ANDROID_BOOT_FIX.md`. Repositorio PRIVATE restaurado.
 
 P127 - 31/10/2026 America/Sao_Paulo - Fase 56 implementou porta verde interativa, quiz de fluxo, pontuacao, pulse/tremor e particulas seguras no bootstrap. Static QA PASS (json=5, cs=25) e git diff --check PASS. Nao houve build nem workflow por instrucao do usuario. Proxima acao: validar o fluxo no Unity/GameCI ou dispositivo antes de gerar apps.
+
+P128 - 31/10/2026 America/Sao_Paulo - Fase 57 implementou progressao 1-3 (agua, energia, logica), portais coloridos e persistencia PlayerPrefs para recorde e fase desbloqueada. Static QA PASS (json=5, cs=25) e git diff --check PASS. Builds nao executados. Relatorio: docs/PHASE_57_PROGRESSION.md.
