@@ -245,3 +245,5 @@ P124 / 30-10-2026: Android emulator smoke workflow prepared; remote dispatch blo
 P125 / 30-10-2026: Android emulator job integrated; run cancelled before emulator due Unity build stall; no runtime conclusion.
 
 P126 / 31-10-2026: Android boot crash fixed; emulator smoke SUCCESS; root cause was missing launcher Activity from custom manifest.
+
+P127 - 31/10/2026: escopo atualizado com uma porta verde interativa e desafio pedagogico curto no vertical slice. Implementacao local concluida; sem builds nesta etapa. QA estatico PASS.
