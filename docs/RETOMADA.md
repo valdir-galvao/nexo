@@ -1,4 +1,7 @@
 Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
+Ponto atual: P147; APK/IPA da Fase 67 baixados, APK contem ARM64+x86_64 e repositorio privado.
+
+Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
 Ponto atual: P146; ARM64+x86_64 e logging [NEXO_BOOT] configurados, validacoes locais PASS; proximo passo e nova build remota.
 
 Ultima atualizacao: 31/10/2026 America/Sao_Paulo.

@@ -300,3 +300,6 @@ Estado P145: builds Android e iOS aprovados e artefatos capturados; repositorio 
 
 
 Estado P146: build Android multi-arquitetura e tracing de boot configurados; nova compilacao ainda pendente.
+
+
+Estado P147: build Android/iOS e testes aprovados; artefatos capturados e visibilidade privada restaurada.

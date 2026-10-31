@@ -102,7 +102,7 @@ jobs:
         run: |
           sudo chown -R "$(id -u):$(id -g)" build diagnostics 2>/dev/null || true
           mkdir -p build/Android
-          printf 'platform=Android\nbuild_type=Release\ntarget_api=35\nmin_api=29\narchitectures=ARMv7+ARM64\nscripting_backend=IL2CPP\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/Android/BUILD_METADATA.txt
+          printf 'platform=Android\nbuild_type=Release\ntarget_api=35\nmin_api=29\narchitectures=ARM64+x86_64\nscripting_backend=IL2CPP\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/Android/BUILD_METADATA.txt
 
       - name: Upload Android artifact
         if: always()
