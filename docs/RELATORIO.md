@@ -275,3 +275,7 @@ A retentativa confirmou o mesmo bloqueio de infraestrutura: jobs falhando em apr
 ## Diagnostico Fase 61
 
 O runner publico iniciou corretamente. A falha Android e falta de espaco no Docker/Unity; a falha PlayMode e um SIGSEGV nativo durante reload de assemblies no Unity 6000.3.0f1. EditMode passou. Nao declarar release ate resolver esses dois pontos e obter artefatos verificaveis.
+
+## Estado apos correcao de espaco
+
+A limpeza do runner foi corrigida e validada. O Unity Test gate passou e o IPA foi gerado. O Android ainda tem um bloqueio separado: o builder não concluiu nem reportou artefato dentro da janela operacional.

@@ -299,3 +299,5 @@ Atualizacao P135 (31/10/2026): o ciclo remoto da Fase 61 foi disparado e falhou 
 Atualizacao P136 (31/10/2026): a retentativa dos runs falhou novamente antes de qualquer step, confirmando indisponibilidade do runner como causa raiz. Nao modificar codigo por esta falha; aguardar capacidade externa ou usar runner self-hosted autorizado.
 
 Atualizacao P137 (31/10/2026): visibilidade publica eliminou o bloqueio de provisionamento, mas revelou falta de disco no Android e SIGSEGV nativo no PlayMode. EditMode passou; iOS continuou em build. Repositorio voltou a private.
+
+Atualizacao P138 (31/10/2026): correção de espaço funcionou até o início do GameCI; testes passaram e IPA foi capturado. Android ficou preso no build e foi cancelado; APK permanece pendente. Repositorio privado.

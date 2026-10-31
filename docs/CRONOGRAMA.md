@@ -308,3 +308,5 @@ P135 | Fase 61 | bloqueado por dependencia externa | runs 41174760334/4117476034
 P136 | Fase 61 | bloqueio confirmado apos retentativa | GitHub-hosted runners | attempt 2 falhou antes dos steps em Android/testes/iOS | nenhum artefato novo | usar janela de runner disponivel ou self-hosted autorizado
 
 P137 | Fase 61 | diagnostico parcial confirmado | runs 41174760334/41174760342/41174760333 | Android disco cheio; PlayMode SIGSEGV nativo; EditMode PASS; iOS em andamento | APK nao gerado; IPA pendente | corrigir estrategia de espaco e investigar crash Unity PlayMode
+
+P138 | Fase 61 | parcial | commit e676e59 | cleanup passou; testes PASS; iOS IPA capturado; Android build pendente/cancelado por travamento | sem APK novo | investigar hang do builder Android ou usar runner com mais recursos

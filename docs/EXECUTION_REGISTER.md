@@ -441,3 +441,5 @@ P135 | 2026-10-31 America/Sao_Paulo | Fase 61 | 9233d4a | ciclo remoto executado
 P136 | 2026-10-31 America/Sao_Paulo | Fase 61 | attempt 2 | retentativa remota | zero steps e runner vazio novamente; private confirmado | nenhum APK/IPA | aguardar runner GitHub-hosted ou habilitar self-hosted autorizado
 
 P137 | 2026-10-31 America/Sao_Paulo | Fase 61 | attempt 3 publico | diagnostico de falhas reais | Android sem disco; PlayMode SIGSEGV; EditMode PASS; iOS pendente | sem APK confirmado | revisar limpeza/runner e reproduzir crash Unity antes de nova build
+
+P138 | 2026-10-31 America/Sao_Paulo | e676e59 | correção de espaço e build | Static QA PASS; testes PASS; iOS IPA capturado; Android cancelado após hang | IPA em C:/Temp/nexo-final-e676e59/ios/Nexo.ipa; APK ausente | diagnosticar hang Android

@@ -55,3 +55,14 @@ A visibilidade publica permitiu provisionar runners reais. O resultado revelou d
 - iOS run `41174760333`: ainda em execução no passo `Build unsigned iOS Xcode project` quando a visibilidade foi restaurada; artefato ainda nao confirmado.
 
 A visibilidade foi restaurada para privada (`private=true`, `disabled=false`). O erro de runner vazio foi superado, mas nao houve release nova. As correcoes necessarias sao: limpeza de disco mais agressiva/runner com maior volume para GameCI Android e isolamento/reproducao do crash nativo PlayMode (sem alterar asserts por tentativa).
+
+## Resultado final desta correcao
+
+Commit de workflow: `e676e59`.
+
+- Cleanup limitado por tempo e remocao do SDK Android hospedeiro passou; o job Android avancou ate o build.
+- Unity tests no mesmo commit: EditMode e PlayMode SUCCESS (`41189071648`).
+- iOS run `41189071750`: SUCCESS. IPA baixado em `C:/Temp/nexo-final-e676e59/ios/Nexo.ipa`; projeto Xcode em `C:/Temp/nexo-final-e676e59/ios/iOS`.
+- Android run `41189071720`: ficou preso no build por tempo excessivo e foi cancelado; nenhum APK verificavel foi produzido.
+
+A visibilidade foi restaurada para privada (`disabled=false`).

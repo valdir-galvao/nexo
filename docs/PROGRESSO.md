@@ -1020,3 +1020,5 @@ P135 - 31/10/2026 America/Sao_Paulo - Fase 61: commit `9233d4a` enviado e visibi
 P136 - 31/10/2026 America/Sao_Paulo - Retentativa dos runs da Fase 61 (attempt 2) falhou novamente antes dos steps: Android job 124460448114, testes 124460450339/124460450471, iOS 124460453792. Runner vazio e zero steps confirmados; repositorio private/disabled=false. Nenhuma alteracao de codigo resolve indisponibilidade externa; builds seguem bloqueadas.
 
 P137 - 31/10/2026 America/Sao_Paulo - Retentativa publica (attempt 3) provisionou runners. Android falhou por `no space left on device` ao puxar imagem Unity; EditMode passou e PlayMode abortou com SIGSEGV durante reload de assemblies; iOS ainda estava em build. Repositorio restaurado private/disabled=false; nenhum APK novo confirmado.
+
+P138 - 31/10/2026 America/Sao_Paulo - Cleanup Android corrigido no commit `e676e59`; runners iniciaram. Unity tests `41189071648` PASS em EditMode/PlayMode. iOS `41189071750` SUCCESS; IPA baixado em `C:/Temp/nexo-final-e676e59/ios/Nexo.ipa`. Android `41189071720` ficou preso no build e foi cancelado, sem APK. Repositorio private/disabled=false.
