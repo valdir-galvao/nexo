@@ -294,3 +294,6 @@ Estado P143: maquina de estados e HUD inicializadas no primeiro frame; validacao
 
 
 Estado P144: input universal e fallback de shaders aplicados; validacao Unity remota desta alteracao ainda pendente.
+
+
+Estado P145: builds Android e iOS aprovados e artefatos capturados; repositorio privado restaurado.

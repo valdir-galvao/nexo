@@ -1,4 +1,7 @@
 Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
+Ponto atual: P145; Android APK e iOS IPA da Fase 66 baixados e hash verificados; repositorio privado.
+
+Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
 Ponto atual: P144; blindagem mobile de shaders, Canvas e toque aplicada, validacoes locais PASS; APK anterior em C:/Temp/nexo-release-final/Android/Nexo.apk.
 
 Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
