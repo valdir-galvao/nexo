@@ -1,4 +1,7 @@
 Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
+Ponto atual: P141; correcao de PlayMode e parametros headless aplicados, validacao local PASS, aguardando novo GameCI para confirmar Unity e APK.
+
+Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
 Ponto atual: P140; Android run 41193417337 cancelado por bloqueio no passo de build sem artefato; iOS 41193417332 cancelado; testes 41193417344 com EditMode PASS e PlayMode FAIL. Repositorio privado.
 
 Ultima atualizacao: 29/10/2026 America/Sao_Paulo.

@@ -282,3 +282,6 @@ A limpeza do runner foi corrigida e validada. O Unity Test gate passou e o IPA f
 
 
 Estado operacional P140: build Android/iOS bloqueado por runner GameCI sem progresso observ?vel; nenhum APK novo foi obtido. A visibilidade foi restaurada para privado.
+
+
+Estado P141: SIGSEGV de PlayMode isolado em reload de assemblies; correcao aplicada sem nova execucao remota.

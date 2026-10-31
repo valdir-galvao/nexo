@@ -62,7 +62,7 @@ jobs:
           gitPrivateToken: ${{ github.token }}
           testMode: ${{ matrix.testMode }}
           artifactsPath: test-results/${{ matrix.testMode }}
-          customParameters: -logFile /github/workspace/diagnostics/${{ matrix.testMode }}/unity-editor.log
+          customParameters: -batchmode -nographics -quit -logFile /github/workspace/diagnostics/${{ matrix.testMode }}/unity-editor.log
 
       - name: Capture Unity failure diagnostics
         if: failure()

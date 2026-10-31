@@ -83,7 +83,7 @@ jobs:
           buildName: Nexo
           buildMethod: Nexo.Editor.Build.AndroidBuild.PerformBuild
           runAsHostUser: true
-          customParameters: -nographics -logFile /github/workspace/diagnostics/unity-editor.log
+          customParameters: -batchmode -nographics -quit -buildTarget Android -customBuildTarget Android -logFile /github/workspace/diagnostics/unity-editor.log
           buildsPath: build/Android
 
       - name: Capture Unity failure diagnostics
