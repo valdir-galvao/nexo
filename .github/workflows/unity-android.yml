@@ -30,14 +30,9 @@ jobs:
             /opt/ghc \
             /usr/local/share/powershell \
             /usr/local/julia \
-            /usr/local/lib/android/sdk/ndk \
-            /usr/local/lib/android/sdk/system-images \
-            /usr/local/lib/android/sdk/sources \
-            /usr/local/lib/android/sdk/platforms \
-            /usr/local/lib/android/sdk/build-tools \
-            /usr/local/lib/android/sdk/sample-data \
+            /usr/local/lib/android/sdk \
             /torch 2>/dev/null || true
-          docker system prune --all --force --volumes 2>/dev/null || true
+          timeout 45s docker system prune --all --force --volumes 2>/dev/null || true
           sudo journalctl --vacuum-time=1d 2>/dev/null || true
           echo 'Disk after cleanup:'
           df -h
