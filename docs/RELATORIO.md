@@ -285,3 +285,6 @@ Estado operacional P140: build Android/iOS bloqueado por runner GameCI sem progr
 
 
 Estado P141: SIGSEGV de PlayMode isolado em reload de assemblies; correcao aplicada sem nova execucao remota.
+
+
+Estado P142: Unity Tests e Android aprovados; APK capturado e smoke test AVD concluido; iOS pendente/cancelado.

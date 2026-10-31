@@ -1,4 +1,7 @@
 Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
+Ponto atual: P142; APK Android validado e baixado em C:/Temp/nexo-release-final/Android/Nexo.apk; repositorio privado.
+
+Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
 Ponto atual: P141; correcao de PlayMode e parametros headless aplicados, validacao local PASS, aguardando novo GameCI para confirmar Unity e APK.
 
 Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
