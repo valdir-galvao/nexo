@@ -310,3 +310,5 @@ P136 | Fase 61 | bloqueio confirmado apos retentativa | GitHub-hosted runners | 
 P137 | Fase 61 | diagnostico parcial confirmado | runs 41174760334/41174760342/41174760333 | Android disco cheio; PlayMode SIGSEGV nativo; EditMode PASS; iOS em andamento | APK nao gerado; IPA pendente | corrigir estrategia de espaco e investigar crash Unity PlayMode
 
 P138 | Fase 61 | parcial | commit e676e59 | cleanup passou; testes PASS; iOS IPA capturado; Android build pendente/cancelado por travamento | sem APK novo | investigar hang do builder Android ou usar runner com mais recursos
+
+P139 | Fase 61 | Android ainda bloqueado | GameCI Unity/IL2CPP | cleanup PASS; iOS e testes PASS; Android sem heartbeat/artefato | APK nao gerado | usar runner com mais recursos ou diagnostico de build Unity com timeout/log persistente
