@@ -284,3 +284,5 @@ P123 concluida: Android aprovado; iOS bloqueado por capacidade externa do runner
 P124 concluida: infraestrutura de emulador pronta; execucao depende de disponibilizar o workflow na branch padrao ou de push controlado.
 
 P125 concluida: smoke integrado, execucao pendente por travamento da compilacao Unity no runner.
+
+P126 concluida: Activity launcher restaurada e abertura Android validada em AVD API 35. Proxima acao: testar fluxo de toque/Inicio da missao no dispositivo real.

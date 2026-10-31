@@ -417,3 +417,5 @@ P123 | 2026-10-30 | commit dffaf29 | runtime audit + GameCI validation | Unity T
 P124 | 2026-10-30 | commit 58a8202 | headless Android emulator smoke workflow | local validators PASS; remote dispatch 404 (workflow not on default branch) | repo private.
 
 P125 | 2026-10-30 | commit 719a223 | integrated Android emulator smoke | run 41081847271 cancelled during Unity build; no emulator diagnostics | repo private.
+
+P126 | 2026-10-31 | commit 761fdcf | Android boot fix + AVD smoke | run 41167786858 build SUCCESS, emulator SUCCESS, APK validated | repo private.
