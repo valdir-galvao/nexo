@@ -283,3 +283,5 @@ P127: Fase 56 concluida localmente no bootstrap. Nao gerar APK/IPA nesta etapa. 
 P128: progressao multi-fase implementada no bootstrap e commitada localmente. Nao gerar apps nesta etapa. Proxima acao: validar no Unity/GameCI as transicoes, PlayerPrefs e reset.
 
 P129: audio procedural implementado sem assets externos. Nao gerar apps nesta etapa. Proxima acao: validar audio e lifecycle no Unity/GameCI.
+
+P130: perfil Release Android preparado para Unity 6000.3.0f1, IL2CPP, ARMv7+ARM64 e APIs 29/35. Tag candidata v0.1.0-rc1. Proxima acao: executar GameCI e validar APK/smoke test.

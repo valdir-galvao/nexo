@@ -1004,3 +1004,5 @@ P127 - 31/10/2026 America/Sao_Paulo - Fase 56 implementou porta verde interativa
 P128 - 31/10/2026 America/Sao_Paulo - Fase 57 implementou progressao 1-3 (agua, energia, logica), portais coloridos e persistencia PlayerPrefs para recorde e fase desbloqueada. Static QA PASS (json=5, cs=25) e git diff --check PASS. Builds nao executados. Relatorio: docs/PHASE_57_PROGRESSION.md.
 
 P129 - 31/10/2026 America/Sao_Paulo - Fase 58 adicionou sintetizador procedural de audio, clique, acerto/erro, desbloqueio de portais e mute robusto em pause/foco. Static QA PASS (json=5, cs=25) e git diff --check PASS. Builds nao executados. Relatorio: docs/PHASE_58_AUDIO_JUICE.md.
+
+P130 - 31/10/2026 America/Sao_Paulo - Fase 59 preparou o perfil Release Android: Unity 6000.3.0f1, IL2CPP, ARMv7+ARM64, Min API 29, Target API 35 e preflight no workflow. Static QA, YAML e diff check PASS. Tag candidata v0.1.0-rc1; build remoto pendente. Relatorio: docs/PHASE_59_BUILD_RELEASE.md.

@@ -33,6 +33,16 @@ jobs:
         run: |
           grep -q "m_EditorVersion: ${UNITY_VERSION}" ProjectSettings/ProjectVersion.txt
 
+      - name: Verify Android release profile
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q '^  AndroidTargetSdkVersion: 35$' ProjectSettings/ProjectSettings.asset
+          grep -q '^  AndroidMinSdkVersion: 29$' ProjectSettings/ProjectSettings.asset
+          grep -q '^  androidTargetArchitectures: 3$' ProjectSettings/ProjectSettings.asset
+          grep -q '^    Android: 1$' ProjectSettings/ProjectSettings.asset
+          test "${BUILD_SCENES}" = "Assets/Scenes/NexoVerticalSlice.unity"
+
       - name: Prepare Unity log directory
         run: mkdir -p diagnostics
 
@@ -77,7 +87,7 @@ jobs:
         run: |
           sudo chown -R "$(id -u):$(id -g)" build diagnostics 2>/dev/null || true
           mkdir -p build/Android
-          printf 'platform=Android\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/Android/BUILD_METADATA.txt
+          printf 'platform=Android\nbuild_type=Release\ntarget_api=35\nmin_api=29\narchitectures=ARMv7+ARM64\nscripting_backend=IL2CPP\nunity=%s\ncommit=%s\nrun_id=%s\n' "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/Android/BUILD_METADATA.txt
 
       - name: Upload Android artifact
         if: always()

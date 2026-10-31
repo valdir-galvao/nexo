@@ -425,3 +425,5 @@ P127 | 2026-10-31 America/Sao_Paulo | Fase 56 | orchestrator/phase-a-baseline | 
 P128 | 2026-10-31 America/Sao_Paulo | Fase 57 | orchestrator/phase-a-baseline | progressao multi-fase e PlayerPrefs | Static QA PASS; diff check PASS | Unity/GameCI e builds NOT_RUN | validar transicoes no Unity/GameCI
 
 P129 | 2026-10-31 America/Sao_Paulo | Fase 58 | orchestrator/phase-a-baseline | audio procedural e mute em lifecycle | Static QA PASS; diff check PASS | Unity/GameCI e builds NOT_RUN | validar audio no Unity/GameCI
+
+P130 | 2026-10-31 America/Sao_Paulo | Fase 59 | orchestrator/phase-a-baseline | pre-build Release Android | Static QA/YAML/diff PASS; perfil IL2CPP ARMv7+ARM64 API29/35 | build remoto pendente | tag candidata v0.1.0-rc1

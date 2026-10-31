@@ -292,3 +292,5 @@ P126 concluida: Activity launcher restaurada e abertura Android validada em AVD 
 | P128 | Progressao multi-fase e recorde local | concluido localmente | Unity/GameCI/dispositivo | tres temas, portais procedurais, PlayerPrefs e HUD implementados; QA PASS; builds NOT_RUN |
 
 | P129 | Audio procedural e polimento | concluido localmente | Unity/GameCI/dispositivo | tons runtime, feedback de eventos e silencio em lifecycle implementados; QA PASS; builds NOT_RUN |
+
+| P130 | Preparacao da release Android | concluido localmente | GameCI/Unity Builder | perfil Release validado e workflow com preflight; APK remoto pendente |

@@ -251,3 +251,5 @@ P127 - 31/10/2026: escopo atualizado com uma porta verde interativa e desafio pe
 P128 - 31/10/2026: escopo ampliado para tres desafios sequenciais e recorde local PlayerPrefs. Implementacao local concluida; sem builds. QA estatico PASS.
 
 P129 - 31/10/2026: audio procedural sintetizado adicionado ao gameplay e ao desbloqueio de portais; builds permanecem NOT_RUN.
+
+P130 - 31/10/2026: release candidata 0.1.0-rc1 preparada com preflight de perfil Android no GameCI; nenhum artefato e considerado aprovado antes do run remoto.

@@ -20,7 +20,7 @@ PlayerSettings:
   AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 29
   AndroidTargetSdkVersion: 35
-  androidTargetArchitectures: 1
+  androidTargetArchitectures: 3
   scriptingBackend:
     Standalone: 1
     Android: 1
