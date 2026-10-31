@@ -154,11 +154,13 @@ namespace Nexo.UI
                     timeScaleBeforePause = Time.timeScale;
                     Time.timeScale = 0f;
                     if (introParticles != null) introParticles.Pause(true);
+                    if (audioDirector != null) audioDirector.SetPaused(true);
                 }
                 else
                 {
                     Time.timeScale = timeScaleBeforePause > 0f ? timeScaleBeforePause : 1f;
                     if (introParticles != null && (showIntro || showMenu)) introParticles.Play(true);
+                    if (audioDirector != null) audioDirector.SetPaused(false);
                 }
             }
             catch (System.Exception exception) { Debug.LogException(exception); }
@@ -171,10 +173,13 @@ namespace Nexo.UI
                 if (!hasFocus)
                 {
                     if (introParticles != null) introParticles.Pause(true);
+                    if (audioDirector != null) audioDirector.SetPaused(true);
                 }
-                else if (introParticles != null && (showIntro || showMenu) && Time.timeScale > 0f)
+                else
                 {
-                    introParticles.Play(true);
+                    if (introParticles != null && (showIntro || showMenu) && Time.timeScale > 0f)
+                        introParticles.Play(true);
+                    if (audioDirector != null) audioDirector.SetPaused(false);
                 }
             }
             catch (System.Exception exception) { Debug.LogException(exception); }
@@ -393,6 +398,7 @@ namespace Nexo.UI
 
         private void HandleStartButtonPressed()
         {
+            if (audioDirector != null) audioDirector.PlayClick();
             if (introButtonRect != null) StartCoroutine(PunchButton(introButtonRect));
             BeginModernMission();
         }
@@ -608,6 +614,7 @@ namespace Nexo.UI
             challengeAnswered = false;
             challengeCorrect = false;
             challengeFeedback = GetChallengePrompt();
+            if (audioDirector != null) audioDirector.PlayClick();
             if (challengeDoorTransform != null)
             {
                 if (challengePulse != null) StopCoroutine(challengePulse);
@@ -620,6 +627,7 @@ namespace Nexo.UI
             if (!challengeOpen || challengeAnswered) return;
             challengeAnswered = true;
             challengeCorrect = answer == GetExpectedAnswer();
+            if (audioDirector != null) audioDirector.PlayFeedback(challengeCorrect);
             if (challengeCorrect)
             {
                 score++;
@@ -679,6 +687,7 @@ namespace Nexo.UI
         private void UnlockNextStage()
         {
             if (activeChallengeDoor != null) activeChallengeDoor.unlocked = false;
+            if (audioDirector != null) audioDirector.PlayPortalUnlock();
             if (activeStage >= 3)
             {
                 challengeFeedback = challengeFeedback + " Todas as fases iniciais foram restauradas. O arquipelago pode avancar.";
@@ -851,6 +860,7 @@ namespace Nexo.UI
                 challengeOpen = false;
                 challengeAnswered = false;
                 challengeFeedback = "";
+                if (audioDirector != null) audioDirector.PlayClick();
                 GUI.color = Color.white;
             }
             GUI.color = Color.white;

@@ -249,3 +249,5 @@ P126 / 31-10-2026: Android boot crash fixed; emulator smoke SUCCESS; root cause 
 P127 - 31/10/2026: escopo atualizado com uma porta verde interativa e desafio pedagogico curto no vertical slice. Implementacao local concluida; sem builds nesta etapa. QA estatico PASS.
 
 P128 - 31/10/2026: escopo ampliado para tres desafios sequenciais e recorde local PlayerPrefs. Implementacao local concluida; sem builds. QA estatico PASS.
+
+P129 - 31/10/2026: audio procedural sintetizado adicionado ao gameplay e ao desbloqueio de portais; builds permanecem NOT_RUN.

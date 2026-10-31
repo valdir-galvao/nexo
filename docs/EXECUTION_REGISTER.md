@@ -423,3 +423,5 @@ P126 | 2026-10-31 | commit 761fdcf | Android boot fix + AVD smoke | run 41167786
 P127 | 2026-10-31 America/Sao_Paulo | Fase 56 | orchestrator/phase-a-baseline | implementacao local de gameplay/Game Juice | `python tools/run_static_qa.py` PASS; `git diff --check` PASS | Unity/GameCI e builds NOT_RUN | validar fluxo interativo antes de release
 
 P128 | 2026-10-31 America/Sao_Paulo | Fase 57 | orchestrator/phase-a-baseline | progressao multi-fase e PlayerPrefs | Static QA PASS; diff check PASS | Unity/GameCI e builds NOT_RUN | validar transicoes no Unity/GameCI
+
+P129 | 2026-10-31 America/Sao_Paulo | Fase 58 | orchestrator/phase-a-baseline | audio procedural e mute em lifecycle | Static QA PASS; diff check PASS | Unity/GameCI e builds NOT_RUN | validar audio no Unity/GameCI

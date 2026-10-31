@@ -290,3 +290,5 @@ P126 concluida: Activity launcher restaurada e abertura Android validada em AVD 
 | P127 | Gameplay interativo e Game Juice | concluido localmente | Unity/GameCI e dispositivo | porta verde, quiz, score, feedback, pulse/tremor e particulas implementados; QA local PASS; builds NOT_RUN |
 
 | P128 | Progressao multi-fase e recorde local | concluido localmente | Unity/GameCI/dispositivo | tres temas, portais procedurais, PlayerPrefs e HUD implementados; QA PASS; builds NOT_RUN |
+
+| P129 | Audio procedural e polimento | concluido localmente | Unity/GameCI/dispositivo | tons runtime, feedback de eventos e silencio em lifecycle implementados; QA PASS; builds NOT_RUN |
