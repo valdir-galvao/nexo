@@ -16,7 +16,9 @@ jobs:
   android:
     name: Build Android APK
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # IL2CPP Android builds can exceed 30 minutes on GitHub-hosted runners.
+    # Keep a hard upper bound while allowing the build step to finish cleanly.
+    timeout-minutes: 45
     steps:
       - name: Free Disk Space (Lightweight Shell)
         shell: bash
@@ -60,14 +62,24 @@ jobs:
       - name: Prepare Unity log directory
         run: mkdir -p diagnostics
 
+      - name: Invalidate stale Unity and Gradle caches
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Do not reuse potentially corrupted native build state. The Unity
+          # package cache is restored below with an explicit v2 key.
+          rm -rf "$HOME/.gradle/caches" "$HOME/.gradle/wrapper" "$HOME/.cache/Unity" || true
+          mkdir -p "$HOME/.gradle"
+          df -h /
+
       - name: Cache Unity Android project
         uses: actions/cache@v4
         with:
           path: |
             ~/.cache/Unity
-          key: android-cache-${{ runner.os }}-${{ env.UNITY_VERSION }}-${{ hashFiles('Packages/packages-lock.json', 'ProjectSettings/ProjectVersion.txt') }}
+          key: android-cache-v2-${{ runner.os }}-${{ env.UNITY_VERSION }}-${{ hashFiles('Packages/packages-lock.json', 'ProjectSettings/ProjectVersion.txt', '.github/workflows/unity-android.yml') }}
           restore-keys: |
-            android-cache-${{ runner.os }}-${{ env.UNITY_VERSION }}-
+            android-cache-v2-${{ runner.os }}-${{ env.UNITY_VERSION }}-
 
       - name: Build Android package
         uses: game-ci/unity-builder@v6
@@ -75,6 +87,11 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           NEXO_DEVELOPMENT_BUILD: "1"
+          GRADLE_OPTS: >-
+            -Dorg.gradle.jvmargs=-Xmx4096m
+            -Dorg.gradle.daemon=false
+            -Dorg.gradle.logging.level=info
+            -Dorg.gradle.warning.mode=all
         with:
           projectPath: .
           unityVersion: ${{ env.UNITY_VERSION }}
@@ -84,7 +101,7 @@ jobs:
           buildName: Nexo
           buildMethod: Nexo.Editor.Build.AndroidBuild.PerformBuild
           runAsHostUser: true
-          customParameters: -batchmode -nographics -quit -buildTarget Android -customBuildTarget Android -logFile /github/workspace/diagnostics/unity-editor.log
+          customParameters: -batchmode -nographics -quit -single-instance -disable-assembly-reload -buildTarget Android -customBuildTarget Android -logFile /github/workspace/diagnostics/unity-editor.log
           buildsPath: build/Android
 
       - name: Capture Unity failure diagnostics

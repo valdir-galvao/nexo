@@ -331,3 +331,5 @@ Atualizacao P139: o problema de espaco foi corrigido; o novo bloqueio Android e 
 Atualização P148: Fase 68 concluída no código local. StartCore agora ordena câmera -> luz -> Canvas; Canvas usa ScreenSpaceCamera e worldCamera explícito. Static QA e diff check passaram. Nenhum build foi executado. Próxima ação: inspeção/validação Unity ou novo ciclo remoto.
 
 Atualização P149: Fase 69 auditou câmera/luz/Canvas e static QA PASS. Push de fc3198 concluído; runs automáticos falharam antes dos steps. Retentativa Android 41205346056 attempt 2 chegou a Build Android package sem progresso e foi cancelada; nenhum APK novo. Visibilidade privada restaurada. Não repetir sem hipótese de infraestrutura/IL2CPP.
+
+Atualização P150: Fase 70 aplicou timeout 45 min, limpeza de caches nativos, cache Unity v2, GRADLE_OPTS e flags headless. Static QA/YAML/diff PASS. Nenhum build executado; próxima ação é retentativa Android controlada.

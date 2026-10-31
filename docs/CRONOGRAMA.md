@@ -319,3 +319,5 @@ P140 (31/10/2026): Android/iOS GameCI bloqueados por execu??o sem progresso; sem
 P148 - Fase 68 concluída: correção de câmera, luz direcional e vínculo Canvas/câmera aplicada e validada localmente. Próximo passo: validar em Unity/GameCI quando autorizado.
 
 P149 - Fase 69: auditoria e push concluídos; build Android bloqueada por hang do GameCI/Unity IL2CPP sem artefato. Repositório privado restaurado. Próximo passo: runner com mais capacidade ou diagnóstico de build com timeout/log persistente.
+
+P150 - Fase 70 concluída: infraestrutura CI Android ajustada e validada localmente. Próximo passo: disparar nova build somente em janela autorizada e verificar se IL2CPP conclui.

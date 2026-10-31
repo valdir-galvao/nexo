@@ -311,3 +311,7 @@ A inicialização do bootstrap foi endurecida para criar/ativar uma Main Camera po
 ## Fase 69 - auditoria e build Android
 
 A auditoria local confirmou static_qa_ok: json=5 cs=25 e git diff --check PASS. A execução pública foi restaurada para privado após os runs automáticos falharem sem steps e a retentativa Android permanecer sem progresso no empacotamento Unity/IL2CPP. Nenhum artefato novo foi declarado.
+
+## Fase 70 - endurecimento CI Android
+
+A workflow passou a invalidar caches Unity/Gradle potencialmente corrompidos, usa cache v2 versionado, amplia o timeout para 45 minutos, configura heap/logging Gradle e adiciona flags headless de instância única. Nenhum requisito de arquitetura Android foi alterado.
