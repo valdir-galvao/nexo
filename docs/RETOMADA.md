@@ -333,3 +333,5 @@ Atualização P148: Fase 68 concluída no código local. StartCore agora ordena câme
 Atualização P149: Fase 69 auditou câmera/luz/Canvas e static QA PASS. Push de fc3198 concluído; runs automáticos falharam antes dos steps. Retentativa Android 41205346056 attempt 2 chegou a Build Android package sem progresso e foi cancelada; nenhum APK novo. Visibilidade privada restaurada. Não repetir sem hipótese de infraestrutura/IL2CPP.
 
 Atualização P150: Fase 70 aplicou timeout 45 min, limpeza de caches nativos, cache Unity v2, GRADLE_OPTS e flags headless. Static QA/YAML/diff PASS. Nenhum build executado; próxima ação é retentativa Android controlada.
+
+Atualização P151: Fase 71 PASS. Runs 41208174763/41208174770/41208174746 concluíram com sucesso. APK e IPA baixados em C:/Temp/nexo-release-final; hashes registrados em docs/PHASE_71_RELEASE_BUILD_SUCCESS.md. Repositório privado restaurado.

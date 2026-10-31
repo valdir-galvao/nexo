@@ -321,3 +321,5 @@ P148 - Fase 68 concluída: correção de câmera, luz direcional e vínculo Canvas/câ
 P149 - Fase 69: auditoria e push concluídos; build Android bloqueada por hang do GameCI/Unity IL2CPP sem artefato. Repositório privado restaurado. Próximo passo: runner com mais capacidade ou diagnóstico de build com timeout/log persistente.
 
 P150 - Fase 70 concluída: infraestrutura CI Android ajustada e validada localmente. Próximo passo: disparar nova build somente em janela autorizada e verificar se IL2CPP conclui.
+
+P151 - Fase 71 concluída: testes e builds Android/iOS aprovados, artefatos baixados e visibilidade privada restaurada. Próximo passo: validação local em dispositivos, sem publicação.

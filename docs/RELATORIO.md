@@ -315,3 +315,7 @@ A auditoria local confirmou static_qa_ok: json=5 cs=25 e git diff --check PASS. 
 ## Fase 70 - endurecimento CI Android
 
 A workflow passou a invalidar caches Unity/Gradle potencialmente corrompidos, usa cache v2 versionado, amplia o timeout para 45 minutos, configura heap/logging Gradle e adiciona flags headless de instância única. Nenhum requisito de arquitetura Android foi alterado.
+
+## Fase 71 - release Android/iOS
+
+A build remota após as correções de infraestrutura passou em testes, Android e iOS. Os artefatos foram baixados e verificados por SHA-256; a visibilidade voltou para privada.
