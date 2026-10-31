@@ -261,3 +261,7 @@ P132 - 31/10/2026 America/Sao_Paulo - Fase 59 visual corrigiu Canvas overlay/sor
 ## Fase 60 - pre-build checklist
 
 A auditoria local confirmou ARM64/IL2CPP, APIs Android 29/35, cena principal no indice 0, orientacao paisagem e anchors de Safe Area no Canvas runtime. O manifesto customizado permanece ausente por design apos a correcao da Activity launcher; o manifesto gerado pelo Unity foi exercitado no smoke test Android anterior. Static QA e diff check passaram. A nova Safe Area requer validacao em Unity/GameCI antes de ser considerada verificada em runtime.
+
+## Fase 61 - release end-to-end
+
+Preflight local aprovado. Game Juice, progressao, UI/raycasting e Safe Area estao consolidados. Builds Android/iOS desta fase ainda dependem da execucao remota e de artefatos verificaveis vinculados ao commit.

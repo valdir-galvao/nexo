@@ -300,3 +300,5 @@ P131 - 31/10/2026 America/Sao_Paulo - Release candidate executada no commit `404
 P132 - 31/10/2026 America/Sao_Paulo - Fase 59 visual corrigiu Canvas overlay/sorting, EventSystem, StandaloneInputModule, PhysicsRaycaster, toque direto e quiz Canvas com Buttons/Images. Static QA PASS (json=5, cs=25) e git diff --check PASS. Nao houve build nesta correcao. Relatorio: docs/PHASE_59_VISUAL_FIX.md.
 
 P133 | Fase 60 | concluido localmente | Unity/GameCI para validacao visual posterior | ARM64+IL2CPP, APIs 29/35, cena indice 0 e Safe Area auditados; Static QA e diff check PASS | sem build nesta fase; nova Safe Area ainda sem teste runtime | importar/testar no Unity/GameCI em janela controlada
+
+P134 | Fase 61 | preflight concluido | GameCI Android/iOS | Static QA e diff check PASS; release report criado | builds ainda nao executados | commitar e disparar ciclo controlado publico/build/privado
