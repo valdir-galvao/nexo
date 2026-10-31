@@ -323,3 +323,5 @@ P149 - Fase 69: auditoria e push concluídos; build Android bloqueada por hang do
 P150 - Fase 70 concluída: infraestrutura CI Android ajustada e validada localmente. Próximo passo: disparar nova build somente em janela autorizada e verificar se IL2CPP conclui.
 
 P151 - Fase 71 concluída: testes e builds Android/iOS aprovados, artefatos baixados e visibilidade privada restaurada. Próximo passo: validação local em dispositivos, sem publicação.
+
+P152 - Fase 72 concluída: EventSystem/InputModule injetados no primeiro ciclo e Canvas de UI validado. Próximo passo: teste Unity/GameCI visual quando autorizado.

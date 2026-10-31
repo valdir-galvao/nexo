@@ -319,3 +319,7 @@ A workflow passou a invalidar caches Unity/Gradle potencialmente corrompidos, us
 ## Fase 71 - release Android/iOS
 
 A build remota após as correções de infraestrutura passou em testes, Android e iOS. Os artefatos foram baixados e verificados por SHA-256; a visibilidade voltou para privada.
+
+## Fase 72 - EventSystem e entrada de UI
+
+O bootstrap agora garante EventSystem e StandaloneInputModule no primeiro ciclo de carregamento, além de manter CanvasScaler e GraphicRaycaster ativos. A alteração foi validada estaticamente; teste runtime permanece pendente.

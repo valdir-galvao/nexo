@@ -67,6 +67,7 @@ namespace Nexo.UI
         private void Awake()
         {
             Debug.Log("[NEXO_BOOT] Game Manager & UI Canvas Initialized Successfully!");
+            EnsureRuntimeEventSystem();
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -74,6 +75,7 @@ namespace Nexo.UI
         {
             try
             {
+                EnsureRuntimeEventSystem();
                 if (FindFirstObjectByType<NexoVerticalSliceBootstrap>() == null)
                 {
                     var runtimeObject = new GameObject("Nexo Vertical Slice Runtime");
@@ -82,6 +84,29 @@ namespace Nexo.UI
                 }
             }
             catch (System.Exception exception) { Debug.LogException(exception); }
+        }
+
+        private static void EnsureRuntimeEventSystem()
+        {
+            try
+            {
+                var eventSystem = Object.FindAnyObjectByType<EventSystem>();
+                if (eventSystem == null)
+                {
+                    var eventSystemObject = new GameObject("Nexo EventSystem");
+                    if (eventSystemObject == null) return;
+                    eventSystem = eventSystemObject.AddComponent<EventSystem>();
+                }
+                if (eventSystem == null) return;
+                eventSystem.gameObject.SetActive(true);
+                var inputModule = eventSystem.GetComponent<StandaloneInputModule>();
+                if (inputModule == null) inputModule = eventSystem.gameObject.AddComponent<StandaloneInputModule>();
+                if (inputModule != null) inputModule.enabled = true;
+            }
+            catch (System.Exception exception)
+            {
+                Debug.LogException(exception);
+            }
         }
 
         private void Start()
