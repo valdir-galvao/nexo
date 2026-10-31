@@ -327,3 +327,5 @@ P151 - Fase 71 concluída: testes e builds Android/iOS aprovados, artefatos baixa
 P152 - Fase 72 concluída: EventSystem/InputModule injetados no primeiro ciclo e Canvas de UI validado. Próximo passo: teste Unity/GameCI visual quando autorizado.
 
 P153 - Auditoria visual/multiplataforma e correções locais concluídas. Próximo passo: importar/testar no GameCI, gerar APK/IPA e validar smoke test Android; testes físicos e Appetize continuam dependentes de infraestrutura.
+
+P154 | Fase 73 | PASS tÃ©cnico remoto | commit ce335a6 | Unity Tests 41211856704 SUCCESS; Android 41211856635 SUCCESS + AVD smoke PASS; iOS 41211856610 SUCCESS | APK e IPA baixados e hash verificado | testes fÃ­sicos/Appetize/iOS Simulator pendentes | validar em dispositivos prÃ³prios e revisar splash/tutorial fullscreen do emulador

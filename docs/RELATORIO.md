@@ -327,3 +327,7 @@ O bootstrap agora garante EventSystem e StandaloneInputModule no primeiro ciclo 
 ## Fase 73 - auditoria forense de compatibilidade
 
 A an·lise separou o tema de cores do jogo dos erros de backend EGL do emulador. O projeto n„o tinha GraphicsSettings/QualitySettings/URP Asset versionados; a renderizaÁ„o procedural usa fallback Unlit. Foi criado um bootstrap de APIs mÛveis, perfis Low/Medium/High e diagnÛstico tÈcnico local. A confirmaÁ„o final depende de importaÁ„o Unity e testes por plataforma.
+
+## Fase 73 - fechamento t√©cnico
+
+A auditoria de compatibilidade foi aplicada no commit `ce335a6`: perfis Low/Medium/High baseados em mem√≥ria/GPU/CPU, sele√ß√£o OpenGLES3 com Vulkan opcional no Android, Metal no iOS, fallback Canvas Overlay e diagn√≥stico de GPU/API/mem√≥ria/resolu√ß√£o. Os tr√™s workflows foram executados com sucesso: Unity Tests `41211856704`, Android `41211856635` e iOS `41211856610`. O APK foi instalado e iniciado em AVD API 35 x86_64 usando OpenGL ES 3; o log confirmou a cena `NexoVerticalSlice` e os marcadores `[NEXO_BOOT]`, sem exce√ß√£o Unity ou erro de shader. A paleta verde/amarela observada √© coerente com o tema visual atual; os avisos EGL/Gralloc s√£o do backend do emulador e n√£o foram reproduzidos como falha do app. APK e IPA est√£o em `C:/Temp/nexo-release-final`; o reposit√≥rio foi restaurado para privado. A compatibilidade f√≠sica ampla ainda requer matriz de aparelhos reais e simulador iOS.
