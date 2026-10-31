@@ -564,6 +564,22 @@ namespace Nexo.UI
             velocity.x = new ParticleSystem.MinMaxCurve(0f, 0f);
             velocity.y = new ParticleSystem.MinMaxCurve(0.12f, 0.28f);
             velocity.z = new ParticleSystem.MinMaxCurve(0f, 0f);
+            // Do not depend on the platform's default particle material. On
+            // Android/SwiftShader that implicit material can resolve to a
+            // missing particle shader and render magenta squares. Reuse the
+            // already validated mobile-safe world material instead.
+            var particleRenderer = particleObject.GetComponent<ParticleSystemRenderer>();
+            if (particleRenderer != null && defaultWorldMaterial != null && defaultWorldMaterial.shader != null)
+            {
+                particleRenderer.material = new Material(defaultWorldMaterial);
+                if (particleRenderer.material != null)
+                    particleRenderer.material.color = new Color(0.35f, 0.85f, 1f, 0.75f);
+            }
+            else if (particleRenderer != null)
+            {
+                particleRenderer.enabled = false;
+                Debug.LogWarning("Nexo: particle material unavailable; floating lights disabled to avoid magenta fallback.");
+            }
             introParticles.Play();
         }
 

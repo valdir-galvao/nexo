@@ -329,3 +329,5 @@ P152 - Fase 72 concluÌda: EventSystem/InputModule injetados no primeiro ciclo e 
 P153 - Auditoria visual/multiplataforma e correÁıes locais concluÌdas. PrÛximo passo: importar/testar no GameCI, gerar APK/IPA e validar smoke test Android; testes fÌsicos e Appetize continuam dependentes de infraestrutura.
 
 P154 | Fase 73 | PASS t√©cnico remoto | commit ce335a6 | Unity Tests 41211856704 SUCCESS; Android 41211856635 SUCCESS + AVD smoke PASS; iOS 41211856610 SUCCESS | APK e IPA baixados e hash verificado | testes f√≠sicos/Appetize/iOS Simulator pendentes | validar em dispositivos pr√≥prios e revisar splash/tutorial fullscreen do emulador
+
+P155 | Fase 74 | corre√ß√£o visual aplicada | commit pendente | material expl√≠cito para part√≠culas + auditoria `[NEXO_RENDER]`; Static QA/diff PASS | nova execu√ß√£o GameCI ainda n√£o realizada | commitar, executar Unity Tests/Android smoke e confirmar `magentaObjects=0`

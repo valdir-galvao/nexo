@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 namespace Nexo.Core
 {
@@ -81,6 +83,64 @@ namespace Nexo.Core
         {
             currentSceneName = scene.name;
             Enqueue("SCENE_LOADED mode=" + mode + " scene=" + scene.name);
+            StartCoroutine(WriteRenderAuditNextFrame());
+        }
+
+        private IEnumerator WriteRenderAuditNextFrame()
+        {
+            yield return null;
+            WriteRenderAudit();
+        }
+
+        private void WriteRenderAudit()
+        {
+            try
+            {
+                var renderers = FindObjectsByType<Renderer>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+                var canvases = FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+                var camera = Camera.main;
+                var pipeline = GraphicsSettings.currentRenderPipeline;
+                int materialCount = 0;
+                int incompatibleShaders = 0;
+                int magentaObjects = 0;
+                int debugObjects = 0;
+                for (int i = 0; i < renderers.Length; i++)
+                {
+                    var renderer = renderers[i];
+                    if (renderer == null) continue;
+                    string lowerName = renderer.gameObject.name.ToLowerInvariant();
+                    if (lowerName.Contains("debug") || lowerName.Contains("marker") || lowerName.Contains("diagnostic") || lowerName.Contains("gizmo"))
+                        debugObjects++;
+                    var materials = renderer.sharedMaterials;
+                    bool hasMagentaMaterial = false;
+                    for (int j = 0; j < materials.Length; j++)
+                    {
+                        var material = materials[j];
+                        if (material == null) { incompatibleShaders++; continue; }
+                        materialCount++;
+                        if (material.shader == null || !material.shader.isSupported) incompatibleShaders++;
+                        Color color = material.color;
+                        if (color.r > 0.8f && color.b > 0.8f && color.g < 0.3f && color.a > 0.05f)
+                            hasMagentaMaterial = true;
+                    }
+                    if (hasMagentaMaterial) magentaObjects++;
+                }
+                Enqueue(string.Format("[NEXO_RENDER] scene={0} camera={1} pipeline={2} api={3} renderers={4} materials={5} incompatibleShaders={6} magentaObjects={7} canvases={8} debugObjects={9}",
+                    currentSceneName,
+                    camera == null ? "<none>" : camera.name,
+                    pipeline == null ? "Built-in/none" : pipeline.name,
+                    SystemInfo.graphicsDeviceType,
+                    renderers.Length,
+                    materialCount,
+                    incompatibleShaders,
+                    magentaObjects,
+                    canvases.Length,
+                    debugObjects));
+            }
+            catch (Exception exception)
+            {
+                Enqueue("[NEXO_RENDER] audit_error=" + exception.GetType().Name + " message=" + exception.Message);
+            }
         }
 
         private void Enqueue(string line)
