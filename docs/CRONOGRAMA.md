@@ -294,3 +294,5 @@ P126 concluida: Activity launcher restaurada e abertura Android validada em AVD 
 | P129 | Audio procedural e polimento | concluido localmente | Unity/GameCI/dispositivo | tons runtime, feedback de eventos e silencio em lifecycle implementados; QA PASS; builds NOT_RUN |
 
 | P130 | Preparacao da release Android | concluido localmente | GameCI/Unity Builder | perfil Release validado e workflow com preflight; APK remoto pendente |
+
+P131 - 31/10/2026 America/Sao_Paulo - Release candidate executada no commit `404947660f932631110cb238dbbdc91b5fb2506b`. Unity Tests `41171249209`: SUCCESS. Android `41171249169`: build Release SUCCESS e smoke test AVD API 35 SUCCESS; APK em `C:/Temp/nexo-release-4049476/android/Android/Nexo.apk`, 31.274.715 bytes, SHA256 `5075FDFFC3FC7F65C24B354EA5B5DF9A655EAA76458D79B899F358875862B312`. iOS `41171249180`: SUCCESS; IPA em `C:/Temp/nexo-release-4049476/ios-xcode3/Nexo.ipa`, SHA256 `879E864EE7404BF95E4DD6F9C5728E9CA78455F8F6561C83F221E2F1C7AAACB0`; projeto Xcode no mesmo diretorio. Repositorio restaurado PRIVATE (`disabled=false`).
