@@ -107,16 +107,34 @@ namespace Nexo.UI
             activeStage = Mathf.Clamp(PlayerPrefs.GetInt(StageKey, 1), 1, 3);
             mission = new VerticalSliceMission(new JsonFileSaveStore());
             mission.Initialize();
+            // Initialize the gameplay manager and world on the first executable
+            // frame. The intro UI remains on top, but the interactive portals,
+            // score state and raycast targets are already available underneath.
+            EnsureWorldBuilt();
             audioDirector = gameObject.AddComponent<NexoAudioDirector>();
             if (audioDirector != null) audioDirector.Configure(mission.Save != null ? mission.Save.audio : null);
             dataControls = new LocalDataControls();
             showIntro = mission.StateMachine.State == GameState.Intro;
             introElapsed = 0f;
             transferAnswered = HasTransferEvidence();
+            EnsureInteractiveHudVisible();
             RefreshModernIntro();
             if (modernUiReady) StartCoroutine(FadeIntroIn());
-            // Keep the intro path UI-only. Build gameplay physics only after entry.
-            if (!showIntro) EnsureWorldBuilt();
+        }
+
+        private void EnsureInteractiveHudVisible()
+        {
+            if (uiCanvas == null) return;
+            uiCanvas.gameObject.SetActive(true);
+            uiCanvas.enabled = true;
+            var raycaster = uiCanvas.GetComponent<GraphicRaycaster>();
+            if (raycaster != null) raycaster.enabled = true;
+            if (introGroup != null)
+            {
+                introGroup.gameObject.SetActive(showMenu || showIntro);
+                introGroup.interactable = showMenu || showIntro;
+                introGroup.blocksRaycasts = showMenu || showIntro;
+            }
         }
 
         private void EnsurePresentationCameraSafe()
@@ -514,6 +532,8 @@ namespace Nexo.UI
             if (!modernUiReady || introGroup == null) return;
             bool visible = showMenu || showIntro;
             introGroup.gameObject.SetActive(visible);
+            introGroup.interactable = visible;
+            introGroup.blocksRaycasts = visible;
             if (!visible) return;
             introGroup.alpha = 1f;
             introSubtitle.text = showMenu ? "Reconstrua a conexao entre as ilhas." : "Observe a fonte, siga o canal e restaure o fluxo.";
@@ -523,6 +543,7 @@ namespace Nexo.UI
         private void BeginModernMission()
         {
             showMenu = false;
+            EnsureWorldBuilt();
             if (showIntro)
             {
                 mission.SkipIntro();

@@ -288,3 +288,6 @@ Estado P141: SIGSEGV de PlayMode isolado em reload de assemblies; correcao aplic
 
 
 Estado P142: Unity Tests e Android aprovados; APK capturado e smoke test AVD concluido; iOS pendente/cancelado.
+
+
+Estado P143: maquina de estados e HUD inicializadas no primeiro frame; validacao Unity remota desta alteracao ainda pendente.
