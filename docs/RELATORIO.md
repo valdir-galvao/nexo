@@ -307,3 +307,7 @@ Estado P147: build Android/iOS e testes aprovados; artefatos capturados e visibi
 ## Fase 68 - câmera, luz e Canvas
 
 A inicialização do bootstrap foi endurecida para criar/ativar uma Main Camera posicionada em (0,0,-10), garantir uma luz direcional antes do mundo procedural e vincular o Canvas runtime à câmera em ScreenSpaceCamera. A validação local passou; a confirmação em dispositivo permanece pendente.
+
+## Fase 69 - auditoria e build Android
+
+A auditoria local confirmou static_qa_ok: json=5 cs=25 e git diff --check PASS. A execução pública foi restaurada para privado após os runs automáticos falharem sem steps e a retentativa Android permanecer sem progresso no empacotamento Unity/IL2CPP. Nenhum artefato novo foi declarado.
