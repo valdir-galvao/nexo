@@ -337,3 +337,5 @@ Atualização P150: Fase 70 aplicou timeout 45 min, limpeza de caches nativos, cac
 Atualização P151: Fase 71 PASS. Runs 41208174763/41208174770/41208174746 concluíram com sucesso. APK e IPA baixados em C:/Temp/nexo-release-final; hashes registrados em docs/PHASE_71_RELEASE_BUILD_SUCCESS.md. Repositório privado restaurado.
 
 Atualização P152: Fase 72 aplicada. EnsureRuntimeEventSystem usa FindAnyObjectByType, cria EventSystem/Nexo EventSystem e ativa StandaloneInputModule antes do fluxo de UI. Static QA/diff PASS; sem build.
+
+Atualização P153: auditoria encontrou URP instalado sem GraphicsSettings/QualitySettings/RenderPipelineAsset rastreados; tema verde/amarelo é cor intencional, enquanto EGL_BAD_CONFIG é limitação do backend. Correções locais: APIs OpenGLES3/Vulkan/Metal, perfis de qualidade automáticos, diagnóstico de GPU/API/memória/resolução e fallback Canvas Overlay. Static QA PASS; próxima ação é commit/push e builds remotas.

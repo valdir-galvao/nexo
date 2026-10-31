@@ -134,9 +134,11 @@ namespace Nexo.Core
 
         private static string BuildEnvironmentSummary()
         {
-            return string.Format("unity={0} platform={1} device={2} os={3} graphics={4} memoryMB={5} dataPath={6}",
+            return string.Format("unity={0} platform={1} device={2} os={3} graphics={4} api={5} graphicsMemoryMB={6} memoryMB={7} resolution={8}x{9} quality={10} processors={11} dataPath={12}",
                 Application.unityVersion, Application.platform, SystemInfo.deviceModel, SystemInfo.operatingSystem,
-                SystemInfo.graphicsDeviceName, SystemInfo.systemMemorySize, Application.persistentDataPath);
+                SystemInfo.graphicsDeviceName, SystemInfo.graphicsDeviceType, SystemInfo.graphicsMemorySize,
+                SystemInfo.systemMemorySize, Screen.width, Screen.height, NexoQualityProfile.Current,
+                SystemInfo.processorCount, Application.persistentDataPath);
         }
 
         private void OnGUI()

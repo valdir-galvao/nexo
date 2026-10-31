@@ -323,3 +323,7 @@ A build remota após as correções de infraestrutura passou em testes, Android e i
 ## Fase 72 - EventSystem e entrada de UI
 
 O bootstrap agora garante EventSystem e StandaloneInputModule no primeiro ciclo de carregamento, além de manter CanvasScaler e GraphicRaycaster ativos. A alteração foi validada estaticamente; teste runtime permanece pendente.
+
+## Fase 73 - auditoria forense de compatibilidade
+
+A análise separou o tema de cores do jogo dos erros de backend EGL do emulador. O projeto não tinha GraphicsSettings/QualitySettings/URP Asset versionados; a renderização procedural usa fallback Unlit. Foi criado um bootstrap de APIs móveis, perfis Low/Medium/High e diagnóstico técnico local. A confirmação final depende de importação Unity e testes por plataforma.

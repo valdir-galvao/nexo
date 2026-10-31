@@ -66,7 +66,7 @@ namespace Nexo.UI
 
         private void Awake()
         {
-            Debug.Log("[NEXO_BOOT] Game Manager & UI Canvas Initialized Successfully!");
+            Debug.Log("[NEXO_BOOT] Awake: bootstrap instance created.");
             EnsureRuntimeEventSystem();
         }
 
@@ -113,7 +113,7 @@ namespace Nexo.UI
         {
             try
             {
-                Debug.Log("[NEXO_BOOT] Game Manager & UI Canvas Initialized Successfully!");
+                Debug.Log("[NEXO_BOOT] Start: initializing camera, light, Canvas and mission.");
                 StartCore();
             }
             catch (System.Exception exception)
@@ -129,6 +129,7 @@ namespace Nexo.UI
 
         private void StartCore()
         {
+            NexoQualityProfile.ApplyAutomatic();
             ConfigureMobileRuntime();
             PreloadGraphics();
             EnsurePresentationCamera();
@@ -308,6 +309,12 @@ namespace Nexo.UI
             // reference for render ordering and diagnostics.
             canvas.renderMode = RenderMode.ScreenSpaceCamera;
             canvas.worldCamera = view != null ? view : Camera.main;
+            if (canvas.worldCamera == null)
+            {
+                // A missing camera must never make the HUD disappear. Overlay is
+                // the safe last-resort path for emulators with incomplete EGL.
+                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            }
             canvas.planeDistance = 10f;
             canvas.gameObject.SetActive(true);
             canvas.transform.SetAsLastSibling();

@@ -325,3 +325,5 @@ P150 - Fase 70 concluída: infraestrutura CI Android ajustada e validada localmen
 P151 - Fase 71 concluída: testes e builds Android/iOS aprovados, artefatos baixados e visibilidade privada restaurada. Próximo passo: validação local em dispositivos, sem publicação.
 
 P152 - Fase 72 concluída: EventSystem/InputModule injetados no primeiro ciclo e Canvas de UI validado. Próximo passo: teste Unity/GameCI visual quando autorizado.
+
+P153 - Auditoria visual/multiplataforma e correções locais concluídas. Próximo passo: importar/testar no GameCI, gerar APK/IPA e validar smoke test Android; testes físicos e Appetize continuam dependentes de infraestrutura.
