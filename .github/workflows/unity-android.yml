@@ -74,6 +74,7 @@ jobs:
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          NEXO_DEVELOPMENT_BUILD: "1"
         with:
           projectPath: .
           unityVersion: ${{ env.UNITY_VERSION }}

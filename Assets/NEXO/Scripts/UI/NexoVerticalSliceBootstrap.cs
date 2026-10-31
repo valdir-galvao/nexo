@@ -64,6 +64,11 @@ namespace Nexo.UI
         public GameState CurrentState { get { return mission == null ? GameState.Initializing : mission.StateMachine.State; } }
         public bool GameplayMaterialReady { get { return defaultWorldMaterial != null && defaultWorldMaterial.shader != null; } }
 
+        private void Awake()
+        {
+            Debug.Log("[NEXO_BOOT] Game Manager & UI Canvas Initialized Successfully!");
+        }
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void CreateIfMissing()
         {
@@ -83,6 +88,7 @@ namespace Nexo.UI
         {
             try
             {
+                Debug.Log("[NEXO_BOOT] Game Manager & UI Canvas Initialized Successfully!");
                 StartCore();
             }
             catch (System.Exception exception)

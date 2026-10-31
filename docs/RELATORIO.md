@@ -297,3 +297,6 @@ Estado P144: input universal e fallback de shaders aplicados; validacao Unity re
 
 
 Estado P145: builds Android e iOS aprovados e artefatos capturados; repositorio privado restaurado.
+
+
+Estado P146: build Android multi-arquitetura e tracing de boot configurados; nova compilacao ainda pendente.
