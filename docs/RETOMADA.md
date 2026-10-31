@@ -1,4 +1,7 @@
 Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
+Ponto atual: P144; blindagem mobile de shaders, Canvas e toque aplicada, validacoes locais PASS; APK anterior em C:/Temp/nexo-release-final/Android/Nexo.apk.
+
+Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
 Ponto atual: P143; inicializacao imediata de mundo/HUD aplicada, validacoes locais PASS; APK anterior permanece em C:/Temp/nexo-release-final/Android/Nexo.apk.
 
 Ultima atualizacao: 31/10/2026 America/Sao_Paulo.

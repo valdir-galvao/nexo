@@ -291,3 +291,6 @@ Estado P142: Unity Tests e Android aprovados; APK capturado e smoke test AVD con
 
 
 Estado P143: maquina de estados e HUD inicializadas no primeiro frame; validacao Unity remota desta alteracao ainda pendente.
+
+
+Estado P144: input universal e fallback de shaders aplicados; validacao Unity remota desta alteracao ainda pendente.

@@ -127,6 +127,12 @@ namespace Nexo.UI
             if (uiCanvas == null) return;
             uiCanvas.gameObject.SetActive(true);
             uiCanvas.enabled = true;
+            uiCanvas.transform.SetAsLastSibling();
+            if (uiSafeArea != null)
+            {
+                uiSafeArea.gameObject.SetActive(true);
+                uiSafeArea.SetAsLastSibling();
+            }
             var raycaster = uiCanvas.GetComponent<GraphicRaycaster>();
             if (raycaster != null) raycaster.enabled = true;
             if (introGroup != null)
@@ -218,12 +224,14 @@ namespace Nexo.UI
             };
             for (int i = 0; i < requiredShaders.Length; i++) Shader.Find(requiredShaders[i]);
 
-            bool urpActive = GraphicsSettings.currentRenderPipeline != null;
-            Shader worldShader = urpActive ? Shader.Find("Universal Render Pipeline/Unlit") : Shader.Find("Unlit/Color");
-            if (worldShader == null) worldShader = urpActive ? Shader.Find("Unlit/Color") : Shader.Find("Universal Render Pipeline/Unlit");
+            // Prefer shaders guaranteed by the built-in mobile path. URP remains
+            // supported, but is never required for the procedural world.
+            Shader worldShader = Shader.Find("Unlit/Color");
+            if (worldShader == null) worldShader = Shader.Find("UI/Default");
+            if (worldShader == null) worldShader = Shader.Find("Universal Render Pipeline/Unlit");
             if (worldShader == null) worldShader = Shader.Find("Sprites/Default");
             Shader fallbackShader = Shader.Find("UI/Default");
-            if (fallbackShader == null) fallbackShader = Shader.Find("Standard");
+            if (fallbackShader == null) fallbackShader = Shader.Find("Unlit/Color");
             if (worldShader == null) worldShader = fallbackShader;
             var resourceMaterial = Resources.Load<Material>("Materials/URP_Default_Gameplay");
             if (resourceMaterial != null && worldShader != null && (resourceMaterial.shader == null || resourceMaterial.shader != worldShader))
@@ -258,6 +266,8 @@ namespace Nexo.UI
             }
 
             uiCanvas = canvas;
+            canvas.gameObject.SetActive(true);
+            canvas.transform.SetAsLastSibling();
             if (!Application.isBatchMode && EventSystem.current == null)
             {
                 var eventSystem = new GameObject("Nexo UI EventSystem");
@@ -709,8 +719,12 @@ namespace Nexo.UI
             var renderer = item.AddComponent<MeshRenderer>();
             if (renderer != null)
             {
-                if (defaultWorldMaterial != null) renderer.sharedMaterial = new Material(defaultWorldMaterial);
-                if (renderer.sharedMaterial != null) renderer.sharedMaterial.color = color;
+                if (defaultWorldMaterial != null)
+                {
+                    var material = new Material(defaultWorldMaterial);
+                    material.color = color;
+                    renderer.sharedMaterial = material;
+                }
             }
             else Debug.LogError("Nexo: MeshRenderer n?o p?de ser criado para " + name);
             if (addCollider && item.AddComponent<BoxCollider>() == null)
@@ -732,11 +746,22 @@ namespace Nexo.UI
                     introTitle.color = Color.Lerp(Color.white, new Color(0.42f, 0.86f, 1f, 1f), glow);
                 }
             }
-            if (mission == null || playerTransform == null) return;
+            if (mission == null) return;
+            Vector2 pointerPosition;
+            if (TryGetPrimaryPointerDown(out pointerPosition))
+            {
+                if (showMenu || showIntro)
+                {
+                    HandleStartButtonPressed();
+                    return;
+                }
+                if (!challengeOpen && !showDiary && !showSettings)
+                    InteractAtScreenPoint(pointerPosition);
+            }
+            if (playerTransform == null) return;
             if (challengeOpen) return;
             if (showMenu || showDiary || showSettings) return;
             if (mission.StateMachine.State == GameState.Paused) return;
-            HandleDirectPointerInput();
             Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             input += new Vector3(touchMove.x, 0, touchMove.y);
             input = Vector3.ClampMagnitude(input, 1f);
@@ -754,7 +779,7 @@ namespace Nexo.UI
 
         private void InteractAtScreenPoint(Vector2 screenPoint)
         {
-            if (view == null || challengeOpen || EventSystem.current == null) return;
+            if (view == null || challengeOpen) return;
             Ray ray = view.ScreenPointToRay(screenPoint);
             RaycastHit hit;
             if (!Physics.Raycast(ray, out hit, 4f) || hit.collider == null) return;
@@ -777,21 +802,24 @@ namespace Nexo.UI
             }
         }
 
-        private void HandleDirectPointerInput()
+        private bool TryGetPrimaryPointerDown(out Vector2 position)
         {
-            if (challengeOpen || showMenu || showIntro || showDiary || showSettings || view == null) return;
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject())
-                    InteractAtScreenPoint(Input.mousePosition);
-            }
+            position = Vector2.zero;
             for (int i = 0; i < Input.touchCount; i++)
             {
                 var touch = Input.GetTouch(i);
-                if (touch.phase != TouchPhase.Began) continue;
-                if (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject(touch.fingerId))
-                    InteractAtScreenPoint(touch.position);
+                if (touch.phase == TouchPhase.Began)
+                {
+                    position = touch.position;
+                    return true;
+                }
             }
+            if (Input.GetMouseButtonDown(0))
+            {
+                position = Input.mousePosition;
+                return true;
+            }
+            return false;
         }
 
         private void OpenChallenge()
