@@ -51,6 +51,9 @@ namespace Nexo.UI
         private int score;
         private string challengeFeedback = "";
         private Coroutine challengePulse;
+        private GameObject challengeCanvasPanel;
+        private Text challengeCanvasPrompt;
+        private Button[] challengeCanvasButtons;
         private NexoChallengeDoor activeChallengeDoor;
         private int activeStage = 1;
         private int highScore;
@@ -249,7 +252,28 @@ namespace Nexo.UI
             scaler.referenceResolution = new Vector2(1920f, 1080f);
             scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
             scaler.matchWidthOrHeight = 0.5f;
+            canvas.sortingOrder = 10;
+            var canvasRaycaster = canvas.GetComponent<GraphicRaycaster>();
+            if (canvasRaycaster == null) canvasRaycaster = canvas.gameObject.AddComponent<GraphicRaycaster>();
+            if (canvasRaycaster != null) canvasRaycaster.enabled = true;
+            EnsureEventSystem();
             BuildModernIntro(canvas);
+            BuildChallengeCanvas(canvas);
+        }
+
+        private void EnsureEventSystem()
+        {
+            var eventSystem = EventSystem.current;
+            if (eventSystem == null)
+            {
+                var eventSystemObject = new GameObject("Nexo UI EventSystem");
+                eventSystem = eventSystemObject.AddComponent<EventSystem>();
+            }
+            if (eventSystem == null) return;
+            eventSystem.gameObject.SetActive(true);
+            var inputModule = eventSystem.GetComponent<StandaloneInputModule>();
+            if (inputModule == null) inputModule = eventSystem.gameObject.AddComponent<StandaloneInputModule>();
+            if (inputModule != null) inputModule.enabled = true;
         }
 
         private void EnsurePresentationCamera()
@@ -264,6 +288,9 @@ namespace Nexo.UI
             view.clearFlags = CameraClearFlags.SolidColor;
             view.backgroundColor = new Color(0.025f, 0.055f, 0.12f, 1f);
             view.enabled = true;
+            var physicsRaycaster = view.GetComponent<PhysicsRaycaster>();
+            if (physicsRaycaster == null) physicsRaycaster = view.gameObject.AddComponent<PhysicsRaycaster>();
+            if (physicsRaycaster != null) physicsRaycaster.enabled = true;
         }
 
         private void BuildModernIntro(Canvas canvas)
@@ -313,6 +340,94 @@ namespace Nexo.UI
             introActionLabel = CreateIntroText(buttonObject.transform, "INICIAR MISSAO", 32, FontStyle.Bold, Vector2.zero, Vector2.one);
             introActionLabel.alignment = TextAnchor.MiddleCenter;
             modernUiReady = true;
+        }
+
+        private void BuildChallengeCanvas(Canvas canvas)
+        {
+            if (canvas == null || challengeCanvasPanel != null) return;
+            challengeCanvasPanel = new GameObject("Nexo Challenge Canvas Panel");
+            challengeCanvasPanel.transform.SetParent(canvas.transform, false);
+            var panelRect = challengeCanvasPanel.AddComponent<RectTransform>();
+            panelRect.anchorMin = new Vector2(0.06f, 0.10f);
+            panelRect.anchorMax = new Vector2(0.94f, 0.90f);
+            panelRect.offsetMin = Vector2.zero;
+            panelRect.offsetMax = Vector2.zero;
+            var panelImage = challengeCanvasPanel.AddComponent<Image>();
+            if (panelImage != null) panelImage.color = new Color(0.03f, 0.08f, 0.16f, 0.98f);
+            challengeCanvasPrompt = CreateIntroText(challengeCanvasPanel.transform, "", 30, FontStyle.Bold, new Vector2(0.08f, 0.58f), new Vector2(0.92f, 0.88f));
+            if (challengeCanvasPrompt != null) challengeCanvasPrompt.color = NexoVisualTheme.SafeText;
+            challengeCanvasButtons = new Button[3];
+            for (int i = 0; i < challengeCanvasButtons.Length; i++)
+            {
+                var buttonObject = new GameObject("Challenge Answer " + i);
+                buttonObject.transform.SetParent(challengeCanvasPanel.transform, false);
+                var buttonRect = buttonObject.AddComponent<RectTransform>();
+                buttonRect.anchorMin = new Vector2(0.14f, 0.12f + i * 0.14f);
+                buttonRect.anchorMax = new Vector2(0.86f, 0.23f + i * 0.14f);
+                buttonRect.offsetMin = Vector2.zero;
+                buttonRect.offsetMax = Vector2.zero;
+                var image = buttonObject.AddComponent<Image>();
+                if (image != null) image.color = new Color(0.10f, 0.42f, 0.68f, 1f);
+                var button = buttonObject.AddComponent<Button>();
+                if (button != null)
+                {
+                    button.targetGraphic = image;
+                    button.interactable = true;
+                    challengeCanvasButtons[i] = button;
+                }
+                var label = CreateIntroText(buttonObject.transform, "", 26, FontStyle.Bold, Vector2.zero, Vector2.one);
+                if (label != null) label.alignment = TextAnchor.MiddleCenter;
+            }
+            challengeCanvasPanel.SetActive(false);
+        }
+
+        private void RefreshChallengeCanvas()
+        {
+            if (challengeCanvasPanel == null || challengeCanvasPrompt == null || challengeCanvasButtons == null) return;
+            challengeCanvasPanel.SetActive(challengeOpen);
+            if (!challengeOpen) return;
+            challengeCanvasPrompt.text = challengeFeedback;
+            if (!challengeAnswered)
+            {
+                int[] options = GetChallengeOptions();
+                for (int i = 0; i < challengeCanvasButtons.Length; i++)
+                {
+                    var button = challengeCanvasButtons[i];
+                    if (button == null) continue;
+                    button.gameObject.SetActive(true);
+                    button.onClick.RemoveAllListeners();
+                    int answer = options[i];
+                    button.onClick.AddListener(() => ResolveChallenge(answer));
+                    var image = button.targetGraphic as Image;
+                    if (image != null) image.color = i == 0 ? new Color(0.12f, 0.62f, 0.38f, 1f) : new Color(0.10f, 0.42f, 0.68f, 1f);
+                    var label = button.GetComponentInChildren<Text>();
+                    if (label != null) label.text = answer + " unidades";
+                }
+            }
+            else
+            {
+                var first = challengeCanvasButtons[0];
+                if (first != null)
+                {
+                    first.gameObject.SetActive(true);
+                    first.onClick.RemoveAllListeners();
+                    first.onClick.AddListener(CloseChallenge);
+                    var image = first.targetGraphic as Image;
+                    if (image != null) image.color = challengeCorrect ? new Color(0.12f, 0.65f, 0.38f, 1f) : new Color(0.70f, 0.16f, 0.18f, 1f);
+                    var label = first.GetComponentInChildren<Text>();
+                    if (label != null) label.text = challengeCorrect ? "CONTINUAR" : "TENTAR NOVAMENTE";
+                }
+                for (int i = 1; i < challengeCanvasButtons.Length; i++)
+                    if (challengeCanvasButtons[i] != null) challengeCanvasButtons[i].gameObject.SetActive(false);
+            }
+        }
+
+        private void CloseChallenge()
+        {
+            challengeOpen = false;
+            challengeAnswered = false;
+            challengeFeedback = "";
+            if (challengeCanvasPanel != null) challengeCanvasPanel.SetActive(false);
         }
 
         private void BuildIntroParticles()
@@ -575,6 +690,7 @@ namespace Nexo.UI
             if (challengeOpen) return;
             if (showMenu || showDiary || showSettings) return;
             if (mission.StateMachine.State == GameState.Paused) return;
+            HandleDirectPointerInput();
             Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             input += new Vector3(touchMove.x, 0, touchMove.y);
             input = Vector3.ClampMagnitude(input, 1f);
@@ -587,23 +703,48 @@ namespace Nexo.UI
         private void Interact()
         {
             if (view == null) return;
-            Ray ray = view.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            InteractAtScreenPoint(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f));
+        }
+
+        private void InteractAtScreenPoint(Vector2 screenPoint)
+        {
+            if (view == null || challengeOpen || EventSystem.current == null) return;
+            Ray ray = view.ScreenPointToRay(screenPoint);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 4f))
+            if (!Physics.Raycast(ray, out hit, 4f) || hit.collider == null) return;
+            NexoChallengeDoor door = hit.collider.GetComponent<NexoChallengeDoor>();
+            NexoInteractable target = hit.collider.GetComponent<NexoInteractable>();
+            if (door != null && door.unlocked && door.stage == activeStage)
             {
-                if (hit.collider == null) return;
-                NexoChallengeDoor door = hit.collider.GetComponent<NexoChallengeDoor>();
-                NexoInteractable target = hit.collider.GetComponent<NexoInteractable>();
-                if (door != null && door.unlocked && door.stage == activeStage)
-                {
-                    OpenChallenge();
-                }
-                else if (target != null)
-                {
-                    mission.RecordClue(target.clue);
-                    prompt = target.description;
-                }
-                else if (hit.collider.name == "Reservoir") mission.Allocate(WaterAllocation.Reservoir);
+                OpenChallenge();
+            }
+            else if (target != null)
+            {
+                mission.RecordClue(target.clue);
+                prompt = target.description;
+                if (audioDirector != null) audioDirector.PlayClick();
+            }
+            else if (hit.collider.name == "Reservoir")
+            {
+                mission.Allocate(WaterAllocation.Reservoir);
+                if (audioDirector != null) audioDirector.PlayClick();
+            }
+        }
+
+        private void HandleDirectPointerInput()
+        {
+            if (challengeOpen || showMenu || showIntro || showDiary || showSettings || view == null) return;
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject())
+                    InteractAtScreenPoint(Input.mousePosition);
+            }
+            for (int i = 0; i < Input.touchCount; i++)
+            {
+                var touch = Input.GetTouch(i);
+                if (touch.phase != TouchPhase.Began) continue;
+                if (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                    InteractAtScreenPoint(touch.position);
             }
         }
 
@@ -615,6 +756,7 @@ namespace Nexo.UI
             challengeCorrect = false;
             challengeFeedback = GetChallengePrompt();
             if (audioDirector != null) audioDirector.PlayClick();
+            RefreshChallengeCanvas();
             if (challengeDoorTransform != null)
             {
                 if (challengePulse != null) StopCoroutine(challengePulse);
@@ -654,6 +796,7 @@ namespace Nexo.UI
                     StartCoroutine(ShakeTransform(challengeDoorTransform));
                 }
             }
+            RefreshChallengeCanvas();
         }
 
         private string GetChallengePrompt()
@@ -775,7 +918,7 @@ namespace Nexo.UI
             Rect safe = Screen.safeArea;
             if (challengeOpen)
             {
-                DrawChallenge(safe);
+                if (challengeCanvasPanel == null) DrawChallenge(safe);
                 return;
             }
             GUI.Label(new Rect(safe.x + 16, safe.y + 48, 360, 30), "Pontuacao: " + score + " | Recorde: " + highScore + " | Fase: " + activeStage + "/3");
@@ -857,9 +1000,7 @@ namespace Nexo.UI
                 GUI.color = challengeCorrect ? new Color(0.45f, 1f, 0.62f, 1f) : new Color(1f, 0.38f, 0.38f, 1f);
                 if (GUI.Button(new Rect(safe.x + 55, safe.y + 315, safe.width - 110, 42), challengeCorrect ? "Continuar" : "Tentar novamente"))
             {
-                challengeOpen = false;
-                challengeAnswered = false;
-                challengeFeedback = "";
+                CloseChallenge();
                 if (audioDirector != null) audioDirector.PlayClick();
                 GUI.color = Color.white;
             }
