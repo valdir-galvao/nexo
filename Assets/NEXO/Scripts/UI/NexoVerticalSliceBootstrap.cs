@@ -54,6 +54,7 @@ namespace Nexo.UI
         private GameObject challengeCanvasPanel;
         private Text challengeCanvasPrompt;
         private Button[] challengeCanvasButtons;
+        private RectTransform uiSafeArea;
         private NexoChallengeDoor activeChallengeDoor;
         private int activeStage = 1;
         private int highScore;
@@ -253,12 +254,35 @@ namespace Nexo.UI
             scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
             scaler.matchWidthOrHeight = 0.5f;
             canvas.sortingOrder = 10;
+            EnsureSafeAreaRoot(canvas);
             var canvasRaycaster = canvas.GetComponent<GraphicRaycaster>();
             if (canvasRaycaster == null) canvasRaycaster = canvas.gameObject.AddComponent<GraphicRaycaster>();
             if (canvasRaycaster != null) canvasRaycaster.enabled = true;
             EnsureEventSystem();
             BuildModernIntro(canvas);
             BuildChallengeCanvas(canvas);
+        }
+
+        private void EnsureSafeAreaRoot(Canvas canvas)
+        {
+            if (canvas == null) return;
+            if (uiSafeArea == null)
+            {
+                var safeObject = new GameObject("Nexo Safe Area UI");
+                safeObject.transform.SetParent(canvas.transform, false);
+                uiSafeArea = safeObject.AddComponent<RectTransform>();
+            }
+            ApplySafeArea();
+        }
+
+        private void ApplySafeArea()
+        {
+            if (uiSafeArea == null || Screen.width <= 0 || Screen.height <= 0) return;
+            Rect safe = Screen.safeArea;
+            uiSafeArea.anchorMin = new Vector2(safe.x / Screen.width, safe.y / Screen.height);
+            uiSafeArea.anchorMax = new Vector2(safe.xMax / Screen.width, safe.yMax / Screen.height);
+            uiSafeArea.offsetMin = Vector2.zero;
+            uiSafeArea.offsetMax = Vector2.zero;
         }
 
         private void EnsureEventSystem()
@@ -297,7 +321,7 @@ namespace Nexo.UI
         {
             if (canvas == null || introGroup != null) return;
             var root = new GameObject("Nexo Intro Design System");
-            root.transform.SetParent(canvas.transform, false);
+            root.transform.SetParent(uiSafeArea == null ? canvas.transform : uiSafeArea, false);
             var rect = root.AddComponent<RectTransform>();
             rect.anchorMin = Vector2.zero;
             rect.anchorMax = Vector2.one;
@@ -346,7 +370,7 @@ namespace Nexo.UI
         {
             if (canvas == null || challengeCanvasPanel != null) return;
             challengeCanvasPanel = new GameObject("Nexo Challenge Canvas Panel");
-            challengeCanvasPanel.transform.SetParent(canvas.transform, false);
+            challengeCanvasPanel.transform.SetParent(uiSafeArea == null ? canvas.transform : uiSafeArea, false);
             var panelRect = challengeCanvasPanel.AddComponent<RectTransform>();
             panelRect.anchorMin = new Vector2(0.06f, 0.10f);
             panelRect.anchorMax = new Vector2(0.94f, 0.90f);
@@ -675,6 +699,7 @@ namespace Nexo.UI
 
         private void Update()
         {
+            ApplySafeArea();
             if (showMenu || showIntro)
             {
                 introElapsed += Time.unscaledDeltaTime;
