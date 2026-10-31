@@ -335,3 +335,7 @@ A auditoria de compatibilidade foi aplicada no commit `ce335a6`: perfis Low/Medi
 ## Fase 74 - diagnóstico visual forense
 
 A origem da geometria verde foi comprovada no bootstrap: `Island` usa cor verde escura e `GreenDoor` usa verde de portal. A busca não encontrou `Color.magenta`, sprites magenta ou shader graph. Os quadrados magenta foram associados ao sistema de partículas procedural da introdução, que não atribuía material ao renderer. A correção usa material Unlit mobile-safe explícito e desativa o renderer caso o fallback não exista. O runtime passou a registrar uma auditoria `[NEXO_RENDER]` após cada cena. A confirmação final exige nova execução Unity/Android; testes físicos e Appetize continuam pendentes.
+
+## Fase 75 - auditoria forense dos erros reportados
+
+A auditoria não encontrou corrupção atual em `EditorBuildSettings.asset`, nem referências versionadas a `Soft.psd` ou `Default-Skybox.mat`. O aviso de TextMeshPro é plausível porque o manifesto declara o pacote, enquanto o lockfile contém apenas URP e Input System; a correção segura é regenerar o lockfile com Unity Package Manager, não editá-lo manualmente. A tela verde vem de `Island`/`GreenDoor` intencionais. Os quadrados magenta vêm provavelmente do material implícito do ParticleSystem de introdução, já corrigido com material Unlit explícito. O diagnóstico `[NEXO_RENDER]` está instalado, mas a validação Android foi cancelada antes do build; a falha visual permanece pendente de evidência runtime.
