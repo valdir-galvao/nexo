@@ -304,3 +304,5 @@ P133 | Fase 60 | concluido localmente | Unity/GameCI para validacao visual poste
 P134 | Fase 61 | preflight concluido | GameCI Android/iOS | Static QA e diff check PASS; release report criado | builds ainda nao executados | commitar e disparar ciclo controlado publico/build/privado
 
 P135 | Fase 61 | bloqueado por dependencia externa | runs 41174760334/41174760342/41174760333 | jobs sem steps e logs vazios; visibilidade restaurada private | nenhum artefato novo | revisar quota/capacidade GitHub Actions antes de repetir
+
+P136 | Fase 61 | bloqueio confirmado apos retentativa | GitHub-hosted runners | attempt 2 falhou antes dos steps em Android/testes/iOS | nenhum artefato novo | usar janela de runner disponivel ou self-hosted autorizado

@@ -437,3 +437,5 @@ P133 | 2026-10-31 America/Sao_Paulo | Fase 60 | orchestrator/phase-a-baseline | 
 P134 | 2026-10-31 America/Sao_Paulo | Fase 61 | orchestrator/phase-a-baseline | preflight e preparacao de release end-to-end | Static QA PASS; diff check PASS; relatorio criado | builds remotos PENDING | commitar, abrir visibilidade temporaria, executar workflows e restaurar privado
 
 P135 | 2026-10-31 America/Sao_Paulo | Fase 61 | 9233d4a | ciclo remoto executado | runs Android/tests/iOS falharam antes dos steps; logs vazios; repositorio private novamente | nenhum APK/IPA | revisar capacidade/quota de runners e repetir somente com evidencia de disponibilidade
+
+P136 | 2026-10-31 America/Sao_Paulo | Fase 61 | attempt 2 | retentativa remota | zero steps e runner vazio novamente; private confirmado | nenhum APK/IPA | aguardar runner GitHub-hosted ou habilitar self-hosted autorizado

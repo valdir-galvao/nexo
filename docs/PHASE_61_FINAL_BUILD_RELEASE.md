@@ -35,3 +35,13 @@ O push do commit `9233d4a4f748ba1f29f745aa0eca8b7b3e4dc8d3` disparou:
 Os jobs falharam antes de apresentar steps executados (`jobs` sem steps e logs retornados vazios, ZIP de 22 bytes). Isso caracteriza bloqueio de provisionamento/capacidade do runner antes do Unity/GameCI, e nao falha comprovada de codigo ou licenciamento. Nenhum APK, IPA ou projeto Xcode foi gerado nesta rodada. A visibilidade foi restaurada para `private=true`, `disabled=false` imediatamente apos a verificacao.
 
 Estado da release desta fase: `BLOQUEADO POR DEPENDENCIA EXTERNA` (runner). Os artefatos anteriores permanecem validos somente para seus commits de origem; nao representam o commit `9233d4a`.
+
+## Retentativa controlada
+
+A retentativa dos mesmos runs (attempt 2) repetiu o bloqueio:
+
+- Android job `124460448114`: failure, runner vazio, zero steps, 3 s.
+- Unity tests jobs `124460450339` e `124460450471`: failure, runner vazio, zero steps.
+- iOS job `124460453792`: failure, runner vazio, zero steps.
+
+A API confirma `visibility=private`, `private=true`, `disabled=false`. O diagnóstico fica fechado como indisponibilidade/provisionamento do GitHub-hosted runner; nao ha correcao de codigo a aplicar para esse sintoma. A proxima tentativa deve ocorrer somente apos disponibilidade confirmada dos runners ou em runner self-hosted autorizado.

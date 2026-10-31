@@ -295,3 +295,5 @@ Atualizacao P133 (31/10/2026): Fase 60 concluida localmente. Configuracoes Andro
 Atualizacao P134 (31/10/2026): Fase 61 preflight PASS. Relatorio final criado, validadores locais passaram e o ciclo de build remoto ainda precisa ser executado; apos os downloads, restaurar PRIVATE e registrar hashes.
 
 Atualizacao P135 (31/10/2026): o ciclo remoto da Fase 61 foi disparado e falhou antes da inicializacao dos steps nos tres workflows. Nao ha evidencia de falha Unity/C#; o bloqueio e de provisionamento/capacidade do runner. Repositorio restaurado privado e nenhum artefato novo foi declarado.
+
+Atualizacao P136 (31/10/2026): a retentativa dos runs falhou novamente antes de qualquer step, confirmando indisponibilidade do runner como causa raiz. Nao modificar codigo por esta falha; aguardar capacidade externa ou usar runner self-hosted autorizado.

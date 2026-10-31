@@ -269,3 +269,5 @@ Preflight local aprovado. Game Juice, progressao, UI/raycasting e Safe Area esta
 ## Fase 61 - resultado remoto
 
 Runs 41174760334 (Android), 41174760342 (tests) e 41174760333 (iOS) falharam sem steps e sem logs uteis, antes do Unity/GameCI. O estado global e `BLOQUEADO POR DEPENDENCIA EXTERNA`; a visibilidade voltou para privado e nao foram gerados novos pacotes.
+
+A retentativa confirmou o mesmo bloqueio de infraestrutura: jobs falhando em aproximadamente 3 segundos, sem runner e sem steps. O repositorio permanece privado e nenhum novo artefato foi produzido.
