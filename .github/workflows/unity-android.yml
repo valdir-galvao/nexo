@@ -21,7 +21,25 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sudo rm -rf /usr/share/dotnet /torch /usr/local/lib/android/sdk/sample-data 2>/dev/null || true
+          echo 'Disk before cleanup:'
+          df -h /
+          # GameCI downloads a large Unity Android image. Remove host-only SDKs
+          # and toolchains that are not used inside the GameCI container.
+          sudo rm -rf \
+            /usr/share/dotnet \
+            /opt/ghc \
+            /usr/local/share/powershell \
+            /usr/local/julia \
+            /usr/local/lib/android/sdk/ndk \
+            /usr/local/lib/android/sdk/system-images \
+            /usr/local/lib/android/sdk/sources \
+            /usr/local/lib/android/sdk/platforms \
+            /usr/local/lib/android/sdk/build-tools \
+            /usr/local/lib/android/sdk/sample-data \
+            /torch 2>/dev/null || true
+          docker system prune --all --force --volumes 2>/dev/null || true
+          sudo journalctl --vacuum-time=1d 2>/dev/null || true
+          echo 'Disk after cleanup:'
           df -h
 
       - name: Checkout with LFS
