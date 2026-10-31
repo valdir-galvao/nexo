@@ -149,17 +149,17 @@ Atualizacao P90: causa iOS confirmada como BuildOptions.AcceptExternalModificati
 
 Atualizacao P91: candidato tecnico aprovado para testes privados; APK e Xcode preservados localmente, repositorio privado.
 
-Atualização P92: o workflow iOS foi ampliado para gerar um arquivo Nexo.ipa sem assinatura após a exportação Xcode. O artefato só comprovará empacotamento; instalação exige assinatura Apple posterior.
+Atualizaï¿½ï¿½o P92: o workflow iOS foi ampliado para gerar um arquivo Nexo.ipa sem assinatura apï¿½s a exportaï¿½ï¿½o Xcode. O artefato sï¿½ comprovarï¿½ empacotamento; instalaï¿½ï¿½o exige assinatura Apple posterior.
 
-Atualização P93: run 40852640118 PASS. O workflow agora gera Nexo.ipa sem assinatura via xcodebuild e o artefato foi baixado em C:/Temp/nexo-ios-ipa-40852640118/Nexo.ipa (SHA256 2c92748b8807a6a7fbfc72869fdb0c5135a8049314f7dde000985a1d7fec758c). Repositório restaurado privado. A assinatura Apple não foi realizada.
+Atualizaï¿½ï¿½o P93: run 40852640118 PASS. O workflow agora gera Nexo.ipa sem assinatura via xcodebuild e o artefato foi baixado em C:/Temp/nexo-ios-ipa-40852640118/Nexo.ipa (SHA256 2c92748b8807a6a7fbfc72869fdb0c5135a8049314f7dde000985a1d7fec758c). Repositï¿½rio restaurado privado. A assinatura Apple nï¿½o foi realizada.
 
 Atualizacao P94: como GraphicsSettings.asset nao existia no projeto, a inclusao de shaders foi implementada por editor bootstrap versionado, evitando GUIDs inventados. O CanvasScaler e configurado no bootstrap da cena e a intro recebeu fade sincrono. Static QA PASS; validacao Unity e dispositivo pendente.
 
 Atualizacao P95: os runs automaticos privados do commit beafb4b falharam sem executar steps, portanto a implementacao mobile ainda nao tem evidencia Unity/GameCI. Static QA continua PASS; o bloqueio e infraestrutura de runner.
 
-Atualizacao P96: a primeira rodada publica da Fase 38 falhou por CS0117 em EnsureIncludedShaders; a correção agora usa SerializedObject na propriedade m_AlwaysIncludedShaders, sem API inexistente. Android publicou apenas metadata/diagnostico, sem APK.
+Atualizacao P96: a primeira rodada publica da Fase 38 falhou por CS0117 em EnsureIncludedShaders; a correï¿½ï¿½o agora usa SerializedObject na propriedade m_AlwaysIncludedShaders, sem API inexistente. Android publicou apenas metadata/diagnostico, sem APK.
 
-Atualização P97: rodada publica 41003465778/41003469023/41003471413 PASS. APK e IPA sem assinatura foram baixados e hashes registrados. Repositório restaurado privado; nenhuma publicacao.
+Atualizaï¿½ï¿½o P97: rodada publica 41003465778/41003469023/41003471413 PASS. APK e IPA sem assinatura foram baixados e hashes registrados. Repositï¿½rio restaurado privado; nenhuma publicacao.
 
 
 Atualiza??o Fase 39 (30/10/2026 02:09 -03): corrigido o risco de inicializa??o f?sica no bootstrap. `BuildWorld()` n?o ? mais executado durante a tela de Intro; a constru??o com `CreatePrimitive` e `CharacterController` ocorre somente ao iniciar a miss?o, mantendo as intera??es funcionais. O stripping foi definido como Low em todas as plataformas. O pacote `com.unity.modules.physics` j? estava declarado no manifest. Static QA PASS; execu??o Unity/GameCI ainda depende de runner externo.
@@ -279,3 +279,6 @@ O runner publico iniciou corretamente. A falha Android e falta de espaco no Dock
 ## Estado apos correcao de espaco
 
 A limpeza do runner foi corrigida e validada. O Unity Test gate passou e o IPA foi gerado. O Android ainda tem um bloqueio separado: o builder nÃ£o concluiu nem reportou artefato dentro da janela operacional.
+
+
+Estado operacional P140: build Android/iOS bloqueado por runner GameCI sem progresso observ?vel; nenhum APK novo foi obtido. A visibilidade foi restaurada para privado.

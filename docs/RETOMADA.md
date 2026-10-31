@@ -1,3 +1,6 @@
+Ultima atualizacao: 31/10/2026 America/Sao_Paulo.
+Ponto atual: P140; Android run 41193417337 cancelado por bloqueio no passo de build sem artefato; iOS 41193417332 cancelado; testes 41193417344 com EditMode PASS e PlayMode FAIL. Repositorio privado.
+
 Ultima atualizacao: 29/10/2026 America/Sao_Paulo.
 Ultimo passo concluido: P82; ULF machine-bound removido do fluxo, buildScenes invalido removido, ownership corrigido; validacoes locais PASS.
 Tarefa de jogo em execucao: nenhuma.
@@ -104,73 +107,73 @@ Se os registros locais estiverem ausentes, nao presumir consumo zero.
 > a engine nao foi escolhida e falta o briefing do usuario. Siga CRONOGRAMA.md,
 > preserve o ledger/cache e documente cada passo concluido em PROGRESSO.md.
 
-Atualização P45: Fase 08 bloqueada por licenciamento. Commits `7920de8`/`bb06877` preservados na branch `orchestrator/phase-a-baseline`; runs `40459086676`, `40459086685`, `40459086672`; API confirmou zero secrets no repositório. Relatório: `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`. Próximo passo é configurar secrets Unity fora do Git e repetir testes.
+Atualizaï¿½ï¿½o P45: Fase 08 bloqueada por licenciamento. Commits `7920de8`/`bb06877` preservados na branch `orchestrator/phase-a-baseline`; runs `40459086676`, `40459086685`, `40459086672`; API confirmou zero secrets no repositï¿½rio. Relatï¿½rio: `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`. Prï¿½ximo passo ï¿½ configurar secrets Unity fora do Git e repetir testes.
 
-Atualização P46: Fase 10 corrigiu `buildsPath` Android/iOS, adicionou dump explícito de Editor.log e documentou ativação gratuita Unity Personal. YAML válido. Secrets continuam ausentes; próximo passo é configurá-los fora do Git.
+Atualizaï¿½ï¿½o P46: Fase 10 corrigiu `buildsPath` Android/iOS, adicionou dump explï¿½cito de Editor.log e documentou ativaï¿½ï¿½o gratuita Unity Personal. YAML vï¿½lido. Secrets continuam ausentes; prï¿½ximo passo ï¿½ configurï¿½-los fora do Git.
 
-Atualização P47: a Fase 13 foi bloqueada após verificação da documentação oficial GameCI. Não remover ativação nem `UNITY_LICENSE` sem método alternativo suportado.
+Atualizaï¿½ï¿½o P47: a Fase 13 foi bloqueada apï¿½s verificaï¿½ï¿½o da documentaï¿½ï¿½o oficial GameCI. Nï¿½o remover ativaï¿½ï¿½o nem `UNITY_LICENSE` sem mï¿½todo alternativo suportado.
 
-Atualização P48: `manual.alf` local é pedido de ativação e foi adicionado ao `.gitignore`; workflows estão coerentes. A API ainda retorna zero secrets no repositório; próximo passo externo é obter `.ulf` e cadastrar os três secrets.
+Atualizaï¿½ï¿½o P48: `manual.alf` local ï¿½ pedido de ativaï¿½ï¿½o e foi adicionado ao `.gitignore`; workflows estï¿½o coerentes. A API ainda retorna zero secrets no repositï¿½rio; prï¿½ximo passo externo ï¿½ obter `.ulf` e cadastrar os trï¿½s secrets.
 
-Atualização P49: `Unity_lic.ulf` validado localmente como XML de licença Unity e protegido pelo `.gitignore`; o GitHub ainda não possui secrets (`COUNT=0`).
+Atualizaï¿½ï¿½o P49: `Unity_lic.ulf` validado localmente como XML de licenï¿½a Unity e protegido pelo `.gitignore`; o GitHub ainda nï¿½o possui secrets (`COUNT=0`).
 
-Atualização P50: o cadastro informado não aparece via API; `total_count=0`. Confirmar escopo Repository secrets no repositório correto antes de disparar GameCI.
+Atualizaï¿½ï¿½o P50: o cadastro informado nï¿½o aparece via API; `total_count=0`. Confirmar escopo Repository secrets no repositï¿½rio correto antes de disparar GameCI.
 
-Atualização P51: valores estão em Repository variables, não Secrets; API confirmou 4 variables e 0 secrets. Rotacionar credenciais expostas e cadastrar corretamente antes do GameCI.
+Atualizaï¿½ï¿½o P51: valores estï¿½o em Repository variables, nï¿½o Secrets; API confirmou 4 variables e 0 secrets. Rotacionar credenciais expostas e cadastrar corretamente antes do GameCI.
 
-Atualização P52: `UNITY_EMAIL`, `UNITY_LICENSE` e `UNITY_PASSWORD` confirmados como Repository secrets. Variables duplicadas permanecem; remover antes de iniciar os testes.
+Atualizaï¿½ï¿½o P52: `UNITY_EMAIL`, `UNITY_LICENSE` e `UNITY_PASSWORD` confirmados como Repository secrets. Variables duplicadas permanecem; remover antes de iniciar os testes.
 
-Atualização P53: Secrets aceitos pelo GameCI; run `40659354080` iniciou Unity e falhou nos dois modos. Próxima ação é obter logs do job ou adicionar diagnóstico de compilação/importação antes de builds móveis.
+Atualizaï¿½ï¿½o P53: Secrets aceitos pelo GameCI; run `40659354080` iniciou Unity e falhou nos dois modos. Prï¿½xima aï¿½ï¿½o ï¿½ obter logs do job ou adicionar diagnï¿½stico de compilaï¿½ï¿½o/importaï¿½ï¿½o antes de builds mï¿½veis.
 
-Atualização P54: logs do run `40659354080` confirmaram `no space left on device` ao registrar a imagem Unity IL2CPP. Limpeza de disco adicionada a testes/Android; repetir `unity-tests.yml` após push.
+Atualizaï¿½ï¿½o P54: logs do run `40659354080` confirmaram `no space left on device` ao registrar a imagem Unity IL2CPP. Limpeza de disco adicionada a testes/Android; repetir `unity-tests.yml` apï¿½s push.
 
-Atualização P55: assemblies EditMode/PlayMode separadas e refs duplicadas removidas no commit `992586a`; nova rodada aguardando conclusão.
+Atualizaï¿½ï¿½o P55: assemblies EditMode/PlayMode separadas e refs duplicadas removidas no commit `992586a`; nova rodada aguardando conclusï¿½o.
 
-Atualização P56: Fase 10 quantitativa não executável neste repositório; artefato `meta_filter_phase10_status.json` registra BLOCKED sem métricas inventadas.
+Atualizaï¿½ï¿½o P56: Fase 10 quantitativa nï¿½o executï¿½vel neste repositï¿½rio; artefato `meta_filter_phase10_status.json` registra BLOCKED sem mï¿½tricas inventadas.
 
-Atualização P57: runs GameCI da Fase 15 falharam no commit 992586a; causa comum é BuildFailedException não resolvido nos scripts Editor Android/iOS. Licença Personal foi resolvida e não houve novo no-space. Consultar docs/PHASE_15_RUN_MONITORING.md; corrigir scripts e repetir unity-tests.yml antes dos builds móveis.
-
-
-Atualização P58: namespace UnityEditor.Build adicionado aos scripts Editor e commit 3d9ab9a enviado. Run 40663615864 ainda em execução; não liberar builds móveis até PASS dos dois modos.
+Atualizaï¿½ï¿½o P57: runs GameCI da Fase 15 falharam no commit 992586a; causa comum ï¿½ BuildFailedException nï¿½o resolvido nos scripts Editor Android/iOS. Licenï¿½a Personal foi resolvida e nï¿½o houve novo no-space. Consultar docs/PHASE_15_RUN_MONITORING.md; corrigir scripts e repetir unity-tests.yml antes dos builds mï¿½veis.
 
 
-Run iOS 40663615981 terminou FAIL por nenhuma cena habilitada configurada; Unity tests 40663615864 ainda estava IN_PROGRESS na última consulta.
+Atualizaï¿½ï¿½o P58: namespace UnityEditor.Build adicionado aos scripts Editor e commit 3d9ab9a enviado. Run 40663615864 ainda em execuï¿½ï¿½o; nï¿½o liberar builds mï¿½veis atï¿½ PASS dos dois modos.
 
 
-Atualização P59: cena principal configurada explicitamente nos scripts de build, commit 74556d0 enviado. Run Unity tests 40665421997 ainda em execução; aguardar EditMode/PlayMode antes de liberar builds.
+Run iOS 40663615981 terminou FAIL por nenhuma cena habilitada configurada; Unity tests 40663615864 ainda estava IN_PROGRESS na ï¿½ltima consulta.
 
 
-Atualização P60: Unity tests 40665421997 ainda IN_PROGRESS. iOS 40665421999 falhou por versão iOS inválida no PlayerSettings; Android 40665422007 em execução. Não liberar builds.
+Atualizaï¿½ï¿½o P59: cena principal configurada explicitamente nos scripts de build, commit 74556d0 enviado. Run Unity tests 40665421997 ainda em execuï¿½ï¿½o; aguardar EditMode/PlayMode antes de liberar builds.
 
 
-Atualização P61: versão iOS corrigida em bca64a; run Unity tests 40667016837 ainda IN_PROGRESS. Aguardar resultado formal de EditMode/PlayMode.
+Atualizaï¿½ï¿½o P60: Unity tests 40665421997 ainda IN_PROGRESS. iOS 40665421999 falhou por versï¿½o iOS invï¿½lida no PlayerSettings; Android 40665422007 em execuï¿½ï¿½o. Nï¿½o liberar builds.
 
 
-Atualização P62: gate 40667016837 FAIL. EditMode não executou por 403 do GameCI CLI; PlayMode reprovou por ctiveInputHandler = -1; K-005 não executado. Android/iOS sem APK/Xcode final. Consultar docs/PHASE_20_FINAL_GATE.md.
+Atualizaï¿½ï¿½o P61: versï¿½o iOS corrigida em bca64a; run Unity tests 40667016837 ainda IN_PROGRESS. Aguardar resultado formal de EditMode/PlayMode.
 
-Atualização P63: ctiveInputHandler: 0 configurado para batchmode no commit 5f7adbb. Run Unity tests 40814474545 ainda IN_PROGRESS; aguardar resultado.
 
-Atualização P64: ctiveInputHandler: 0 removeu o erro anterior. PlayMode agora falha porque NexoVerticalSlice não está na lista de cenas ativa/compartilhada; EditMode continua bloqueado por CLI 403. K-005 não executado.
+Atualizaï¿½ï¿½o P62: gate 40667016837 FAIL. EditMode nï¿½o executou por 403 do GameCI CLI; PlayMode reprovou por ctiveInputHandler = -1; K-005 nï¿½o executado. Android/iOS sem APK/Xcode final. Consultar docs/PHASE_20_FINAL_GATE.md.
 
-Atualização P65: EnsureBuildScenes garante NexoVerticalSlice no EditorBuildSettings em CI; commit 3ecbbe0. Novo run 40815968590 ainda IN_PROGRESS.
+Atualizaï¿½ï¿½o P63: ctiveInputHandler: 0 configurado para batchmode no commit 5f7adbb. Run Unity tests 40814474545 ainda IN_PROGRESS; aguardar resultado.
 
-Atualização P66: EditMode executou 16/16, mas job falhou ao criar Check Run. PlayMode ainda não carrega cena pelo active build profile apesar de EnsureBuildScenes. K-005 NOT_RUN; Android sem APK confirmado.
+Atualizaï¿½ï¿½o P64: ctiveInputHandler: 0 removeu o erro anterior. PlayMode agora falha porque NexoVerticalSlice nï¿½o estï¿½ na lista de cenas ativa/compartilhada; EditMode continua bloqueado por CLI 403. K-005 nï¿½o executado.
 
-Atualização P67: workflow ganhou checks/statuses write e teste PlayMode injeta cena no SetUp; commit 196920d. Novo run 40817889017 ainda IN_PROGRESS.
+Atualizaï¿½ï¿½o P65: EnsureBuildScenes garante NexoVerticalSlice no EditorBuildSettings em CI; commit 3ecbbe0. Novo run 40815968590 ainda IN_PROGRESS.
 
-Atualização P68: Fase 26 FAIL. EditMode passou 16/16 mas runner não fechou PASS; PlayMode continua sem carregar cena no perfil Unity 6; K-005 não testado; Android sem APK.
+Atualizaï¿½ï¿½o P66: EditMode executou 16/16, mas job falhou ao criar Check Run. PlayMode ainda nï¿½o carrega cena pelo active build profile apesar de EnsureBuildScenes. K-005 NOT_RUN; Android sem APK confirmado.
 
-Atualização P69: EnsureBuildScenes usa API Unity 6 BuildProfile ativo e fallback legado; commit d838499. Novos runs ainda IN_PROGRESS.
+Atualizaï¿½ï¿½o P67: workflow ganhou checks/statuses write e teste PlayMode injeta cena no SetUp; commit 196920d. Novo run 40817889017 ainda IN_PROGRESS.
 
-Atualização P70: 40820112279 FAIL; cena continua fora do active Build Profile no PlayMode, apesar de BuildProfile.GetActiveBuildProfile. EditMode 16/16 sem PASS formal. Builds sem artefatos finais.
+Atualizaï¿½ï¿½o P68: Fase 26 FAIL. EditMode passou 16/16 mas runner nï¿½o fechou PASS; PlayMode continua sem carregar cena no perfil Unity 6; K-005 nï¿½o testado; Android sem APK.
 
-Atualização P71: configuração estática BUILD_SCENES/uildScenes adicionada e EnsureBuildScenes removido; teste PlayMode carrega caminho no Editor. Run 40822563212 ainda IN_PROGRESS.
+Atualizaï¿½ï¿½o P69: EnsureBuildScenes usa API Unity 6 BuildProfile ativo e fallback legado; commit d838499. Novos runs ainda IN_PROGRESS.
 
-Atualização P72: Fase 30 ainda em execução; consultar 40822563212 antes de classificar gate. iOS falhou; APK não confirmado.
+Atualizaï¿½ï¿½o P70: 40820112279 FAIL; cena continua fora do active Build Profile no PlayMode, apesar de BuildProfile.GetActiveBuildProfile. EditMode 16/16 sem PASS formal. Builds sem artefatos finais.
 
-Atualização P73: GameCI carregou a cena por caminho, mas bootstrap ficou nulo no PlayMode; ajustar espera/instanciação antes de novo gate. EditMode 16/16; K-005 pendente; APK não confirmado.
+Atualizaï¿½ï¿½o P71: configuraï¿½ï¿½o estï¿½tica BUILD_SCENES/uildScenes adicionada e EnsureBuildScenes removido; teste PlayMode carrega caminho no Editor. Run 40822563212 ainda IN_PROGRESS.
 
-Atualização P74: Fase 31 enviada, mas run 40824140558 falhou antes de iniciar steps; logs BlobNotFound. Não há evidência K-005 ou builds.
+Atualizaï¿½ï¿½o P72: Fase 30 ainda em execuï¿½ï¿½o; consultar 40822563212 antes de classificar gate. iOS falhou; APK nï¿½o confirmado.
+
+Atualizaï¿½ï¿½o P73: GameCI carregou a cena por caminho, mas bootstrap ficou nulo no PlayMode; ajustar espera/instanciaï¿½ï¿½o antes de novo gate. EditMode 16/16; K-005 pendente; APK nï¿½o confirmado.
+
+Atualizaï¿½ï¿½o P74: Fase 31 enviada, mas run 40824140558 falhou antes de iniciar steps; logs BlobNotFound. Nï¿½o hï¿½ evidï¿½ncia K-005 ou builds.
 
 
 Atualizacao P85: rodada publica encerrada e repositorio confirmado privado. Testes Unity PASS no commit b4713f2 (run 40830355578; EditMode 16/16, PlayMode 1/1, K005). Nenhum APK disponivel: Android 40830355608 cancelado apos Build Android sem artefato. iOS 40830355598 gerou Xcode em build/iOS/iOS, mas o GameCI falhou na validacao pos-build. Proxima acao: corrigir contrato de saida/validacao do builder iOS e executar Android em runner com tempo suficiente, mantendo repositorio privado.
@@ -183,15 +186,15 @@ Atualizacao P87: repositorio restaurado privado apos runs 40842677684/4084267771
 
 Atualizacao P88: corrigidos marcador Build succeeded!, Code Coverage PlayMode, cache Library e uploads always. Proxima acao: commit/push, executar testes e builds em janela autorizada, baixar artefatos e confirmar privacidade.
 
-Atualizacao P89: removido coverageEnabled incompatível com CLI v0.1.72; aguardar builds publicas da rodada atual e repetir testes depois do push.
+Atualizacao P89: removido coverageEnabled incompatï¿½vel com CLI v0.1.72; aguardar builds publicas da rodada atual e repetir testes depois do push.
 
 Atualizacao P90: iOS corrigido para BuildOptions.None; aguardar push e nova build. Android da rodada 40845528603 ainda em execucao.
 
 Atualizacao P91: testes PASS e APK/Xcode baixados; repositorio privado confirmado. Proxima acao: validar APK em dispositivo/emulador e manter sem publicacao.
 
-Atualização P92: workflow iOS agora tenta gerar build/iOS/Nexo.ipa sem assinatura a partir do projeto Xcode no runner macOS. Static QA PASS. Próxima ação: commit/push e executar workflow; verificar se xcodebuild headless conclui.
+Atualizaï¿½ï¿½o P92: workflow iOS agora tenta gerar build/iOS/Nexo.ipa sem assinatura a partir do projeto Xcode no runner macOS. Static QA PASS. Prï¿½xima aï¿½ï¿½o: commit/push e executar workflow; verificar se xcodebuild headless conclui.
 
-Atualização P93: Nexo.ipa gerado no run 40852640118 e baixado em C:/Temp/nexo-ios-ipa-40852640118/Nexo.ipa. SHA256 2c92748b8807a6a7fbfc72869fdb0c5135a8049314f7dde000985a1d7fec758c. Repositório privado confirmado. IPA não assinado; próxima ação é assinatura local/Apple se instalação for necessária.
+Atualizaï¿½ï¿½o P93: Nexo.ipa gerado no run 40852640118 e baixado em C:/Temp/nexo-ios-ipa-40852640118/Nexo.ipa. SHA256 2c92748b8807a6a7fbfc72869fdb0c5135a8049314f7dde000985a1d7fec758c. Repositï¿½rio privado confirmado. IPA nï¿½o assinado; prï¿½xima aï¿½ï¿½o ï¿½ assinatura local/Apple se instalaï¿½ï¿½o for necessï¿½ria.
 
 Atualizacao P94: correcoes moveis locais aplicadas para shaders URP, CanvasScaler e intro. Novo editor script com meta criado; static QA PASS. Proxima acao: executar Unity/GameCI para confirmar serializacao dos shaders, UI e APK.
 
@@ -199,7 +202,7 @@ Atualizacao P95: push beafb4b feito. Runs privados 41002545099/41002545093/41002
 
 Atualizacao P96: corrigida API Unity 6 invalida no EnsureIncludedShaders apos evidencias dos runs publicos 41002823668/41002826486. Proxima acao: commit/push e janela publica para repetir testes/builds.
 
-Atualização P97: testes e builds publicos passaram no commit 3c9055d. APK e IPA baixados localmente; o IPA nao contem embedded.mobileprovision e requer assinatura para instalar. Repositorio privado confirmado.
+Atualizaï¿½ï¿½o P97: testes e builds publicos passaram no commit 3c9055d. APK e IPA baixados localmente; o IPA nao contem embedded.mobileprovision e requer assinatura para instalar. Repositorio privado confirmado.
 
 
 J41 - Fase 39: corre??o local aplicada e validada. O caminho de Intro n?o monta o mundo f?sico; `EnsureWorldBuilt()` ? chamado somente ap?s `SkipIntro()` ou quando o progresso j? est? em gameplay. Stripping ficou Low em todas as plataformas e Physics j? est? no manifest. Static QA PASS; sem evid?ncia nova de Unity/GameCI nesta m?quina. Ap?s retomada, confirmar o commit/push e executar o workflow Unity em janela autorizada.

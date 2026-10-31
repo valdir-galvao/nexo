@@ -613,265 +613,265 @@ Proxima acao e dependencias:
 Cronograma e RETOMADA.md atualizados: sim / motivo da pendencia
 ```
 
-## P45 — Fase 08: diagnóstico GameCI/licenciamento — BLOCKED
+## P45 ï¿½ Fase 08: diagnï¿½stico GameCI/licenciamento ï¿½ BLOCKED
 
-- Data: 27/10/2026, America/Sao_Paulo; responsável: diretor de projeto.
-- Commits `7920de8` e `bb06877` adicionaram captura diagnóstica e foram enviados à branch de validação.
-- Runs `40459086676` (testes) e `40459086685` (Android) falharam na etapa Unity; iOS `40459086672` ainda estava em execução na última consulta.
-- API de Actions reportou zero secrets no repositório. Como os workflows exigem `UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`, o bloqueio primário é licenciamento ausente.
-- Nenhuma causa C#/packages foi comprovada; não houve JUnit, APK ou Xcode.
-- Relatório: `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`.
-- Próxima ação: configurar secrets Unity em canal seguro e repetir primeiro o workflow de testes.
+- Data: 27/10/2026, America/Sao_Paulo; responsï¿½vel: diretor de projeto.
+- Commits `7920de8` e `bb06877` adicionaram captura diagnï¿½stica e foram enviados ï¿½ branch de validaï¿½ï¿½o.
+- Runs `40459086676` (testes) e `40459086685` (Android) falharam na etapa Unity; iOS `40459086672` ainda estava em execuï¿½ï¿½o na ï¿½ltima consulta.
+- API de Actions reportou zero secrets no repositï¿½rio. Como os workflows exigem `UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`, o bloqueio primï¿½rio ï¿½ licenciamento ausente.
+- Nenhuma causa C#/packages foi comprovada; nï¿½o houve JUnit, APK ou Xcode.
+- Relatï¿½rio: `docs/PHASE_08_GAMECI_DIAGNOSTICS.md`.
+- Prï¿½xima aï¿½ï¿½o: configurar secrets Unity em canal seguro e repetir primeiro o workflow de testes.
 
-## P46 — Fase 10: licença Personal e parâmetros GameCI — parcial/BLOCKED
+## P46 ï¿½ Fase 10: licenï¿½a Personal e parï¿½metros GameCI ï¿½ parcial/BLOCKED
 
-- Data: 27/10/2026; responsável: diretor de projeto.
+- Data: 27/10/2026; responsï¿½vel: diretor de projeto.
 - Corrigidos `buildPath` para `buildsPath` nos workflows Android/iOS.
-- Adicionado dump de `Editor.log` nos diagnósticos de falha e documentado o fluxo gratuito Unity Personal via `.alf`/`.ulf`.
+- Adicionado dump de `Editor.log` nos diagnï¿½sticos de falha e documentado o fluxo gratuito Unity Personal via `.alf`/`.ulf`.
 - YAML parseado e `git diff --check` aprovados.
-- Secrets Unity continuam ausentes; não houve build nesta etapa.
-- Relatório: `docs/PHASE_10_LICENSE_BUILD_FIX.md`.
-- Próxima ação: configurar os secrets Personal em canal seguro e repetir primeiro `unity-tests.yml`.
+- Secrets Unity continuam ausentes; nï¿½o houve build nesta etapa.
+- Relatï¿½rio: `docs/PHASE_10_LICENSE_BUILD_FIX.md`.
+- Prï¿½xima aï¿½ï¿½o: configurar os secrets Personal em canal seguro e repetir primeiro `unity-tests.yml`.
 
-## P47 — Fase 13: auditoria de licença automática GameCI — BLOCKED
+## P47 ï¿½ Fase 13: auditoria de licenï¿½a automï¿½tica GameCI ï¿½ BLOCKED
 
-- A documentação atual do GameCI exige `UNITY_LICENSE`/`.ulf` para Unity Personal; email e senha são complementares.
-- `unityLicensingServer` não é um método Personal gratuito.
-- Nenhum YAML foi alterado, nenhum commit/push de configuração inválida foi feito.
-- Relatório: `docs/PHASE_13_GAMECI_LICENSE_AUDIT.md`.
+- A documentaï¿½ï¿½o atual do GameCI exige `UNITY_LICENSE`/`.ulf` para Unity Personal; email e senha sï¿½o complementares.
+- `unityLicensingServer` nï¿½o ï¿½ um mï¿½todo Personal gratuito.
+- Nenhum YAML foi alterado, nenhum commit/push de configuraï¿½ï¿½o invï¿½lida foi feito.
+- Relatï¿½rio: `docs/PHASE_13_GAMECI_LICENSE_AUDIT.md`.
 
-## P48 — Fase 14: auditoria de manual.alf e workflows — BLOCKED
+## P48 ï¿½ Fase 14: auditoria de manual.alf e workflows ï¿½ BLOCKED
 
-- Data: 28/10/2026; responsável: diretor de projeto.
-- `manual.alf` identificado como arquivo de ativação, não licença final; foi protegido no `.gitignore`.
-- Workflows Android/iOS/testes revisados; não foi encontrado parâmetro inválido novo.
-- API do GitHub reportou zero secrets; configuração local não equivale a Secrets do repositório.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
+- `manual.alf` identificado como arquivo de ativaï¿½ï¿½o, nï¿½o licenï¿½a final; foi protegido no `.gitignore`.
+- Workflows Android/iOS/testes revisados; nï¿½o foi encontrado parï¿½metro invï¿½lido novo.
+- API do GitHub reportou zero secrets; configuraï¿½ï¿½o local nï¿½o equivale a Secrets do repositï¿½rio.
 - Nenhum secret foi lido ou exposto; nenhum workflow foi disparado por esta auditoria.
-- Relatório: `docs/PHASE_14_WORKFLOW_LICENSE_AUDIT.md`.
+- Relatï¿½rio: `docs/PHASE_14_WORKFLOW_LICENSE_AUDIT.md`.
 
-## P49 — Verificação de Unity_lic.ulf — concluído local / bloqueado no GitHub
+## P49 ï¿½ Verificaï¿½ï¿½o de Unity_lic.ulf ï¿½ concluï¿½do local / bloqueado no GitHub
 
-- Data: 28/10/2026; responsável: diretor de projeto.
-- `Unity_lic.ulf` existe na raiz, tamanho 2517 bytes, XML válido com estrutura de licença Unity (`License`, `Entitlement`, `MachineBindings` e assinatura XML).
-- O arquivo está ignorado por `*.ulf`, não rastreado e não foi exposto.
-- A API do repositório ainda retorna `GITHUB_SECRET_COUNT=0`; o conteúdo ainda não está cadastrado como `UNITY_LICENSE` no GitHub.
-- Os workflows já referenciam `secrets.UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`; nenhuma alteração de YAML é necessária para usar este arquivo.
-- Próxima ação: cadastrar o conteúdo do arquivo, por canal seguro, no secret `UNITY_LICENSE`; depois repetir primeiro o workflow de testes.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
+- `Unity_lic.ulf` existe na raiz, tamanho 2517 bytes, XML vï¿½lido com estrutura de licenï¿½a Unity (`License`, `Entitlement`, `MachineBindings` e assinatura XML).
+- O arquivo estï¿½ ignorado por `*.ulf`, nï¿½o rastreado e nï¿½o foi exposto.
+- A API do repositï¿½rio ainda retorna `GITHUB_SECRET_COUNT=0`; o conteï¿½do ainda nï¿½o estï¿½ cadastrado como `UNITY_LICENSE` no GitHub.
+- Os workflows jï¿½ referenciam `secrets.UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`; nenhuma alteraï¿½ï¿½o de YAML ï¿½ necessï¿½ria para usar este arquivo.
+- Prï¿½xima aï¿½ï¿½o: cadastrar o conteï¿½do do arquivo, por canal seguro, no secret `UNITY_LICENSE`; depois repetir primeiro o workflow de testes.
 
-## P50 — verificação dos Secrets após cadastro informado — BLOCKED
+## P50 ï¿½ verificaï¿½ï¿½o dos Secrets apï¿½s cadastro informado ï¿½ BLOCKED
 
-- Data: 28/10/2026; responsável: diretor de projeto.
-- YAML dos workflows: válido.
-- API `repos/valdir-galvao/nexo/actions/secrets` retornou `total_count=0`; nenhum nome de secret foi exposto porque não há secrets listados.
-- O repositório confirmado é `valdir-galvao/nexo` (privado). A execução GameCI não deve ser iniciada até os secrets estarem visíveis nesse escopo.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
+- YAML dos workflows: vï¿½lido.
+- API `repos/valdir-galvao/nexo/actions/secrets` retornou `total_count=0`; nenhum nome de secret foi exposto porque nï¿½o hï¿½ secrets listados.
+- O repositï¿½rio confirmado ï¿½ `valdir-galvao/nexo` (privado). A execuï¿½ï¿½o GameCI nï¿½o deve ser iniciada atï¿½ os secrets estarem visï¿½veis nesse escopo.
 - Conferir em Settings ? Secrets and variables ? Actions ? Repository secrets os nomes exatos `UNITY_LICENSE`, `UNITY_EMAIL`, `UNITY_PASSWORD`.
 
-## P51 — distinção entre Variables e Secrets
+## P51 ï¿½ distinï¿½ï¿½o entre Variables e Secrets
 
-- Data: 28/10/2026; responsável: diretor de projeto.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
 - API confirmou `VARIABLE_COUNT=4` (`UNITY_EMAIL`, `UNITY_LICENSE`, `UNITY_PASSWORD`, `UNITY_SERIAL`) e `SECRET_COUNT=0`.
-- O cadastro foi feito na aba Repository variables, portanto GameCI não recebe esses valores via `secrets.*`.
-- Credenciais foram expostas na mensagem do usuário; orientar rotação imediata da senha Unity e renovação/reativação da licença antes de qualquer build.
-- Próxima ação: criar os três itens na aba Repository secrets, sem compartilhar valores, remover as variables sensíveis e repetir a verificação por nomes.
+- O cadastro foi feito na aba Repository variables, portanto GameCI nï¿½o recebe esses valores via `secrets.*`.
+- Credenciais foram expostas na mensagem do usuï¿½rio; orientar rotaï¿½ï¿½o imediata da senha Unity e renovaï¿½ï¿½o/reativaï¿½ï¿½o da licenï¿½a antes de qualquer build.
+- Prï¿½xima aï¿½ï¿½o: criar os trï¿½s itens na aba Repository secrets, sem compartilhar valores, remover as variables sensï¿½veis e repetir a verificaï¿½ï¿½o por nomes.
 
-## P52 — Secrets Unity confirmados
+## P52 ï¿½ Secrets Unity confirmados
 
-- Data: 28/10/2026; responsável: diretor de projeto.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
 - API confirmou `SECRET_COUNT=3`: `UNITY_EMAIL`, `UNITY_LICENSE`, `UNITY_PASSWORD`.
-- Ainda existem quatro Repository variables com os mesmos nomes mais `UNITY_SERIAL`; não são usadas pelos workflows, mas devem ser removidas para evitar duplicidade.
+- Ainda existem quatro Repository variables com os mesmos nomes mais `UNITY_SERIAL`; nï¿½o sï¿½o usadas pelos workflows, mas devem ser removidas para evitar duplicidade.
 - Nenhum valor foi lido ou registrado.
-- Gate de configuração de credenciais: `PASS`.
-- Próxima ação: remover variables duplicadas e executar primeiro `unity-tests.yml`; builds Android/iOS continuam dependentes do resultado dos testes.
+- Gate de configuraï¿½ï¿½o de credenciais: `PASS`.
+- Prï¿½xima aï¿½ï¿½o: remover variables duplicadas e executar primeiro `unity-tests.yml`; builds Android/iOS continuam dependentes do resultado dos testes.
 
-## P53 — primeiro GameCI com Secrets válidos
+## P53 ï¿½ primeiro GameCI com Secrets vï¿½lidos
 
-- Data: 28/10/2026; responsável: diretor de projeto.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
 - Workflow `Unity tests` disparado manualmente: run `40659354080`; duplicado `40659369480` cancelado para evitar custo.
-- Ambos os jobs iniciaram o Unity após checkout/cache: EditMode e PlayMode falharam em `Run Unity tests`.
-- Isso confirma que o bloqueio de secrets foi superado; o defeito restante está na etapa Unity/importação/testes.
-- Artefatos não contêm JUnit nem `Editor.log`; API de logs de job permanece inacessível.
-- Android/iOS não foram executados.
-- Estado: `FAIL` para testes, `BLOCKED` para diagnóstico detalhado.
+- Ambos os jobs iniciaram o Unity apï¿½s checkout/cache: EditMode e PlayMode falharam em `Run Unity tests`.
+- Isso confirma que o bloqueio de secrets foi superado; o defeito restante estï¿½ na etapa Unity/importaï¿½ï¿½o/testes.
+- Artefatos nï¿½o contï¿½m JUnit nem `Editor.log`; API de logs de job permanece inacessï¿½vel.
+- Android/iOS nï¿½o foram executados.
+- Estado: `FAIL` para testes, `BLOCKED` para diagnï¿½stico detalhado.
 
-## P54 — causa raiz dos erros GameCI 40659354080
+## P54 ï¿½ causa raiz dos erros GameCI 40659354080
 
-- Data: 28/10/2026; responsável: diretor de projeto.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
 - Logs reais dos jobs `122718189797` (EditMode) e `122718189521` (PlayMode) foram recuperados seguindo o redirect 302 da API para o blob de logs.
-- Causa exata: Docker não conseguiu registrar a camada da imagem `unityci/editor:ubuntu-6000.3.0f1-linux-il2cpp-3`; erro `no space left on device` em `/opt/unity/Editor/...`.
-- O Unity não chegou a executar os testes; não é falha C#, packages ou licença.
-- Correção aplicada: `jlumbroso/free-disk-space@v1.3.1` antes do GameCI em `unity-tests.yml` e `unity-android.yml`, removendo SDKs/cache/pacotes grandes e liberando swap/espaço Docker.
-- YAML e diff validados. Próxima ação: push e repetir primeiro `unity-tests.yml`.
+- Causa exata: Docker nï¿½o conseguiu registrar a camada da imagem `unityci/editor:ubuntu-6000.3.0f1-linux-il2cpp-3`; erro `no space left on device` em `/opt/unity/Editor/...`.
+- O Unity nï¿½o chegou a executar os testes; nï¿½o ï¿½ falha C#, packages ou licenï¿½a.
+- Correï¿½ï¿½o aplicada: `jlumbroso/free-disk-space@v1.3.1` antes do GameCI em `unity-tests.yml` e `unity-android.yml`, removendo SDKs/cache/pacotes grandes e liberando swap/espaï¿½o Docker.
+- YAML e diff validados. Prï¿½xima aï¿½ï¿½o: push e repetir primeiro `unity-tests.yml`.
 
-## P55 — correção de assemblies Unity
+## P55 ï¿½ correï¿½ï¿½o de assemblies Unity
 
-- Data: 28/10/2026; responsável: diretor de projeto.
-- Logs do run `40660301000` confirmaram assemblies duplicadas em `Assets/NEXO/Tests/` e referências duplicadas.
-- `Nexo.PlayModeTests` foi movida para `Assets/NEXO/Tests/PlayMode/`; referências automáticas de TestAssemblies foram mantidas sem duplicação explícita.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
+- Logs do run `40660301000` confirmaram assemblies duplicadas em `Assets/NEXO/Tests/` e referï¿½ncias duplicadas.
+- `Nexo.PlayModeTests` foi movida para `Assets/NEXO/Tests/PlayMode/`; referï¿½ncias automï¿½ticas de TestAssemblies foram mantidas sem duplicaï¿½ï¿½o explï¿½cita.
 - Meta de `Nexo.Tests.asmdef` ausente foi criado.
 - `python tools/run_static_qa.py` passou (`json=5 cs=24`).
 - Commit/push: `992586a`.
-- Nova rodada `40661478289` (testes), `40661478460` (Android) e `40661478368` (iOS) ainda estava em execução no registro desta atualização.
+- Nova rodada `40661478289` (testes), `40661478460` (Android) e `40661478368` (iOS) ainda estava em execuï¿½ï¿½o no registro desta atualizaï¿½ï¿½o.
 
-## P56 — auditoria Fase 10 quantitativa solicitada
+## P56 ï¿½ auditoria Fase 10 quantitativa solicitada
 
-- Data: 28/10/2026; responsável: diretor de projeto.
-- O repositório contém somente o projeto Unity NEXO; não há pipeline de microestrutura, dados de mercado, SQLite, WFO ou `scripts/run_motor_a_phase6_forward_eval.py`.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
+- O repositï¿½rio contï¿½m somente o projeto Unity NEXO; nï¿½o hï¿½ pipeline de microestrutura, dados de mercado, SQLite, WFO ou `scripts/run_motor_a_phase6_forward_eval.py`.
 - Nenhum re-sampling 5m, treino, AUC ou fold foi executado; nenhum resultado foi inventado.
-- Paper Trading, produção e ordens reais permaneceram bloqueados/não executados.
-- Validadores disponíveis passaram: static QA (`json=5`, `cs=24`), conteúdo e 9 testes de agentes.
-- Relatório: `artifacts/audit_package/meta_filter_phase10_status.json` (`status=BLOCKED`).
+- Paper Trading, produï¿½ï¿½o e ordens reais permaneceram bloqueados/nï¿½o executados.
+- Validadores disponï¿½veis passaram: static QA (`json=5`, `cs=24`), conteï¿½do e 9 testes de agentes.
+- Relatï¿½rio: `artifacts/audit_package/meta_filter_phase10_status.json` (`status=BLOCKED`).
 
-## P57 — monitoramento dos runs GameCI (Fase 15)
+## P57 ï¿½ monitoramento dos runs GameCI (Fase 15)
 
-- Data: 28/10/2026; responsável: diretor de projeto.
+- Data: 28/10/2026; responsï¿½vel: diretor de projeto.
 - Runs monitorados no commit 992586a: testes 40661478289, Android 40661478460, iOS 40661478368.
-- Resultado: os três falharam na compilação C# por BuildFailedException não resolvido em Assets/Scripts/Editor/Build/AndroidBuild.cs e IosBuild.cs.
-- A licença Personal foi resolvida com sucesso; não houve novo erro de espaço em disco.
-- Não foram gerados APK, BUILD_METADATA.txt ou projeto Xcode; artefatos disponíveis são somente diagnósticos/logs.
-- Relatório detalhado: docs/PHASE_15_RUN_MONITORING.md.
-- Próxima ação: correção mínima dos dois scripts e repetir Unity tests antes de builds móveis.
+- Resultado: os trï¿½s falharam na compilaï¿½ï¿½o C# por BuildFailedException nï¿½o resolvido em Assets/Scripts/Editor/Build/AndroidBuild.cs e IosBuild.cs.
+- A licenï¿½a Personal foi resolvida com sucesso; nï¿½o houve novo erro de espaï¿½o em disco.
+- Nï¿½o foram gerados APK, BUILD_METADATA.txt ou projeto Xcode; artefatos disponï¿½veis sï¿½o somente diagnï¿½sticos/logs.
+- Relatï¿½rio detalhado: docs/PHASE_15_RUN_MONITORING.md.
+- Prï¿½xima aï¿½ï¿½o: correï¿½ï¿½o mï¿½nima dos dois scripts e repetir Unity tests antes de builds mï¿½veis.
 
 
-## P58 — correção CS0246 e reexecução (Fase 16)
+## P58 ï¿½ correï¿½ï¿½o CS0246 e reexecuï¿½ï¿½o (Fase 16)
 
-- Data: 28/10/2026; correção aplicada nos scripts Editor com using UnityEditor.Build;.
+- Data: 28/10/2026; correï¿½ï¿½o aplicada nos scripts Editor com using UnityEditor.Build;.
 - python tools/run_static_qa.py: PASS, exit 0 (static_qa_ok: json=5 cs=24).
 - Commit/push: 3d9ab9a em orchestrator/phase-a-baseline.
-- Novo workflow Unity tests: run 40663615864; no último monitoramento permanecia in_progress (jobs EditMode/PlayMode ativos).
-- Android 40663615889 e iOS 40663615981 também foram acionados pelo push, mas não são considerados aprovados.
-- Liberação para reconstrução móvel: pendente até conclusão PASS de EditMode e PlayMode.
+- Novo workflow Unity tests: run 40663615864; no ï¿½ltimo monitoramento permanecia in_progress (jobs EditMode/PlayMode ativos).
+- Android 40663615889 e iOS 40663615981 tambï¿½m foram acionados pelo push, mas nï¿½o sï¿½o considerados aprovados.
+- Liberaï¿½ï¿½o para reconstruï¿½ï¿½o mï¿½vel: pendente atï¿½ conclusï¿½o PASS de EditMode e PlayMode.
 
 
-- Atualização: iOS run 40663615981 terminou FAIL por InvalidOperationException: No enabled scenes are configured; isso é um bloqueio separado e não autoriza build móvel.
+- Atualizaï¿½ï¿½o: iOS run 40663615981 terminou FAIL por InvalidOperationException: No enabled scenes are configured; isso ï¿½ um bloqueio separado e nï¿½o autoriza build mï¿½vel.
 
 
-## P59 — configuração explícita da cena (Fase 17)
+## P59 ï¿½ configuraï¿½ï¿½o explï¿½cita da cena (Fase 17)
 
-- Data: 28/10/2026; AndroidBuild.cs e IosBuild.cs passaram a usar Assets/Scenes/NexoVerticalSlice.unity explicitamente e validar sua existência.
+- Data: 28/10/2026; AndroidBuild.cs e IosBuild.cs passaram a usar Assets/Scenes/NexoVerticalSlice.unity explicitamente e validar sua existï¿½ncia.
 - python tools/run_static_qa.py: PASS, exit 0 (json=5 cs=24).
 - Commit/push: 74556d0.
-- Novo Unity tests: run 40665421997, ainda in_progress na última consulta; não há aprovação do gate.
-- Android/iOS também foram disparados automaticamente, mas permanecem sem aprovação até os testes Unity concluírem.
+- Novo Unity tests: run 40665421997, ainda in_progress na ï¿½ltima consulta; nï¿½o hï¿½ aprovaï¿½ï¿½o do gate.
+- Android/iOS tambï¿½m foram disparados automaticamente, mas permanecem sem aprovaï¿½ï¿½o atï¿½ os testes Unity concluï¿½rem.
 
 
-## P60 — gate Unity tests e build iOS (Fase 18)
+## P60 ï¿½ gate Unity tests e build iOS (Fase 18)
 
-- Run Unity tests 40665421997 permanecia in_progress na última consulta; EditMode/PlayMode ainda sem conclusão e K-005 não pode ser declarado aprovado.
-- iOS run 40665421999 terminou FAIL por UnityException: iOS Version has not been set up correctly; o erro de cena não reapareceu.
+- Run Unity tests 40665421997 permanecia in_progress na ï¿½ltima consulta; EditMode/PlayMode ainda sem conclusï¿½o e K-005 nï¿½o pode ser declarado aprovado.
+- iOS run 40665421999 terminou FAIL por UnityException: iOS Version has not been set up correctly; o erro de cena nï¿½o reapareceu.
 - Android run 40665422007 permanecia in_progress.
-- Gate de liberação: não aprovado.
+- Gate de liberaï¿½ï¿½o: nï¿½o aprovado.
 
-## P61 — versão iOS válida e novo gate (Fase 19)
+## P61 ï¿½ versï¿½o iOS vï¿½lida e novo gate (Fase 19)
 
 - Data: 28/10/2026; `IosBuild.cs` define `PlayerSettings.bundleVersion = "1.0.0"` e `PlayerSettings.iOS.buildNumber = "1"` antes do build.
 - `python tools/run_static_qa.py`: PASS, exit 0.
 - Commit/push: `abca64a`.
 - Novo Unity tests `40667016837` permanece `in_progress`; EditMode/PlayMode ainda sem resultado formal.
-- Nenhuma aprovação K-005 ou liberação móvel pode ser declarada enquanto o gate estiver ativo.
-## P62 — confirmação final do gate e builds
+- Nenhuma aprovaï¿½ï¿½o K-005 ou liberaï¿½ï¿½o mï¿½vel pode ser declarada enquanto o gate estiver ativo.
+## P62 ï¿½ confirmaï¿½ï¿½o final do gate e builds
 
 - Data: 29/10/2026; run Unity tests `40667016837` terminou FAIL.
-- EditMode falhou antes de descobrir testes por erro 403 ao resolver o GameCI CLI; pass rate não calculável.
+- EditMode falhou antes de descobrir testes por erro 403 ao resolver o GameCI CLI; pass rate nï¿½o calculï¿½vel.
 - PlayMode executou 1 teste e reprovou 1 (`activeInputHandler = -1`); pass rate 0%.
-- K-005 não foi executado neste run.
-- Android `40667016637` e iOS `40667016611` terminaram FAIL; nenhum APK, `BUILD_METADATA.txt` de build ou exportação Xcode final disponível.
-- Relatório: `docs/PHASE_20_FINAL_GATE.md`. Gate global: FAIL.
-## P63 — Input System headless e novo teste (Fase 21)
+- K-005 nï¿½o foi executado neste run.
+- Android `40667016637` e iOS `40667016611` terminaram FAIL; nenhum APK, `BUILD_METADATA.txt` de build ou exportaï¿½ï¿½o Xcode final disponï¿½vel.
+- Relatï¿½rio: `docs/PHASE_20_FINAL_GATE.md`. Gate global: FAIL.
+## P63 ï¿½ Input System headless e novo teste (Fase 21)
 
-- Data: 29/10/2026; `ProjectSettings/ProjectSettings.asset` recebeu `activeInputHandler: 0`, evitando o valor inválido `-1` no Unity batchmode.
+- Data: 29/10/2026; `ProjectSettings/ProjectSettings.asset` recebeu `activeInputHandler: 0`, evitando o valor invï¿½lido `-1` no Unity batchmode.
 - `python tools/run_static_qa.py`: PASS, exit 0.
 - Commit/push: `5f7adbb`.
-- Novo Unity tests: run `40814474545`, ainda `in_progress` na última consulta; EditMode e PlayMode sem resultado final.
-- Android `40814474532` e iOS `40814474576` foram disparados pelo push; não estão aprovados.
-## P64 — validação Input System e gate Fase 22
+- Novo Unity tests: run `40814474545`, ainda `in_progress` na ï¿½ltima consulta; EditMode e PlayMode sem resultado final.
+- Android `40814474532` e iOS `40814474576` foram disparados pelo push; nï¿½o estï¿½o aprovados.
+## P64 ï¿½ validaï¿½ï¿½o Input System e gate Fase 22
 
 - Data: 29/10/2026; run Unity tests `40814474545` terminou **FAIL**.
-- EditMode: **FAIL** antes da execução por HTTP 403 ao resolver o GameCI CLI.
-- PlayMode: **FAIL**, 1 teste executado e 0 aprovados. O erro `activeInputHandler = -1` deixou de ocorrer; a nova causa é que `NexoVerticalSlice` não está na lista de cenas ativa/compartilhada do perfil de build.
-- K-005: **NOT_RUN**; não existe evidência pedagógica neste run.
-- Android `40814474532` e iOS `40814474576` permaneciam `in_progress` na última consulta; nenhum artefato final confirmado.
-- Não há APK `Nexo.apk` nem `BUILD_METADATA.txt` de build disponível.
+- EditMode: **FAIL** antes da execuï¿½ï¿½o por HTTP 403 ao resolver o GameCI CLI.
+- PlayMode: **FAIL**, 1 teste executado e 0 aprovados. O erro `activeInputHandler = -1` deixou de ocorrer; a nova causa ï¿½ que `NexoVerticalSlice` nï¿½o estï¿½ na lista de cenas ativa/compartilhada do perfil de build.
+- K-005: **NOT_RUN**; nï¿½o existe evidï¿½ncia pedagï¿½gica neste run.
+- Android `40814474532` e iOS `40814474576` permaneciam `in_progress` na ï¿½ltima consulta; nenhum artefato final confirmado.
+- Nï¿½o hï¿½ APK `Nexo.apk` nem `BUILD_METADATA.txt` de build disponï¿½vel.
 - Gate: **FAIL**.
-## P65 — registro programático da cena e novo disparo (Fase 23)
+## P65 ï¿½ registro programï¿½tico da cena e novo disparo (Fase 23)
 
-- Data: 29/10/2026; `EditorBuildSettings.asset` já continha a cena habilitada e o commit adicionou `EnsureBuildScenes` com `[InitializeOnLoad]` para garantir a entrada em sessões do Editor/CI.
+- Data: 29/10/2026; `EditorBuildSettings.asset` jï¿½ continha a cena habilitada e o commit adicionou `EnsureBuildScenes` com `[InitializeOnLoad]` para garantir a entrada em sessï¿½es do Editor/CI.
 - `python tools/run_static_qa.py`: PASS, exit 0.
 - Commit/push: `3ecbbe0`.
-- Novo Unity tests: run `40815968590`, `in_progress` na última consulta; EditMode/PlayMode ainda sem conclusão.
-- Android `40815968420` e iOS `40815968435` foram acionados; não há aprovação enquanto o gate permanecer ativo.
-## P66 — auditoria Fase 24
+- Novo Unity tests: run `40815968590`, `in_progress` na ï¿½ltima consulta; EditMode/PlayMode ainda sem conclusï¿½o.
+- Android `40815968420` e iOS `40815968435` foram acionados; nï¿½o hï¿½ aprovaï¿½ï¿½o enquanto o gate permanecer ativo.
+## P66 ï¿½ auditoria Fase 24
 
 - Data: 29/10/2026; run Unity tests `40815968590` terminou **FAIL**.
-- EditMode: os testes NUnit foram executados e o relatório mostra `16/16` aprovados; o job ficou FAIL por `Resource not accessible by integration` ao criar o Check Run, não por HTTP 403 do GameCI CLI. Portanto o workflow não é PASS formal.
-- PlayMode: `0/1`; `VerticalSliceSceneInitializesIntoIntro` continua falhando porque `NexoVerticalSlice` não está no active build profile/shared scene list. `EnsureBuildScenes` não resolveu a lista usada pelo runner.
-- K-005: sem teste dedicado/evidência formal neste run; **NOT_RUN**.
-- Android `40815968420`: ainda `in_progress` na última consulta; nenhum APK confirmado.
-- iOS `40815968435`: FAIL, somente diagnóstico; nenhum Xcode final.
-- Gate: **FAIL**. Não há APK para download.
-## P67 — permissões CI e injeção de cena PlayMode (Fase 25)
+- EditMode: os testes NUnit foram executados e o relatï¿½rio mostra `16/16` aprovados; o job ficou FAIL por `Resource not accessible by integration` ao criar o Check Run, nï¿½o por HTTP 403 do GameCI CLI. Portanto o workflow nï¿½o ï¿½ PASS formal.
+- PlayMode: `0/1`; `VerticalSliceSceneInitializesIntoIntro` continua falhando porque `NexoVerticalSlice` nï¿½o estï¿½ no active build profile/shared scene list. `EnsureBuildScenes` nï¿½o resolveu a lista usada pelo runner.
+- K-005: sem teste dedicado/evidï¿½ncia formal neste run; **NOT_RUN**.
+- Android `40815968420`: ainda `in_progress` na ï¿½ltima consulta; nenhum APK confirmado.
+- iOS `40815968435`: FAIL, somente diagnï¿½stico; nenhum Xcode final.
+- Gate: **FAIL**. Nï¿½o hï¿½ APK para download.
+## P67 ï¿½ permissï¿½es CI e injeï¿½ï¿½o de cena PlayMode (Fase 25)
 
 - Data: 29/10/2026; workflow `unity-tests.yml` recebeu `contents: read`, `checks: write`, `statuses: write`.
 - `NexoPlayModeTests` recebeu `[SetUp]` editor-only para registrar `NexoVerticalSlice.unity` habilitada antes do carregamento.
 - `python tools/run_static_qa.py`: PASS, exit 0.
 - Commit/push: `196920d`.
-- Novo Unity tests: `40817889017`, ainda `in_progress` (EditMode/PlayMode em preparação).
+- Novo Unity tests: `40817889017`, ainda `in_progress` (EditMode/PlayMode em preparaï¿½ï¿½o).
 - Android `40817889158` e iOS `40817889035` foram acionados; gate permanece pendente.
-## P68 — auditoria final Fase 26
+## P68 ï¿½ auditoria final Fase 26
 
 - Data: 29/10/2026; run `40817889017` terminou **FAIL**.
-- EditMode: Unity/NUnit executou `16/16` com sucesso. O job ainda terminou FAIL por código de saída do runner/integração, apesar do relatório de testes aprovado; não há PASS formal do workflow.
-- PlayMode: `VerticalSliceSceneInitializesIntoIntro` reprovou (`0/1`); a cena ainda não é reconhecida pelo active build profile/shared scene list. A injeção no SetUp não resolveu a limitação do perfil Unity 6.
-- K-005: **NOT_RUN**; não existe evidência de teste dedicado no workflow.
-- Android `40817889158`: **FAIL**, somente diagnóstico de 146 bytes; sem `Nexo.apk` e sem `BUILD_METADATA.txt` de build.
-- iOS `40817889035`: **FAIL**, sem exportação Xcode aprovada.
-- Gate: **FAIL**; não há APK para download.
-## P69 — Unity 6 Build Profile ativo (Fase 27)
+- EditMode: Unity/NUnit executou `16/16` com sucesso. O job ainda terminou FAIL por cï¿½digo de saï¿½da do runner/integraï¿½ï¿½o, apesar do relatï¿½rio de testes aprovado; nï¿½o hï¿½ PASS formal do workflow.
+- PlayMode: `VerticalSliceSceneInitializesIntoIntro` reprovou (`0/1`); a cena ainda nï¿½o ï¿½ reconhecida pelo active build profile/shared scene list. A injeï¿½ï¿½o no SetUp nï¿½o resolveu a limitaï¿½ï¿½o do perfil Unity 6.
+- K-005: **NOT_RUN**; nï¿½o existe evidï¿½ncia de teste dedicado no workflow.
+- Android `40817889158`: **FAIL**, somente diagnï¿½stico de 146 bytes; sem `Nexo.apk` e sem `BUILD_METADATA.txt` de build.
+- iOS `40817889035`: **FAIL**, sem exportaï¿½ï¿½o Xcode aprovada.
+- Gate: **FAIL**; nï¿½o hï¿½ APK para download.
+## P69 ï¿½ Unity 6 Build Profile ativo (Fase 27)
 
 - Data: 29/10/2026; `EnsureBuildScenes.cs` atualizado para consultar `BuildProfile.GetActiveBuildProfile()`, inserir/habilitar `NexoVerticalSlice` na propriedade `scenes`, marcar o asset dirty e salvar; fallback legado preservado.
 - `python tools/run_static_qa.py`: PASS, exit 0.
 - Commit/push: `d838499`.
-- Novos runs: Unity tests `40820112279`, Android `40820112292`, iOS `40820112467`; todos `in_progress` na última consulta.
-- Gate ainda pendente; nenhum artefato ou aprovação declarados.
-## P70 — auditoria Build Profile Fase 28
+- Novos runs: Unity tests `40820112279`, Android `40820112292`, iOS `40820112467`; todos `in_progress` na ï¿½ltima consulta.
+- Gate ainda pendente; nenhum artefato ou aprovaï¿½ï¿½o declarados.
+## P70 ï¿½ auditoria Build Profile Fase 28
 
 - Data: 29/10/2026; run `40820112279` terminou **FAIL**.
-- EditMode: relatório NUnit `16/16` aprovado, mas job falhou no encerramento do runner; não há PASS formal.
-- PlayMode: `0/1`; `VerticalSliceSceneInitializesIntoIntro` ainda acusa cena fora do active build profile/shared scene list. A implementação `BuildProfile.GetActiveBuildProfile()` não alterou o perfil efetivo usado pelo runner.
+- EditMode: relatï¿½rio NUnit `16/16` aprovado, mas job falhou no encerramento do runner; nï¿½o hï¿½ PASS formal.
+- PlayMode: `0/1`; `VerticalSliceSceneInitializesIntoIntro` ainda acusa cena fora do active build profile/shared scene list. A implementaï¿½ï¿½o `BuildProfile.GetActiveBuildProfile()` nï¿½o alterou o perfil efetivo usado pelo runner.
 - K-005: **NOT_RUN**.
-- Android `40820112292`: FAIL, somente diagnóstico de 146 bytes; sem `Nexo.apk`/`BUILD_METADATA.txt`.
-- iOS `40820112467`: FAIL, somente diagnóstico de 772 bytes; sem Xcode final.
-- Gate oficial: **FAIL**; nenhum APK disponível.
-## P71 — configuração estática GameCI/Unity 6 (Fase 29)
+- Android `40820112292`: FAIL, somente diagnï¿½stico de 146 bytes; sem `Nexo.apk`/`BUILD_METADATA.txt`.
+- iOS `40820112467`: FAIL, somente diagnï¿½stico de 772 bytes; sem Xcode final.
+- Gate oficial: **FAIL**; nenhum APK disponï¿½vel.
+## P71 ï¿½ configuraï¿½ï¿½o estï¿½tica GameCI/Unity 6 (Fase 29)
 
 - Data: 29/10/2026; workflows de testes/Android/iOS receberam `BUILD_SCENES=Assets/Scenes/NexoVerticalSlice.unity` e input `buildScenes`.
-- Removidos `EnsureBuildScenes.cs` e `.meta`, evitando mutação concorrente de EditorBuildSettings.
+- Removidos `EnsureBuildScenes.cs` e `.meta`, evitando mutaï¿½ï¿½o concorrente de EditorBuildSettings.
 - PlayMode passou a carregar a cena por caminho com `EditorSceneManager.LoadSceneAsyncInPlayMode` no Editor headless.
 - `python tools/run_static_qa.py`: PASS, exit 0.
 - Commit/push: `930945a`.
-- Novos runs: Unity tests `40822563212`, Android `40822563109`, iOS `40822563115`; todos `in_progress` na última consulta.
+- Novos runs: Unity tests `40822563212`, Android `40822563109`, iOS `40822563115`; todos `in_progress` na ï¿½ltima consulta.
 - Gate e artefatos ainda pendentes.
-## P72 — auditoria Fase 30 (em andamento)
+## P72 ï¿½ auditoria Fase 30 (em andamento)
 
-- Data: 29/10/2026; Unity tests `40822563212` ainda `in_progress` na última consulta, com EditMode/PlayMode no passo Run Unity tests.
+- Data: 29/10/2026; Unity tests `40822563212` ainda `in_progress` na ï¿½ltima consulta, com EditMode/PlayMode no passo Run Unity tests.
 - Android `40822563109` ainda `in_progress`; iOS `40822563115` terminou FAIL.
-- Nenhum resultado NUnit final, K-005 ou artefato APK pode ser declarado enquanto o run de testes não encerrar.
-## P73 — encerramento Fase 30
+- Nenhum resultado NUnit final, K-005 ou artefato APK pode ser declarado enquanto o run de testes nï¿½o encerrar.
+## P73 ï¿½ encerramento Fase 30
 
 - Data: 29/10/2026; run Unity tests `40822563212` terminou **FAIL**.
-- EditMode: `16/16` aprovados no XML NUnit. O job encerrou com exit code 1 no pós-processamento; portanto o workflow não tem PASS formal.
-- PlayMode: a cena agora foi carregada pelo caminho, mas `NexoVerticalSliceBootstrap` ficou nulo após a carga; teste `VerticalSliceSceneInitializesIntoIntro` reprovou `0/1`.
-- K-005: não foi executado neste workflow; **NOT_RUN**.
-- Android `40822563109`: ainda `in_progress` na última consulta, sem artefato confirmado.
-- iOS `40822563115`: FAIL, apenas diagnóstico.
-- Gate: **FAIL**; APK não disponível.
-## P74 — adaptação bootstrap/K-005 Fase 31
+- EditMode: `16/16` aprovados no XML NUnit. O job encerrou com exit code 1 no pï¿½s-processamento; portanto o workflow nï¿½o tem PASS formal.
+- PlayMode: a cena agora foi carregada pelo caminho, mas `NexoVerticalSliceBootstrap` ficou nulo apï¿½s a carga; teste `VerticalSliceSceneInitializesIntoIntro` reprovou `0/1`.
+- K-005: nï¿½o foi executado neste workflow; **NOT_RUN**.
+- Android `40822563109`: ainda `in_progress` na ï¿½ltima consulta, sem artefato confirmado.
+- iOS `40822563115`: FAIL, apenas diagnï¿½stico.
+- Gate: **FAIL**; APK nï¿½o disponï¿½vel.
+## P74 ï¿½ adaptaï¿½ï¿½o bootstrap/K-005 Fase 31
 
-- Data: 29/10/2026; teste PlayMode recebeu espera de 0,5 s, `FindFirstObjectByType` com fallback de instanciação e categoria `K-005`.
+- Data: 29/10/2026; teste PlayMode recebeu espera de 0,5 s, `FindFirstObjectByType` com fallback de instanciaï¿½ï¿½o e categoria `K-005`.
 - `python tools/run_static_qa.py`: PASS, exit 0.
 - Commit/push: `41596d2`.
-- Run Unity tests `40824140558` terminou FAIL em ~3 s; jobs EditMode/PlayMode não chegaram a iniciar steps e a API retornou BlobNotFound para logs. Não há XML NUnit nem evidência K-005.
-- Android `40824141095` e iOS `40824140545` também terminaram FAIL; nenhum APK/Xcode confirmado.
-- Gate: FAIL/BLOCKED por execução sem steps e logs indisponíveis.
+- Run Unity tests `40824140558` terminou FAIL em ~3 s; jobs EditMode/PlayMode nï¿½o chegaram a iniciar steps e a API retornou BlobNotFound para logs. Nï¿½o hï¿½ XML NUnit nem evidï¿½ncia K-005.
+- Android `40824141095` e iOS `40824140545` tambï¿½m terminaram FAIL; nenhum APK/Xcode confirmado.
+- Gate: FAIL/BLOCKED por execuï¿½ï¿½o sem steps e logs indisponï¿½veis.
 
 P75 ? 29/10/2026 ? Fase 32: removidos os tr?s steps `actions/cache@v4` que restauravam `Library` nos workflows `unity-tests.yml`, `unity-android.yml` e `unity-ios.yml`, eliminando chaves/restore-keys legadas associadas ao BlobNotFound. A vers?o declarada permanece `6000.3.0f1`. Parser YAML: PASS nos quatro workflows; `python tools/run_static_qa.py`: PASS (`json=5`, `cs=24`); `git diff --check`: PASS. Commit `7e5f4d4` enviado para `orchestrator/phase-a-baseline`. O push disparou runs `40824551082` (tests), `40824551010` (Android) e `40824550999` (iOS), todos encerrados FAIL em ~3?4 s, sem steps executados; logs de job retornam HTTP 404/BlobNotFound ou n?o est?o dispon?veis. N?o h? evid?ncia de Unity, NUnit, K-005, APK ou Xcode. Gate: BLOCKED/FAIL por falha de inicializa??o do runner/logs; repetir ap?s diagnosticar a infraestrutura Actions.
 
@@ -902,15 +902,15 @@ P86 - 29/10/2026 America/Sao_Paulo - Fase 35 ajuste de build: workflows Android/
 
 P87 - 29/10/2026 America/Sao_Paulo - Fase 37 publicada no commit 4120620. Runs: Unity tests 40842677684 FAIL por SIGSEGV do Unity/Burst durante inicializacao PlayMode; Android 40842677712 FAIL no GameCI pos-build, embora tenha gerado Nexo.apk de 26 MB em build/Android/Android/Nexo.apk; iOS 40842677727 FAIL na validacao pos-export. Cache Android executou PASS. Artefatos de testes baixados em C:/Temp/nexo-ci-public-40842677684; APK nao foi publicado pelo workflow. Repositorio restaurado PRIVATE e confirmado via API.
 
-P88 - 29/10/2026 America/Sao_Paulo - Auditoria de causa raiz e correcoes: GameCI v6 exigia o marcador literal `Build succeeded!` para validar metodos customizados; Android/iOS agora o emitem apos `BuildResult.Succeeded`. PlayMode teve `coverageEnabled: false` para evitar o crash nativo SIGSEGV em `ScriptingCoverage::FilterRecordedMethods`. Removido cache `Library` dos builds para evitar estado nativo obsoleto; mantido cache de pacotes. Builders usam `runAsHostUser: true`; metadata e uploads usam `if: always()` e `if-no-files-found: warn`, preservando APK/Xcode mesmo em falha pos-build. `python tools/run_static_qa.py`: PASS (`json=5`, `cs=24`); `git diff --check`: PASS. Push e nova rodada GameCI pendentes; repositório deve permanecer privado fora da janela controlada.
+P88 - 29/10/2026 America/Sao_Paulo - Auditoria de causa raiz e correcoes: GameCI v6 exigia o marcador literal `Build succeeded!` para validar metodos customizados; Android/iOS agora o emitem apos `BuildResult.Succeeded`. PlayMode teve `coverageEnabled: false` para evitar o crash nativo SIGSEGV em `ScriptingCoverage::FilterRecordedMethods`. Removido cache `Library` dos builds para evitar estado nativo obsoleto; mantido cache de pacotes. Builders usam `runAsHostUser: true`; metadata e uploads usam `if: always()` e `if-no-files-found: warn`, preservando APK/Xcode mesmo em falha pos-build. `python tools/run_static_qa.py`: PASS (`json=5`, `cs=24`); `git diff --check`: PASS. Push e nova rodada GameCI pendentes; repositï¿½rio deve permanecer privado fora da janela controlada.
 
-P89 - 29/10/2026 America/Sao_Paulo - A rodada publica 40845079148 falhou antes do Unity porque GameCI CLI v0.1.72 rejeita o argumento gerado por `coverageEnabled: false` (`Unknown argument: noCoverageEnabled`). Removido esse input incompatível; o CLI volta ao fluxo suportado. Android/iOS da rodada 40845082453/40845085890 continuam em execução e serão avaliados separadamente. Correcoes de build (`Build succeeded!`, runAsHostUser, uploads always) permanecem aplicadas.
+P89 - 29/10/2026 America/Sao_Paulo - A rodada publica 40845079148 falhou antes do Unity porque GameCI CLI v0.1.72 rejeita o argumento gerado por `coverageEnabled: false` (`Unknown argument: noCoverageEnabled`). Removido esse input incompatï¿½vel; o CLI volta ao fluxo suportado. Android/iOS da rodada 40845082453/40845085890 continuam em execuï¿½ï¿½o e serï¿½o avaliados separadamente. Correcoes de build (`Build succeeded!`, runAsHostUser, uploads always) permanecem aplicadas.
 
-P90 - 29/10/2026 America/Sao_Paulo - Auditoria do iOS run 40845528526: Unity importou e licenciou corretamente, mas `IosBuild` falhou com `InvalidOperationException: The build cannot be appended` porque `AcceptExternalModificationsToPlayer` exige projeto Xcode preexistente. Correção aplicada: exportação inicial usa `BuildOptions.None`; marcador GameCI permanece. Artefato de diagnóstico e metadata foram preservados, sem Xcode válido.
+P90 - 29/10/2026 America/Sao_Paulo - Auditoria do iOS run 40845528526: Unity importou e licenciou corretamente, mas `IosBuild` falhou com `InvalidOperationException: The build cannot be appended` porque `AcceptExternalModificationsToPlayer` exige projeto Xcode preexistente. Correï¿½ï¿½o aplicada: exportaï¿½ï¿½o inicial usa `BuildOptions.None`; marcador GameCI permanece. Artefato de diagnï¿½stico e metadata foram preservados, sem Xcode vï¿½lido.
 
 P91 - 29/10/2026 America/Sao_Paulo - Rodada publica final no commit 9d68562 concluida: Unity tests 40846649570 PASS (EditMode e PlayMode); iOS 40846649571 PASS com exportacao Xcode limpa; Android 40846649527 PASS com artefato. APK baixado em `C:/Temp/nexo-android-40846649527/Android/Nexo.apk` (26,334,869 bytes; SHA256 `1a9f29a6ff32b5ee97246e49cf7e58c9818c4eac9d7a0a0fd82e8efe13fb6f37`) e `BUILD_METADATA.txt` presente. Projeto Xcode baixado em `C:/Temp/nexo-ios-40846649571/iOS` (zip 227,007,711 bytes). Repositorio restaurado para PRIVATE e confirmado via API. Nenhuma publicacao em loja; testes fisicos permanecem pendentes.
 
-P92 - 29/10/2026 America/Sao_Paulo - Corrigido o workflow iOS para, após exportar o Xcode, executar xcodebuild headless e empacotar build/iOS/Nexo.ipa (sem assinatura) com BUILD_METADATA atualizado. Static QA e git diff --check: PASS. Execução remota ainda pendente.
+P92 - 29/10/2026 America/Sao_Paulo - Corrigido o workflow iOS para, apï¿½s exportar o Xcode, executar xcodebuild headless e empacotar build/iOS/Nexo.ipa (sem assinatura) com BUILD_METADATA atualizado. Static QA e git diff --check: PASS. Execuï¿½ï¿½o remota ainda pendente.
 
 P93 - 29/10/2026 America/Sao_Paulo - Janela publica controlada para iOS concluida. Run 40852640118 PASS no macOS: Unity exportou Xcode e xcodebuild empacotou Nexo.ipa sem assinatura. Artefato baixado em C:/Temp/nexo-ios-ipa-40852640118/Nexo.ipa (33,258,510 bytes; SHA256 2c92748b8807a6a7fbfc72869fdb0c5135a8049314f7dde000985a1d7fec758c). BUILD_METADATA.txt presente. Repositorio restaurado PRIVATE e confirmado via API. O IPA e apenas empacotado; assinatura/instalacao permanecem pendentes.
 
@@ -1024,3 +1024,5 @@ P137 - 31/10/2026 America/Sao_Paulo - Retentativa publica (attempt 3) provisiono
 P138 - 31/10/2026 America/Sao_Paulo - Cleanup Android corrigido no commit `e676e59`; runners iniciaram. Unity tests `41189071648` PASS em EditMode/PlayMode. iOS `41189071750` SUCCESS; IPA baixado em `C:/Temp/nexo-final-e676e59/ios/Nexo.ipa`. Android `41189071720` ficou preso no build e foi cancelado, sem APK. Repositorio private/disabled=false.
 
 P139 - 31/10/2026 America/Sao_Paulo - Fase 61: log confirmou que o cancelamento anterior ocorreu durante o pull da imagem Unity, nao por falta de disco. Cleanup passou no commit `e676e59`, Unity Tests PASS e iOS IPA capturado; nova retentativa Android ficou travada no processo de build/IL2CPP sem artefato, foi cancelada. Repositorio restaurado PRIVATE (`disabled=false`).
+
+P140 - 31/10/2026 America/Sao_Paulo - Commit `15d0072` executado com cleanup nativo de disco, `timeout-minutes: 30` e `-nographics`. Run Android `41193417337` permaneceu em `Build Android package` sem atualizar logs por ~14 min e foi cancelado com API; nenhum artefato `Nexo.apk` foi gerado. Run iOS `41193417332` tamb?m foi cancelado sem artefato. Unity Tests `41193417344`: EditMode SUCCESS, PlayMode FAILURE; portanto o gate t?cnico permanece reprovado. Repositorio restaurado PRIVATE (`disabled=false`). Static QA local e `git diff --check` permanecem PASS. Pr?xima a??o: diagnosticar capacidade/tempo do runner GameCI antes de nova tentativa; n?o repetir build sem hip?tese verific?vel.

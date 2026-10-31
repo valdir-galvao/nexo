@@ -75,70 +75,70 @@ J17 â€” Fase D: integraÃ§Ã£o e QA funcional â€” Bloqueado. Depende de Fase C=`PA
 Unity/GameCI e dispositivo ou simulador; matriz e pendÃªncias em
 `docs/PHASE_D_FUNCTIONAL_REPORT.md`.
 
-J28 — Fase 08: Diagnóstico GameCI/licenciamento — Bloqueado. Secrets Unity ausentes (`COUNT=0`), portanto testes/builds falham antes de evidenciar C#/packages. Aguardar configuração segura de `UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`; depois repetir somente `unity-tests.yml`.
+J28 ï¿½ Fase 08: Diagnï¿½stico GameCI/licenciamento ï¿½ Bloqueado. Secrets Unity ausentes (`COUNT=0`), portanto testes/builds falham antes de evidenciar C#/packages. Aguardar configuraï¿½ï¿½o segura de `UNITY_LICENSE`, `UNITY_EMAIL` e `UNITY_PASSWORD`; depois repetir somente `unity-tests.yml`.
 
-J29 — Fase 10: correção de `buildsPath` e documentação Unity Personal — Parcial/Bloqueado. Workflows validados; ativação depende de secrets Personal externos.
+J29 ï¿½ Fase 10: correï¿½ï¿½o de `buildsPath` e documentaï¿½ï¿½o Unity Personal ï¿½ Parcial/Bloqueado. Workflows validados; ativaï¿½ï¿½o depende de secrets Personal externos.
 
-J30 — Fase 13: licença automática Personal GameCI — Bloqueado por incompatibilidade com o método solicitado. A configuração suportada continua exigindo `UNITY_LICENSE`.
+J30 ï¿½ Fase 13: licenï¿½a automï¿½tica Personal GameCI ï¿½ Bloqueado por incompatibilidade com o mï¿½todo solicitado. A configuraï¿½ï¿½o suportada continua exigindo `UNITY_LICENSE`.
 
-J31 — Fase 14: auditoria de `manual.alf` e workflows — Bloqueado. Falta converter `.alf` em `.ulf` e cadastrar secrets no GitHub.
+J31 ï¿½ Fase 14: auditoria de `manual.alf` e workflows ï¿½ Bloqueado. Falta converter `.alf` em `.ulf` e cadastrar secrets no GitHub.
 
-J32 — Verificar `Unity_lic.ulf` — Localmente concluído; GitHub bloqueado até cadastrar `UNITY_LICENSE`.
+J32 ï¿½ Verificar `Unity_lic.ulf` ï¿½ Localmente concluï¿½do; GitHub bloqueado atï¿½ cadastrar `UNITY_LICENSE`.
 
-J33 — Verificação dos Secrets após cadastro informado — Bloqueado. GitHub ainda retorna zero secrets no repositório `valdir-galvao/nexo`.
+J33 ï¿½ Verificaï¿½ï¿½o dos Secrets apï¿½s cadastro informado ï¿½ Bloqueado. GitHub ainda retorna zero secrets no repositï¿½rio `valdir-galvao/nexo`.
 
-J34 — Corrigir escopo de credenciais — Bloqueado até migrar Repository variables para Repository secrets e rotacionar valores expostos.
+J34 ï¿½ Corrigir escopo de credenciais ï¿½ Bloqueado atï¿½ migrar Repository variables para Repository secrets e rotacionar valores expostos.
 
-J35 — Confirmar Secrets Unity — Concluído. Três secrets presentes; remover variables duplicadas antes da execução GameCI.
+J35 ï¿½ Confirmar Secrets Unity ï¿½ Concluï¿½do. Trï¿½s secrets presentes; remover variables duplicadas antes da execuï¿½ï¿½o GameCI.
 
-J36 — Primeiro GameCI com Secrets — Falhou em EditMode/PlayMode; diagnóstico detalhado bloqueado por logs inacessíveis.
+J36 ï¿½ Primeiro GameCI com Secrets ï¿½ Falhou em EditMode/PlayMode; diagnï¿½stico detalhado bloqueado por logs inacessï¿½veis.
 
-J37 — Diagnóstico GameCI — concluído: falha era espaço insuficiente do runner Ubuntu; correção de limpeza adicionada aos jobs Ubuntu.
+J37 ï¿½ Diagnï¿½stico GameCI ï¿½ concluï¿½do: falha era espaï¿½o insuficiente do runner Ubuntu; correï¿½ï¿½o de limpeza adicionada aos jobs Ubuntu.
 
-J38 — Correção de assemblies Unity — concluído local/push; nova rodada GameCI em execução.
+J38 ï¿½ Correï¿½ï¿½o de assemblies Unity ï¿½ concluï¿½do local/push; nova rodada GameCI em execuï¿½ï¿½o.
 
-J39 — Fase ML quantitativa 10 — Bloqueada por ausência do pipeline/dados/harness no repositório Unity.
+J39 ï¿½ Fase ML quantitativa 10 ï¿½ Bloqueada por ausï¿½ncia do pipeline/dados/harness no repositï¿½rio Unity.
 
-- Fase 15 — runs 40661478289/40661478460/40661478368: FAIL. Bloqueio comum de compilação C# (BuildFailedException); licença PASS, espaço PASS. Retornar à correção de scripts antes de nova rodada.
-
-
-- Fase 16: correção CS0246 enviada em 3d9ab9a; Unity tests 40663615864 ainda IN_PROGRESS. Gate para Android/iOS permanece pendente.
+- Fase 15 ï¿½ runs 40661478289/40661478460/40661478368: FAIL. Bloqueio comum de compilaï¿½ï¿½o C# (BuildFailedException); licenï¿½a PASS, espaï¿½o PASS. Retornar ï¿½ correï¿½ï¿½o de scripts antes de nova rodada.
 
 
-- Fase 17: cena explícita corrigida em 74556d0; Unity tests 40665421997 IN_PROGRESS. Gate de builds pendente.
+- Fase 16: correï¿½ï¿½o CS0246 enviada em 3d9ab9a; Unity tests 40663615864 ainda IN_PROGRESS. Gate para Android/iOS permanece pendente.
 
 
-- Fase 18: Unity tests ainda IN_PROGRESS; iOS FAIL por iOS Version inválida; Android IN_PROGRESS. Gate não aprovado.
+- Fase 17: cena explï¿½cita corrigida em 74556d0; Unity tests 40665421997 IN_PROGRESS. Gate de builds pendente.
+
+
+- Fase 18: Unity tests ainda IN_PROGRESS; iOS FAIL por iOS Version invï¿½lida; Android IN_PROGRESS. Gate nï¿½o aprovado.
 
 
 - Fase 19: PlayerSettings iOS corrigido e enviado; Unity tests 40667016837 IN_PROGRESS. Gate pendente.
 
 
-- Fase 20: FAIL. Corrigir acesso/versão do GameCI CLI e ctiveInputHandler; K-005 ainda NOT_RUN; builds móveis sem artefatos aprovados.
+- Fase 20: FAIL. Corrigir acesso/versï¿½o do GameCI CLI e ctiveInputHandler; K-005 ainda NOT_RUN; builds mï¿½veis sem artefatos aprovados.
 
 - Fase 21: Input System headless ajustado (5f7adbb); Unity tests 40814474545 IN_PROGRESS. Gate pendente.
 
-- Fase 22: FAIL. Corrigir inclusão da cena no perfil/lista de build e resolver CLI 403 antes de novo gate; builds ainda sem artefatos.
+- Fase 22: FAIL. Corrigir inclusï¿½o da cena no perfil/lista de build e resolver CLI 403 antes de novo gate; builds ainda sem artefatos.
 
-- Fase 23: garantia programática da cena enviada em 3ecbbe0; Unity tests 40815968590 IN_PROGRESS.
+- Fase 23: garantia programï¿½tica da cena enviada em 3ecbbe0; Unity tests 40815968590 IN_PROGRESS.
 
-- Fase 24: FAIL. CLI 403 superado; EditMode 16/16 mas integração Checks falhou; PlayMode 0/1 por active build profile; K-005 pendente; APK não confirmado.
+- Fase 24: FAIL. CLI 403 superado; EditMode 16/16 mas integraï¿½ï¿½o Checks falhou; PlayMode 0/1 por active build profile; K-005 pendente; APK nï¿½o confirmado.
 
-- Fase 25: permissões e injeção de cena enviadas em 196920d; Unity tests 40817889017 IN_PROGRESS.
+- Fase 25: permissï¿½es e injeï¿½ï¿½o de cena enviadas em 196920d; Unity tests 40817889017 IN_PROGRESS.
 
-- Fase 26: FAIL. Resolver active build profile Unity 6 e criar teste/evidência K-005; Android/iOS sem artefatos aprovados.
+- Fase 26: FAIL. Resolver active build profile Unity 6 e criar teste/evidï¿½ncia K-005; Android/iOS sem artefatos aprovados.
 
 - Fase 27: Build Profile Unity 6 configurado em d838499; testes/builds IN_PROGRESS.
 
-- Fase 28: FAIL. BuildProfile não aplicado ao perfil efetivo do runner; K-005 pendente; Android/iOS sem artefatos.
+- Fase 28: FAIL. BuildProfile nï¿½o aplicado ao perfil efetivo do runner; K-005 pendente; Android/iOS sem artefatos.
 
-- Fase 29: configuração estática GameCI/Unity 6 enviada em 930945a; testes/builds IN_PROGRESS.
+- Fase 29: configuraï¿½ï¿½o estï¿½tica GameCI/Unity 6 enviada em 930945a; testes/builds IN_PROGRESS.
 
 - Fase 30: IN_PROGRESS; Unity tests e Android ativos, iOS FAIL. Gate pendente.
 
 - Fase 30: FAIL. Cena carregada mas bootstrap nulo no PlayMode; Android ainda ativo e iOS falhou; K-005 pendente.
 
-- Fase 31: FAIL/BLOCKED. Run falhou sem steps/logs após push; K-005 e builds não validados.
+- Fase 31: FAIL/BLOCKED. Run falhou sem steps/logs apï¿½s push; K-005 e builds nï¿½o validados.
 
 P75 ? 29/10/2026 ? Fase 32: removidos os tr?s steps `actions/cache@v4` que restauravam `Library` nos workflows `unity-tests.yml`, `unity-android.yml` e `unity-ios.yml`, eliminando chaves/restore-keys legadas associadas ao BlobNotFound. A vers?o declarada permanece `6000.3.0f1`. Parser YAML: PASS nos quatro workflows; `python tools/run_static_qa.py`: PASS (`json=5`, `cs=24`); `git diff --check`: PASS. Commit `7e5f4d4` enviado para `orchestrator/phase-a-baseline`. O push disparou runs `40824551082` (tests), `40824551010` (Android) e `40824550999` (iOS), todos encerrados FAIL em ~3?4 s, sem steps executados; logs de job retornam HTTP 404/BlobNotFound ou n?o est?o dispon?veis. N?o h? evid?ncia de Unity, NUnit, K-005, APK ou Xcode. Gate: BLOCKED/FAIL por falha de inicializa??o do runner/logs; repetir ap?s diagnosticar a infraestrutura Actions.
 
@@ -167,15 +167,15 @@ J32 - Fase 37 encerrada: cache executado; APK gerado no workspace do runner mas 
 
 J33 - Fase 38: correcoes de marcador GameCI, Code Coverage headless, cache e upload; validacao local PASS; aguardar push/build controlado.
 
-J34 - Fase 38b: corrigir argumento coverageEnabled incompatível e aguardar rodada publica.
+J34 - Fase 38b: corrigir argumento coverageEnabled incompatï¿½vel e aguardar rodada publica.
 
 J35 - Fase 38c: corrigir exportacao iOS append-only e repetir build.
 
 J36 - Fase 38 concluida tecnicamente: Unity tests, Android APK e iOS Xcode PASS; QA fisico pendente.
 
-J37 - Configuração de empacotamento IPA sem assinatura no runner macOS concluída localmente; aguarda execução remota e download.
+J37 - Configuraï¿½ï¿½o de empacotamento IPA sem assinatura no runner macOS concluï¿½da localmente; aguarda execuï¿½ï¿½o remota e download.
 
-J38 - IPA iOS sem assinatura gerado no runner macOS e baixado localmente; gate técnico de empacotamento PASS, instalação física pendente.
+J38 - IPA iOS sem assinatura gerado no runner macOS e baixado localmente; gate tï¿½cnico de empacotamento PASS, instalaï¿½ï¿½o fï¿½sica pendente.
 
 J39 - Correcao de shaders URP e escala de UI aplicada localmente; aguarda validacao Unity/GameCI e teste em dispositivo.
 
@@ -312,3 +312,6 @@ P137 | Fase 61 | diagnostico parcial confirmado | runs 41174760334/41174760342/4
 P138 | Fase 61 | parcial | commit e676e59 | cleanup passou; testes PASS; iOS IPA capturado; Android build pendente/cancelado por travamento | sem APK novo | investigar hang do builder Android ou usar runner com mais recursos
 
 P139 | Fase 61 | Android ainda bloqueado | GameCI Unity/IL2CPP | cleanup PASS; iOS e testes PASS; Android sem heartbeat/artefato | APK nao gerado | usar runner com mais recursos ou diagnostico de build Unity com timeout/log persistente
+
+
+P140 (31/10/2026): Android/iOS GameCI bloqueados por execu??o sem progresso; sem artefatos. EditMode passou, PlayMode falhou. Reposit?rio privado restaurado.
