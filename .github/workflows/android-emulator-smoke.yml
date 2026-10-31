@@ -1,0 +1,68 @@
+name: Android emulator smoke test
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Unity Android workflow run ID whose artifact should be tested
+        required: true
+        type: string
+  workflow_run:
+    workflows: [Unity Android build]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  smoke:
+    name: Install and launch NEXO on Android emulator
+    if: >-
+      (github.event_name == 'workflow_dispatch') ||
+      (github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Download APK artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.run_id || github.event.workflow_run.id }}
+          pattern: nexo-android-*
+          merge-multiple: true
+          path: .
+
+      - name: Locate APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          find . -type f -name 'Nexo.apk' -print
+          test -n "$(find . -type f -name 'Nexo.apk' -print -quit)"
+
+      - name: Enable KVM
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Run emulator smoke test
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          script: bash tools/android_smoke_test.sh
+
+      - name: Upload Android runtime diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-emulator-diagnostics-${{ github.run_id }}
+          path: diagnostics/android
+          if-no-files-found: warn
