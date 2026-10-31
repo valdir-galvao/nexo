@@ -435,3 +435,5 @@ P132 - 31/10/2026 America/Sao_Paulo - Fase 59 visual corrigiu Canvas overlay/sor
 P133 | 2026-10-31 America/Sao_Paulo | Fase 60 | orchestrator/phase-a-baseline | auditoria pre-build de arquitetura, cena e Safe Area | Static QA PASS (json=5, cs=25); git diff --check PASS | Unity/GameCI NOT_RUN; sem build | validar Safe Area em runtime controlado
 
 P134 | 2026-10-31 America/Sao_Paulo | Fase 61 | orchestrator/phase-a-baseline | preflight e preparacao de release end-to-end | Static QA PASS; diff check PASS; relatorio criado | builds remotos PENDING | commitar, abrir visibilidade temporaria, executar workflows e restaurar privado
+
+P135 | 2026-10-31 America/Sao_Paulo | Fase 61 | 9233d4a | ciclo remoto executado | runs Android/tests/iOS falharam antes dos steps; logs vazios; repositorio private novamente | nenhum APK/IPA | revisar capacidade/quota de runners e repetir somente com evidencia de disponibilidade

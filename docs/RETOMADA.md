@@ -293,3 +293,5 @@ P132 - 31/10/2026 America/Sao_Paulo - Fase 59 visual corrigiu Canvas overlay/sor
 Atualizacao P133 (31/10/2026): Fase 60 concluida localmente. Configuracoes Android confirmadas por linhas exatas (IL2CPP, ARMv7+ARM64, API 29/35), cena principal habilitada no indice 0, orientacao paisagem e Canvas Safe Area aplicado ao bootstrap. Static QA PASS e diff check PASS. Nenhum build foi disparado; a validacao Unity/GameCI da nova margem segura e a proxima acao.
 
 Atualizacao P134 (31/10/2026): Fase 61 preflight PASS. Relatorio final criado, validadores locais passaram e o ciclo de build remoto ainda precisa ser executado; apos os downloads, restaurar PRIVATE e registrar hashes.
+
+Atualizacao P135 (31/10/2026): o ciclo remoto da Fase 61 foi disparado e falhou antes da inicializacao dos steps nos tres workflows. Nao ha evidencia de falha Unity/C#; o bloqueio e de provisionamento/capacidade do runner. Repositorio restaurado privado e nenhum artefato novo foi declarado.

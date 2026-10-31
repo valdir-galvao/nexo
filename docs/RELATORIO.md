@@ -265,3 +265,7 @@ A auditoria local confirmou ARM64/IL2CPP, APIs Android 29/35, cena principal no 
 ## Fase 61 - release end-to-end
 
 Preflight local aprovado. Game Juice, progressao, UI/raycasting e Safe Area estao consolidados. Builds Android/iOS desta fase ainda dependem da execucao remota e de artefatos verificaveis vinculados ao commit.
+
+## Fase 61 - resultado remoto
+
+Runs 41174760334 (Android), 41174760342 (tests) e 41174760333 (iOS) falharam sem steps e sem logs uteis, antes do Unity/GameCI. O estado global e `BLOQUEADO POR DEPENDENCIA EXTERNA`; a visibilidade voltou para privado e nao foram gerados novos pacotes.

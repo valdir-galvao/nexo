@@ -23,3 +23,15 @@ Esta fase autoriza ciclo controlado de visibilidade: publico somente durante a e
 ## Gate
 
 Nenhum pacote e considerado gerado antes de existir um artefato local, hash e run vinculado ao commit desta fase.
+
+## Resultado da execucao remota
+
+O push do commit `9233d4a4f748ba1f29f745aa0eca8b7b3e4dc8d3` disparou:
+
+- Unity Android: run `41174760334`, `failure`.
+- Unity tests: run `41174760342`, `failure` nos jobs EditMode e PlayMode.
+- Unity iOS: run `41174760333`, `failure`.
+
+Os jobs falharam antes de apresentar steps executados (`jobs` sem steps e logs retornados vazios, ZIP de 22 bytes). Isso caracteriza bloqueio de provisionamento/capacidade do runner antes do Unity/GameCI, e nao falha comprovada de codigo ou licenciamento. Nenhum APK, IPA ou projeto Xcode foi gerado nesta rodada. A visibilidade foi restaurada para `private=true`, `disabled=false` imediatamente apos a verificacao.
+
+Estado da release desta fase: `BLOQUEADO POR DEPENDENCIA EXTERNA` (runner). Os artefatos anteriores permanecem validos somente para seus commits de origem; nao representam o commit `9233d4a`.

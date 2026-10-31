@@ -302,3 +302,5 @@ P132 - 31/10/2026 America/Sao_Paulo - Fase 59 visual corrigiu Canvas overlay/sor
 P133 | Fase 60 | concluido localmente | Unity/GameCI para validacao visual posterior | ARM64+IL2CPP, APIs 29/35, cena indice 0 e Safe Area auditados; Static QA e diff check PASS | sem build nesta fase; nova Safe Area ainda sem teste runtime | importar/testar no Unity/GameCI em janela controlada
 
 P134 | Fase 61 | preflight concluido | GameCI Android/iOS | Static QA e diff check PASS; release report criado | builds ainda nao executados | commitar e disparar ciclo controlado publico/build/privado
+
+P135 | Fase 61 | bloqueado por dependencia externa | runs 41174760334/41174760342/41174760333 | jobs sem steps e logs vazios; visibilidade restaurada private | nenhum artefato novo | revisar quota/capacidade GitHub Actions antes de repetir
