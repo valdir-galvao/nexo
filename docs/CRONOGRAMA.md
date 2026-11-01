@@ -383,3 +383,7 @@ P179 | Gate Unity + Android | PARTIAL | Unity Tests 41293713412 PASS; Android 41
 P180 | Diagnostico Android GameCI | PASS parcial | causa de encerramento por timeout confirmada; timeout ajustado 45->60 min; causa interna do atraso nao comprovada | static/diff PASS; novo build ainda nao executado | disparar novo Android somente apos revisao/autorizacao |
 
 P181 | Validacao da correcao de timeout | IN_PROGRESS | Android run 41299986311 em Build Android package; sem artefato ainda | aguardar encerramento real |
+
+P182 (2026-11-01): diagnostico Android visual parcial; aguardar encerramento do run 41299986311 antes de validar screenshot/interacao do APK corrigido.
+
+P183 (2026-11-01): correção do diagnóstico AVD aplicada no smoke test; aguardando APK novo após encerramento do run Android atual.

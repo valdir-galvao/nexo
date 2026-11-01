@@ -395,3 +395,7 @@ P179 (01/11/2026): Unity Tests 41293713412 passou EditMode/PlayMode. Android 412
 P180 (01/11/2026): comparacao historica confirmou que Unity/arquitetura/build method nao regrediram. Run 41294473685 ficou preso no GameCI Build Android package e terminou sem logs/artefatos; o limite de 45 min foi a causa operacional confirmada. Timeout ajustado para 60 min em unity-android.yml. Nao declarar APK ate novo run concluido.
 
 P181 (01/11/2026): timeout ajustado para 60 min e run 41299986311 iniciou com preparacao PASS. O empacotamento ainda esta in_progress apos aproximadamente 30 min; APK nao existe. Retomar consultando esse run antes de novo disparo.
+
+Atualizacao P182: evidencias do AVD historico distinguem overlay de tela cheia do Android, geometria verde intencional e quadrados magenta do ParticleSystem antigo. O run 41299986311 ainda esta preso no empacotamento Android; nao ha APK novo nem AVD nesta rodada. Proxima acao: aguardar conclusao; se sucesso, baixar APK e diagnosticos; se timeout, classificar hang persistente.
+
+Atualização P183: smoke test agora confirma immersive_mode_confirmations no AVD e aguarda 20s antes da screenshot. Correção local validada; run 41299986311 ainda in_progress no Build Android package.

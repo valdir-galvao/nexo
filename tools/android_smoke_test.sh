@@ -21,10 +21,16 @@ if [ "${install_rc}" -ne 0 ]; then
   exit "${install_rc}"
 fi
 
+# The first fullscreen launch on an AVD can display Android's one-time
+# immersive-mode education overlay over the application. Confirm that system
+# prompt before launching so screenshots and interaction evidence represent
+# the app rather than the emulator's instructional UI. This is emulator-only
+# state and does not change the application or device production settings.
+adb shell settings put secure immersive_mode_confirmations confirmed 2>/dev/null || true
 adb logcat -c
 adb shell monkey -p com.nexo.educational 1 2>&1 | tee diagnostics/android/launch.txt
 launch_rc=${PIPESTATUS[0]}
-sleep 15
+sleep 20
 adb shell dumpsys activity activities > diagnostics/android/activities.txt
 adb logcat -d -v threadtime > diagnostics/android/logcat.txt
 adb exec-out screencap -p > diagnostics/android/screenshot.png
