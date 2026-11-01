@@ -444,3 +444,6 @@ Após a causa comprovada de disco cheio, o job Android deixou de restaurar o cach
 
 ## P191 - timeout IL2CPP
 O segundo diagnóstico mostrou que remover o cache acelerador faz a compilação multi-arquitetura exceder 50 min antes do Gradle. O limite foi ampliado para 105 min, mantendo as arquiteturas do produto.
+
+## P192 - estratégia de ABI
+Para manter custo zero e caber no runner, o APK Android deixou de compilar ARM64+x86_64 na mesma execução. ARM64 é o artefato padrão para aparelhos; X86_64 é uma execução separada para AVD. O projeto mantém a configuração multi-ABI original; somente o build CI seleciona uma ABI por vez.

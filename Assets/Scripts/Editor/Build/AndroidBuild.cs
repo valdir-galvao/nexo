@@ -10,7 +10,13 @@ namespace Nexo.Editor.Build
     {
         public static void PerformBuild()
         {
-            PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64 | AndroidArchitecture.X86_64;
+            var architecture = Environment.GetEnvironmentVariable("NEXO_ANDROID_ARCH");
+            PlayerSettings.Android.targetArchitectures = architecture switch
+            {
+                "ARM64" => AndroidArchitecture.ARM64,
+                "X86_64" => AndroidArchitecture.X86_64,
+                _ => AndroidArchitecture.ARM64 | AndroidArchitecture.X86_64
+            };
             var output = Environment.GetEnvironmentVariable("BUILD_PATH");
             if (string.IsNullOrWhiteSpace(output)) output = Path.Combine("build", "Android", "Nexo.apk");
             // GameCI may pass buildsPath-derived directories (for example

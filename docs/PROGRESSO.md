@@ -1128,3 +1128,5 @@ P189 - 2026-11-01 America/Sao_Paulo - O watchdog foi endurecido para registrar a
 P190 - 2026-11-01 America/Sao_Paulo - Auditoria pós-perícia: removida a restauração do cache Unity do job Android, mantida invalidação de Gradle/Unity e adicionada verificação de headroom antes do GameCI (15 GB). Static QA/YAML/diff PASS; aguardando execução remota.
 
 P191 - 2026-11-01 America/Sao_Paulo - Run 41310034229 confirmou que o limite de 50 min também encerrou a compilação IL2CPP (804/1565 objetos), com disco em 93%; não houve Gradle nem APK. Mantidas arquiteturas ARM64+x86_64; timeout do passo elevado para 105 min e job para 120 min. Static QA/YAML/diff PASS.
+
+P192 - 2026-11-01 America/Sao_Paulo - Run 41314445541 terminou sem artefatos/logs finais, com o step GameCI ainda in_progress no relatório do job; runner/volume foi perdido antes da coleta. Correção estrutural aplicada: AndroidBuild aceita NEXO_ANDROID_ARCH e o workflow separa ARM64 (aparelhos) de X86_64 (AVD), reduzindo IL2CPP e espaço por execução. Metadata agora registra a ABI real; smoke AVD roda somente em X86_64. Static QA/YAML/diff PASS.
