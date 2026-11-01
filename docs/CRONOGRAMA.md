@@ -395,3 +395,5 @@ P185 (2026-11-01): comparacao historica descarta diferenca de projeto; hang segu
 P186 (2026-11-01): watchdog do build Android preparado; proxima acao e push e monitoramento do run pericial.
 
 P187 (2026-11-01): erro do debug corrigido; causa era arvore Git suja criada pelo proprio watchdog antes do GameCI.
+
+P188 - Run 41305244451: FAIL no Gradle assembleRelease após Unity/IL2CPP concluírem. Watchdog comprovou disco do runner em 100% (505 MB livres). APK não gerado; AVD não executado. Próximo gate: corrigir espaço/cache e repetir o build.
