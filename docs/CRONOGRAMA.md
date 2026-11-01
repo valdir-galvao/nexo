@@ -381,3 +381,5 @@ P178 | GitHub API reauthenticated | IN_PROGRESS | gh auth status/api user/repo v
 P179 | Gate Unity + Android | PARTIAL | Unity Tests 41293713412 PASS; Android 41294473685 FAIL por timeout em Build Android package; sem APK | sem log final e sem artefato | revisar causa do hang e reduzir/reproduzir o build antes de repetir |
 
 P180 | Diagnostico Android GameCI | PASS parcial | causa de encerramento por timeout confirmada; timeout ajustado 45->60 min; causa interna do atraso nao comprovada | static/diff PASS; novo build ainda nao executado | disparar novo Android somente apos revisao/autorizacao |
+
+P181 | Validacao da correcao de timeout | IN_PROGRESS | Android run 41299986311 em Build Android package; sem artefato ainda | aguardar encerramento real |

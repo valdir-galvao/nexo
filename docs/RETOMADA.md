@@ -393,3 +393,5 @@ P178 (01/11/2026): GitHub CLI authentication is operational (account valdir-galv
 P179 (01/11/2026): Unity Tests 41293713412 passou EditMode/PlayMode. Android 41294473685 falhou por timeout/hang no Build Android package; preparação/caches passaram, não houve APK, metadata ou log final, e AVD foi skipped. Não iniciar novo Android sem diagnóstico do hang. Repositório permanece privado.
 
 P180 (01/11/2026): comparacao historica confirmou que Unity/arquitetura/build method nao regrediram. Run 41294473685 ficou preso no GameCI Build Android package e terminou sem logs/artefatos; o limite de 45 min foi a causa operacional confirmada. Timeout ajustado para 60 min em unity-android.yml. Nao declarar APK ate novo run concluido.
+
+P181 (01/11/2026): timeout ajustado para 60 min e run 41299986311 iniciou com preparacao PASS. O empacotamento ainda esta in_progress apos aproximadamente 30 min; APK nao existe. Retomar consultando esse run antes de novo disparo.

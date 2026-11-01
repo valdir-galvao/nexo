@@ -428,3 +428,6 @@ Autenticacao GitHub operacional. Unity Tests 41293713412: PASS em EditMode e Pla
 
 ## P180 - Diagnostico e correcao do timeout Android
 O hang ocorreu no container GameCI durante Build Android package; o job expirou sem logs finais. Unity Tests passou no mesmo codigo e o build historico 41211856635 passou com as mesmas configuracoes. Aumentado o limite do job Android de 45 para 60 minutos como correcao de infraestrutura; a causa interna do atraso segue nao comprovada. Novo build ainda nao executado.
+
+## P181 - Validacao do timeout ampliado
+O run Android 41299986311 foi disparado com timeout de 60 minutos. Preparacao passou; Build Android package continua em execucao apos cerca de 30 minutos. Nenhum APK deve ser considerado existente ate o encerramento.
