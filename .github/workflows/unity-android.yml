@@ -73,14 +73,15 @@ jobs:
           mkdir -p "$HOME/.gradle"
           df -h /
 
-      - name: Cache Unity Android project
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cache/Unity
-          key: android-cache-v2-${{ runner.os }}-${{ env.UNITY_VERSION }}-${{ hashFiles('Packages/packages-lock.json', 'ProjectSettings/ProjectVersion.txt', '.github/workflows/unity-android.yml') }}
-          restore-keys: |
-            android-cache-v2-${{ runner.os }}-${{ env.UNITY_VERSION }}-
+      - name: Verify build headroom
+        shell: bash
+        run: |
+          set -euo pipefail
+          available_kb="$(df --output=avail / | tail -n 1 | tr -d ' ')"
+          echo "Available disk before GameCI: ${available_kb} KB"
+          # The Unity 6 IL2CPP + Gradle temporary tree can grow substantially.
+          # Fail before consuming the full job when the runner is already critically full.
+          test "${available_kb}" -ge 15000000
 
       - name: Start Android build watchdog
         shell: bash

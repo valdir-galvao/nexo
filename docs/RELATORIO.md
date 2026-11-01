@@ -438,3 +438,6 @@ O run `41305244451` confirmou que a correção do watchdog resolveu o erro de bran
 
 ## Segurança do watchdog
 Após a perícia do run 41305244451, o watchdog foi ajustado para não registrar argumentos de processos. Isso evita que futuras capturas de diagnóstico incluam credenciais passadas ao container.
+
+## Preparação P190
+Após a causa comprovada de disco cheio, o job Android deixou de restaurar o cache Unity de projeto e ganhou gate de espaço antes do GameCI. A alteração é de infraestrutura e aguarda validação remota.

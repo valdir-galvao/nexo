@@ -399,3 +399,5 @@ P187 (2026-11-01): erro do debug corrigido; causa era arvore Git suja criada pel
 P188 - Run 41305244451: FAIL no Gradle assembleRelease após Unity/IL2CPP concluírem. Watchdog comprovou disco do runner em 100% (505 MB livres). APK não gerado; AVD não executado. Próximo gate: corrigir espaço/cache e repetir o build.
 
 P189 - Watchdog Android ajustado para não capturar argumentos de processo; pronto para próxima execução após limpeza de espaço.
+
+P190 - Workflow Android preparado para build controlado sem cache Unity restaurado e com gate de espaço antes do GameCI. Próximo: push, dispatch e monitoramento.
