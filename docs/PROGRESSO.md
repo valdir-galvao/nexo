@@ -1114,3 +1114,5 @@ P182 - Diagnostico visual por AVD: evidencia historica confirmou que o app abre 
 P183 - Corrigido o smoke test AVD para confirmar o overlay de modo imersivo antes da captura e aguardar 20s. Bash syntax PASS; Static QA PASS json=5 cs=26; git diff --check PASS. O run 41299986311 ainda está preso no Build Android package, logo o APK novo e a validação visual permanecem pendentes.
 
 P184 - Pericia do APK: run 41299986311 falhou por timeout/hang no passo Build Android package entre 11:02 e 11:55 UTC; logs e artefatos inexistentes, AVD skipped. Nenhuma falha do app foi executada nesta rodada. Relatorio: docs/PHASE_91_ANDROID_BUILD_FORENSICS.md.
+
+P185 - Pericia diferencial: run 41211856635 aprovado usou os mesmos Unity/GameCI/IL2CPP/arquitetura e concluiu em ~20 min; runs 41297554044, 41299957549 e 41299986311 ficaram presos no passo Build Android package, sem Build succeeded, logs ou artefatos. Causa atribuivel ao estado/recursos do runner GameCI; nao ha diferenca de codigo/configuracao que prove defeito do app. Run 41302431361 ainda em andamento. Relatorio: docs/PHASE_92_ANDROID_BUILD_DIFFERENTIAL.md.
