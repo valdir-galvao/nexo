@@ -425,3 +425,6 @@ A CLI autenticada foi confirmada sem expor tokens. O repositorio permanece priva
 
 ## Resultado operacional P179
 Autenticacao GitHub operacional. Unity Tests 41293713412: PASS em EditMode e PlayMode. Android 41294473685: FAIL por timeout/hang em Build Android package; nenhum artefato foi publicado e o AVD não executou. O estado global permanece VALIDACAO INCOMPLETA.
+
+## P180 - Diagnostico e correcao do timeout Android
+O hang ocorreu no container GameCI durante Build Android package; o job expirou sem logs finais. Unity Tests passou no mesmo codigo e o build historico 41211856635 passou com as mesmas configuracoes. Aumentado o limite do job Android de 45 para 60 minutos como correcao de infraestrutura; a causa interna do atraso segue nao comprovada. Novo build ainda nao executado.

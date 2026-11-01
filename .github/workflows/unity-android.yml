@@ -16,9 +16,10 @@ jobs:
   android:
     name: Build Android APK
     runs-on: ubuntu-latest
-    # IL2CPP Android builds can exceed 30 minutes on GitHub-hosted runners.
-    # Keep a hard upper bound while allowing the build step to finish cleanly.
-    timeout-minutes: 45
+    # A cold GameCI Unity 6 + IL2CPP image can take longer than 30 minutes
+    # while the Android toolchain and both native architectures are prepared.
+    # Keep a bounded upper limit without terminating a valid cold build early.
+    timeout-minutes: 60
     steps:
       - name: Free Disk Space (Lightweight Shell)
         shell: bash

@@ -379,3 +379,5 @@ P177 | Login GitHub | PENDING | `gh auth login --web` aguardando confirmação n
 P178 | GitHub API reauthenticated | IN_PROGRESS | gh auth status/api user/repo view PASS; Unity Tests 41293713412 running | wait and inspect EditMode/PlayMode results before Android gate |
 
 P179 | Gate Unity + Android | PARTIAL | Unity Tests 41293713412 PASS; Android 41294473685 FAIL por timeout em Build Android package; sem APK | sem log final e sem artefato | revisar causa do hang e reduzir/reproduzir o build antes de repetir |
+
+P180 | Diagnostico Android GameCI | PASS parcial | causa de encerramento por timeout confirmada; timeout ajustado 45->60 min; causa interna do atraso nao comprovada | static/diff PASS; novo build ainda nao executado | disparar novo Android somente apos revisao/autorizacao |

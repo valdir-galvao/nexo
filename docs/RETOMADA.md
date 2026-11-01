@@ -391,3 +391,5 @@ AtualizaÃ§Ã£o P177 (01/11/2026): o login oficial `gh auth login --web` foi inici
 P178 (01/11/2026): GitHub CLI authentication is operational (account valdir-galvao, keyring; token values not exposed). Repository remains private with ADMIN access. Run 41293713412 was dispatched on commit 3315b64; EditMode and PlayMode are in progress. Do not dispatch Android until this gate completes. Historical latest: tests 41214944859 PASS, iOS 41214944802 PASS, Android 41214944817 CANCELLED during package build.
 
 P179 (01/11/2026): Unity Tests 41293713412 passou EditMode/PlayMode. Android 41294473685 falhou por timeout/hang no Build Android package; preparação/caches passaram, não houve APK, metadata ou log final, e AVD foi skipped. Não iniciar novo Android sem diagnóstico do hang. Repositório permanece privado.
+
+P180 (01/11/2026): comparacao historica confirmou que Unity/arquitetura/build method nao regrediram. Run 41294473685 ficou preso no GameCI Build Android package e terminou sem logs/artefatos; o limite de 45 min foi a causa operacional confirmada. Timeout ajustado para 60 min em unity-android.yml. Nao declarar APK ate novo run concluido.
