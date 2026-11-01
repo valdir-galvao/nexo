@@ -339,3 +339,5 @@ P157 | Fase 76 | BLOCKED por ferramenta exata ausente | Unity 6000.3.0f1/Package
 | P158 | Fase 77 | BLOCKED por ambiente | Unity 6000.3.0f1 ausente; CLI dry-run reconhece pacote, instalação não registrada | manifest=36, lock=2, TMP 3.0.6 ausente no lockfile; QA/diff PASS; sem builds | instalar exatamente 6000.3.0f1 em local com espaço, resolver Package Manager e executar EditMode/PlayMode |
 
 | P159 | Fase 78 | BLOCKED por armazenamento/local de instalação | P: é NFS e rejeita extração do Unity Installer; C: ~126 MB livres | instalador oficial íntegro, causa comprovada; sem alterações de código/build | disponibilizar SSD/local NTFS com espaço, instalar 6000.3.0f1, resolver Package Manager e testar |
+
+| P160 | Fase 79 | BLOCKED por infraestrutura cloud não configurada | workflows atuais Ubuntu/macOS; sem job/runner Windows validado; limite padrão de disco | YAML/QA/diff PASS; sem dispatch/build/testes Unity | provisionar Windows cloud/self-hosted com disco local suficiente, instalar 6000.3.0f1 + Android modules e executar gate de testes |
