@@ -32,3 +32,7 @@ Não altera código do jogo, arquitetura, licença ou visibilidade do repositór
 - `git diff --check`: PASS
 
 O próximo run deve ser usado como execução pericial. Se houver novo hang, o artefato de diagnóstico será a evidência principal para a correção seguinte.
+
+## Causa encontrada no run 41305021307
+
+O primeiro run instrumentado falhou em 4 segundos porque o watchdog gravou arquivos dentro de diagnostics/ antes do GameCI. O ersioningStrategy: Semantic classificou a árvore como suja e abortou: Branch is dirty. Refusing to base semantic version on uncommitted changes. A correção move o heartbeat para $RUNNER_TEMP e só copia o log após o GameCI terminar.

@@ -1118,3 +1118,5 @@ P184 - Pericia do APK: run 41299986311 falhou por timeout/hang no passo Build An
 P185 - Pericia diferencial: run 41211856635 aprovado usou os mesmos Unity/GameCI/IL2CPP/arquitetura e concluiu em ~20 min; runs 41297554044, 41299957549 e 41299986311 ficaram presos no passo Build Android package, sem Build succeeded, logs ou artefatos. Causa atribuivel ao estado/recursos do runner GameCI; nao ha diferenca de codigo/configuracao que prove defeito do app. Run 41302431361 ainda em andamento. Relatorio: docs/PHASE_92_ANDROID_BUILD_DIFFERENTIAL.md.
 
 P186 - Instrumentacao de hang Android adicionada: watchdog a cada 30s registra disco, memoria, Docker e processos Unity/Gradle/IL2CPP; passo GameCI limitado a 50 min dentro de job de 60 min para permitir coleta de logs. Static QA, YAML e diff PASS. Relatorio: docs/PHASE_93_ANDROID_HANG_DEBUG.md.
+
+P187 - Causa exata encontrada no run 41305021307: watchdog criou arquivos em diagnostics antes do GameCI; Semantic Versioning detectou branch suja e abortou em 4s. Corrigido movendo logs para RUNNER_TEMP e copiando somente apos o build. Static QA/YAML/diff PASS.

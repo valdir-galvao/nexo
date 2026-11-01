@@ -86,7 +86,9 @@ jobs:
         shell: bash
         run: |
           set -u
-          : > diagnostics/build-watchdog.log
+          watchdog_dir="$RUNNER_TEMP/nexo-android-watchdog"
+          mkdir -p "$watchdog_dir"
+          : > "$watchdog_dir/build-watchdog.log"
           (
             while true; do
               {
@@ -100,11 +102,11 @@ jobs:
                 docker stats --no-stream 2>/dev/null || true
                 echo '-- unity/gradle processes --'
                 ps -eo pid,ppid,stat,etime,%cpu,%mem,args --sort=-%cpu | grep -E 'unity|gradle|java|il2cpp|bee|game-ci|docker' | head -n 80 || true
-              } >> diagnostics/build-watchdog.log 2>&1
+              } >> "$watchdog_dir/build-watchdog.log" 2>&1
               sleep 30
             done
           ) &
-          echo $! > diagnostics/build-watchdog.pid
+          echo $! > "$watchdog_dir/build-watchdog.pid"
 
       - name: Build Android package
         timeout-minutes: 50
@@ -134,11 +136,14 @@ jobs:
         if: always()
         shell: bash
         run: |
-          if [ -f diagnostics/build-watchdog.pid ]; then
-            kill "$(cat diagnostics/build-watchdog.pid)" 2>/dev/null || true
+          watchdog_dir="$RUNNER_TEMP/nexo-android-watchdog"
+          if [ -f "$watchdog_dir/build-watchdog.pid" ]; then
+            kill "$(cat "$watchdog_dir/build-watchdog.pid")" 2>/dev/null || true
           fi
           echo '===== final watchdog snapshot ====='
-          tail -n 200 diagnostics/build-watchdog.log 2>/dev/null || true
+          tail -n 200 "$watchdog_dir/build-watchdog.log" 2>/dev/null || true
+          mkdir -p diagnostics
+          cp "$watchdog_dir/build-watchdog.log" diagnostics/build-watchdog.log 2>/dev/null || true
 
       - name: Capture Unity failure diagnostics
         if: failure()

@@ -393,3 +393,5 @@ P184 (2026-11-01): build Android remoto falhou por timeout sem logs/artifact; pr
 P185 (2026-11-01): comparacao historica descarta diferenca de projeto; hang segue ambiental/GameCI. Run 41302431361 pendente.
 
 P186 (2026-11-01): watchdog do build Android preparado; proxima acao e push e monitoramento do run pericial.
+
+P187 (2026-11-01): erro do debug corrigido; causa era arvore Git suja criada pelo proprio watchdog antes do GameCI.
