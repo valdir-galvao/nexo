@@ -399,3 +399,5 @@ P181 (01/11/2026): timeout ajustado para 60 min e run 41299986311 iniciou com pr
 Atualizacao P182: evidencias do AVD historico distinguem overlay de tela cheia do Android, geometria verde intencional e quadrados magenta do ParticleSystem antigo. O run 41299986311 ainda esta preso no empacotamento Android; nao ha APK novo nem AVD nesta rodada. Proxima acao: aguardar conclusao; se sucesso, baixar APK e diagnosticos; se timeout, classificar hang persistente.
 
 Atualização P183: smoke test agora confirma immersive_mode_confirmations no AVD e aguarda 20s antes da screenshot. Correção local validada; run 41299986311 ainda in_progress no Build Android package.
+
+Atualizacao P184: run 41299986311 encerrou FAIL apos 53 min no Build Android package; API confirmou log not found e nenhum artifact. AVD nao executou. O APK nao foi gerado.

@@ -1112,3 +1112,5 @@ P181 - 2026-11-01 08:35 America/Sao_Paulo - Novo Android run 41299986311 (commit
 P182 - Diagnostico visual por AVD: evidencia historica confirmou que o app abre e carrega NexoVerticalSlice; aviso de tela cheia e overlay do Android, geometria verde e intencional, quadrados magenta do APK antigo vieram do ParticleSystem sem material explicito e foram corrigidos em 54e67ec. Run Android 41299986311 segue preso em Build Android package, portanto a correção ainda nao foi validada em APK novo. Relatorio: docs/PHASE_90_ANDROID_RENDERING_FORENSICS.md.
 
 P183 - Corrigido o smoke test AVD para confirmar o overlay de modo imersivo antes da captura e aguardar 20s. Bash syntax PASS; Static QA PASS json=5 cs=26; git diff --check PASS. O run 41299986311 ainda está preso no Build Android package, logo o APK novo e a validação visual permanecem pendentes.
+
+P184 - Pericia do APK: run 41299986311 falhou por timeout/hang no passo Build Android package entre 11:02 e 11:55 UTC; logs e artefatos inexistentes, AVD skipped. Nenhuma falha do app foi executada nesta rodada. Relatorio: docs/PHASE_91_ANDROID_BUILD_FORENSICS.md.

@@ -387,3 +387,5 @@ P181 | Validacao da correcao de timeout | IN_PROGRESS | Android run 41299986311 
 P182 (2026-11-01): diagnostico Android visual parcial; aguardar encerramento do run 41299986311 antes de validar screenshot/interacao do APK corrigido.
 
 P183 (2026-11-01): correção do diagnóstico AVD aplicada no smoke test; aguardando APK novo após encerramento do run Android atual.
+
+P184 (2026-11-01): build Android remoto falhou por timeout sem logs/artifact; proxima acao e execucao limpa observavel do GameCI.
