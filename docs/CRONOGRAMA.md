@@ -371,3 +371,5 @@ P173 | GitHub CLI | PARTIAL | CLI instalada; autenticação ainda ausente | `gh 
 P174 | Rechecagem GitHub | PARTIAL | Git read PASS; gh/API/browser auth FAIL | sem consulta Actions/Secrets/visibilidade | autenticação API própria necessária | docs/PHASE_87_GITHUB_ACCESS_DIAGNOSTIC.md
 
 P175 | Fase 88 | BLOCKED gate operacional | branch local 3c7c4cf; remote branch 54e67ec | gh/API não autenticada; adb/emulator/Unity ausentes; sem runs/APK | autenticar GitHub no ambiente e executar gate Unity antes do Android AVD | docs/PHASE_88_OPERATIONAL_RECOVERY.md
+
+P176 | Visibilidade pública | BLOCKED | `gh repo view/edit` exit 4 sem autenticação | repositório não alterado; teste não iniciado | autenticar CLI/API GitHub e repetir consulta antes de mudar visibilidade | docs/PHASE_88_OPERATIONAL_RECOVERY.md

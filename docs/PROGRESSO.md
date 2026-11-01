@@ -1096,3 +1096,5 @@ P173 - 2026-11-01 America/Sao_Paulo - Correção local de acesso: GitHub CLI 2.1
 P174 - 2026-11-01 America/Sao_Paulo - Rechecagem após instalar gh: `gh auth status` e `gh api user` falharam sem login; `git ls-remote` passou usando Git Credential Manager; `cmdkey` confirmou alvo GitHub sem revelar valor; Orca browser continua Page not found sem sessão. Integração Orca identifica o projeto, mas não expõe API/Actions autenticada. Nenhuma mudança remota.
 
 P175 - 2026-11-01 America/Sao_Paulo - Fase 88 tentou execução operacional real. Gate falhou antes do workflow: `gh auth status`/`gh run list` recusaram por ausência de login; Git read via credential manager passou; adb/emulator e Unity 6000.3.0f1 não disponíveis. Nenhum dispatch, build, AVD ou alteração de visibilidade foi feito. Static QA/diff PASS. Relatório: docs/PHASE_88_OPERATIONAL_RECOVERY.md.
+
+P176 - 2026-11-01 America/Sao_Paulo - Tentativa autorizada de verificar/alterar visibilidade: `gh repo view` e `gh repo edit --visibility public` falharam com exit 4 porque a CLI não está autenticada. O repositório não foi colocado em público e nenhum teste foi disparado.
