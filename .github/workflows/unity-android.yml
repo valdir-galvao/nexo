@@ -82,7 +82,32 @@ jobs:
           restore-keys: |
             android-cache-v2-${{ runner.os }}-${{ env.UNITY_VERSION }}-
 
+      - name: Start Android build watchdog
+        shell: bash
+        run: |
+          set -u
+          : > diagnostics/build-watchdog.log
+          (
+            while true; do
+              {
+                echo "===== $(date -u +%Y-%m-%dT%H:%M:%SZ) ====="
+                echo '-- disk --'
+                df -h / /github/workspace 2>/dev/null || true
+                echo '-- memory --'
+                free -h 2>/dev/null || true
+                echo '-- docker --'
+                docker ps --no-trunc 2>/dev/null || true
+                docker stats --no-stream 2>/dev/null || true
+                echo '-- unity/gradle processes --'
+                ps -eo pid,ppid,stat,etime,%cpu,%mem,args --sort=-%cpu | grep -E 'unity|gradle|java|il2cpp|bee|game-ci|docker' | head -n 80 || true
+              } >> diagnostics/build-watchdog.log 2>&1
+              sleep 30
+            done
+          ) &
+          echo $! > diagnostics/build-watchdog.pid
+
       - name: Build Android package
+        timeout-minutes: 50
         uses: game-ci/unity-builder@v6
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -104,6 +129,16 @@ jobs:
           runAsHostUser: true
           customParameters: -batchmode -nographics -quit -single-instance -disable-assembly-reload -buildTarget Android -customBuildTarget Android -logFile /github/workspace/diagnostics/unity-editor.log
           buildsPath: build/Android
+
+      - name: Stop Android build watchdog
+        if: always()
+        shell: bash
+        run: |
+          if [ -f diagnostics/build-watchdog.pid ]; then
+            kill "$(cat diagnostics/build-watchdog.pid)" 2>/dev/null || true
+          fi
+          echo '===== final watchdog snapshot ====='
+          tail -n 200 diagnostics/build-watchdog.log 2>/dev/null || true
 
       - name: Capture Unity failure diagnostics
         if: failure()

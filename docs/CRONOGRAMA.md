@@ -391,3 +391,5 @@ P183 (2026-11-01): correção do diagnóstico AVD aplicada no smoke test; aguardand
 P184 (2026-11-01): build Android remoto falhou por timeout sem logs/artifact; proxima acao e execucao limpa observavel do GameCI.
 
 P185 (2026-11-01): comparacao historica descarta diferenca de projeto; hang segue ambiental/GameCI. Run 41302431361 pendente.
+
+P186 (2026-11-01): watchdog do build Android preparado; proxima acao e push e monitoramento do run pericial.

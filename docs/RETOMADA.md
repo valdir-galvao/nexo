@@ -403,3 +403,5 @@ Atualização P183: smoke test agora confirma immersive_mode_confirmations no AVD 
 Atualizacao P184: run 41299986311 encerrou FAIL apos 53 min no Build Android package; API confirmou log not found e nenhum artifact. AVD nao executou. O APK nao foi gerado.
 
 Atualizacao P185: pericia diferencial confirmou mesma configuracao no run PASS e nos timeouts; sem logs, a causa interna do runner nao e observavel. Run 41302431361 continua in_progress.
+
+Atualizacao P186: workflow Android agora coleta heartbeat de recursos/processos e limita Build Android a 50min para preservar diagnosticos antes do timeout global.
