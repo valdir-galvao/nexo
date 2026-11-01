@@ -337,3 +337,5 @@ P156 | Fase 75 | auditoria PASS, correÃ§Ã£o visual ainda nÃ£o comprovada | 54e67
 P157 | Fase 76 | BLOCKED por ferramenta exata ausente | Unity 6000.3.0f1/Package Manager | manifest=36, lock=2; 34 dependÃªncias ausentes confirmadas; sem ediÃ§Ã£o manual | nenhum build iniciado | instalar Unity 6000.3.0f1, resolver lockfile e executar QA antes do smoke Android
 
 | P158 | Fase 77 | BLOCKED por ambiente | Unity 6000.3.0f1 ausente; CLI dry-run reconhece pacote, instalação não registrada | manifest=36, lock=2, TMP 3.0.6 ausente no lockfile; QA/diff PASS; sem builds | instalar exatamente 6000.3.0f1 em local com espaço, resolver Package Manager e executar EditMode/PlayMode |
+
+| P159 | Fase 78 | BLOCKED por armazenamento/local de instalação | P: é NFS e rejeita extração do Unity Installer; C: ~126 MB livres | instalador oficial íntegro, causa comprovada; sem alterações de código/build | disponibilizar SSD/local NTFS com espaço, instalar 6000.3.0f1, resolver Package Manager e testar |
