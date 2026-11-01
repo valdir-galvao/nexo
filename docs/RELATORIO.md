@@ -411,3 +411,7 @@ O arquivo `.env.txt` é ignorado e usado apenas pelo executor de agentes. Embora
 ## Correção do acesso local
 
 A GitHub CLI 2.103.3 foi instalada em `C:\Program Files\GitHub CLI\gh.exe`, corrigindo a ausência da ferramenta. A sessão atual precisa ser reiniciada para atualizar o PATH. `gh auth status` ainda retorna que nenhum host está autenticado. O próximo passo é login GitHub autorizado; não usar a senha do `.env.txt`.
+
+## Rechecagem de autenticação GitHub
+
+A GitHub CLI está instalada, mas não autenticada. O Git Credential Manager possui uma entrada GitHub e permite leitura de refs remotas; isso não concede API/Actions. `cmdkey` confirmou apenas a existência do alvo, sem ler o segredo. O browser Orca continua sem sessão autenticada. Nenhum workflow ou visibilidade foi alterado.

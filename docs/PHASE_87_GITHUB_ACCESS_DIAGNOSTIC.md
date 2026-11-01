@@ -42,3 +42,16 @@ As fases 85 e 87 verificaram apenas ausência de `gh` e API anônima. Esta audit
 ## Resultado
 
 `ACCESS_DIAGNOSTIC: PARTIAL` — leitura Git remota comprovada; API/Actions/visibilidade não autorizadas ou não expostas. Nenhuma alteração remota foi feita.
+
+# Addendum — rechecagem após instalação do GitHub CLI
+
+Data: 2026-11-01
+
+- `gh auth status --hostname github.com`: FAIL — nenhum host autenticado.
+- `gh api user`: FAIL — não há token de API disponível.
+- `git ls-remote origin HEAD refs/heads/orchestrator/phase-a-baseline`: PASS, usando Git Credential Manager.
+- `cmdkey /list`: existe `LegacyGeneric:target=git:https://github.com`; apenas a existência do alvo foi verificada, sem leitura de senha.
+- Orca repo host: PASS para identificar `github:valdir-galvao/nexo`.
+- Orca browser: tab `https://github.com/valdir-galvao/nexo` com título `Page not found · GitHub · GitHub`; não há sessão web autenticada.
+
+Conclusão: existe credencial de transporte Git, mas não uma autenticação GitHub API/Actions. As Fases 85/87 não poderiam consultar runs, Secrets ou visibilidade por esse mecanismo. Nenhum workflow ou visibilidade foi alterado.

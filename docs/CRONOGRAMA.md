@@ -367,3 +367,5 @@ P171 | Credenciais locais | PASS diagnóstico / BLOCKED integração GitHub | `.
 P172 | Segurança de credenciais | NOT_RUN | não usar senha local como token GitHub | nenhuma API/Actions executada | autenticar por mecanismo GitHub próprio | docs/PHASE_87_ENV_CREDENTIAL_DIAGNOSIS.md
 
 P173 | GitHub CLI | PARTIAL | CLI instalada; autenticação ainda ausente | `gh auth status`: não logado; sem API/Actions | executar login GitHub autorizado em nova sessão, sem usar senha do `.env.txt` | docs/PHASE_87_ENV_CREDENTIAL_DIAGNOSIS.md
+
+P174 | Rechecagem GitHub | PARTIAL | Git read PASS; gh/API/browser auth FAIL | sem consulta Actions/Secrets/visibilidade | autenticação API própria necessária | docs/PHASE_87_GITHUB_ACCESS_DIAGNOSTIC.md

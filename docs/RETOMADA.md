@@ -379,3 +379,5 @@ Atualização P171 (01/11/2026): `.env.txt` não é uma fonte de autenticação 
 Atualização P172 (01/11/2026): não foi utilizado o valor `senha_githup`. Uma senha local não é token de API GitHub e não será enviada a serviços externos. Nenhuma credencial foi lida ou modificada.
 
 Atualização P173 (01/11/2026): GitHub CLI 2.103.3 foi instalada localmente com winget, mas `gh auth status` confirmou ausência de login. O problema de ferramenta foi corrigido; o problema de autorização permanece. Nenhum login ou segredo foi executado.
+
+Atualização P174 (01/11/2026): após instalar a CLI, a autenticação foi testada novamente. Git Credential Manager possui alvo GitHub e `git ls-remote` funciona. `gh auth status`, `gh api user` e browser Orca continuam sem autenticação. O Orca reconhece o projeto, mas não fornece automaticamente token de API/Actions.
