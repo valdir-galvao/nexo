@@ -399,3 +399,7 @@ O risco técnico confirmado é a resolução incompleta do Package Manager (mani
 ## Fase 87 - diagnóstico Android com AVD existente
 
 O AVD original está corretamente definido nos workflows: API 35, `google_apis`, x86_64, Pixel 6 e SwiftShader. O script `tools/android_smoke_test.sh` usa o package `com.nexo.educational`, instala o APK, inicia a Activity via `monkey`, coleta logcat, dumpsys, screenshot e runtime log. A execução real não foi possível porque `adb`, `emulator`, Unity 6000.3.0f1 e autenticação GitHub não estão disponíveis. Nenhuma visibilidade foi alterada e nenhum app foi gerado. Estado: BLOCKED por ambiente.
+
+## Diagnóstico adicional de acesso GitHub pelo Orca
+
+O Orca reconhece o projeto `github:valdir-galvao/nexo` e o Git credential manager permite `git ls-remote`. Isso é somente leitura do remote Git. A API GitHub anônima retorna 404, o browser integrado mostra Sign in e não há ferramenta GitHub/Actions exposta. Portanto não há autorização operacional verificável para consultar runs, Secrets, quota ou visibilidade. Nenhuma alteração remota foi realizada.

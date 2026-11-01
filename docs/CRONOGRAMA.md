@@ -359,3 +359,5 @@ P167 | Fase 85 | BLOCKED | commit d66353c | sem gh/API autenticada; runs atuais,
 P168 | Fase 86 | PARTIAL diagnóstico estático | commit d66353c | bootstrap e cena auditados; verde intencional; partículas corrigidas em 54e67ec; manifest=36/lock=2 | Unity/GameCI/AVD não executados; causa runtime definitiva pendente | resolver pacotes no Unity 6000.3.0f1 e executar PlayMode + AVD com `[NEXO_RENDER]` | docs/PHASE_86_APP_RUNTIME_DIAGNOSIS.md
 
 P169 | Fase 87 | BLOCKED | commit 2c5d956 | AVD workflow original auditado; sem adb/emulator/gh/Unity; sem visibilidade ou dispatch | nenhum APK, logcat ou screenshot | executar workflow Android autenticado e reutilizar AVD existente | docs/PHASE_87_ANDROID_EMULATOR_ROOT_CAUSE.md
+
+P170 | Acesso GitHub | PARTIAL | leitura Git via credential manager PASS; API/Actions/browser autenticado ausentes | sem mudança de visibilidade, secrets ou workflows | fornecer/ativar integração GitHub autenticada no Orca antes de dispatch | docs/PHASE_87_GITHUB_ACCESS_DIAGNOSTIC.md
