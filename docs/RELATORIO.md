@@ -339,3 +339,7 @@ A origem da geometria verde foi comprovada no bootstrap: `Island` usa cor verde 
 ## Fase 75 - auditoria forense dos erros reportados
 
 A auditoria não encontrou corrupção atual em `EditorBuildSettings.asset`, nem referências versionadas a `Soft.psd` ou `Default-Skybox.mat`. O aviso de TextMeshPro é plausível porque o manifesto declara o pacote, enquanto o lockfile contém apenas URP e Input System; a correção segura é regenerar o lockfile com Unity Package Manager, não editá-lo manualmente. A tela verde vem de `Island`/`GreenDoor` intencionais. Os quadrados magenta vêm provavelmente do material implícito do ParticleSystem de introdução, já corrigido com material Unlit explícito. O diagnóstico `[NEXO_RENDER]` está instalado, mas a validação Android foi cancelada antes do build; a falha visual permanece pendente de evidência runtime.
+
+## Fase 76 - dependências e validação Android
+
+A correção visual de `54e67ec` foi preservada. A resolução do lockfile não foi realizada porque o Editor exato Unity 6000.3.0f1 está ausente; somente 6000.6.7f1 está disponível. A comparação objetiva mostrou 36 dependências no manifesto e apenas 2 no lockfile. Não houve edição manual, build ou download. O diagnóstico permanece pendente de instalação da versão correta do Unity e de um smoke test Android que registre `[NEXO_RENDER]`.

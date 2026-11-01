@@ -333,3 +333,5 @@ P154 | Fase 73 | PASS técnico remoto | commit ce335a6 | Unity Tests 41211856704
 P155 | Fase 74 | correção visual aplicada | commit pendente | material explícito para partículas + auditoria `[NEXO_RENDER]`; Static QA/diff PASS | nova execução GameCI ainda não realizada | commitar, executar Unity Tests/Android smoke e confirmar `magentaObjects=0`
 
 P156 | Fase 75 | auditoria PASS, correção visual ainda não comprovada | 54e67ec | EditorBuildSettings íntegro; pacote TMP/lockfile inconsistente; SIGSEGV histórico; partículas corrigidas e auditoria `[NEXO_RENDER]` instalada | Android smoke cancelado antes do build | resolver lockfile no Unity e executar smoke sem gerar distribuição pública
+
+P157 | Fase 76 | BLOCKED por ferramenta exata ausente | Unity 6000.3.0f1/Package Manager | manifest=36, lock=2; 34 dependências ausentes confirmadas; sem edição manual | nenhum build iniciado | instalar Unity 6000.3.0f1, resolver lockfile e executar QA antes do smoke Android
