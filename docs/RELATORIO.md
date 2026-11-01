@@ -403,3 +403,7 @@ O AVD original está corretamente definido nos workflows: API 35, `google_apis`,
 ## Diagnóstico adicional de acesso GitHub pelo Orca
 
 O Orca reconhece o projeto `github:valdir-galvao/nexo` e o Git credential manager permite `git ls-remote`. Isso é somente leitura do remote Git. A API GitHub anônima retorna 404, o browser integrado mostra Sign in e não há ferramenta GitHub/Actions exposta. Portanto não há autorização operacional verificável para consultar runs, Secrets, quota ou visibilidade. Nenhuma alteração remota foi realizada.
+
+## Credenciais locais e GitHub
+
+O arquivo `.env.txt` é ignorado e usado apenas pelo executor de agentes. Embora contenha uma chave chamada `senha_githup`, `tools/agents.py` a ignora porque só aceita chaves definidas em `agents.json`. O Git usa Credential Manager separadamente, permitindo `git ls-remote`, mas isso não autoriza API GitHub, Actions, Secrets ou visibilidade. Nenhum segredo foi lido ou exposto.
