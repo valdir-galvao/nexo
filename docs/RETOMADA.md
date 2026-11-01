@@ -413,3 +413,5 @@ Atualização P188: Run 41305244451 corrigiu o erro de branch suja e alcançou o Gr
 Atualização P189: watchdog agora usa apenas PID/estado/CPU/memória/comando, sem argumentos, reduzindo risco de exposição de credenciais em artefatos. Commit 54b57b5; static QA/YAML/diff PASS.
 
 Atualização P190: workflow Android ajustado para evitar cache Unity volumoso e falhar cedo abaixo de 15 GB livres. Static QA/YAML/diff PASS. Próxima ação: push/dispatch do Android e validar APK real.
+
+Atualização P191: o run 41310034229 expirou durante IL2CPP, não Gradle, em 804/1565 objetos; disco 93%. Timeout ajustado para 105 min (job 120), preservando ARM64+x86_64. Próxima ação: push e aguardar o run automático; só baixar APK após SUCCESS.

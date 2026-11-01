@@ -401,3 +401,5 @@ P188 - Run 41305244451: FAIL no Gradle assembleRelease após Unity/IL2CPP concluí
 P189 - Watchdog Android ajustado para não capturar argumentos de processo; pronto para próxima execução após limpeza de espaço.
 
 P190 - Workflow Android preparado para build controlado sem cache Unity restaurado e com gate de espaço antes do GameCI. Próximo: push, dispatch e monitoramento.
+
+P191 - Timeout Android ampliado para permitir conclusão do IL2CPP multi-arquitetura; próximo run será monitorado até sucesso ou diagnóstico de espaço.

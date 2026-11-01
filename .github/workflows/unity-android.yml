@@ -19,7 +19,7 @@ jobs:
     # A cold GameCI Unity 6 + IL2CPP image can take longer than 30 minutes
     # while the Android toolchain and both native architectures are prepared.
     # Keep a bounded upper limit without terminating a valid cold build early.
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - name: Free Disk Space (Lightweight Shell)
         shell: bash
@@ -110,7 +110,7 @@ jobs:
           echo $! > "$watchdog_dir/build-watchdog.pid"
 
       - name: Build Android package
-        timeout-minutes: 50
+        timeout-minutes: 105
         uses: game-ci/unity-builder@v6
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}

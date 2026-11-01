@@ -1126,3 +1126,5 @@ P188 - 2026-11-01 America/Sao_Paulo - Run 41305244451 confirmou que o watchdog n
 P189 - 2026-11-01 America/Sao_Paulo - O watchdog foi endurecido para registrar apenas metadados de processo (sem argumentos), evitando que novas evidências de CI carreguem credenciais em linhas de comando. Static QA, YAML e diff check PASS. Commit: 54b57b5.
 
 P190 - 2026-11-01 America/Sao_Paulo - Auditoria pós-perícia: removida a restauração do cache Unity do job Android, mantida invalidação de Gradle/Unity e adicionada verificação de headroom antes do GameCI (15 GB). Static QA/YAML/diff PASS; aguardando execução remota.
+
+P191 - 2026-11-01 America/Sao_Paulo - Run 41310034229 confirmou que o limite de 50 min também encerrou a compilação IL2CPP (804/1565 objetos), com disco em 93%; não houve Gradle nem APK. Mantidas arquiteturas ARM64+x86_64; timeout do passo elevado para 105 min e job para 120 min. Static QA/YAML/diff PASS.
