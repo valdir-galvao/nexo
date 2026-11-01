@@ -407,3 +407,7 @@ O Orca reconhece o projeto `github:valdir-galvao/nexo` e o Git credential manage
 ## Credenciais locais e GitHub
 
 O arquivo `.env.txt` é ignorado e usado apenas pelo executor de agentes. Embora contenha uma chave chamada `senha_githup`, `tools/agents.py` a ignora porque só aceita chaves definidas em `agents.json`. O Git usa Credential Manager separadamente, permitindo `git ls-remote`, mas isso não autoriza API GitHub, Actions, Secrets ou visibilidade. Nenhum segredo foi lido ou exposto.
+
+## Correção do acesso local
+
+A GitHub CLI 2.103.3 foi instalada em `C:\Program Files\GitHub CLI\gh.exe`, corrigindo a ausência da ferramenta. A sessão atual precisa ser reiniciada para atualizar o PATH. `gh auth status` ainda retorna que nenhum host está autenticado. O próximo passo é login GitHub autorizado; não usar a senha do `.env.txt`.

@@ -377,3 +377,5 @@ Atualização P170 (01/11/2026): o Orca identifica o projeto GitHub e `git ls-re
 Atualização P171 (01/11/2026): `.env.txt` não é uma fonte de autenticação GitHub. O executor local filtra apenas chaves dos provedores de IA; a entrada `senha_githup` é ignorada. O Git credential manager autentica transporte Git, não a API/Actions. Nenhum segredo foi exposto ou usado; a integração GitHub precisa de autenticação própria.
 
 Atualização P172 (01/11/2026): não foi utilizado o valor `senha_githup`. Uma senha local não é token de API GitHub e não será enviada a serviços externos. Nenhuma credencial foi lida ou modificada.
+
+Atualização P173 (01/11/2026): GitHub CLI 2.103.3 foi instalada localmente com winget, mas `gh auth status` confirmou ausência de login. O problema de ferramenta foi corrigido; o problema de autorização permanece. Nenhum login ou segredo foi executado.
