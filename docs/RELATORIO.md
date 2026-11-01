@@ -422,3 +422,6 @@ A fase deixou de ser documental e tentou executar o pipeline real. O gate falhou
 
 ## Reautenticacao GitHub e gate atual
 A CLI autenticada foi confirmada sem expor tokens. O repositorio permanece privado. O run Unity Tests 41293713412 foi disparado na branch orchestrator/phase-a-baseline, commit 3315b64, com EditMode e PlayMode em execucao. O Android historico 41214944817 foi cancelado durante Build Android package; iOS 41214944802 concluiu com sucesso.
+
+## Resultado operacional P179
+Autenticacao GitHub operacional. Unity Tests 41293713412: PASS em EditMode e PlayMode. Android 41294473685: FAIL por timeout/hang em Build Android package; nenhum artefato foi publicado e o AVD não executou. O estado global permanece VALIDACAO INCOMPLETA.

@@ -377,3 +377,5 @@ P176 | Visibilidade pública | BLOCKED | `gh repo view/edit` exit 4 sem autentic
 P177 | Login GitHub | PENDING | `gh auth login --web` aguardando confirmação no navegador | sem API/Actions ainda | concluir autorização interativa e verificar `gh auth status` | docs/PHASE_87_GITHUB_ACCESS_DIAGNOSTIC.md
 
 P178 | GitHub API reauthenticated | IN_PROGRESS | gh auth status/api user/repo view PASS; Unity Tests 41293713412 running | wait and inspect EditMode/PlayMode results before Android gate |
+
+P179 | Gate Unity + Android | PARTIAL | Unity Tests 41293713412 PASS; Android 41294473685 FAIL por timeout em Build Android package; sem APK | sem log final e sem artefato | revisar causa do hang e reduzir/reproduzir o build antes de repetir |
