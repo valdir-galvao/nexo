@@ -435,3 +435,6 @@ O run Android 41299986311 foi disparado com timeout de 60 minutos. Preparacao pa
 ## Fase 94 - perícia do hang Gradle Android
 
 O run `41305244451` confirmou que a correção do watchdog resolveu o erro de branch suja e permitiu que Unity/IL2CPP chegassem ao `assembleRelease`. O bloqueio seguinte é de espaço: o runner registrou 100% do volume, com 505 MB livres, enquanto Gradle e o container ainda estavam ativos. O timeout encerrou o job; não houve APK e o AVD foi skipped. O estado global permanece `BLOCKED` por infraestrutura de empacotamento. Próxima ação: corrigir limpeza/invalidação de caches e repetir o build somente com espaço validado.
+
+## Segurança do watchdog
+Após a perícia do run 41305244451, o watchdog foi ajustado para não registrar argumentos de processos. Isso evita que futuras capturas de diagnóstico incluam credenciais passadas ao container.

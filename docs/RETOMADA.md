@@ -409,3 +409,5 @@ Atualizacao P186: workflow Android agora coleta heartbeat de recursos/processos 
 Atualizacao P187: run 41305021307 revelou erro exato Branch is dirty causado pelo log do watchdog em diagnostics. Logs agora ficam em RUNNER_TEMP; nova execucao deve testar a build real.
 
 Atualização P188: Run 41305244451 corrigiu o erro de branch suja e alcançou o Gradle assembleRelease, mas o runner ficou sem espaço: 72 GB usados, 505 MB livres, 100% do volume. Unity/IL2CPP chegaram ao Gradle; memória e CPU não indicaram bloqueio primário. O timeout de 50 min encerrou o job. Não há APK; BUILD_METADATA.txt não é prova de build; AVD foi skipped. Próxima ação: corrigir limpeza/invalidação de caches e executar novo build somente após validar espaço.
+
+Atualização P189: watchdog agora usa apenas PID/estado/CPU/memória/comando, sem argumentos, reduzindo risco de exposição de credenciais em artefatos. Commit 54b57b5; static QA/YAML/diff PASS.

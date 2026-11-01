@@ -1122,3 +1122,5 @@ P186 - Instrumentacao de hang Android adicionada: watchdog a cada 30s registra d
 P187 - Causa exata encontrada no run 41305021307: watchdog criou arquivos em diagnostics antes do GameCI; Semantic Versioning detectou branch suja e abortou em 4s. Corrigido movendo logs para RUNNER_TEMP e copiando somente apos o build. Static QA/YAML/diff PASS.
 
 P188 - 2026-11-01 America/Sao_Paulo - Run 41305244451 confirmou que o watchdog não suja mais a branch e que Unity/IL2CPP chegam ao Gradle assembleRelease. A causa do novo timeout foi comprovada: o runner atingiu 100% de uso do disco, com 505 MB livres, enquanto o container e Gradle ainda estavam ativos. APK ausente; BUILD_METADATA.txt é apenas metadado da etapa always(); AVD skipped. Relatório: docs/PHASE_94_ANDROID_GRADLE_HANG_FORENSICS.md. Próxima ação: limpeza/invalidação de caches e nova execução controlada; não declarar build ou teste Android PASS.
+
+P189 - 2026-11-01 America/Sao_Paulo - O watchdog foi endurecido para registrar apenas metadados de processo (sem argumentos), evitando que novas evidências de CI carreguem credenciais em linhas de comando. Static QA, YAML e diff check PASS. Commit: 54b57b5.
