@@ -385,3 +385,7 @@ Estado: auditoria documental PASS; execução Unity/Package Manager/novos builds
 A última sequência completa documentada com PASS foi no commit `ce335a6`: Unity Tests `41211856704`, Android `41211856635` com smoke AVD, e iOS `41211856610`; Unity `6000.3.0f1`. O pipeline usa GameCI em Ubuntu/macOS e `reactivecircus/android-emulator-runner` API 35/x86_64/SwiftShader. A comparação local `ce335a6..HEAD` encontrou apenas o probe isolado `github-free-capacity.yml`; não existe uma quebra posterior demonstrada nos workflows de produção.
 
 Os bloqueios atuais são ambientais: o Editor exato não está instalado localmente, a instalação em P: falha por NFS/Access denied, o lockfile tem 2 de 36 dependências e licença ULF/quotas não são verificáveis sem GitHub autenticado. Não houve alterações nem builds nesta fase. Próximo passo: executar o probe autenticado e confirmar licença/Editor exato antes de recuperar o gate Unity.
+
+## Fase 85 - recuperação operacional
+
+A recuperação remota ficou bloqueada: `gh` não existe no ambiente e a API anônima do repositório privado retornou HTTP 404. Não foi possível consultar execuções, quota ou Secrets, nem disparar o probe de capacidade. Os runs históricos PASS permanecem documentados, mas não foram revalidados. Nenhuma configuração foi alterada; o próximo passo é obter acesso autenticado e executar somente o probe antes do gate Unity.
