@@ -395,3 +395,7 @@ A recuperação remota ficou bloqueada: `gh` não existe no ambiente e a API an�
 A auditoria local confirmou que `NexoVerticalSlice.unity` é uma cena mínima: o bootstrap é injetado por `RuntimeInitializeOnLoadMethod`, e cria câmera, luz, Canvas, EventSystem, partículas e mundo. A geometria verde pertence ao cenário procedural e é intencional. O commit `54e67ec` corrigiu o material implícito do ParticleSystem, mas `magentaObjects=0` ainda não foi observado em novo runtime.
 
 O risco técnico confirmado é a resolução incompleta do Package Manager (manifest=36, lock=2). Sem Unity `6000.3.0f1`, EditMode/PlayMode, Android/AVD e iOS permanecem NOT_RUN. Estado: PARTIAL; não declarar o app corrigido definitivamente.
+
+## Fase 87 - diagnóstico Android com AVD existente
+
+O AVD original está corretamente definido nos workflows: API 35, `google_apis`, x86_64, Pixel 6 e SwiftShader. O script `tools/android_smoke_test.sh` usa o package `com.nexo.educational`, instala o APK, inicia a Activity via `monkey`, coleta logcat, dumpsys, screenshot e runtime log. A execução real não foi possível porque `adb`, `emulator`, Unity 6000.3.0f1 e autenticação GitHub não estão disponíveis. Nenhuma visibilidade foi alterada e nenhum app foi gerado. Estado: BLOCKED por ambiente.
