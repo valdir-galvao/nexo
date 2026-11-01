@@ -343,3 +343,7 @@ A auditoria n√£o encontrou corrup√ß√£o atual em `EditorBuildSettings.asset`, nem
 ## Fase 76 - depend√™ncias e valida√ß√£o Android
 
 A corre√ß√£o visual de `54e67ec` foi preservada. A resolu√ß√£o do lockfile n√£o foi realizada porque o Editor exato Unity 6000.3.0f1 est√° ausente; somente 6000.6.7f1 est√° dispon√≠vel. A compara√ß√£o objetiva mostrou 36 depend√™ncias no manifesto e apenas 2 no lockfile. N√£o houve edi√ß√£o manual, build ou download. O diagn√≥stico permanece pendente de instala√ß√£o da vers√£o correta do Unity e de um smoke test Android que registre `[NEXO_RENDER]`.
+
+## Fase 77 - estado do ambiente Unity
+
+A vers„o declarada permanece 6000.3.0f1. O Unity CLI instalado reconheceu essa vers„o em --dry-run e estimou 4.131.048.448 bytes, mas as tentativas reais de instalaÁ„o no caminho P:\Unity\Hub\Editor n„o registraram o Editor nem criaram uma ·rvore instal·vel. O Editor 6000.6.7f1 existente n„o foi usado como substituto. A comparaÁ„o por parser mostrou 36 dependÍncias no manifesto e apenas 2 no lockfile; com.unity.textmeshpro 3.0.6 est· declarado, mas n„o est· resolvido no lockfile. Sem o Editor exato, a resoluÁ„o Unity Package Manager e os testes EditMode/PlayMode permanecem bloqueados. Nenhum APK ou IPA foi gerado nesta fase.

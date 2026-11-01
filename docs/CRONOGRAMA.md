@@ -335,3 +335,5 @@ P155 | Fase 74 | correção visual aplicada | commit pendente | material explíc
 P156 | Fase 75 | auditoria PASS, correção visual ainda não comprovada | 54e67ec | EditorBuildSettings íntegro; pacote TMP/lockfile inconsistente; SIGSEGV histórico; partículas corrigidas e auditoria `[NEXO_RENDER]` instalada | Android smoke cancelado antes do build | resolver lockfile no Unity e executar smoke sem gerar distribuição pública
 
 P157 | Fase 76 | BLOCKED por ferramenta exata ausente | Unity 6000.3.0f1/Package Manager | manifest=36, lock=2; 34 dependências ausentes confirmadas; sem edição manual | nenhum build iniciado | instalar Unity 6000.3.0f1, resolver lockfile e executar QA antes do smoke Android
+
+| P158 | Fase 77 | BLOCKED por ambiente | Unity 6000.3.0f1 ausente; CLI dry-run reconhece pacote, instala��o n�o registrada | manifest=36, lock=2, TMP 3.0.6 ausente no lockfile; QA/diff PASS; sem builds | instalar exatamente 6000.3.0f1 em local com espa�o, resolver Package Manager e executar EditMode/PlayMode |
