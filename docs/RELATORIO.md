@@ -379,3 +379,9 @@ A auditoria somente leitura recuperou a arquitetura existente: Unity 6000.3.0f1,
 A causa raiz atual não é um único defeito de jogo. O Unity exato não está instalado localmente porque o InstallDriver falhou ao extrair em P: (NFS/Access denied); o lockfile tem 2 entradas para 36 dependências declaradas e só pode ser regenerado pelo Package Manager do Unity 6000.3.0f1; os workflows de teste/build não injetam `UNITY_LICENSE`, e a disponibilidade de imagem/tag GameCI exata e quota atuais não foi comprovada. O probe `github-free-capacity.yml` existe, mas não foi executado por falta de CLI/API GitHub autenticada.
 
 Estado: auditoria documental PASS; execução Unity/Package Manager/novos builds BLOCKED. Próxima ação: executar o probe autenticado, verificar ULF Personal sem expor segredo e confirmar o Editor exato antes de resolver dependências e rodar testes.
+
+## Fase 84 - recuperação do pipeline original
+
+A última sequência completa documentada com PASS foi no commit `ce335a6`: Unity Tests `41211856704`, Android `41211856635` com smoke AVD, e iOS `41211856610`; Unity `6000.3.0f1`. O pipeline usa GameCI em Ubuntu/macOS e `reactivecircus/android-emulator-runner` API 35/x86_64/SwiftShader. A comparação local `ce335a6..HEAD` encontrou apenas o probe isolado `github-free-capacity.yml`; não existe uma quebra posterior demonstrada nos workflows de produção.
+
+Os bloqueios atuais são ambientais: o Editor exato não está instalado localmente, a instalação em P: falha por NFS/Access denied, o lockfile tem 2 de 36 dependências e licença ULF/quotas não são verificáveis sem GitHub autenticado. Não houve alterações nem builds nesta fase. Próximo passo: executar o probe autenticado e confirmar licença/Editor exato antes de recuperar o gate Unity.
