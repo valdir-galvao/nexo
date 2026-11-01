@@ -409,3 +409,5 @@ P192 - Build Android dividido por ABI: ARM64 padrão para APK de dispositivo; X86
 P193 - Build Android de homologação ajustado para Mono2x+ARM64 para caber no runner gratuito; próxima execução deve validar APK e depois AVD x86_64 separado.
 
 P194 (2026-11-01): Run 41324298511 falhou por disco cheio do runner antes da coleta; limpeza pre-GameCI ampliada, aguardando novo run Android.
+
+P195 (2026-11-01): Run 41328802090 bloqueado antes do runner por falha de pagamento/limite de gastos; nenhuma compilacao Android executada.

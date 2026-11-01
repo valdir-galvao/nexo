@@ -421,3 +421,5 @@ Atualização P192: solução gratuita robusta implementada para evitar APK fat mult
 Atualização P193: run ARM64 IL2CPP 41319654621 terminou sem artefatos e com falha de gravação de logs do runner. Solução de homologação: NEXO_CI_FAST_BUILD=1 seleciona Mono2x+ARM64; IL2CPP não é alterado para release. Próxima ação: push e monitorar APK Android de teste.
 
 Atualizacao P194: o run 41324298511 confirmou No space left on device no log interno do runner apos ~51 min, mesmo com Mono2x+ARM64. Aumentada a limpeza de caches/toolchains host antes do GameCI; nao gerar APK PASS sem novo run.
+
+Atualizacao P195: GitHub recusou iniciar o run 41328802090 por ecent account payments have failed or your spending limit needs to be increased. Aguardar regularizacao em Billing & plans; nao repetir runs enquanto o bloqueio persistir.

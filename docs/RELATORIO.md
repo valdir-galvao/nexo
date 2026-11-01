@@ -453,3 +453,6 @@ O runner gratuito não sustentou a compilação IL2CPP mesmo em ARM64: a execução t
 
 ## P194 - exaustao do runner e limpeza ampliada
 Run 41324298511 executou Unity/Mono2x+ARM64, mas o runner Ubuntu terminou sem espaço ao gravar seu próprio log (No space left on device). Não houve APK nem AVD. A limpeza inicial foi ampliada para caches e toolchains host não usados pelo GameCI. Estado: BLOCKED por capacidade do runner gratuito.
+
+## P195 - bloqueio de billing antes do runner
+O run 41328802090 falhou em 4s sem executar steps: a conta GitHub reportou pagamentos recentes falhos ou limite de gastos insuficiente. Não houve build Android nem APK. Estado: BLOCKED por dependência externa de billing/quota.
