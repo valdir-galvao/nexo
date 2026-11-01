@@ -447,3 +447,6 @@ O segundo diagnóstico mostrou que remover o cache acelerador faz a compilação mu
 
 ## P192 - estratégia de ABI
 Para manter custo zero e caber no runner, o APK Android deixou de compilar ARM64+x86_64 na mesma execução. ARM64 é o artefato padrão para aparelhos; X86_64 é uma execução separada para AVD. O projeto mantém a configuração multi-ABI original; somente o build CI seleciona uma ABI por vez.
+
+## P193 - build Android de homologação
+O runner gratuito não sustentou a compilação IL2CPP mesmo em ARM64: a execução terminou sem artefatos e sem capacidade de gravar logs. A homologação passa a usar Mono2x+ARM64, explicitamente marcada como build rápida de teste; a configuração de release continua IL2CPP.

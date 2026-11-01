@@ -124,7 +124,8 @@ jobs:
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          NEXO_DEVELOPMENT_BUILD: "1"
+          NEXO_DEVELOPMENT_BUILD: "0"
+          NEXO_CI_FAST_BUILD: "1"
           NEXO_ANDROID_ARCH: ${{ env.NEXO_ANDROID_ARCH }}
           GRADLE_OPTS: >-
             -Dorg.gradle.jvmargs=-Xmx4096m
@@ -171,7 +172,7 @@ jobs:
         run: |
           sudo chown -R "$(id -u):$(id -g)" build diagnostics 2>/dev/null || true
           mkdir -p build/Android
-          printf 'platform=Android\nbuild_type=Release\ntarget_api=35\nmin_api=29\narchitecture=%s\nscripting_backend=IL2CPP\nunity=%s\ncommit=%s\nrun_id=%s\n' "${NEXO_ANDROID_ARCH}" "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/Android/BUILD_METADATA.txt
+          printf 'platform=Android\nbuild_type=Release\ntarget_api=35\nmin_api=29\narchitecture=%s\nscripting_backend=Mono2x\nci_fast_build=true\nunity=%s\ncommit=%s\nrun_id=%s\n' "${NEXO_ANDROID_ARCH}" "${UNITY_VERSION}" "${GITHUB_SHA}" "${GITHUB_RUN_ID}" > build/Android/BUILD_METADATA.txt
 
       - name: Upload Android artifact
         if: always()

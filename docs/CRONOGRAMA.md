@@ -405,3 +405,5 @@ P190 - Workflow Android preparado para build controlado sem cache Unity restaura
 P191 - Timeout Android ampliado para permitir conclusão do IL2CPP multi-arquitetura; próximo run será monitorado até sucesso ou diagnóstico de espaço.
 
 P192 - Build Android dividido por ABI: ARM64 padrão para APK de dispositivo; X86_64 opcional para AVD. Próximo: push e validar APK ARM64.
+
+P193 - Build Android de homologação ajustado para Mono2x+ARM64 para caber no runner gratuito; próxima execução deve validar APK e depois AVD x86_64 separado.

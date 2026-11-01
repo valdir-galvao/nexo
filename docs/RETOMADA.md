@@ -417,3 +417,5 @@ Atualização P190: workflow Android ajustado para evitar cache Unity volumoso e f
 Atualização P191: o run 41310034229 expirou durante IL2CPP, não Gradle, em 804/1565 objetos; disco 93%. Timeout ajustado para 105 min (job 120), preservando ARM64+x86_64. Próxima ação: push e aguardar o run automático; só baixar APK após SUCCESS.
 
 Atualização P192: solução gratuita robusta implementada para evitar APK fat multi-ABI: NEXO_ANDROID_ARCH controla ARM64 ou X86_64; workflow padrão ARM64 e smoke AVD somente no modo X86_64. Static QA/YAML/diff PASS. Próxima ação: push e monitorar build ARM64.
+
+Atualização P193: run ARM64 IL2CPP 41319654621 terminou sem artefatos e com falha de gravação de logs do runner. Solução de homologação: NEXO_CI_FAST_BUILD=1 seleciona Mono2x+ARM64; IL2CPP não é alterado para release. Próxima ação: push e monitorar APK Android de teste.
