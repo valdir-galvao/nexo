@@ -385,3 +385,5 @@ Atualização P174 (01/11/2026): após instalar a CLI, a autenticação foi test
 Atualização P175 (01/11/2026): Fase 88 tentou iniciar o pipeline existente. O primeiro gate falhou por ausência de login da GitHub CLI; não foi possível listar ou disparar runs. AVD/ADB e Unity exato também não existem localmente. Nenhuma visibilidade, secret, workflow ou código foi alterado. Estado: BLOCKED operacional.
 
 Atualização P176 (01/11/2026): a tentativa direta de consultar e alterar a visibilidade falhou com `gh` exit 4 por ausência de autenticação. O repositório não foi tornado público e nenhum workflow foi iniciado.
+
+Atualização P177 (01/11/2026): o login oficial `gh auth login --web` foi iniciado. A CLI aguarda autorização no navegador; o código temporário não foi registrado. Nenhuma operação remota foi executada.

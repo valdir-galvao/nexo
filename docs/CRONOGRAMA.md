@@ -373,3 +373,5 @@ P174 | Rechecagem GitHub | PARTIAL | Git read PASS; gh/API/browser auth FAIL | s
 P175 | Fase 88 | BLOCKED gate operacional | branch local 3c7c4cf; remote branch 54e67ec | gh/API não autenticada; adb/emulator/Unity ausentes; sem runs/APK | autenticar GitHub no ambiente e executar gate Unity antes do Android AVD | docs/PHASE_88_OPERATIONAL_RECOVERY.md
 
 P176 | Visibilidade pública | BLOCKED | `gh repo view/edit` exit 4 sem autenticação | repositório não alterado; teste não iniciado | autenticar CLI/API GitHub e repetir consulta antes de mudar visibilidade | docs/PHASE_88_OPERATIONAL_RECOVERY.md
+
+P177 | Login GitHub | PENDING | `gh auth login --web` aguardando confirmação no navegador | sem API/Actions ainda | concluir autorização interativa e verificar `gh auth status` | docs/PHASE_87_GITHUB_ACCESS_DIAGNOSTIC.md
