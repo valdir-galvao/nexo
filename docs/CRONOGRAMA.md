@@ -347,3 +347,5 @@ P157 | Fase 76 | BLOCKED por ferramenta exata ausente | Unity 6000.3.0f1/Package
 | P162 | Investigação Free CI | BLOCKED tecnicamente | Ubuntu público gratuito tem 14 GB SSD; imagem Android Unity 6 ~8,15 GB comprimida; tag exata 6000.3.0f1 não comprovada; UNITY_LICENSE ausente nos jobs | workflows preservados, sem builds | disponibilizar imagem/tag exata e licença Personal válida em Secrets, ou aprovar mudança de versão (não autorizada) |
 
 | P163 | Fase 81 | BLOCKED | Linux 6000.3.0f1 oficialmente disponível, mas runner GitHub não executado; tamanho extraído/módulos/licença não medidos na nuvem | static/YAML/diff PASS; sem alteração de workflows/build | executar prova em workflow Ubuntu isolado com espaço/licença, ou registrar bloqueio de quota/segredo |
+
+| P164 | Fase 82 | PARCIAL/BLOCKED | Workflow de capacidade criado e validado; dispatch remoto indisponível | YAML/QA/diff PASS; sem medição real, licença ou instalação | executar manualmente GitHub Free capacity probe, registrar artefato e só então avaliar Teste 2/3 |

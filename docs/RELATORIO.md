@@ -367,3 +367,7 @@ A alternativa Ubuntu GitHub-hosted é gratuita somente sob as condições de cobran
 ## Fase 81 - prova técnica Unity Linux gratuito
 
 A Unity confirma oficialmente que a versão 6000.3.0f1 possui instalador manual para Linux, mas a prova prática em GitHub Actions não foi executada. O runner Ubuntu público documentado oferece 14 GB SSD/16 GB RAM; o tamanho efetivamente extraído do Editor, Android Build Support, SDK/NDK e OpenJDK precisa ser medido dentro do runner. O projeto versionado é pequeno, porém o Package Manager ainda precisa resolver 34 entradas ausentes no lockfile. A ativação Personal depende de UNITY_LICENSE (ULF), UNITY_EMAIL e UNITY_PASSWORD protegidos; os workflows atuais não passam UNITY_LICENSE. Estado: BLOCKED, sem APK/IPA.
+
+## Fase 82 - teste controlado de capacidade GitHub Free
+
+Foi criado um workflow isolado de medição, acionado apenas por workflow_dispatch, sem instalar Unity, Docker ou módulos. Ele registra disco, memória, CPU e tamanho do checkout antes/depois e gera um artefato textual pequeno. O YAML e os validadores locais passaram, mas o dispatch remoto não foi executado porque a CLI/API autenticada do GitHub não está disponível nesta sessão; não há evidência real de capacidade/quota. A licença Personal também não foi validada na prática e a instalação fica bloqueada por gate. Workflows de produção e visibilidade permanecem inalterados.

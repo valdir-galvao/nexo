@@ -1,0 +1,60 @@
+name: GitHub Free capacity probe
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capacity:
+    name: Measure Ubuntu runner capacity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Measure runner before checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "phase=before-checkout"
+            date -u +%FT%TZ
+            echo "runner_os=${RUNNER_OS}"
+            echo "runner_arch=${RUNNER_ARCH}"
+            echo "runner_name=${RUNNER_NAME}"
+            echo "run_id=${GITHUB_RUN_ID}"
+            echo "timeout_minutes=5"
+            echo "cpu_threads=$(nproc)"
+            echo "memory_kb=$(awk '/MemTotal/ {print $2}' /proc/meminfo)"
+            echo "memory_available_kb=$(awk '/MemAvailable/ {print $2}' /proc/meminfo)"
+            df -B1 -P /
+          } | tee capacity-before.txt
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Measure checkout and remaining capacity
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "phase=after-checkout"
+            echo "checkout_bytes=$(du -sb . | awk '{print $1}')"
+            echo "git_bytes=$(du -sb .git | awk '{print $1}')"
+            echo "assets_bytes=$(du -sb Assets 2>/dev/null | awk '{print $1}' || echo 0)"
+            echo "packages_bytes=$(du -sb Packages 2>/dev/null | awk '{print $1}' || echo 0)"
+            echo "project_settings_bytes=$(du -sb ProjectSettings 2>/dev/null | awk '{print $1}' || echo 0)"
+            df -B1 -P /
+            free -b
+            nproc
+          } | tee capacity-after.txt
+
+      - name: Upload capacity measurements
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-free-capacity-${{ github.run_id }}
+          path: capacity-*.txt
+          if-no-files-found: error
