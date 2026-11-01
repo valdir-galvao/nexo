@@ -363,3 +363,5 @@ P169 | Fase 87 | BLOCKED | commit 2c5d956 | AVD workflow original auditado; sem 
 P170 | Acesso GitHub | PARTIAL | leitura Git via credential manager PASS; API/Actions/browser autenticado ausentes | sem mudança de visibilidade, secrets ou workflows | fornecer/ativar integração GitHub autenticada no Orca antes de dispatch | docs/PHASE_87_GITHUB_ACCESS_DIAGNOSTIC.md
 
 P171 | Credenciais locais | PASS diagnóstico / BLOCKED integração GitHub | `.env.txt` ignorado; senha_githup fora do escopo de tools/agents.py; Git credential manager separado | sem leitura/uso de valores e sem API Actions | habilitar conector GitHub autenticado próprio, sem reutilizar senha local | docs/PHASE_87_ENV_CREDENTIAL_DIAGNOSIS.md
+
+P172 | Segurança de credenciais | NOT_RUN | não usar senha local como token GitHub | nenhuma API/Actions executada | autenticar por mecanismo GitHub próprio | docs/PHASE_87_ENV_CREDENTIAL_DIAGNOSIS.md

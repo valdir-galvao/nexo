@@ -375,3 +375,5 @@ Atualização P169 (01/11/2026): Fase 87 confirmou a configuração original do 
 Atualização P170 (01/11/2026): o Orca identifica o projeto GitHub e `git ls-remote` lê refs remotas, mas não há autenticação operacional de API/Actions: `gh` ausente, API anônima 404 e browser integrado sem sessão (Sign in). As fases anteriores não tinham evidência de que o Orca fornecesse esse canal. Visibilidade não foi alterada e nenhum workflow foi executado.
 
 Atualização P171 (01/11/2026): `.env.txt` não é uma fonte de autenticação GitHub. O executor local filtra apenas chaves dos provedores de IA; a entrada `senha_githup` é ignorada. O Git credential manager autentica transporte Git, não a API/Actions. Nenhum segredo foi exposto ou usado; a integração GitHub precisa de autenticação própria.
+
+Atualização P172 (01/11/2026): não foi utilizado o valor `senha_githup`. Uma senha local não é token de API GitHub e não será enviada a serviços externos. Nenhuma credencial foi lida ou modificada.
