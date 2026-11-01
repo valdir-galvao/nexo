@@ -375,3 +375,5 @@ P175 | Fase 88 | BLOCKED gate operacional | branch local 3c7c4cf; remote branch 
 P176 | Visibilidade pública | BLOCKED | `gh repo view/edit` exit 4 sem autenticação | repositório não alterado; teste não iniciado | autenticar CLI/API GitHub e repetir consulta antes de mudar visibilidade | docs/PHASE_88_OPERATIONAL_RECOVERY.md
 
 P177 | Login GitHub | PENDING | `gh auth login --web` aguardando confirmação no navegador | sem API/Actions ainda | concluir autorização interativa e verificar `gh auth status` | docs/PHASE_87_GITHUB_ACCESS_DIAGNOSTIC.md
+
+P178 | GitHub API reauthenticated | IN_PROGRESS | gh auth status/api user/repo view PASS; Unity Tests 41293713412 running | wait and inspect EditMode/PlayMode results before Android gate |

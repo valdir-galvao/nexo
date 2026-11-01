@@ -419,3 +419,6 @@ A GitHub CLI está instalada, mas não autenticada. O Git Credential Manager pos
 ## Fase 88 - tentativa operacional
 
 A fase deixou de ser documental e tentou executar o pipeline real. O gate falhou antes do workflow porque a GitHub CLI não está autenticada; o Git Credential Manager só permite leitura de refs. Unity 6000.3.0f1, adb e emulator também não estão disponíveis localmente. Não houve build, AVD ou mudança remota. A retomada depende de autenticação GitHub própria no ambiente.
+
+## Reautenticacao GitHub e gate atual
+A CLI autenticada foi confirmada sem expor tokens. O repositorio permanece privado. O run Unity Tests 41293713412 foi disparado na branch orchestrator/phase-a-baseline, commit 3315b64, com EditMode e PlayMode em execucao. O Android historico 41214944817 foi cancelado durante Build Android package; iOS 41214944802 concluiu com sucesso.
