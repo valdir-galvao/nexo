@@ -407,3 +407,5 @@ P191 - Timeout Android ampliado para permitir conclusão do IL2CPP multi-arquitet
 P192 - Build Android dividido por ABI: ARM64 padrão para APK de dispositivo; X86_64 opcional para AVD. Próximo: push e validar APK ARM64.
 
 P193 - Build Android de homologação ajustado para Mono2x+ARM64 para caber no runner gratuito; próxima execução deve validar APK e depois AVD x86_64 separado.
+
+P194 (2026-11-01): Run 41324298511 falhou por disco cheio do runner antes da coleta; limpeza pre-GameCI ampliada, aguardando novo run Android.

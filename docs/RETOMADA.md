@@ -419,3 +419,5 @@ Atualização P191: o run 41310034229 expirou durante IL2CPP, não Gradle, em 804/1
 Atualização P192: solução gratuita robusta implementada para evitar APK fat multi-ABI: NEXO_ANDROID_ARCH controla ARM64 ou X86_64; workflow padrão ARM64 e smoke AVD somente no modo X86_64. Static QA/YAML/diff PASS. Próxima ação: push e monitorar build ARM64.
 
 Atualização P193: run ARM64 IL2CPP 41319654621 terminou sem artefatos e com falha de gravação de logs do runner. Solução de homologação: NEXO_CI_FAST_BUILD=1 seleciona Mono2x+ARM64; IL2CPP não é alterado para release. Próxima ação: push e monitorar APK Android de teste.
+
+Atualizacao P194: o run 41324298511 confirmou No space left on device no log interno do runner apos ~51 min, mesmo com Mono2x+ARM64. Aumentada a limpeza de caches/toolchains host antes do GameCI; nao gerar APK PASS sem novo run.

@@ -450,3 +450,6 @@ Para manter custo zero e caber no runner, o APK Android deixou de compilar ARM64
 
 ## P193 - build Android de homologação
 O runner gratuito não sustentou a compilação IL2CPP mesmo em ARM64: a execução terminou sem artefatos e sem capacidade de gravar logs. A homologação passa a usar Mono2x+ARM64, explicitamente marcada como build rápida de teste; a configuração de release continua IL2CPP.
+
+## P194 - exaustao do runner e limpeza ampliada
+Run 41324298511 executou Unity/Mono2x+ARM64, mas o runner Ubuntu terminou sem espaço ao gravar seu próprio log (No space left on device). Não houve APK nem AVD. A limpeza inicial foi ampliada para caches e toolchains host não usados pelo GameCI. Estado: BLOCKED por capacidade do runner gratuito.

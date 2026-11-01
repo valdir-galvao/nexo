@@ -40,10 +40,25 @@ jobs:
           sudo rm -rf \
             /usr/share/dotnet \
             /opt/ghc \
+            /opt/az \
+            /opt/google \
+            /opt/microsoft \
+            /opt/hostedtoolcache \
             /usr/local/share/powershell \
             /usr/local/julia \
+            /usr/local/lib/node_modules \
             /usr/local/lib/android/sdk \
-            /torch 2>/dev/null || true
+            /usr/local/share/chromium \
+            /usr/local/share/vscode \
+            /torch \
+            "$HOME/.cache" \
+            "$HOME/.npm" \
+            "$HOME/.cargo" \
+            "$HOME/.rustup" 2>/dev/null || true
+          # Hosted images often retain large package-manager caches outside the
+          # workspace. They are not needed by GameCI and can exhaust the small
+          # free volume while Unity/Gradle expands its temporary tree.
+          sudo rm -rf /var/lib/apt/lists/* /var/cache/apt/* /var/log/*.log 2>/dev/null || true
           timeout 45s docker system prune --all --force --volumes 2>/dev/null || true
           sudo journalctl --vacuum-time=1d 2>/dev/null || true
           echo 'Disk after cleanup:'
