@@ -101,7 +101,7 @@ jobs:
                 docker ps --no-trunc 2>/dev/null || true
                 docker stats --no-stream 2>/dev/null || true
                 echo '-- unity/gradle processes --'
-                ps -eo pid,ppid,stat,etime,%cpu,%mem,args --sort=-%cpu | grep -E 'unity|gradle|java|il2cpp|bee|game-ci|docker' | head -n 80 || true
+                ps -eo pid,ppid,stat,etime,%cpu,%mem,comm --sort=-%cpu | grep -E 'unity|gradle|java|il2cpp|bee|game-ci|docker' | head -n 80 || true
               } >> "$watchdog_dir/build-watchdog.log" 2>&1
               sleep 30
             done
