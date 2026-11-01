@@ -415,3 +415,7 @@ A GitHub CLI 2.103.3 foi instalada em `C:\Program Files\GitHub CLI\gh.exe`, corr
 ## Rechecagem de autenticação GitHub
 
 A GitHub CLI está instalada, mas não autenticada. O Git Credential Manager possui uma entrada GitHub e permite leitura de refs remotas; isso não concede API/Actions. `cmdkey` confirmou apenas a existência do alvo, sem ler o segredo. O browser Orca continua sem sessão autenticada. Nenhum workflow ou visibilidade foi alterado.
+
+## Fase 88 - tentativa operacional
+
+A fase deixou de ser documental e tentou executar o pipeline real. O gate falhou antes do workflow porque a GitHub CLI não está autenticada; o Git Credential Manager só permite leitura de refs. Unity 6000.3.0f1, adb e emulator também não estão disponíveis localmente. Não houve build, AVD ou mudança remota. A retomada depende de autenticação GitHub própria no ambiente.

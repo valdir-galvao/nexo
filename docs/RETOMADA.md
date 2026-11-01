@@ -381,3 +381,5 @@ Atualização P172 (01/11/2026): não foi utilizado o valor `senha_githup`. Uma 
 Atualização P173 (01/11/2026): GitHub CLI 2.103.3 foi instalada localmente com winget, mas `gh auth status` confirmou ausência de login. O problema de ferramenta foi corrigido; o problema de autorização permanece. Nenhum login ou segredo foi executado.
 
 Atualização P174 (01/11/2026): após instalar a CLI, a autenticação foi testada novamente. Git Credential Manager possui alvo GitHub e `git ls-remote` funciona. `gh auth status`, `gh api user` e browser Orca continuam sem autenticação. O Orca reconhece o projeto, mas não fornece automaticamente token de API/Actions.
+
+Atualização P175 (01/11/2026): Fase 88 tentou iniciar o pipeline existente. O primeiro gate falhou por ausência de login da GitHub CLI; não foi possível listar ou disparar runs. AVD/ADB e Unity exato também não existem localmente. Nenhuma visibilidade, secret, workflow ou código foi alterado. Estado: BLOCKED operacional.
