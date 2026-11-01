@@ -349,3 +349,5 @@ P157 | Fase 76 | BLOCKED por ferramenta exata ausente | Unity 6000.3.0f1/Package
 | P163 | Fase 81 | BLOCKED | Linux 6000.3.0f1 oficialmente disponível, mas runner GitHub não executado; tamanho extraído/módulos/licença não medidos na nuvem | static/YAML/diff PASS; sem alteração de workflows/build | executar prova em workflow Ubuntu isolado com espaço/licença, ou registrar bloqueio de quota/segredo |
 
 | P164 | Fase 82 | PARCIAL/BLOCKED | Workflow de capacidade criado e validado; dispatch remoto indisponível | YAML/QA/diff PASS; sem medição real, licença ou instalação | executar manualmente GitHub Free capacity probe, registrar artefato e só então avaliar Teste 2/3 |
+
+P165 | Fase 83 | PASS documental / BLOCKED execuÃ§Ã£o | commit 47f56a7 | infraestrutura original, AVD e histÃ³rico auditados; manifest=36, lock=2; sem Appetize; Unity/CI atual nÃ£o executados | nenhum workflow/build/secret/visibilidade alterado | executar probe autenticado e confirmar Unity 6000.3.0f1 + UNITY_LICENSE antes de restaurar Package Manager/testes | docs/PHASE_83_FORENSIC_AUDIT_ORIGINAL_INFRASTRUCTURE.md

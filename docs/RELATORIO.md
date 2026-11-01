@@ -371,3 +371,11 @@ A Unity confirma oficialmente que a vers„o 6000.3.0f1 possui instalador manual p
 ## Fase 82 - teste controlado de capacidade GitHub Free
 
 Foi criado um workflow isolado de mediÁ„o, acionado apenas por workflow_dispatch, sem instalar Unity, Docker ou mÛdulos. Ele registra disco, memÛria, CPU e tamanho do checkout antes/depois e gera um artefato textual pequeno. O YAML e os validadores locais passaram, mas o dispatch remoto n„o foi executado porque a CLI/API autenticada do GitHub n„o est· disponÌvel nesta sess„o; n„o h· evidÍncia real de capacidade/quota. A licenÁa Personal tambÈm n„o foi validada na pr·tica e a instalaÁ„o fica bloqueada por gate. Workflows de produÁ„o e visibilidade permanecem inalterados.
+
+## Fase 83 - auditoria forense da infraestrutura original
+
+A auditoria somente leitura recuperou a arquitetura existente: Unity 6000.3.0f1, GameCI em `ubuntu-latest` para testes/Android, `macos-latest` para iOS e AVD headless API 35 via `reactivecircus/android-emulator-runner`. N√£o h√° Appetize.io, BrowserStack, Genymotion ou Appium no reposit√≥rio. O hist√≥rico registra runs remotos PASS e falhas de espa√ßo, licen√ßa, SIGSEGV e hang.
+
+A causa raiz atual n√£o √© um √∫nico defeito de jogo. O Unity exato n√£o est√° instalado localmente porque o InstallDriver falhou ao extrair em P: (NFS/Access denied); o lockfile tem 2 entradas para 36 depend√™ncias declaradas e s√≥ pode ser regenerado pelo Package Manager do Unity 6000.3.0f1; os workflows de teste/build n√£o injetam `UNITY_LICENSE`, e a disponibilidade de imagem/tag GameCI exata e quota atuais n√£o foi comprovada. O probe `github-free-capacity.yml` existe, mas n√£o foi executado por falta de CLI/API GitHub autenticada.
+
+Estado: auditoria documental PASS; execu√ß√£o Unity/Package Manager/novos builds BLOCKED. Pr√≥xima a√ß√£o: executar o probe autenticado, verificar ULF Personal sem expor segredo e confirmar o Editor exato antes de resolver depend√™ncias e rodar testes.
