@@ -355,3 +355,7 @@ A causa foi confirmada nos logs do Unity Hub: EditorInstaller tentou /S /D=P:\Un
 ## Fase 79 - migração cloud CI/CD
 
 A auditoria dos workflows mostra que o pipeline existente ainda depende do GameCI em ubuntu-latest para testes/Android e macos-latest para iOS. Não há configuração de instalação do Unity 6000.3.0f1 em Windows nem runner self-hosted Windows confirmado. A documentação oficial do GitHub lista windows-latest e windows-2022, mas runners padrão de repositórios privados possuem armazenamento limitado; isso não garante espaço para o Editor Unity, Android Build Support, SDK/NDK e OpenJDK. Os YAMLs existentes passaram no parser; Static QA e git diff --check passaram. A fase permanece bloqueada até provisionar a infraestrutura Windows e executar os testes com a versão exata. Nenhuma build foi iniciada.
+
+## Fase 80 - planejamento do runner Windows cloud
+
+A migração foi planejada sem criar recursos pagos. A arquitetura recomendada é uma VM Windows x64 com armazenamento local NTFS (150 GB), 8 vCPU e 32 GiB RAM, usando runner self-hosted restrito ao repositório. AWS EC2 t3.xlarge oferece referência de 4 vCPU/16 GiB a cerca de US,167/h de compute; Azure D4s v5 e Google n2-standard-4 atendem 4 vCPU/16 GiB, mas exigem cotação regional e encargos de Windows/disco. A VM deve ser parada fora das janelas de CI. O runner só deve aceitar workflows confiáveis da branch protegida e nunca executar pull requests não confiáveis com acesso a Secrets. Provisionamento, registro do runner e instalação Unity aguardam aprovação de custo/provedor.
