@@ -422,4 +422,6 @@ Atualização P193: run ARM64 IL2CPP 41319654621 terminou sem artefatos e com falh
 
 Atualizacao P194: o run 41324298511 confirmou No space left on device no log interno do runner apos ~51 min, mesmo com Mono2x+ARM64. Aumentada a limpeza de caches/toolchains host antes do GameCI; nao gerar APK PASS sem novo run.
 
-Atualizacao P195: GitHub recusou iniciar o run 41328802090 por ecent account payments have failed or your spending limit needs to be increased. Aguardar regularizacao em Billing & plans; nao repetir runs enquanto o bloqueio persistir.
+Atualizacao P195: GitHub recusou iniciar os runs 41328802090 e 41328881394 por falha de pagamento ou limite de gastos. Aguardar regularizacao em Billing & plans; nao repetir runs enquanto o bloqueio persistir.
+
+Atualização P196: captura histórica mostra boot/UI funcionando e quadrados magenta do APK antigo. Causas separadas: paleta verde intencional, material implícito de partículas corrigido em 54e67ec, URP/GraphicsSettings não versionado e lockfile incompleto. Próximo: regularizar billing, resolver pacotes no Unity 6000.3.0f1 e executar smoke AVD para medir [NEXO_RENDER].

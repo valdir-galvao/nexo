@@ -411,3 +411,5 @@ P193 - Build Android de homologação ajustado para Mono2x+ARM64 para caber no run
 P194 (2026-11-01): Run 41324298511 falhou por disco cheio do runner antes da coleta; limpeza pre-GameCI ampliada, aguardando novo run Android.
 
 P195 (2026-11-01): Run 41328802090 bloqueado antes do runner por falha de pagamento/limite de gastos; nenhuma compilacao Android executada.
+
+P196 (2026-11-09): diagnóstico visual Android concluído; correção de partículas preservada, configuração URP serializada ausente e validação final pendente de runner/billing.

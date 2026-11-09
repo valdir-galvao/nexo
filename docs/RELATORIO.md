@@ -456,3 +456,6 @@ Run 41324298511 executou Unity/Mono2x+ARM64, mas o runner Ubuntu terminou sem es
 
 ## P195 - bloqueio de billing antes do runner
 O run 41328802090 falhou em 4s sem executar steps: a conta GitHub reportou pagamentos recentes falhos ou limite de gastos insuficiente. Não houve build Android nem APK. Estado: BLOCKED por dependência externa de billing/quota.
+
+## P196 - diagnóstico gráfico Android
+A auditoria confirmou que o AVD histórico abriu a cena e a UI em OpenGL ES 3/SwiftShader. O verde/amarelo é gerado pelo vertical slice; os quadrados magenta eram do material implícito das partículas no APK antigo, corrigido em 54e67ec. Permanece fragilidade por ausência de GraphicsSettings/QualitySettings/URP asset versionados e lockfile incompleto. A confirmação final requer novo APK, mas os runs atuais estão bloqueados por billing/quota.
