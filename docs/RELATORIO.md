@@ -459,3 +459,6 @@ O run 41328802090 falhou em 4s sem executar steps: a conta GitHub reportou pagam
 
 ## P196 - diagnóstico gráfico Android
 A auditoria confirmou que o AVD histórico abriu a cena e a UI em OpenGL ES 3/SwiftShader. O verde/amarelo é gerado pelo vertical slice; os quadrados magenta eram do material implícito das partículas no APK antigo, corrigido em 54e67ec. Permanece fragilidade por ausência de GraphicsSettings/QualitySettings/URP asset versionados e lockfile incompleto. A confirmação final requer novo APK, mas os runs atuais estão bloqueados por billing/quota.
+
+## P197 - smoke AVD corrigido
+Os builds Android ARM64/X86_64 passaram e o AVD iniciou Unity, mas a screenshot capturou um ANR do Pixel Launcher e o runtime log veio vazio. Foram corrigidos o diagnóstico para logcat, a coleta do caminho Android correto, a validação de Activity em foreground e a seleção GLES3 única para SwiftShader. Renderização final ainda pendente de novo smoke X86_64.

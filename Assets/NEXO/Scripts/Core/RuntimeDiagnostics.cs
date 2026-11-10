@@ -125,7 +125,7 @@ namespace Nexo.Core
                     }
                     if (hasMagentaMaterial) magentaObjects++;
                 }
-                Enqueue(string.Format("[NEXO_RENDER] scene={0} camera={1} pipeline={2} api={3} renderers={4} materials={5} incompatibleShaders={6} magentaObjects={7} canvases={8} debugObjects={9}",
+                var renderLine = string.Format("[NEXO_RENDER] scene={0} camera={1} pipeline={2} api={3} renderers={4} materials={5} incompatibleShaders={6} magentaObjects={7} canvases={8} debugObjects={9}",
                     currentSceneName,
                     camera == null ? "<none>" : camera.name,
                     pipeline == null ? "Built-in/none" : pipeline.name,
@@ -135,7 +135,9 @@ namespace Nexo.Core
                     incompatibleShaders,
                     magentaObjects,
                     canvases.Length,
-                    debugObjects));
+                    debugObjects);
+                Enqueue(renderLine);
+                Debug.Log(renderLine);
             }
             catch (Exception exception)
             {

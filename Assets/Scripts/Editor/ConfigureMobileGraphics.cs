@@ -3,7 +3,7 @@ using UnityEngine.Rendering;
 
 namespace Nexo.Editor
 {
-    /// <summary>Uses OpenGL ES 3 as the broad Android baseline and Metal on iOS.</summary>
+    /// <summary>Uses OpenGL ES 3 as the deterministic Android/emulator baseline and Metal on iOS.</summary>
     [InitializeOnLoad]
     internal static class ConfigureMobileGraphics
     {
@@ -14,9 +14,13 @@ namespace Nexo.Editor
 
         private static void Apply()
         {
+            // SwiftShader and older AVD images advertise GLES 3 but can emit
+            // EGL_BAD_CONFIG while probing newer/Vulkan paths. Keep the smoke
+            // test deterministic; Vulkan remains an explicit future profile,
+            // not an implicit fallback for this Android target.
             var androidApis = PlayerSettings.GetGraphicsAPIs(BuildTarget.Android);
-            if (androidApis == null || androidApis.Length == 0 || androidApis[0] != GraphicsDeviceType.OpenGLES3)
-                PlayerSettings.SetGraphicsAPIs(BuildTarget.Android, new[] { GraphicsDeviceType.OpenGLES3, GraphicsDeviceType.Vulkan });
+            if (androidApis == null || androidApis.Length != 1 || androidApis[0] != GraphicsDeviceType.OpenGLES3)
+                PlayerSettings.SetGraphicsAPIs(BuildTarget.Android, new[] { GraphicsDeviceType.OpenGLES3 });
 
             PlayerSettings.SetGraphicsAPIs(BuildTarget.iOS, new[] { GraphicsDeviceType.Metal });
             PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel29;

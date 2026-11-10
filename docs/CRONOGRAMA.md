@@ -413,3 +413,5 @@ P194 (2026-11-01): Run 41324298511 falhou por disco cheio do runner antes da col
 P195 (2026-11-01): Run 41328802090 bloqueado antes do runner por falha de pagamento/limite de gastos; nenhuma compilacao Android executada.
 
 P196 (2026-11-09): diagnóstico visual Android concluído; correção de partículas preservada, configuração URP serializada ausente e validação final pendente de runner/billing.
+
+P197 (2026-11-09): builds ARM64/X86_64 PASS; smoke AVD iniciou Activity Unity, mas evidência visual contaminada por ANR do launcher. Diagnóstico corrigido; repetir X86_64 para screenshot/log render válidos.

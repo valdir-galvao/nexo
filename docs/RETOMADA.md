@@ -425,3 +425,5 @@ Atualizacao P194: o run 41324298511 confirmou No space left on device no log int
 Atualizacao P195: GitHub recusou iniciar os runs 41328802090 e 41328881394 por falha de pagamento ou limite de gastos. Aguardar regularizacao em Billing & plans; nao repetir runs enquanto o bloqueio persistir.
 
 Atualização P196: captura histórica mostra boot/UI funcionando e quadrados magenta do APK antigo. Causas separadas: paleta verde intencional, material implícito de partículas corrigido em 54e67ec, URP/GraphicsSettings não versionado e lockfile incompleto. Próximo: regularizar billing, resolver pacotes no Unity 6000.3.0f1 e executar smoke AVD para medir [NEXO_RENDER].
+
+Atualização P197: ARM64 e X86_64 compilaram; AVD instalou o APK X86_64 e ResumedActivity confirmou Unity. Screenshot foi do diálogo ANR do Pixel Launcher e runtime log vazio, então a renderização não foi aprovada. Smoke test agora dispensa esse diálogo, valida foreground e coleta [NEXO_RENDER] no logcat; repetir run X86_64.
