@@ -415,3 +415,5 @@ P195 (2026-11-01): Run 41328802090 bloqueado antes do runner por falha de pagame
 P196 (2026-11-09): diagnóstico visual Android concluído; correção de partículas preservada, configuração URP serializada ausente e validação final pendente de runner/billing.
 
 P197 (2026-11-09): builds ARM64/X86_64 PASS; smoke AVD iniciou Activity Unity, mas evidência visual contaminada por ANR do launcher. Diagnóstico corrigido; repetir X86_64 para screenshot/log render válidos.
+
+P198 (2026-11-09): smoke test agora valida boot + toque no botao + screenshot pos-transicao; aguardar run X86_64.

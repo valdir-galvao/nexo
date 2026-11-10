@@ -52,5 +52,12 @@ foreground="$(adb shell dumpsys activity activities 2>/dev/null | grep -m 1 -E '
 printf '%s\n' "foreground=${foreground}" | tee -a diagnostics/android/run.txt
 test -n "${foreground}"
 
+# The generated intro button is centered in the landscape safe area. Tap it,
+# wait for the fade/BuildWorld transition, and keep a second screenshot as
+# evidence that the first interaction is visible on the emulator.
+adb shell input tap 1080 700
+sleep 3
+adb exec-out screencap -p > diagnostics/android/screenshot-after-start.png
+
 grep -E "FATAL EXCEPTION|SIGSEGV|Unity|Nexo|AndroidRuntime" diagnostics/android/logcat.txt | tail -n 200 || true
 exit "${launch_rc}"

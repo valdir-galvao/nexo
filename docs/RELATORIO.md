@@ -462,3 +462,6 @@ A auditoria confirmou que o AVD histórico abriu a cena e a UI em OpenGL ES 3/Swi
 
 ## P197 - smoke AVD corrigido
 Os builds Android ARM64/X86_64 passaram e o AVD iniciou Unity, mas a screenshot capturou um ANR do Pixel Launcher e o runtime log veio vazio. Foram corrigidos o diagnóstico para logcat, a coleta do caminho Android correto, a validação de Activity em foreground e a seleção GLES3 única para SwiftShader. Renderização final ainda pendente de novo smoke X86_64.
+
+## P198 - validação de interação
+O smoke test Android agora toca o botão central e captura screenshot-after-start.png após a transição. Aguardando novo run X86_64.
