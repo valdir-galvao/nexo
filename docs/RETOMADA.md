@@ -429,3 +429,5 @@ Atualização P196: captura histórica mostra boot/UI funcionando e quadrados magen
 Atualização P197: ARM64 e X86_64 compilaram; AVD instalou o APK X86_64 e ResumedActivity confirmou Unity. Screenshot foi do diálogo ANR do Pixel Launcher e runtime log vazio, então a renderização não foi aprovada. Smoke test agora dispensa esse diálogo, valida foreground e coleta [NEXO_RENDER] no logcat; repetir run X86_64.
 
 Atualizacao P198: acrescentado toque ADB em 1080x700 e captura pos-Iniciar Missao; executar novo smoke X86_64 para validar gameplay.
+
+Atualização P199 (2026-11-10): Runs 42731883239 ARM64 e 42735484609 X86_64 SUCCESS. AVD API35/SwiftShader instalou o APK X86_64, confirmou Activity Unity, [NEXO_RENDER] com incompatibleShaders=0/magentaObjects=0 e screenshot-after-start com HUD da missão após toque. APK ARM64 baixado em artifacts/run-42731883239/Android/Nexo.apk (SHA256 A1C0D46FCC45234C8976C4F8625D4771C6B6851B2CA8AB935832412B820D10A3). Próximo: corrigir metadata/backend e testar ARM64 físico; não afirmar compatibilidade universal.

@@ -465,3 +465,6 @@ Os builds Android ARM64/X86_64 passaram e o AVD iniciou Unity, mas a screenshot 
 
 ## P198 - validação de interação
 O smoke test Android agora toca o botão central e captura screenshot-after-start.png após a transição. Aguardando novo run X86_64.
+
+## Fase 98 - validação Android AVD
+Runs 42731883239 e 42735484609 passaram. O smoke AVD confirmou instalação, Activity Unity em foreground, boot, renderização sem shaders incompatíveis/objetos magenta e interação do botão Iniciar Missão. A causa visual observada anteriormente foi material ausente das partículas, corrigida em 54e67ec; a paleta verde/amarela é intencional. Permanece pendente a divergência entre metadata (Mono2x) e log do player (IL2CPP), além de teste físico ARM64 e resolução oficial do lockfile Unity.
