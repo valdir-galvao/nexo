@@ -474,3 +474,6 @@ A perícia confirmou que a aparência verde/amarela vem de cores explícitas em Bui
 
 ## Fase 100 - HUD pós-clique
 A informação pós-introdução foi movida para uma HUD Canvas explícita, reduzindo dependência de OnGUI em emuladores. A ausência de movimento sem input é comportamento esperado porque o avatar usa eixos/touchMove. Build remoto pendente.
+
+## P202 - HUD pós-clique e AVD
+A correção moveu o feedback de gameplay para Canvas explícito. Run 42747250853 concluiu Android X86_64 e AVD smoke com sucesso; o build remoto publicou APK e diagnóstico. O download local foi bloqueado por rate limit HTTP 403 da API GitHub, então a evidência visual nova ainda não foi inspecionada. Estado: PARTIAL.

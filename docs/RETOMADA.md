@@ -435,3 +435,5 @@ Atualização P199 (2026-11-10): Runs 42731883239 ARM64 e 42735484609 X86_64 SUCCE
 Atualização P200 (2026-11-10): log do Appetize confirmou que o quadro verde/janelas amarelas são o vertical slice procedural atual, não erro de shader. NEXO_RENDER registrou incompatibleShaders=0 e magentaObjects=0; EGL_BAD_CONFIG recuou para ES 3.1. Próximo trabalho, se aprovado: substituir cubos/procedural por conteúdo visual final e repetir AVD; não alterar shaders sem evidência.
 
 Atualização P201 (2026-11-10): HUD de gameplay adicionada ao Canvas para persistir após Iniciar Missão; exibe estado, água, score, objetivo e prompt. OnGUI permanece como fallback. Movimento continua dependente de input. Static QA/diff PASS; build/AVD desta alteração ainda NOT_RUN.
+
+P202 (2026-11-10): build X86_64/AVD run 42747250853 SUCCESS no commit ed13e2b; artefatos 305 KB/55.4 MB confirmados na página autenticada. API rate limit impediu download local dos artefatos. Repositório PRIVATE. Não declarar correção visual definitiva até inspecionar screenshot-after-start e logcat baixados.

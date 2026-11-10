@@ -419,3 +419,5 @@ P197 (2026-11-09): builds ARM64/X86_64 PASS; smoke AVD iniciou Activity Unity, m
 P198 (2026-11-09): smoke test agora valida boot + toque no botao + screenshot pos-transicao; aguardar run X86_64.
 
 P199 (2026-11-10): Android AVD PASS para boot, renderização e toque no X86_64; APK ARM64 também compilado. Corrigir divergência de metadata/backend e manter teste ARM64 físico pendente.
+
+P202 - 2026-11-10: HUD gameplay commitada e validada remotamente em build Android X86_64 + AVD (run 42747250853 SUCCESS). Download local de screenshots/logs bloqueado por rate limit HTTP 403; próxima ação é baixar após reset da quota e inspecionar a captura pós-clique.
