@@ -468,3 +468,6 @@ O smoke test Android agora toca o botão central e captura screenshot-after-start
 
 ## Fase 98 - validação Android AVD
 Runs 42731883239 e 42735484609 passaram. O smoke AVD confirmou instalação, Activity Unity em foreground, boot, renderização sem shaders incompatíveis/objetos magenta e interação do botão Iniciar Missão. A causa visual observada anteriormente foi material ausente das partículas, corrigida em 54e67ec; a paleta verde/amarela é intencional. Permanece pendente a divergência entre metadata (Mono2x) e log do player (IL2CPP), além de teste físico ARM64 e resolução oficial do lockfile Unity.
+
+## Fase 99 - causa do quadro verde
+A perícia confirmou que a aparência verde/amarela vem de cores explícitas em BuildWorld/MakeCube; o runtime não reporta shaders incompatíveis ou magenta. O defeito remanescente é visual/produtivo: o vertical slice ainda usa placeholders procedurais. Os avisos EGL/Gralloc/CPU são do emulador e não causaram a aparência.
