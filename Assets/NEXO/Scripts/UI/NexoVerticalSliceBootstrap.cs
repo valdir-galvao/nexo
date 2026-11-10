@@ -37,6 +37,10 @@ namespace Nexo.UI
         private Text introTitle;
         private Text introSubtitle;
         private Text introActionLabel;
+        private GameObject gameplayHudRoot;
+        private Text gameplayHudStatus;
+        private Text gameplayHudObjective;
+        private Text gameplayHudPrompt;
         private RectTransform introButtonRect;
         private ParticleSystem introParticles;
         private bool modernUiReady;
@@ -338,6 +342,7 @@ namespace Nexo.UI
             if (canvasRaycaster != null) canvasRaycaster.enabled = true;
             EnsureEventSystem();
             BuildModernIntro(canvas);
+            BuildGameplayHud(canvas);
             BuildChallengeCanvas(canvas);
         }
 
@@ -484,6 +489,63 @@ namespace Nexo.UI
                 if (label != null) label.alignment = TextAnchor.MiddleCenter;
             }
             challengeCanvasPanel.SetActive(false);
+        }
+
+        private void BuildGameplayHud(Canvas canvas)
+        {
+            if (canvas == null || gameplayHudRoot != null) return;
+            gameplayHudRoot = new GameObject("Nexo Gameplay HUD");
+            gameplayHudRoot.transform.SetParent(uiSafeArea == null ? canvas.transform : uiSafeArea, false);
+            var rootRect = gameplayHudRoot.AddComponent<RectTransform>();
+            rootRect.anchorMin = Vector2.zero;
+            rootRect.anchorMax = Vector2.one;
+            rootRect.offsetMin = Vector2.zero;
+            rootRect.offsetMax = Vector2.zero;
+
+            gameplayHudStatus = CreateIntroText(gameplayHudRoot.transform, "NEXO", 28, FontStyle.Bold,
+                new Vector2(0.04f, 0.91f), new Vector2(0.96f, 0.99f));
+            if (gameplayHudStatus != null)
+            {
+                gameplayHudStatus.alignment = TextAnchor.UpperLeft;
+                gameplayHudStatus.color = new Color(0.72f, 0.9f, 1f, 1f);
+            }
+
+            gameplayHudObjective = CreateIntroText(gameplayHudRoot.transform, "Objetivo: investigue a ilha.", 24, FontStyle.Normal,
+                new Vector2(0.04f, 0.83f), new Vector2(0.96f, 0.91f));
+            if (gameplayHudObjective != null)
+            {
+                gameplayHudObjective.alignment = TextAnchor.UpperLeft;
+                gameplayHudObjective.color = Color.white;
+            }
+
+            gameplayHudPrompt = CreateIntroText(gameplayHudRoot.transform, "Toque em Interagir para investigar pistas.", 22, FontStyle.Italic,
+                new Vector2(0.04f, 0.04f), new Vector2(0.96f, 0.12f));
+            if (gameplayHudPrompt != null)
+            {
+                gameplayHudPrompt.alignment = TextAnchor.LowerLeft;
+                gameplayHudPrompt.color = new Color(0.75f, 0.95f, 0.78f, 1f);
+            }
+            gameplayHudRoot.SetActive(false);
+        }
+
+        private void RefreshGameplayHud()
+        {
+            if (gameplayHudRoot == null || mission == null) return;
+            bool visible = !showMenu && !showIntro;
+            gameplayHudRoot.SetActive(visible);
+            if (!visible) return;
+            int water = mission.Save != null && mission.Save.activeMission != null ? mission.Save.activeMission.water : 0;
+            if (gameplayHudStatus != null)
+                gameplayHudStatus.text = "NEXO | " + mission.StateMachine.State + " | Agua: " + water +
+                    " | Pontuacao: " + score + " | Recorde: " + highScore;
+            if (gameplayHudObjective != null)
+                gameplayHudObjective.text = activeStage == 1
+                    ? "Objetivo: investigue a fonte, o canal e a valvula."
+                    : (activeStage == 2 ? "Objetivo: resolva o portal de eficiencia energetica." : "Objetivo: resolva o portal de logica.");
+            if (gameplayHudPrompt != null)
+                gameplayHudPrompt.text = string.IsNullOrEmpty(prompt)
+                    ? (challengeOpen ? challengeFeedback : "Toque em Interagir para investigar pistas.")
+                    : prompt;
         }
 
         private void RefreshChallengeCanvas()
@@ -804,6 +866,7 @@ namespace Nexo.UI
         private void Update()
         {
             ApplySafeArea();
+            RefreshGameplayHud();
             if (showMenu || showIntro)
             {
                 introElapsed += Time.unscaledDeltaTime;

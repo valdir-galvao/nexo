@@ -471,3 +471,6 @@ Runs 42731883239 e 42735484609 passaram. O smoke AVD confirmou instalação, Activ
 
 ## Fase 99 - causa do quadro verde
 A perícia confirmou que a aparência verde/amarela vem de cores explícitas em BuildWorld/MakeCube; o runtime não reporta shaders incompatíveis ou magenta. O defeito remanescente é visual/produtivo: o vertical slice ainda usa placeholders procedurais. Os avisos EGL/Gralloc/CPU são do emulador e não causaram a aparência.
+
+## Fase 100 - HUD pós-clique
+A informação pós-introdução foi movida para uma HUD Canvas explícita, reduzindo dependência de OnGUI em emuladores. A ausência de movimento sem input é comportamento esperado porque o avatar usa eixos/touchMove. Build remoto pendente.
