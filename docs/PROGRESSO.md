@@ -1158,3 +1158,5 @@ P204 (2026-11-11 America/Sao_Paulo): diagnóstico do comportamento pós-clique con
 P205 (2026-11-11): comparação do log API 37 confirmou boot e renderização saudável (incompatibleShaders=0, magentaObjects=0). EGL/GFXSTREAM e Swappy são avisos do emulador; o trecho não contém evento de clique, portanto não valida interação. Relatório: docs/PHASE_104_ANDROID_LOG_COMPARISON.md.
 
 P206 (2026-11-11): commit c3d9892 foi enviado, mas Unity Tests 42952356267, Android 42952356276 e iOS 42952356220 foram recusados antes do runner. GitHub reportou falha de pagamentos/limite de gastos. Nenhum artefato novo gerado; não repetir até regularização externa. Relatório: docs/PHASE_105_BUILD_BILLING_BLOCK.md.
+
+P207 (2026-11-11): ciclo controlado PUBLIC->build->PRIVATE executado. Visibilidade confirmada PUBLIC e restaurada PRIVATE. Runs 43117632696 (tests), 43117632650 (Android) e 43117632559 (iOS) recusados antes do runner pela mesma falha de pagamentos/limite de gastos; nenhum artefato novo.

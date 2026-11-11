@@ -445,3 +445,5 @@ P204 (2026-11-11): causa do quadro estático pós-clique isolada: Interagir usava 
 P205: novo log Android API 37 mantém o diagnóstico: Unity/renderização OK; avisos EGL são do emulador; sem evento de toque no trecho. Próximo: validar commit 37abd91 em novo APK/AVD.
 
 P206: push c3d9892 disparou três workflows, todos recusados em 2-3s por falha de pagamentos/limite de gastos. Não houve build nem artefato. Próximo passo externo: regularizar Billing & plans; depois repetir Android X86_64/AVD e ARM64.
+
+P207: tentativa PUBLIC->build->PRIVATE concluída. GitHub recusou tests/Android/iOS em 2s por billing/quota; repositório agora PRIVATE. Não repetir até regularização de Billing & plans.

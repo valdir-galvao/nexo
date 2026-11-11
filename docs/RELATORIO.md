@@ -486,3 +486,5 @@ P204 - 2026-11-11: correção de interação do portal aplicada localmente. AVD ante
 P205 - log API 37: boot e renderização confirmados; clique não aparece no trecho, portanto interação permanece pendente de nova execução.
 
 P206 - 2026-11-11: artefatos não gerados. Runs 42952356267/42952356276/42952356220 bloqueados antes dos runners por billing/quota GitHub. Estado: BLOCKED por dependência externa.
+
+P207 - ciclo público controlado: visibilidade restaurada PRIVATE; runs 43117632696/43117632650/43117632559 bloqueados antes do runner por billing/quota. Sem APK/IPA novos.

@@ -429,3 +429,5 @@ P204 (2026-11-11): correção local da interação do portal concluída e validada es
 P205: log API 37 analisado; boot/render PASS, interação pós-toque não observável neste trecho.
 
 P206: geração de artefatos BLOCKED antes do runner por billing/quota GitHub; correção de gameplay permanece não validada em novo APK.
+
+P207: ciclo de visibilidade concluído e restaurado PRIVATE; builds BLOCKED antes do runner por billing/quota, mesmo com repositório público.
