@@ -484,3 +484,5 @@ Runs 42932164802/42932184190 concluíram com sucesso. ARM64 e X86_64 foram baixad
 P204 - 2026-11-11: correção de interação do portal aplicada localmente. AVD anterior confirmou zero incompatibilidades gráficas; o bloqueio funcional era alcance de raycast e ausência de feedback idle. QA PASS; nova build ainda não executada.
 
 P205 - log API 37: boot e renderização confirmados; clique não aparece no trecho, portanto interação permanece pendente de nova execução.
+
+P206 - 2026-11-11: artefatos não gerados. Runs 42952356267/42952356276/42952356220 bloqueados antes dos runners por billing/quota GitHub. Estado: BLOCKED por dependência externa.
