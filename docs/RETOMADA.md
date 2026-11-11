@@ -441,3 +441,5 @@ P202 (2026-11-10): build X86_64/AVD run 42747250853 SUCCESS no commit ed13e2b; a
 P203 (2026-11-11): runs 42932164802 ARM64 e 42932184190 X86_64+AVD SUCCESS. APKs em C:/Temp/nexo-release-final/Android; screenshot-after-start confirma HUD pós-clique. Repositório PRIVATE. QA PASS. Pendente: teste físico ARM64 e resolução da divergência de backend no metadata.
 
 P204 (2026-11-11): causa do quadro estático pós-clique isolada: Interagir usava raycast de 4m, mas o portal estava fora do alcance; movimento também dependia de input. Correção local adiciona abertura direta do desafio, raycast 40m e pulso visual do portal. QA PASS. Commit ainda não enviado; não gerar APK até autorização/necessidade de nova validação remota.
+
+P205: novo log Android API 37 mantém o diagnóstico: Unity/renderização OK; avisos EGL são do emulador; sem evento de toque no trecho. Próximo: validar commit 37abd91 em novo APK/AVD.

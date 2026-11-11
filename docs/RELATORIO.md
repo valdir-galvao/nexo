@@ -482,3 +482,5 @@ A correção moveu o feedback de gameplay para Canvas explícito. Run 42747250853 c
 Runs 42932164802/42932184190 concluíram com sucesso. ARM64 e X86_64 foram baixados; o AVD confirmou boot, transição e HUD Canvas pós-clique, sem shaders incompatíveis ou objetos magenta. Repositório foi restaurado para privado. Estado: PASS no escopo AVD; compatibilidade universal permanece não comprovada.
 
 P204 - 2026-11-11: correção de interação do portal aplicada localmente. AVD anterior confirmou zero incompatibilidades gráficas; o bloqueio funcional era alcance de raycast e ausência de feedback idle. QA PASS; nova build ainda não executada.
+
+P205 - log API 37: boot e renderização confirmados; clique não aparece no trecho, portanto interação permanece pendente de nova execução.

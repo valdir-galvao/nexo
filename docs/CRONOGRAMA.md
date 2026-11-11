@@ -425,3 +425,5 @@ P202 - 2026-11-10: HUD gameplay commitada e validada remotamente em build Androi
 P203 - 2026-11-11: builds ARM64/X86_64 e AVD smoke concluídos SUCCESS; artefatos baixados e privacidade restaurada. Próximo: teste físico ARM64 e correção da divergência metadata Mono2x versus player IL2CPP.
 
 P204 (2026-11-11): correção local da interação do portal concluída e validada estaticamente; build/AVD pós-correção ainda NOT_RUN.
+
+P205: log API 37 analisado; boot/render PASS, interação pós-toque não observável neste trecho.
