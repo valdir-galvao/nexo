@@ -439,3 +439,5 @@ Atualização P201 (2026-11-10): HUD de gameplay adicionada ao Canvas para persist
 P202 (2026-11-10): build X86_64/AVD run 42747250853 SUCCESS no commit ed13e2b; artefatos 305 KB/55.4 MB confirmados na página autenticada. API rate limit impediu download local dos artefatos. Repositório PRIVATE. Não declarar correção visual definitiva até inspecionar screenshot-after-start e logcat baixados.
 
 P203 (2026-11-11): runs 42932164802 ARM64 e 42932184190 X86_64+AVD SUCCESS. APKs em C:/Temp/nexo-release-final/Android; screenshot-after-start confirma HUD pós-clique. Repositório PRIVATE. QA PASS. Pendente: teste físico ARM64 e resolução da divergência de backend no metadata.
+
+P204 (2026-11-11): causa do quadro estático pós-clique isolada: Interagir usava raycast de 4m, mas o portal estava fora do alcance; movimento também dependia de input. Correção local adiciona abertura direta do desafio, raycast 40m e pulso visual do portal. QA PASS. Commit ainda não enviado; não gerar APK até autorização/necessidade de nova validação remota.

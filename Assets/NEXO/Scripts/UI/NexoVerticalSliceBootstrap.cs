@@ -49,6 +49,8 @@ namespace Nexo.UI
         private float timeScaleBeforePause = 1f;
         private Transform challengeDoorTransform;
         private Renderer challengeDoorRenderer;
+        private Vector3 challengeDoorBaseScale = Vector3.one;
+        private float gameplayPulseTime;
         private bool challengeOpen;
         private bool challengeAnswered;
         private bool challengeCorrect;
@@ -776,6 +778,7 @@ namespace Nexo.UI
             if (greenDoor != null)
             {
                 challengeDoorTransform = greenDoor.transform;
+                challengeDoorBaseScale = challengeDoorTransform.localScale;
                 challengeDoorRenderer = greenDoor.GetComponent<Renderer>();
                 activeChallengeDoor = greenDoor.AddComponent<NexoChallengeDoor>();
                 if (activeChallengeDoor != null) activeChallengeDoor.stage = activeStage;
@@ -867,6 +870,7 @@ namespace Nexo.UI
         {
             ApplySafeArea();
             RefreshGameplayHud();
+            AnimateGameplayWorld();
             if (showMenu || showIntro)
             {
                 introElapsed += Time.unscaledDeltaTime;
@@ -905,8 +909,21 @@ namespace Nexo.UI
 
         private void Interact()
         {
+            if (activeChallengeDoor != null && activeChallengeDoor.unlocked && activeChallengeDoor.stage == activeStage)
+            {
+                OpenChallenge();
+                return;
+            }
             if (view == null) return;
             InteractAtScreenPoint(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f));
+        }
+
+        private void AnimateGameplayWorld()
+        {
+            if (showMenu || showIntro || challengeOpen || challengeDoorTransform == null) return;
+            gameplayPulseTime += Time.unscaledDeltaTime;
+            float pulse = 1f + Mathf.Sin(gameplayPulseTime * 2.4f) * 0.045f;
+            challengeDoorTransform.localScale = challengeDoorBaseScale * pulse;
         }
 
         private void InteractAtScreenPoint(Vector2 screenPoint)
@@ -914,7 +931,7 @@ namespace Nexo.UI
             if (view == null || challengeOpen) return;
             Ray ray = view.ScreenPointToRay(screenPoint);
             RaycastHit hit;
-            if (!Physics.Raycast(ray, out hit, 4f) || hit.collider == null) return;
+            if (!Physics.Raycast(ray, out hit, 40f) || hit.collider == null) return;
             NexoChallengeDoor door = hit.collider.GetComponent<NexoChallengeDoor>();
             NexoInteractable target = hit.collider.GetComponent<NexoInteractable>();
             if (door != null && door.unlocked && door.stage == activeStage)
@@ -1051,6 +1068,7 @@ namespace Nexo.UI
             if (portal != null)
             {
                 challengeDoorTransform = portal.transform;
+                challengeDoorBaseScale = challengeDoorTransform.localScale;
                 challengeDoorRenderer = portal.GetComponent<Renderer>();
                 activeChallengeDoor = portal.AddComponent<NexoChallengeDoor>();
                 if (activeChallengeDoor != null) activeChallengeDoor.stage = activeStage;
