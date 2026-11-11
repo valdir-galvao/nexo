@@ -431,3 +431,5 @@ P205: log API 37 analisado; boot/render PASS, interação pós-toque não observável
 P206: geração de artefatos BLOCKED antes do runner por billing/quota GitHub; correção de gameplay permanece não validada em novo APK.
 
 P207: ciclo de visibilidade concluído e restaurado PRIVATE; builds BLOCKED antes do runner por billing/quota, mesmo com repositório público.
+
+P208: bloqueio de billing confirmado no nível da conta; detalhe interno (pagamento, budget ou lock) permanece não exposto pela API autorizada.
