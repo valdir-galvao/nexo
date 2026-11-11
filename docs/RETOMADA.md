@@ -437,3 +437,5 @@ Atualização P200 (2026-11-10): log do Appetize confirmou que o quadro verde/jane
 Atualização P201 (2026-11-10): HUD de gameplay adicionada ao Canvas para persistir após Iniciar Missão; exibe estado, água, score, objetivo e prompt. OnGUI permanece como fallback. Movimento continua dependente de input. Static QA/diff PASS; build/AVD desta alteração ainda NOT_RUN.
 
 P202 (2026-11-10): build X86_64/AVD run 42747250853 SUCCESS no commit ed13e2b; artefatos 305 KB/55.4 MB confirmados na página autenticada. API rate limit impediu download local dos artefatos. Repositório PRIVATE. Não declarar correção visual definitiva até inspecionar screenshot-after-start e logcat baixados.
+
+P203 (2026-11-11): runs 42932164802 ARM64 e 42932184190 X86_64+AVD SUCCESS. APKs em C:/Temp/nexo-release-final/Android; screenshot-after-start confirma HUD pós-clique. Repositório PRIVATE. QA PASS. Pendente: teste físico ARM64 e resolução da divergência de backend no metadata.

@@ -421,3 +421,5 @@ P198 (2026-11-09): smoke test agora valida boot + toque no botao + screenshot po
 P199 (2026-11-10): Android AVD PASS para boot, renderização e toque no X86_64; APK ARM64 também compilado. Corrigir divergência de metadata/backend e manter teste ARM64 físico pendente.
 
 P202 - 2026-11-10: HUD gameplay commitada e validada remotamente em build Android X86_64 + AVD (run 42747250853 SUCCESS). Download local de screenshots/logs bloqueado por rate limit HTTP 403; próxima ação é baixar após reset da quota e inspecionar a captura pós-clique.
+
+P203 - 2026-11-11: builds ARM64/X86_64 e AVD smoke concluídos SUCCESS; artefatos baixados e privacidade restaurada. Próximo: teste físico ARM64 e correção da divergência metadata Mono2x versus player IL2CPP.
