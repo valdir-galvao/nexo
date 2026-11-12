@@ -471,3 +471,7 @@ Corre��o P218: o APK 43137667979 � multi-ABI (arm64-v8a+x86_64), portanto o log 
 Atualiza��o P219: commit de entrada/transi��o aplicado e enviado. Repetir testes Unity e smoke X86_64; procurar [NEXO_INPUT] e [NEXO_GAMEPLAY] no log.
 
 Atualiza��o P220: smoke AVD X86_64 aprovado no run 43150590272 com marcadores de entrada e gameplay. ARM64 43150113668 e iOS 43150113744 SUCCESS. Artefatos em C:/Temp/nexo-release-final; reposit�rio PRIVATE.
+
+Atualização P221: debug log/HAR confirmam boot e transição para gameplay, sem crash, ANR ou shader incompatível. Nenhum evento de investigação/desafio aparece; o guia COMO JOGAR permanece ativo e domina a tela. Próxima ação: corrigir UX do guia e o feedback de toques fora dos alvos; não gerar build antes dessa correção.
+
+Atualização P222: alterações locais em NexoVerticalSliceBootstrap.cs adicionam apresentação jogável real (água, paisagem, avatar animado, câmera e guia dispensável). QA local PASS. Próxima ação: validar em Unity/GameCI e AVD; APK anterior não inclui este commit.

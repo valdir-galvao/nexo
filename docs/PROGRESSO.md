@@ -1186,3 +1186,7 @@ P218 - CorreÁ„o de evidÍncia: APK de 23:28 (run 43137667979) contÈm ARM64 e x86_
 P219 - 2026-11-12: blindagem do caminho de entrada aplicada. O primeiro toque agora aceita Began/Moved/Stationary, registra [NEXO_INPUT], impede transiÁıes duplicadas e ativa a HUD imediatamente apÛs SkipIntro; gameplay registra transiÁ„o e investigaÁ„o. Static QA/diff PASS. Build remoto ainda n„o executado.
 
 P220 - 2026-11-12: smoke AVD corrigido e aprovado. Run 43150590272 X86_64 instalou e executou o APK; log confirmou NEXO_INPUT/NEXO_GAMEPLAY e screenshot pÛs-toque mostrou HUD, avatar, objetivo, controles e INVESTIGAR. ARM64 43150113668 e iOS 43150113744 tambÈm SUCCESS; artefatos e hashes em PHASE_115. RepositÛrio restaurado PRIVATE.
+
+P221 - 2026-11-12: auditoria dos arquivos de debug/HAR recebidos. Boot, transi√ß√£o e render audit passaram sem crash, shader incompat√≠vel ou magenta. O log n√£o cont√©m investiga√ß√£o/desafio ap√≥s a transi√ß√£o; a causa funcional √© o guia COMO JOGAR persistente sobre o blockout e aus√™ncia de feedback para toques fora dos alvos. Relat√≥rio: docs/PHASE_116_RUNTIME_LOG_HAR_AUDIT.md.
+
+P222 - 2026-11-12: implementado overhaul de apresenta√ß√£o e interatividade: guia dispens√°vel, √°gua vis√≠vel com ondas, √°rvores/rochas, avatar com anima√ß√£o procedural e c√¢mera panor√¢mica inicial. Static QA PASS (json=5, cs=26) e diff-check PASS. Nova build ainda pendente.

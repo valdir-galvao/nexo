@@ -510,3 +510,7 @@ P217 - Per�cia runtime: sem erros de shader ou crash no trecho. Aus�ncia de even
 P219 - Corre��o de interatividade: logs expl�citos e fallback de toque ampliado adicionados ao bootstrap. QA local PASS; sem nova build nesta etapa.
 
 P220 - Fechamento: erro era do harness de smoke (toque fora do bot�o/log antes do toque), n�o do APK. Harness corrigido; AVD comprovou transi��o e HUD interativa. Artefatos finais e hashes em PHASE_115_FINAL_INTERACTIVE_ARTIFACTS.md; privacidade restaurada.
+
+P221 - Auditoria de runtime: os arquivos recebidos comprovam boot/transição e renderização sem shader incompatível, mas não comprovam investigação. O sintoma visual decorre do guia COMO JOGAR persistente e de toques que não atingem alvos; correção de UX pendente.
+
+P222 - Overhaul visual: o blockout foi enriquecido com água, cenário, animação de avatar, câmera de revelação e instruções dispensáveis. A validação remota ainda está pendente; não declarar release visual antes do smoke.

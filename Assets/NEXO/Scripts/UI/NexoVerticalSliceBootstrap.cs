@@ -48,6 +48,7 @@ namespace Nexo.UI
         private GameObject gameplayControlsRoot;
         private GameObject gameplayGuidePanel;
         private Text gameplayGuideText;
+        private Button gameplayGuideDismissButton;
         private bool gameplayGuideVisible;
         private float gameplayGuideTime;
         private RectTransform introButtonRect;
@@ -62,9 +63,14 @@ namespace Nexo.UI
         private Vector3 challengeDoorBaseScale = Vector3.one;
         private float gameplayPulseTime;
         private float gameplayWorldTime;
+        private float cameraRevealTime;
         private Transform channelTransform;
         private Vector3 channelBaseScale = Vector3.one;
         private Transform avatarTransform;
+        private Transform avatarBodyTransform;
+        private Transform avatarHeadTransform;
+        private Transform avatarLeftLegTransform;
+        private Transform avatarRightLegTransform;
         private Light gameplayLight;
         private Light portalLight;
         private ParticleSystem portalParticles;
@@ -73,6 +79,11 @@ namespace Nexo.UI
         private Transform objectiveTarget;
         private GameObject objectiveMarker;
         private readonly List<Transform> waterRipples = new List<Transform>();
+        private Transform waterSurfaceTransform;
+        private Vector3 waterSurfaceBaseScale = Vector3.one;
+        private Renderer waterSurfaceRenderer;
+        private Color waterSurfaceBaseColor = Color.cyan;
+        private readonly List<Transform> landscapeDecor = new List<Transform>();
         private int objectiveStep;
         private Color valveBaseColor = Color.white;
         private bool challengeOpen;
@@ -589,7 +600,7 @@ namespace Nexo.UI
                 guideImage.raycastTarget = false;
             }
             gameplayGuideText = CreateIntroText(gameplayGuidePanel.transform,
-                "COMO JOGAR\n\n1. Mova o explorador com as setas\n2. Toque em INVESTIGAR\n3. Resolva o desafio para ativar o portal",
+                "COMO JOGAR\n\n1. Mova o explorador com as setas\n2. Toque em INVESTIGAR para registrar a pista\n3. Siga o marcador pulsante\n4. Resolva o desafio para ativar o portal",
                 24, FontStyle.Bold, new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.94f));
             if (gameplayGuideText != null)
             {
@@ -597,8 +608,18 @@ namespace Nexo.UI
                 gameplayGuideText.color = new Color(0.85f, 0.96f, 1f, 1f);
                 gameplayGuideText.raycastTarget = false;
             }
+            gameplayGuideDismissButton = CreateHudButton(gameplayGuidePanel.transform, "GUIDE_DISMISS", "ENTENDI", new Vector2(0.32f, 0.02f), new Vector2(0.68f, 0.22f), DismissGameplayGuide);
             gameplayGuidePanel.SetActive(false);
             gameplayHudRoot.SetActive(false);
+        }
+
+        private void DismissGameplayGuide()
+        {
+            gameplayGuideVisible = false;
+            gameplayGuideTime = 0f;
+            if (gameplayGuidePanel != null) gameplayGuidePanel.SetActive(false);
+            prompt = "Agora investigue a fonte azul marcada pelo alvo pulsante.";
+            if (audioDirector != null) audioDirector.PlayClick();
         }
 
         private Button CreateHudButton(Transform parent, string name, string label, Vector2 anchorMin, Vector2 anchorMax, UnityAction action)
@@ -875,6 +896,7 @@ namespace Nexo.UI
             }
             gameplayGuideVisible = true;
             gameplayGuideTime = 0f;
+            cameraRevealTime = 0f;
             introTransition = null;
             Debug.Log("[NEXO_GAMEPLAY] Mission gameplay active; objective source ready.");
         }
@@ -889,6 +911,14 @@ namespace Nexo.UI
             RenderSettings.ambientLight = NexoVisualTheme.Sky;
             EnsureGameplayLight();
             MakeCube("Island", new Vector3(0, -0.5f, 0), new Vector3(18, 1, 18), new Color(0.3f, 0.45f, 0.3f));
+            var waterSurface = MakeCube("Water Surface", new Vector3(-1.5f, 0.06f, 2.8f), new Vector3(6.5f, 0.08f, 3.8f), new Color(0.04f, 0.38f, 0.82f));
+            if (waterSurface != null)
+            {
+                waterSurfaceTransform = waterSurface.transform;
+                waterSurfaceBaseScale = waterSurfaceTransform.localScale;
+                waterSurfaceRenderer = waterSurface.GetComponent<Renderer>();
+                waterSurfaceBaseColor = new Color(0.04f, 0.38f, 0.82f, 1f);
+            }
             var source = MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true);
             InitializeInteractable(source, ClueId.Source, "Fonte: siga as marcas de umidade até o canal.");
             sourceTransform = source == null ? null : source.transform;
@@ -918,7 +948,8 @@ namespace Nexo.UI
             SetObjectiveStep(0);
             MakeCube("Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone, true);
             MakeCube("ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
-            GameObject avatar = CreateExplorerAvatar(new Vector3(-6, 1, -5));
+            CreateLandscapeDecor();
+            GameObject avatar = CreateExplorerAvatar(new Vector3(-4, 1, -1));
             if (avatar == null)
             {
                 Debug.LogError("Nexo: avatar n?o p?de ser criado; gameplay continuar? sem movimento.");
@@ -938,13 +969,40 @@ namespace Nexo.UI
             var root = new GameObject("Explorer");
             if (root == null) return null;
             root.transform.position = position;
-            CreateVisualPart(root.transform, "Explorer Body", new Vector3(0f, 0.15f, 0f), new Vector3(0.85f, 1.0f, 0.62f), new Color(0.08f, 0.25f, 0.42f));
-            CreateVisualPart(root.transform, "Explorer Head", new Vector3(0f, 0.82f, 0f), new Vector3(0.72f, 0.55f, 0.66f), new Color(0.16f, 0.68f, 0.88f));
+            GameObject body = CreateVisualPart(root.transform, "Explorer Body", new Vector3(0f, 0.15f, 0f), new Vector3(0.85f, 1.0f, 0.62f), new Color(0.08f, 0.25f, 0.42f));
+            GameObject head = CreateVisualPart(root.transform, "Explorer Head", new Vector3(0f, 0.82f, 0f), new Vector3(0.72f, 0.55f, 0.66f), new Color(0.16f, 0.68f, 0.88f));
             CreateVisualPart(root.transform, "Explorer Visor", new Vector3(0f, 0.84f, -0.34f), new Vector3(0.48f, 0.16f, 0.06f), new Color(0.55f, 0.95f, 1f));
             CreateVisualPart(root.transform, "Explorer Backpack", new Vector3(0f, 0.18f, 0.38f), new Vector3(0.52f, 0.72f, 0.22f), new Color(0.95f, 0.55f, 0.18f));
-            CreateVisualPart(root.transform, "Explorer Left Leg", new Vector3(-0.22f, -0.46f, 0f), new Vector3(0.22f, 0.42f, 0.26f), new Color(0.12f, 0.40f, 0.58f));
-            CreateVisualPart(root.transform, "Explorer Right Leg", new Vector3(0.22f, -0.46f, 0f), new Vector3(0.22f, 0.42f, 0.26f), new Color(0.12f, 0.40f, 0.58f));
+            GameObject leftLeg = CreateVisualPart(root.transform, "Explorer Left Leg", new Vector3(-0.22f, -0.46f, 0f), new Vector3(0.22f, 0.42f, 0.26f), new Color(0.12f, 0.40f, 0.58f));
+            GameObject rightLeg = CreateVisualPart(root.transform, "Explorer Right Leg", new Vector3(0.22f, -0.46f, 0f), new Vector3(0.22f, 0.42f, 0.26f), new Color(0.12f, 0.40f, 0.58f));
+            avatarBodyTransform = body == null ? null : body.transform;
+            avatarHeadTransform = head == null ? null : head.transform;
+            avatarLeftLegTransform = leftLeg == null ? null : leftLeg.transform;
+            avatarRightLegTransform = rightLeg == null ? null : rightLeg.transform;
             return root;
+        }
+
+        private void CreateLandscapeDecor()
+        {
+            landscapeDecor.Clear();
+            CreateTree(new Vector3(-7f, 0f, 1.5f), 1.1f);
+            CreateTree(new Vector3(5.5f, 0f, 5f), 0.85f);
+            CreateRock(new Vector3(-6f, 0f, 6f), new Vector3(1.2f, 0.7f, 1.4f));
+            CreateRock(new Vector3(7f, 0f, -4f), new Vector3(1.4f, 0.8f, 0.9f));
+        }
+
+        private void CreateTree(Vector3 position, float scale)
+        {
+            var trunk = MakeCube("Landscape Tree Trunk", position + Vector3.up * (0.8f * scale), new Vector3(0.35f, 1.6f, 0.35f) * scale, new Color(0.34f, 0.18f, 0.08f));
+            var canopy = MakeCube("Landscape Tree Canopy", position + Vector3.up * (2.0f * scale), new Vector3(1.6f, 1.4f, 1.6f) * scale, new Color(0.08f, 0.52f, 0.26f));
+            if (trunk != null) landscapeDecor.Add(trunk.transform);
+            if (canopy != null) landscapeDecor.Add(canopy.transform);
+        }
+
+        private void CreateRock(Vector3 position, Vector3 scale)
+        {
+            var rock = MakeCube("Landscape Rock", position + Vector3.up * (scale.y * 0.5f), scale, new Color(0.30f, 0.36f, 0.42f));
+            if (rock != null) landscapeDecor.Add(rock.transform);
         }
 
         private GameObject CreateVisualPart(Transform parent, string name, Vector3 localPosition, Vector3 scale, Color color)
@@ -1167,14 +1225,25 @@ namespace Nexo.UI
             input += new Vector3(touchMove.x, 0, touchMove.y);
             input = Vector3.ClampMagnitude(input, 1f);
             playerTransform.position += input * 3f * Time.deltaTime;
-            view.transform.position = Vector3.Lerp(view.transform.position, playerTransform.position + new Vector3(0, 5, -8), 8f * Time.deltaTime);
-            view.transform.LookAt(playerTransform.position + Vector3.up);
+            cameraRevealTime += Time.unscaledDeltaTime;
+            if (cameraRevealTime < 3.5f)
+            {
+                Vector3 overview = new Vector3(0f, 8f, -13f);
+                view.transform.position = Vector3.Lerp(view.transform.position, overview, 3.5f * Time.deltaTime);
+                view.transform.LookAt(new Vector3(0f, 0.8f, 1.5f));
+            }
+            else
+            {
+                view.transform.position = Vector3.Lerp(view.transform.position, playerTransform.position + new Vector3(0, 6, -10), 6f * Time.deltaTime);
+                view.transform.LookAt(playerTransform.position + Vector3.up * 0.8f);
+            }
             if (Input.GetKeyDown(KeyCode.E)) Interact();
         }
 
         private void Interact()
         {
             Debug.Log("[NEXO_GAMEPLAY] Interact requested; objectiveStep=" + objectiveStep);
+            if (gameplayGuideVisible) DismissGameplayGuide();
             if (objectiveStep < 3)
             {
                 InvestigateCurrentObjective();
@@ -1192,6 +1261,7 @@ namespace Nexo.UI
         private void MovePlayer(Vector3 direction)
         {
             if (playerTransform == null || showMenu || showIntro || challengeOpen) return;
+            if (gameplayGuideVisible) DismissGameplayGuide();
             playerTransform.position += direction.normalized * 0.8f;
             prompt = "Explorando a ilha... toque em INVESTIGAR para abrir o desafio.";
             if (audioDirector != null) audioDirector.PlayClick();
@@ -1219,6 +1289,28 @@ namespace Nexo.UI
                 Vector3 p = avatarTransform.localPosition;
                 p.y = 1f + Mathf.Sin(gameplayWorldTime * 3.0f) * 0.06f;
                 avatarTransform.localPosition = p;
+            }
+            float walkWave = Mathf.Sin(gameplayWorldTime * 5.5f);
+            if (avatarBodyTransform != null) avatarBodyTransform.localRotation = Quaternion.Euler(0f, walkWave * 2.5f, 0f);
+            if (avatarHeadTransform != null) avatarHeadTransform.localRotation = Quaternion.Euler(0f, -walkWave * 4f, 0f);
+            if (avatarLeftLegTransform != null) avatarLeftLegTransform.localRotation = Quaternion.Euler(walkWave * 12f, 0f, 0f);
+            if (avatarRightLegTransform != null) avatarRightLegTransform.localRotation = Quaternion.Euler(-walkWave * 12f, 0f, 0f);
+            if (waterSurfaceTransform != null)
+            {
+                float waterWave = 1f + Mathf.Sin(gameplayWorldTime * 2.2f) * 0.025f;
+                waterSurfaceTransform.localScale = new Vector3(waterSurfaceBaseScale.x * waterWave, waterSurfaceBaseScale.y, waterSurfaceBaseScale.z);
+            }
+            if (waterSurfaceRenderer != null && waterSurfaceRenderer.material != null)
+            {
+                float waterGlow = 0.88f + Mathf.Sin(gameplayWorldTime * 2.6f) * 0.12f;
+                waterSurfaceRenderer.material.color = waterSurfaceBaseColor * waterGlow;
+            }
+            for (int i = 0; i < landscapeDecor.Count; i++)
+            {
+                Transform decor = landscapeDecor[i];
+                if (decor == null) continue;
+                float sway = Mathf.Sin(gameplayWorldTime * 1.4f + i) * 1.5f;
+                decor.localRotation = Quaternion.Euler(0f, sway, sway * 0.35f);
             }
             if (gameplayLight != null)
                 gameplayLight.intensity = 1.05f + Mathf.Sin(gameplayWorldTime * 1.6f) * 0.15f;

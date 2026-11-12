@@ -453,3 +453,7 @@ P217: separar validação visual de build. Próxima ação é executar APK X86_64 com 
 P219: correção de entrada/transição aplicada; próximo passo é executar Unity Tests e smoke X86_64 antes de gerar novos artefatos.
 
 P220: interatividade validada no AVD X86_64 após correção do harness; APKs ARM64/X86_64 e IPA capturados. Próxima etapa opcional: teste físico ARM64.
+
+P221 | Auditoria debug/HAR | DIAGNÃ“STICO | sem crash/shader; transiÃ§Ã£o confirmada, investigaÃ§Ã£o nÃ£o confirmada; UX do guia persistente e toque fora de alvo sÃ£o bloqueios de clareza | implementar fechamento do guia e feedback de interaÃ§Ã£o antes de novo build
+
+P222 | Overhaul visual/gameplay | PASS local | Ã¡gua, paisagem, avatar animado, cÃ¢mera de revelaÃ§Ã£o e guia dispensÃ¡vel implementados | executar Unity Tests e smoke AVD antes de gerar release
