@@ -479,3 +479,5 @@ Atualização P222: alterações locais em NexoVerticalSliceBootstrap.cs adicion
 Atualização P223: f75942b passou QA local, mas não foi enviado porque o repositório GitHub está disabled e recusou push com HTTP 403. Nenhum build novo. Repositório confirmado PRIVATE; próximo passo é reativação externa do repositório.
 
 Atualização P224: repositório agora PUBLIC confirmado pela API. Nenhum workflow foi iniciado; próxima ação autorizada pode ser push/dispatch e coleta de artefatos, seguida de retorno a PRIVATE.
+
+Atualização P225: testes Unity PASS no commit f75942b/ee8ec51, mas quatro builds Android/iOS ficaram presos no GameCI por 184-199 min. Nenhum APK/IPA novo. Repositório PRIVATE. Próximo passo é perícia do runner/licenciamento, não nova tentativa automática.

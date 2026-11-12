@@ -1194,3 +1194,5 @@ P222 - 2026-11-12: implementado overhaul de apresentação e interatividade: gui
 P223 - 2026-11-12: gates locais aprovados para f75942b, mas o push foi recusado pelo GitHub com repository disabled/HTTP 403 após visibilidade pública. Nenhum workflow ou artefato novo foi gerado. Repositório restaurado PRIVATE. Bloqueio externo pendente.
 
 P224 - 2026-11-12: visibilidade alterada para PUBLIC por solicitação do usuário e confirmada pela API autenticada (isPrivate=false, isibility=PUBLIC). Nenhum workflow foi disparado nesta ação.
+
+P225 - 2026-11-12: Unity Tests 43326549423 SUCCESS; Android/iOS dispatches 43326555657/43326563578 e reexecuções 43329865530/43329871084 ficaram presos na etapa GameCI por 184-199 min e foram cancelados. Nenhum artefato novo; repositório restaurado PRIVATE. Relatório: docs/PHASE_118_BUILD_HANG_DIAGNOSTIC.md.

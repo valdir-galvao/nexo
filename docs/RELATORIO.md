@@ -518,3 +518,5 @@ P222 - Overhaul visual: o blockout foi enriquecido com água, cenário, animaç�
 P223 - infraestrutura: gates locais passaram, porém o GitHub recusou o push por repository disabled/HTTP 403. Nenhum workflow foi disparado e nenhum artefato novo existe; visibilidade restaurada privada.
 
 P224 - visibilidade: mudança para PUBLIC concluída e confirmada; nenhum build foi disparado nesta etapa.
+
+P225 - release bloqueada: Unity Tests passaram, mas Android/iOS repetidamente congelaram na etapa GameCI/Unity e foram cancelados. Sem artefatos novos; repositório voltou a PRIVATE.
