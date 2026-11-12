@@ -469,3 +469,5 @@ Atualização P217: log recebido só prova boot/renderização; não prova clique nem 
 Correção P218: o APK 43137667979 é multi-ABI (arm64-v8a+x86_64), portanto o log x86_64 é compatível. Próximo passo continua sendo instrumentar eventos de toque/transição e repetir smoke.
 
 Atualização P219: commit de entrada/transição aplicado e enviado. Repetir testes Unity e smoke X86_64; procurar [NEXO_INPUT] e [NEXO_GAMEPLAY] no log.
+
+Atualização P220: smoke AVD X86_64 aprovado no run 43150590272 com marcadores de entrada e gameplay. ARM64 43150113668 e iOS 43150113744 SUCCESS. Artefatos em C:/Temp/nexo-release-final; repositório PRIVATE.

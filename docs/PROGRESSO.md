@@ -1184,3 +1184,5 @@ P217 - 2026-11-12: perícia do log recebido. Boot e renderização confirmados (inc
 P218 - Correção de evidência: APK de 23:28 (run 43137667979) contém ARM64 e x86_64; o log x86_64 pode ser do mesmo artefato. A divergência de ABI foi retirada do diagnóstico. O log ainda não registra clique/transição; causa funcional requer instrumentação e novo smoke.
 
 P219 - 2026-11-12: blindagem do caminho de entrada aplicada. O primeiro toque agora aceita Began/Moved/Stationary, registra [NEXO_INPUT], impede transições duplicadas e ativa a HUD imediatamente após SkipIntro; gameplay registra transição e investigação. Static QA/diff PASS. Build remoto ainda não executado.
+
+P220 - 2026-11-12: smoke AVD corrigido e aprovado. Run 43150590272 X86_64 instalou e executou o APK; log confirmou NEXO_INPUT/NEXO_GAMEPLAY e screenshot pós-toque mostrou HUD, avatar, objetivo, controles e INVESTIGAR. ARM64 43150113668 e iOS 43150113744 também SUCCESS; artefatos e hashes em PHASE_115. Repositório restaurado PRIVATE.

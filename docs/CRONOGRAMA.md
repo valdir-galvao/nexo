@@ -451,3 +451,5 @@ P216 (2026-11-12): build remoto do gameplay guiado concluído; próxima ação é smo
 P217: separar validação visual de build. Próxima ação é executar APK X86_64 com toque automatizado e logs explícitos de transição/interação.
 
 P219: correção de entrada/transição aplicada; próximo passo é executar Unity Tests e smoke X86_64 antes de gerar novos artefatos.
+
+P220: interatividade validada no AVD X86_64 após correção do harness; APKs ARM64/X86_64 e IPA capturados. Próxima etapa opcional: teste físico ARM64.

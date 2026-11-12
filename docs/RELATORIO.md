@@ -508,3 +508,5 @@ P216 - Build guiado e artefatos: código corrigido, testes Unity PASS, Android AR
 P217 - Perícia runtime: sem erros de shader ou crash no trecho. Ausência de eventos de gameplay e divergência de ABI impedem confirmar interatividade do artefato atual.
 
 P219 - Correção de interatividade: logs explícitos e fallback de toque ampliado adicionados ao bootstrap. QA local PASS; sem nova build nesta etapa.
+
+P220 - Fechamento: erro era do harness de smoke (toque fora do botão/log antes do toque), não do APK. Harness corrigido; AVD comprovou transição e HUD interativa. Artefatos finais e hashes em PHASE_115_FINAL_INTERACTIVE_ARTIFACTS.md; privacidade restaurada.
