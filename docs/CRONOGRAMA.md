@@ -435,3 +435,5 @@ P207: ciclo de visibilidade concluído e restaurado PRIVATE; builds BLOCKED antes
 P208: bloqueio de billing confirmado no nível da conta; detalhe interno (pagamento, budget ou lock) permanece não exposto pela API autorizada.
 
 P209: gate Unity PASS; APK ARM64 e IPA sem assinatura Apple baixados com hashes; visibilidade restaurada PRIVATE.
+
+P210 | Overhaul gameplay/UI | PASS local | controles móveis e feedback contínuo implementados; build Unity pendente | executar EditMode/PlayMode e smoke Android após janela CI

@@ -451,3 +451,5 @@ P207: tentativa PUBLIC->build->PRIVATE concluída. GitHub recusou tests/Android/i
 P208: consulta autenticada confirmou a mensagem de billing nos runs públicos e privados. /user funciona; endpoints de billing retornam exigência de escopo user. Verificar Billing & licensing ou Support antes de novo dispatch.
 
 P209: ciclo público correto concluído. Runs 43119213947/43119218369/43119224274 SUCCESS; APK em C:/Temp/nexo-release-final/Android/Nexo-ARM64-fixed.apk e IPA em C:/Temp/nexo-release-final/iOS/Final-43119224274/Nexo.ipa. Repositório PRIVATE.
+
+P210 — retomada: o gameplay agora possui controles direcionais e INVESTIGAR persistente na HUD, além de animações contínuas de portal/canal/avatar/luz. Static QA e diff-check passaram. Próximo passo: validar compilação e interação em Unity/GameCI; não declarar compatibilidade visual final sem smoke Android.

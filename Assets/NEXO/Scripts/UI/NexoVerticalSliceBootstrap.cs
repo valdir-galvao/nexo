@@ -10,6 +10,7 @@ using Nexo.Learning;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
+using UnityEngine.Events;
 
 namespace Nexo.UI
 {
@@ -41,6 +42,9 @@ namespace Nexo.UI
         private Text gameplayHudStatus;
         private Text gameplayHudObjective;
         private Text gameplayHudPrompt;
+        private Text gameplayHudStage;
+        private Button gameplayInteractButton;
+        private GameObject gameplayControlsRoot;
         private RectTransform introButtonRect;
         private ParticleSystem introParticles;
         private bool modernUiReady;
@@ -51,6 +55,11 @@ namespace Nexo.UI
         private Renderer challengeDoorRenderer;
         private Vector3 challengeDoorBaseScale = Vector3.one;
         private float gameplayPulseTime;
+        private float gameplayWorldTime;
+        private Transform channelTransform;
+        private Vector3 channelBaseScale = Vector3.one;
+        private Transform avatarTransform;
+        private Light gameplayLight;
         private bool challengeOpen;
         private bool challengeAnswered;
         private bool challengeCorrect;
@@ -527,7 +536,54 @@ namespace Nexo.UI
                 gameplayHudPrompt.alignment = TextAnchor.LowerLeft;
                 gameplayHudPrompt.color = new Color(0.75f, 0.95f, 0.78f, 1f);
             }
+
+            gameplayHudStage = CreateIntroText(gameplayHudRoot.transform, "FASE 1/3", 24, FontStyle.Bold,
+                new Vector2(0.70f, 0.91f), new Vector2(0.96f, 0.99f));
+            if (gameplayHudStage != null)
+            {
+                gameplayHudStage.alignment = TextAnchor.UpperRight;
+                gameplayHudStage.color = new Color(1f, 0.84f, 0.35f, 1f);
+            }
+
+            gameplayControlsRoot = new GameObject("Nexo Mobile Controls");
+            gameplayControlsRoot.transform.SetParent(gameplayHudRoot.transform, false);
+            var controlsRect = gameplayControlsRoot.AddComponent<RectTransform>();
+            controlsRect.anchorMin = new Vector2(0.04f, 0.12f);
+            controlsRect.anchorMax = new Vector2(0.96f, 0.42f);
+            controlsRect.offsetMin = Vector2.zero;
+            controlsRect.offsetMax = Vector2.zero;
+
+            CreateHudButton(gameplayControlsRoot.transform, "UP", "▲", new Vector2(0.04f, 0.50f), new Vector2(0.16f, 0.96f), () => MovePlayer(Vector3.forward));
+            CreateHudButton(gameplayControlsRoot.transform, "LEFT", "◀", new Vector2(0.00f, 0.04f), new Vector2(0.12f, 0.50f), () => MovePlayer(Vector3.left));
+            CreateHudButton(gameplayControlsRoot.transform, "DOWN", "▼", new Vector2(0.04f, 0.04f), new Vector2(0.16f, 0.50f), () => MovePlayer(Vector3.back));
+            CreateHudButton(gameplayControlsRoot.transform, "RIGHT", "▶", new Vector2(0.16f, 0.04f), new Vector2(0.28f, 0.50f), () => MovePlayer(Vector3.right));
+            gameplayInteractButton = CreateHudButton(gameplayControlsRoot.transform, "INTERACT", "INVESTIGAR", new Vector2(0.68f, 0.08f), new Vector2(0.98f, 0.52f), Interact);
             gameplayHudRoot.SetActive(false);
+        }
+
+        private Button CreateHudButton(Transform parent, string name, string label, Vector2 anchorMin, Vector2 anchorMax, UnityAction action)
+        {
+            if (parent == null) return null;
+            var buttonObject = new GameObject("Nexo " + name + " Button");
+            buttonObject.transform.SetParent(parent, false);
+            var rect = buttonObject.AddComponent<RectTransform>();
+            rect.anchorMin = anchorMin;
+            rect.anchorMax = anchorMax;
+            rect.offsetMin = new Vector2(4f, 4f);
+            rect.offsetMax = new Vector2(-4f, -4f);
+            var image = buttonObject.AddComponent<Image>();
+            if (image != null) image.color = new Color(0.06f, 0.32f, 0.48f, 0.92f);
+            var button = buttonObject.AddComponent<Button>();
+            if (button == null) return null;
+            button.targetGraphic = image;
+            button.onClick.AddListener(action);
+            var text = CreateIntroText(buttonObject.transform, label, name == "INTERACT" ? 20 : 30, FontStyle.Bold, Vector2.zero, Vector2.one);
+            if (text != null)
+            {
+                text.alignment = TextAnchor.MiddleCenter;
+                text.color = Color.white;
+            }
+            return button;
         }
 
         private void RefreshGameplayHud()
@@ -544,6 +600,7 @@ namespace Nexo.UI
                 gameplayHudObjective.text = activeStage == 1
                     ? "Objetivo: investigue a fonte, o canal e a valvula."
                     : (activeStage == 2 ? "Objetivo: resolva o portal de eficiencia energetica." : "Objetivo: resolva o portal de logica.");
+            if (gameplayHudStage != null) gameplayHudStage.text = "FASE " + activeStage + "/3";
             if (gameplayHudPrompt != null)
                 gameplayHudPrompt.text = string.IsNullOrEmpty(prompt)
                     ? (challengeOpen ? challengeFeedback : "Toque em Interagir para investigar pistas.")
@@ -756,6 +813,12 @@ namespace Nexo.UI
             introGroup.alpha = 0f;
             introGroup.gameObject.SetActive(false);
             if (introParticles != null) introParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            if (introParticles != null)
+            {
+                var emission = introParticles.emission;
+                emission.rateOverTime = 2.5f;
+                introParticles.Play(true);
+            }
             introTransition = null;
         }
 
@@ -771,6 +834,8 @@ namespace Nexo.UI
             MakeCube("Island", new Vector3(0, -0.5f, 0), new Vector3(18, 1, 18), new Color(0.3f, 0.45f, 0.3f));
             InitializeInteractable(MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true), ClueId.Source, "Fonte alta: siga as marcas de umidade.");
             InitializeInteractable(MakeCube("Channel", new Vector3(-1, 0.25f, 2), new Vector3(3.5f, 0.3f, 0.5f), NexoVisualTheme.Water, true), ClueId.Channel, "O canal aponta para o reservat?rio.");
+            channelTransform = GameObject.Find("Channel") == null ? null : GameObject.Find("Channel").transform;
+            if (channelTransform != null) channelBaseScale = channelTransform.localScale;
             InitializeInteractable(MakeCube("Valve", new Vector3(2, 0.7f, 1), new Vector3(0.8f, 1.2f, 0.8f), NexoVisualTheme.Signal, true), ClueId.Valve, "Alinhe entrada e sa?da; h? tr?s posi??es.");
             string initialPortalName = activeStage == 1 ? "GreenDoor" : (activeStage == 2 ? "EnergyPortal" : "LogicPortal");
             Color initialPortalColor = activeStage == 1 ? new Color(0.18f, 0.85f, 0.42f) : (activeStage == 2 ? new Color(0.2f, 0.65f, 1f) : new Color(0.68f, 0.32f, 1f));
@@ -793,6 +858,7 @@ namespace Nexo.UI
                 return;
             }
             playerTransform = avatar.transform;
+            avatarTransform = playerTransform;
             if (view != null)
             {
                 view.transform.position = new Vector3(-6, 6, -10);
@@ -800,15 +866,22 @@ namespace Nexo.UI
             }
         }
 
-        private static void EnsureGameplayLight()
+        private void EnsureGameplayLight()
         {
             var lights = FindObjectsByType<Light>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             for (var i = 0; i < lights.Length; i++)
-                if (lights[i] != null && lights[i].type == LightType.Directional) return;
+            {
+                if (lights[i] != null && lights[i].type == LightType.Directional)
+                {
+                    gameplayLight = lights[i];
+                    return;
+                }
+            }
             var lightObject = new GameObject("DynamicDirectionalLight");
             if (lightObject == null) return;
             var light = lightObject.AddComponent<Light>();
             if (light == null) return;
+            gameplayLight = light;
             light.type = LightType.Directional;
             light.color = Color.white;
             light.intensity = 1.2f;
@@ -918,12 +991,39 @@ namespace Nexo.UI
             InteractAtScreenPoint(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f));
         }
 
+        private void MovePlayer(Vector3 direction)
+        {
+            if (playerTransform == null || showMenu || showIntro || challengeOpen) return;
+            playerTransform.position += direction.normalized * 0.8f;
+            prompt = "Explorando a ilha... toque em INVESTIGAR para abrir o desafio.";
+            if (audioDirector != null) audioDirector.PlayClick();
+        }
+
         private void AnimateGameplayWorld()
         {
             if (showMenu || showIntro || challengeOpen || challengeDoorTransform == null) return;
             gameplayPulseTime += Time.unscaledDeltaTime;
-            float pulse = 1f + Mathf.Sin(gameplayPulseTime * 2.4f) * 0.045f;
+            gameplayWorldTime += Time.unscaledDeltaTime;
+            float pulse = 1f + Mathf.Sin(gameplayPulseTime * 2.4f) * 0.10f;
             challengeDoorTransform.localScale = challengeDoorBaseScale * pulse;
+            if (challengeDoorRenderer != null && challengeDoorRenderer.material != null)
+            {
+                float glow = 0.82f + Mathf.Sin(gameplayPulseTime * 3.2f) * 0.18f;
+                challengeDoorRenderer.material.color = new Color(challengeDoorRenderer.material.color.r * glow, challengeDoorRenderer.material.color.g * glow, challengeDoorRenderer.material.color.b * glow, 1f);
+            }
+            if (channelTransform != null)
+            {
+                float wave = 1f + Mathf.Sin(gameplayWorldTime * 2.8f) * 0.10f;
+                channelTransform.localScale = new Vector3(channelBaseScale.x, channelBaseScale.y * wave, channelBaseScale.z);
+            }
+            if (avatarTransform != null)
+            {
+                Vector3 p = avatarTransform.localPosition;
+                p.y = 1f + Mathf.Sin(gameplayWorldTime * 3.0f) * 0.06f;
+                avatarTransform.localPosition = p;
+            }
+            if (gameplayLight != null)
+                gameplayLight.intensity = 1.05f + Mathf.Sin(gameplayWorldTime * 1.6f) * 0.15f;
         }
 
         private void InteractAtScreenPoint(Vector2 screenPoint)

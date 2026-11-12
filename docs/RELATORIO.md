@@ -492,3 +492,5 @@ P207 - ciclo público controlado: visibilidade restaurada PRIVATE; runs 431176326
 P208 - bloqueio de billing confirmado no nível da conta; API não revela o subtipo financeiro sem escopo user. Repositório público não contornou.
 
 P209 - artefatos finais: testes, Android e iOS SUCCESS após dispatch com repositório público confirmado; downloads validados por tamanho/hash; repositório privado restaurado.
+
+P210 — decisão: substituir o blockout estático por interação móvel explícita e feedback contínuo sem remover a arquitetura procedural. Alteração limitada ao bootstrap; build remoto ainda não executado.
