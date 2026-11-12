@@ -496,3 +496,5 @@ P209 - artefatos finais: testes, Android e iOS SUCCESS após dispatch com reposit
 P210 — decisão: substituir o blockout estático por interação móvel explícita e feedback contínuo sem remover a arquitetura procedural. Alteração limitada ao bootstrap; build remoto ainda não executado.
 
 P211 — polimento UX: feedback do portal tornou-se persistente no gameplay, reduzindo a ambiguidade após o primeiro toque.
+
+P213 — release controlada: gameplay interativo compilado e artefatos Android/iOS capturados; repositório voltou a PRIVATE imediatamente após o download.

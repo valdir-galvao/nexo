@@ -439,3 +439,5 @@ P209: gate Unity PASS; APK ARM64 e IPA sem assinatura Apple baixados com hashes;
 P210 | Overhaul gameplay/UI | PASS local | controles móveis e feedback contínuo implementados; build Unity pendente | executar EditMode/PlayMode e smoke Android após janela CI
 
 P211 | Polimento de feedback | PASS local | aura de portal, luz e partículas de gameplay adicionadas | validar em Unity/GameCI
+
+P213 | Build pós-gameplay | PASS | testes, APK ARM64 e IPA concluídos; visibilidade privada restaurada | executar smoke visual no APK quando necessário

@@ -1170,3 +1170,5 @@ P210 (2026-11-11): implementado overhaul de interação: controles móveis direcion
 P211 (2026-11-11): auditoria UX ampliada; portal ganhou luz pulsante e partículas energéticas com material explícito, e o prompt explica o fluxo de controles. Static QA/diff-check PASS. Build ainda NOT_RUN.
 
 P212 (2026-11-11): corrigido brilho acumulativo do portal; animação agora usa cor-base estável. Static QA/diff-check PASS.
+
+P213 (2026-11-11/12): ciclo PUBLIC confirmado antes do dispatch e PRIVATE restaurado após captura. Unity Tests 43130274506 SUCCESS (EditMode/PlayMode); Android 43130278927 SUCCESS; iOS 43130283442 SUCCESS. APK e IPA baixados com hashes em docs/PHASE_110_PUBLIC_BUILD_ARTIFACTS.md.
