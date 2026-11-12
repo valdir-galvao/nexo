@@ -459,3 +459,5 @@ P211 — a HUD e o portal agora fornecem alvo visual contínuo: INVESTIGAR, aura de
 P213 — artefatos do commit 78fafbd disponíveis em C:/Temp/nexo-release-final; runs 43130274506/43130278927/43130283442 SUCCESS. Repositório PRIVATE. Próximo passo opcional: smoke AVD no APK novo.
 
 P214 — logs Android não mostram falha do app; nova UX inclui avatar composto e cartão COMO JOGAR. QA local PASS; próxima ação é build/smoke Android.
+
+P215 — o loop agora exige Fonte -> Canal -> Válvula -> Portal, com marcador visual e trilha procedural. QA local PASS. Próximo passo: enviar/compilar o commit atual e validar no emulador.

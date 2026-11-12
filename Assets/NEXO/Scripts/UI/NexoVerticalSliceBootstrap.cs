@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Nexo.Core;
 using Nexo.Audio;
@@ -67,6 +68,13 @@ namespace Nexo.UI
         private Light gameplayLight;
         private Light portalLight;
         private ParticleSystem portalParticles;
+        private Transform sourceTransform;
+        private Transform valveTransform;
+        private Transform objectiveTarget;
+        private GameObject objectiveMarker;
+        private readonly List<Transform> waterRipples = new List<Transform>();
+        private int objectiveStep;
+        private Color valveBaseColor = Color.white;
         private bool challengeOpen;
         private bool challengeAnswered;
         private bool challengeCorrect;
@@ -872,11 +880,17 @@ namespace Nexo.UI
             RenderSettings.ambientLight = NexoVisualTheme.Sky;
             EnsureGameplayLight();
             MakeCube("Island", new Vector3(0, -0.5f, 0), new Vector3(18, 1, 18), new Color(0.3f, 0.45f, 0.3f));
-            InitializeInteractable(MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true), ClueId.Source, "Fonte alta: siga as marcas de umidade.");
+            var source = MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true);
+            InitializeInteractable(source, ClueId.Source, "Fonte: siga as marcas de umidade até o canal.");
+            sourceTransform = source == null ? null : source.transform;
             InitializeInteractable(MakeCube("Channel", new Vector3(-1, 0.25f, 2), new Vector3(3.5f, 0.3f, 0.5f), NexoVisualTheme.Water, true), ClueId.Channel, "O canal aponta para o reservat?rio.");
             channelTransform = GameObject.Find("Channel") == null ? null : GameObject.Find("Channel").transform;
             if (channelTransform != null) channelBaseScale = channelTransform.localScale;
-            InitializeInteractable(MakeCube("Valve", new Vector3(2, 0.7f, 1), new Vector3(0.8f, 1.2f, 0.8f), NexoVisualTheme.Signal, true), ClueId.Valve, "Alinhe entrada e sa?da; h? tr?s posi??es.");
+            CreateWaterRipples();
+            var valve = MakeCube("Valve", new Vector3(2, 0.7f, 1), new Vector3(0.8f, 1.2f, 0.8f), NexoVisualTheme.Signal, true);
+            InitializeInteractable(valve, ClueId.Valve, "Valvula: alinhe entrada e saida para restaurar o fluxo.");
+            valveTransform = valve == null ? null : valve.transform;
+            valveBaseColor = NexoVisualTheme.Signal;
             string initialPortalName = activeStage == 1 ? "GreenDoor" : (activeStage == 2 ? "EnergyPortal" : "LogicPortal");
             Color initialPortalColor = activeStage == 1 ? new Color(0.18f, 0.85f, 0.42f) : (activeStage == 2 ? new Color(0.2f, 0.65f, 1f) : new Color(0.68f, 0.32f, 1f));
             var greenDoor = MakeCube(initialPortalName, new Vector3(6, 1.2f, -1), new Vector3(1.2f, 2.4f, 0.35f), initialPortalColor, true);
@@ -891,6 +905,8 @@ namespace Nexo.UI
                 else Debug.LogWarning("Nexo: porta verde sem componente de desafio.");
                 CreatePortalFeedback(greenDoor.transform, initialPortalColor);
             }
+            CreateObjectiveMarker();
+            SetObjectiveStep(0);
             MakeCube("Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone, true);
             MakeCube("ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
             GameObject avatar = CreateExplorerAvatar(new Vector3(-6, 1, -5));
@@ -936,6 +952,50 @@ namespace Nexo.UI
             renderer.material = new Material(defaultWorldMaterial);
             if (renderer.material != null) renderer.material.color = color;
             return part;
+        }
+
+        private void CreateWaterRipples()
+        {
+            waterRipples.Clear();
+            if (channelTransform == null) return;
+            for (int i = 0; i < 3; i++)
+            {
+                var ripple = CreateVisualPart(channelTransform, "Water Ripple " + i,
+                    new Vector3(-1.0f + i * 0.9f, 0.22f, 0f), new Vector3(0.45f, 0.035f, 0.16f), new Color(0.45f, 0.95f, 1f));
+                if (ripple != null) waterRipples.Add(ripple.transform);
+            }
+        }
+
+        private void CreateObjectiveMarker()
+        {
+            if (objectiveMarker != null) return;
+            objectiveMarker = new GameObject("Nexo Objective Marker");
+            if (objectiveMarker == null) return;
+            var markerRenderer = objectiveMarker.AddComponent<MeshRenderer>();
+            var markerFilter = objectiveMarker.AddComponent<MeshFilter>();
+            if (markerRenderer == null || markerFilter == null) return;
+            markerFilter.sharedMesh = CreateCubeMesh();
+            markerRenderer.material = defaultWorldMaterial == null ? null : new Material(defaultWorldMaterial);
+            if (markerRenderer.material != null) markerRenderer.material.color = new Color(1f, 0.82f, 0.22f, 1f);
+            objectiveMarker.transform.localScale = new Vector3(0.18f, 0.18f, 0.18f);
+        }
+
+        private void SetObjectiveStep(int step)
+        {
+            objectiveStep = Mathf.Clamp(step, 0, 3);
+            if (objectiveStep == 0) objectiveTarget = sourceTransform;
+            else if (objectiveStep == 1) objectiveTarget = channelTransform;
+            else if (objectiveStep == 2) objectiveTarget = valveTransform;
+            else objectiveTarget = challengeDoorTransform;
+            if (objectiveTarget != null && objectiveMarker != null)
+            {
+                objectiveMarker.SetActive(true);
+                objectiveMarker.transform.position = objectiveTarget.position + Vector3.up * 1.5f;
+            }
+            if (objectiveStep == 0) prompt = "1/3: investigue a FONTE azul.";
+            else if (objectiveStep == 1) prompt = "2/3: siga o CANAL de agua ate a valvula.";
+            else if (objectiveStep == 2) prompt = "3/3: investigue a VALVULA para ativar o portal.";
+            else prompt = "Portal ativo: toque em INVESTIGAR para resolver o desafio.";
         }
         }
 
@@ -1104,6 +1164,11 @@ namespace Nexo.UI
 
         private void Interact()
         {
+            if (objectiveStep < 3)
+            {
+                InvestigateCurrentObjective();
+                return;
+            }
             if (activeChallengeDoor != null && activeChallengeDoor.unlocked && activeChallengeDoor.stage == activeStage)
             {
                 OpenChallenge();
@@ -1150,6 +1215,56 @@ namespace Nexo.UI
                 portalLight.intensity = 1.25f + Mathf.Sin(gameplayWorldTime * 3.0f) * 0.55f;
             if (portalParticles != null)
                 portalParticles.transform.localRotation = Quaternion.Euler(0f, gameplayWorldTime * 35f, 0f);
+            for (int i = 0; i < waterRipples.Count; i++)
+            {
+                Transform ripple = waterRipples[i];
+                if (ripple == null) continue;
+                Vector3 position = ripple.localPosition;
+                position.x += Mathf.Sin(gameplayWorldTime * 2.5f + i) * 0.0025f;
+                ripple.localPosition = position;
+            }
+            if (objectiveMarker != null && objectiveTarget != null && objectiveMarker.activeSelf)
+            {
+                objectiveMarker.transform.position = objectiveTarget.position + Vector3.up * (1.35f + Mathf.Sin(gameplayWorldTime * 3.5f) * 0.18f);
+                objectiveMarker.transform.Rotate(Vector3.up, 90f * Time.unscaledDeltaTime, Space.World);
+            }
+            if (valveTransform != null && valveTransform.GetComponent<Renderer>() != null)
+            {
+                var valveRenderer = valveTransform.GetComponent<Renderer>();
+                if (valveRenderer.material != null)
+                {
+                    float signal = objectiveStep == 2 ? 0.75f + Mathf.Sin(gameplayWorldTime * 4f) * 0.25f : 1f;
+                    valveRenderer.material.color = valveBaseColor * signal;
+                }
+            }
+        }
+
+        private void InvestigateCurrentObjective()
+        {
+            if (mission == null) return;
+            if (objectiveStep == 0)
+            {
+                mission.RecordClue(ClueId.Source);
+                SetObjectiveStep(1);
+                prompt = "Fonte registrada. Agora siga o canal azul.";
+                if (audioDirector != null) audioDirector.PlayDiscovery();
+            }
+            else if (objectiveStep == 1)
+            {
+                mission.RecordClue(ClueId.Channel);
+                SetObjectiveStep(2);
+                prompt = "Canal localizado. Investigue a valvula laranja.";
+                if (audioDirector != null) audioDirector.PlayDiscovery();
+            }
+            else if (objectiveStep == 2)
+            {
+                mission.RecordClue(ClueId.Valve);
+                mission.EvaluateValve(0);
+                mission.Allocate(WaterAllocation.Reservoir);
+                SetObjectiveStep(3);
+                prompt = "Fluxo restaurado. Toque em INVESTIGAR para abrir o portal.";
+                if (audioDirector != null) audioDirector.PlayPortalUnlock();
+            }
         }
 
         private void InteractAtScreenPoint(Vector2 screenPoint)
@@ -1166,6 +1281,15 @@ namespace Nexo.UI
             }
             else if (target != null)
             {
+                if ((objectiveStep == 0 && target.clue != ClueId.Source) ||
+                    (objectiveStep == 1 && target.clue != ClueId.Channel) ||
+                    (objectiveStep == 2 && target.clue != ClueId.Valve))
+                {
+                    prompt = objectiveStep == 0 ? "Primeiro investigue a fonte azul." : (objectiveStep == 1 ? "Siga o canal azul antes da valvula." : "Agora investigue a valvula laranja.");
+                    if (audioDirector != null) audioDirector.PlayFeedback(false);
+                    return;
+                }
+                InvestigateCurrentObjective();
                 mission.RecordClue(target.clue);
                 prompt = target.description;
                 if (audioDirector != null) audioDirector.PlayClick();
@@ -1301,6 +1425,7 @@ namespace Nexo.UI
                 activeChallengeDoor = portal.AddComponent<NexoChallengeDoor>();
                 if (activeChallengeDoor != null) activeChallengeDoor.stage = activeStage;
                 CreatePortalFeedback(portal.transform, portalColor);
+                SetObjectiveStep(3);
                 challengeFeedback = challengeFeedback + (activeStage == 2 ? " Novo portal: eficiencia energetica." : " Novo portal: logica de programacao.");
             }
         }

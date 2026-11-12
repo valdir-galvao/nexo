@@ -443,3 +443,5 @@ P211 | Polimento de feedback | PASS local | aura de portal, luz e partículas de 
 P213 | Build pós-gameplay | PASS | testes, APK ARM64 e IPA concluídos; visibilidade privada restaurada | executar smoke visual no APK quando necessário
 
 P214 | UX guiada | PASS local | avatar, tutorial pós-início e alvo explícito de interação implementados | validar visualmente em novo APK
+
+P215 | Loop de missão completo | PASS local | objetivos obrigatórios, feedback visual e áudio ambiente implementados | executar Unity tests e smoke Android

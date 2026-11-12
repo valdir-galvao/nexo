@@ -500,3 +500,5 @@ P211 — polimento UX: feedback do portal tornou-se persistente no gameplay, reduz
 P213 — release controlada: gameplay interativo compilado e artefatos Android/iOS capturados; repositório voltou a PRIVATE imediatamente após o download.
 
 P214 — diagnóstico: o bloqueio era qualidade/clareza de gameplay, não shader ou boot; UX guiada e avatar foram adicionados sem remover a lógica existente.
+
+P215 — escopo ampliado para gameplay completo: regras de missão agora dirigem a UI e os objetivos visuais; áudio ambiente procedural adicionado.

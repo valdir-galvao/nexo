@@ -7,6 +7,8 @@ namespace Nexo.Audio
     public sealed class NexoAudioDirector : MonoBehaviour
     {
         private AudioSource source;
+        private AudioSource musicSource;
+        private AudioClip ambientClip;
         private AudioSettingsData settings = new AudioSettingsData();
         private bool paused;
 
@@ -14,7 +16,9 @@ namespace Nexo.Audio
         {
             settings = value ?? new AudioSettingsData();
             EnsureSource();
+            EnsureMusicSource();
             if (source != null) source.volume = settings.muted ? 0f : settings.master * settings.effects;
+            PlayAmbient();
         }
 
         public void PlayDiscovery()
@@ -41,6 +45,8 @@ namespace Nexo.Audio
             paused = value;
             AudioListener.pause = value;
             if (value && source != null) source.Stop();
+            if (value && musicSource != null) musicSource.Pause();
+            if (!value && musicSource != null && !musicSource.isPlaying) musicSource.UnPause();
         }
 
         private void OnApplicationPause(bool pauseStatus) { SetPaused(pauseStatus); }
@@ -58,6 +64,48 @@ namespace Nexo.Audio
                 source.loop = false;
                 source.spatialBlend = 0f;
             }
+        }
+
+        private void EnsureMusicSource()
+        {
+            if (musicSource == null)
+            {
+                musicSource = gameObject.AddComponent<AudioSource>();
+                if (musicSource != null)
+                {
+                    musicSource.playOnAwake = false;
+                    musicSource.loop = true;
+                    musicSource.spatialBlend = 0f;
+                }
+            }
+            if (ambientClip != null || musicSource == null) return;
+            const int rate = 22050;
+            const int seconds = 8;
+            int count = rate * seconds;
+            ambientClip = AudioClip.Create("nexo-procedural-ambient", count, 2, rate, false);
+            if (ambientClip == null) return;
+            float[] samples = new float[count * 2];
+            for (int i = 0; i < count; i++)
+            {
+                float t = (float)i / rate;
+                float pad = Mathf.Sin(2f * Mathf.PI * 110f * t) * 0.035f;
+                pad += Mathf.Sin(2f * Mathf.PI * 164.81f * t) * 0.022f;
+                pad += Mathf.Sin(2f * Mathf.PI * 220f * t) * 0.014f;
+                float pulse = 0.65f + 0.35f * Mathf.Sin(2f * Mathf.PI * 0.25f * t);
+                float value = pad * pulse;
+                samples[i * 2] = value;
+                samples[i * 2 + 1] = value;
+            }
+            ambientClip.SetData(samples, 0);
+            musicSource.clip = ambientClip;
+        }
+
+        private void PlayAmbient()
+        {
+            EnsureMusicSource();
+            if (musicSource == null || ambientClip == null || paused || settings.muted || settings.music <= 0f) return;
+            musicSource.volume = settings.master * settings.music;
+            if (!musicSource.isPlaying) musicSource.Play();
         }
 
         private void PlayTone(float frequency, float duration, bool squareWave, float endFrequency)
