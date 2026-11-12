@@ -78,6 +78,7 @@ namespace Nexo.UI
         private bool challengeOpen;
         private bool challengeAnswered;
         private bool challengeCorrect;
+        private bool missionTransitionRequested;
         private int score;
         private string challengeFeedback = "";
         private Coroutine challengePulse;
@@ -788,6 +789,9 @@ namespace Nexo.UI
 
         private void BeginModernMission()
         {
+            if (missionTransitionRequested) return;
+            missionTransitionRequested = true;
+            Debug.Log("[NEXO_INPUT] BeginModernMission requested; transitioning from intro.");
             showMenu = false;
             EnsureWorldBuilt();
             if (showIntro)
@@ -795,6 +799,8 @@ namespace Nexo.UI
                 mission.SkipIntro();
                 showIntro = false;
                 introElapsed = 0f;
+                gameplayGuideVisible = true;
+                RefreshGameplayHud();
                 if (introTransition != null) StopCoroutine(introTransition);
                 introTransition = StartCoroutine(FadeIntoMission());
                 return;
@@ -804,6 +810,7 @@ namespace Nexo.UI
 
         private void HandleStartButtonPressed()
         {
+            Debug.Log("[NEXO_INPUT] Start Mission button activated.");
             if (audioDirector != null) audioDirector.PlayClick();
             if (introButtonRect != null) StartCoroutine(PunchButton(introButtonRect));
             BeginModernMission();
@@ -842,6 +849,7 @@ namespace Nexo.UI
         private IEnumerator FadeIntoMission()
         {
             if (introGroup == null) yield break;
+            Debug.Log("[NEXO_GAMEPLAY] FadeIntoMission started; gameplay HUD activated.");
             introGroup.interactable = false;
             introGroup.blocksRaycasts = false;
             float startAlpha = introGroup.alpha;
@@ -868,6 +876,7 @@ namespace Nexo.UI
             gameplayGuideVisible = true;
             gameplayGuideTime = 0f;
             introTransition = null;
+            Debug.Log("[NEXO_GAMEPLAY] Mission gameplay active; objective source ready.");
         }
 
         private static float EaseInOut(float value)
@@ -1141,6 +1150,7 @@ namespace Nexo.UI
             Vector2 pointerPosition;
             if (TryGetPrimaryPointerDown(out pointerPosition))
             {
+                Debug.Log("[NEXO_INPUT] Pointer detected at " + pointerPosition + "; intro=" + (showMenu || showIntro));
                 if (showMenu || showIntro)
                 {
                     HandleStartButtonPressed();
@@ -1164,6 +1174,7 @@ namespace Nexo.UI
 
         private void Interact()
         {
+            Debug.Log("[NEXO_GAMEPLAY] Interact requested; objectiveStep=" + objectiveStep);
             if (objectiveStep < 3)
             {
                 InvestigateCurrentObjective();
@@ -1242,6 +1253,7 @@ namespace Nexo.UI
         private void InvestigateCurrentObjective()
         {
             if (mission == null) return;
+            Debug.Log("[NEXO_GAMEPLAY] Investigating objective step " + objectiveStep);
             if (objectiveStep == 0)
             {
                 mission.RecordClue(ClueId.Source);
@@ -1307,7 +1319,7 @@ namespace Nexo.UI
             for (int i = 0; i < Input.touchCount; i++)
             {
                 var touch = Input.GetTouch(i);
-                if (touch.phase == TouchPhase.Began)
+                if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
                 {
                     position = touch.position;
                     return true;
