@@ -481,3 +481,5 @@ Atualização P223: f75942b passou QA local, mas não foi enviado porque o repos
 Atualização P224: repositório agora PUBLIC confirmado pela API. Nenhum workflow foi iniciado; próxima ação autorizada pode ser push/dispatch e coleta de artefatos, seguida de retorno a PRIVATE.
 
 Atualização P225: testes Unity PASS no commit f75942b/ee8ec51, mas quatro builds Android/iOS ficaram presos no GameCI por 184-199 min. Nenhum APK/IPA novo. Repositório PRIVATE. Próximo passo é perícia do runner/licenciamento, não nova tentativa automática.
+
+Atualização P226: dispatch de Unity Tests 43330830350 falhou em ~4s antes de qualquer step; jobs sem logs. Não houve execução Unity nem artefatos. Repositório permaneceu privado. Antes de novo dispatch, regularizar o bloqueio externo de runner/billing/quota.

@@ -1196,3 +1196,5 @@ P223 - 2026-11-12: gates locais aprovados para f75942b, mas o push foi recusado 
 P224 - 2026-11-12: visibilidade alterada para PUBLIC por solicitação do usuário e confirmada pela API autenticada (isPrivate=false, isibility=PUBLIC). Nenhum workflow foi disparado nesta ação.
 
 P225 - 2026-11-12: Unity Tests 43326549423 SUCCESS; Android/iOS dispatches 43326555657/43326563578 e reexecuções 43329865530/43329871084 ficaram presos na etapa GameCI por 184-199 min e foram cancelados. Nenhum artefato novo; repositório restaurado PRIVATE. Relatório: docs/PHASE_118_BUILD_HANG_DIAGNOSTIC.md.
+
+P226 - 2026-11-12 America/Sao_Paulo: dispatch manual de Unity Tests 43330830350 falhou antes de iniciar steps; EditMode/PlayMode ficaram sem runner e sem logs. Nenhum teste ou artefato novo. Repositório permaneceu PRIVATE. Relatório: docs/PHASE_119_TEST_DISPATCH_DIAGNOSTIC.md. Próxima ação: regularizar o bloqueio de execução da conta/runner antes de novo dispatch; não repetir builds cegamente.

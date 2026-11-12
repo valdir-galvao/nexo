@@ -520,3 +520,5 @@ P223 - infraestrutura: gates locais passaram, porém o GitHub recusou o push por
 P224 - visibilidade: mudança para PUBLIC concluída e confirmada; nenhum build foi disparado nesta etapa.
 
 P225 - release bloqueada: Unity Tests passaram, mas Android/iOS repetidamente congelaram na etapa GameCI/Unity e foram cancelados. Sem artefatos novos; repositório voltou a PRIVATE.
+
+P226: execução remota de diagnóstico recusada antes do runner (run 43330830350). O estado da aplicação não foi alterado; não há nova evidência de teste ou build.

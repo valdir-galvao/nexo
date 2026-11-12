@@ -463,3 +463,5 @@ P223 | Disparo pós-overhaul | BLOCKED | GitHub recusou push: repository disable
 P224 | Visibilidade pública | PASS | repositório confirmado PUBLIC via API; sem build disparado | manter público somente durante o ciclo autorizado e restaurar PRIVATE ao concluir
 
 P225 | Build pós-overhaul | BLOCKED | Unity Tests PASS; Android/iOS repetidamente presos no container GameCI e cancelados após exceder timeout | investigar infraestrutura/licenciamento antes de novo dispatch
+
+P226 registrado: Unity Tests 43330830350 foi recusado antes do runner, sem steps/logs. Builds Android/iOS continuam bloqueadas por congelamentos GameCI anteriores.
