@@ -53,6 +53,7 @@ namespace Nexo.UI
         private float timeScaleBeforePause = 1f;
         private Transform challengeDoorTransform;
         private Renderer challengeDoorRenderer;
+        private Color challengeDoorBaseColor = Color.white;
         private Vector3 challengeDoorBaseScale = Vector3.one;
         private float gameplayPulseTime;
         private float gameplayWorldTime;
@@ -847,6 +848,7 @@ namespace Nexo.UI
                 challengeDoorTransform = greenDoor.transform;
                 challengeDoorBaseScale = challengeDoorTransform.localScale;
                 challengeDoorRenderer = greenDoor.GetComponent<Renderer>();
+                challengeDoorBaseColor = initialPortalColor;
                 activeChallengeDoor = greenDoor.AddComponent<NexoChallengeDoor>();
                 if (activeChallengeDoor != null) activeChallengeDoor.stage = activeStage;
                 else Debug.LogWarning("Nexo: porta verde sem componente de desafio.");
@@ -1061,7 +1063,7 @@ namespace Nexo.UI
             if (challengeDoorRenderer != null && challengeDoorRenderer.material != null)
             {
                 float glow = 0.82f + Mathf.Sin(gameplayPulseTime * 3.2f) * 0.18f;
-                challengeDoorRenderer.material.color = new Color(challengeDoorRenderer.material.color.r * glow, challengeDoorRenderer.material.color.g * glow, challengeDoorRenderer.material.color.b * glow, 1f);
+                challengeDoorRenderer.material.color = new Color(challengeDoorBaseColor.r * glow, challengeDoorBaseColor.g * glow, challengeDoorBaseColor.b * glow, 1f);
             }
             if (channelTransform != null)
             {
@@ -1226,6 +1228,7 @@ namespace Nexo.UI
                 challengeDoorTransform = portal.transform;
                 challengeDoorBaseScale = challengeDoorTransform.localScale;
                 challengeDoorRenderer = portal.GetComponent<Renderer>();
+                challengeDoorBaseColor = portalColor;
                 activeChallengeDoor = portal.AddComponent<NexoChallengeDoor>();
                 if (activeChallengeDoor != null) activeChallengeDoor.stage = activeStage;
                 CreatePortalFeedback(portal.transform, portalColor);

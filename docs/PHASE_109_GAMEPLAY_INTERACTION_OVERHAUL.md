@@ -27,3 +27,5 @@ O mundo era criado por MakeCube e a interação dependia de raycast/OnGUI. Após
 O cenário continua usando geometria procedural simples. A alteração torna o fluxo jogável e visível, mas arte 3D final, personagem animado, câmera cinematográfica e efeitos de produção ainda exigem assets/autoria adicionais.
 
 P211 (2026-11-11 21:47:18 -03:00): auditoria UX aprofundada confirmou ausência de alvo visual de interação; adicionados efeito energético do portal, luz pulsante e partículas persistentes ao gameplay.
+
+P212 (2026-11-11 21:47:43 -03:00): corrigido o cálculo de brilho do portal para sempre usar a cor-base, evitando escurecimento acumulado por frame.

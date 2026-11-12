@@ -1168,3 +1168,5 @@ P209 (2026-11-11): sequência PUBLIC confirmada antes do dispatch concluída. Unit
 P210 (2026-11-11): implementado overhaul de interação: controles móveis direcionais, botão INVESTIGAR persistente, indicador de fase, animação contínua de portal/canal/avatar/luz e partículas em baixa emissão no gameplay. Static QA PASS (json=5, cs=26), diff-check PASS. Build remoto ainda NOT_RUN. Relatório: docs/PHASE_109_GAMEPLAY_INTERACTION_OVERHAUL.md.
 
 P211 (2026-11-11): auditoria UX ampliada; portal ganhou luz pulsante e partículas energéticas com material explícito, e o prompt explica o fluxo de controles. Static QA/diff-check PASS. Build ainda NOT_RUN.
+
+P212 (2026-11-11): corrigido brilho acumulativo do portal; animação agora usa cor-base estável. Static QA/diff-check PASS.
