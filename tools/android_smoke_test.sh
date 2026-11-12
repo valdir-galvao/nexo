@@ -41,7 +41,6 @@ if adb shell dumpsys window windows 2>/dev/null | grep -q "Application Not Respo
   sleep 5
 fi
 adb shell dumpsys activity activities > diagnostics/android/activities.txt
-adb logcat -d -v threadtime > diagnostics/android/logcat.txt
 adb exec-out screencap -p > diagnostics/android/screenshot.png
 adb shell run-as com.nexo.educational cat /storage/emulated/0/Android/data/com.nexo.educational/files/nexo-runtime.log > diagnostics/android/nexo-runtime.log 2>/dev/null
 if [ ! -s diagnostics/android/nexo-runtime.log ]; then
@@ -52,12 +51,24 @@ foreground="$(adb shell dumpsys activity activities 2>/dev/null | grep -m 1 -E '
 printf '%s\n' "foreground=${foreground}" | tee -a diagnostics/android/run.txt
 test -n "${foreground}"
 
-# The generated intro button is centered in the landscape safe area. Tap it,
-# wait for the fade/BuildWorld transition, and keep a second screenshot as
-# evidence that the first interaction is visible on the emulator.
-adb shell input tap 1080 700
+# The generated intro button occupies the lower 8-25% of the Canvas. Derive
+# a safe tap point from the actual display instead of assuming portrait or a
+# fixed pixel coordinate.
+display_size="$(adb shell wm size | sed -n 's/.*Physical size: //p' | tr -d '\r')"
+display_width="${display_size%x*}"
+display_height="${display_size#*x}"
+tap_x=$((display_width / 2))
+tap_y=$((display_height * 16 / 100))
+echo "tap=${tap_x},${tap_y} display=${display_size}" | tee -a diagnostics/android/run.txt
+adb shell input tap "${tap_x}" "${tap_y}"
 sleep 3
 adb exec-out screencap -p > diagnostics/android/screenshot-after-start.png
+adb logcat -d -v threadtime > diagnostics/android/logcat.txt
+
+if ! grep -qE '\[NEXO_INPUT\]|\[NEXO_GAMEPLAY\]' diagnostics/android/logcat.txt; then
+  echo 'Gameplay transition markers were not observed after the tap.' >&2
+  exit 21
+fi
 
 grep -E "FATAL EXCEPTION|SIGSEGV|Unity|Nexo|AndroidRuntime" diagnostics/android/logcat.txt | tail -n 200 || true
 exit "${launch_rc}"
