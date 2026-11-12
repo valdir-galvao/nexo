@@ -441,3 +441,5 @@ P210 | Overhaul gameplay/UI | PASS local | controles móveis e feedback contínuo 
 P211 | Polimento de feedback | PASS local | aura de portal, luz e partículas de gameplay adicionadas | validar em Unity/GameCI
 
 P213 | Build pós-gameplay | PASS | testes, APK ARM64 e IPA concluídos; visibilidade privada restaurada | executar smoke visual no APK quando necessário
+
+P214 | UX guiada | PASS local | avatar, tutorial pós-início e alvo explícito de interação implementados | validar visualmente em novo APK

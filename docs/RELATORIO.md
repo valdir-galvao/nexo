@@ -498,3 +498,5 @@ P210 — decisão: substituir o blockout estático por interação móvel explícita e f
 P211 — polimento UX: feedback do portal tornou-se persistente no gameplay, reduzindo a ambiguidade após o primeiro toque.
 
 P213 — release controlada: gameplay interativo compilado e artefatos Android/iOS capturados; repositório voltou a PRIVATE imediatamente após o download.
+
+P214 — diagnóstico: o bloqueio era qualidade/clareza de gameplay, não shader ou boot; UX guiada e avatar foram adicionados sem remover a lógica existente.

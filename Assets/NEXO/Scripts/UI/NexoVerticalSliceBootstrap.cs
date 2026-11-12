@@ -45,6 +45,10 @@ namespace Nexo.UI
         private Text gameplayHudStage;
         private Button gameplayInteractButton;
         private GameObject gameplayControlsRoot;
+        private GameObject gameplayGuidePanel;
+        private Text gameplayGuideText;
+        private bool gameplayGuideVisible;
+        private float gameplayGuideTime;
         private RectTransform introButtonRect;
         private ParticleSystem introParticles;
         private bool modernUiReady;
@@ -561,6 +565,30 @@ namespace Nexo.UI
             CreateHudButton(gameplayControlsRoot.transform, "DOWN", "▼", new Vector2(0.04f, 0.04f), new Vector2(0.16f, 0.50f), () => MovePlayer(Vector3.back));
             CreateHudButton(gameplayControlsRoot.transform, "RIGHT", "▶", new Vector2(0.16f, 0.04f), new Vector2(0.28f, 0.50f), () => MovePlayer(Vector3.right));
             gameplayInteractButton = CreateHudButton(gameplayControlsRoot.transform, "INTERACT", "INVESTIGAR", new Vector2(0.68f, 0.08f), new Vector2(0.98f, 0.52f), Interact);
+
+            gameplayGuidePanel = new GameObject("Nexo First Mission Guide");
+            gameplayGuidePanel.transform.SetParent(gameplayHudRoot.transform, false);
+            var guideRect = gameplayGuidePanel.AddComponent<RectTransform>();
+            guideRect.anchorMin = new Vector2(0.27f, 0.52f);
+            guideRect.anchorMax = new Vector2(0.73f, 0.78f);
+            guideRect.offsetMin = Vector2.zero;
+            guideRect.offsetMax = Vector2.zero;
+            var guideImage = gameplayGuidePanel.AddComponent<Image>();
+            if (guideImage != null)
+            {
+                guideImage.color = new Color(0.025f, 0.10f, 0.18f, 0.94f);
+                guideImage.raycastTarget = false;
+            }
+            gameplayGuideText = CreateIntroText(gameplayGuidePanel.transform,
+                "COMO JOGAR\n\n1. Mova o explorador com as setas\n2. Toque em INVESTIGAR\n3. Resolva o desafio para ativar o portal",
+                24, FontStyle.Bold, new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.94f));
+            if (gameplayGuideText != null)
+            {
+                gameplayGuideText.alignment = TextAnchor.MiddleCenter;
+                gameplayGuideText.color = new Color(0.85f, 0.96f, 1f, 1f);
+                gameplayGuideText.raycastTarget = false;
+            }
+            gameplayGuidePanel.SetActive(false);
             gameplayHudRoot.SetActive(false);
         }
 
@@ -595,6 +623,13 @@ namespace Nexo.UI
             bool visible = !showMenu && !showIntro;
             gameplayHudRoot.SetActive(visible);
             if (!visible) return;
+            if (gameplayGuidePanel != null)
+            {
+                gameplayGuidePanel.SetActive(gameplayGuideVisible && !challengeOpen);
+                gameplayGuideTime += Time.unscaledDeltaTime;
+                float guidePulse = 1f + Mathf.Sin(gameplayGuideTime * 2.2f) * 0.025f;
+                gameplayGuidePanel.transform.localScale = Vector3.one * guidePulse;
+            }
             int water = mission.Save != null && mission.Save.activeMission != null ? mission.Save.activeMission.water : 0;
             if (gameplayHudStatus != null)
                 gameplayHudStatus.text = "NEXO | " + mission.StateMachine.State + " | Agua: " + water +
@@ -822,6 +857,8 @@ namespace Nexo.UI
                 emission.rateOverTime = 2.5f;
                 introParticles.Play(true);
             }
+            gameplayGuideVisible = true;
+            gameplayGuideTime = 0f;
             introTransition = null;
         }
 
@@ -856,7 +893,7 @@ namespace Nexo.UI
             }
             MakeCube("Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone, true);
             MakeCube("ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
-            GameObject avatar = MakeCube("Explorer", new Vector3(-6, 1, -5), new Vector3(0.7f, 1.4f, 0.7f), NexoVisualTheme.Signal);
+            GameObject avatar = CreateExplorerAvatar(new Vector3(-6, 1, -5));
             if (avatar == null)
             {
                 Debug.LogError("Nexo: avatar n?o p?de ser criado; gameplay continuar? sem movimento.");
@@ -869,6 +906,37 @@ namespace Nexo.UI
                 view.transform.position = new Vector3(-6, 6, -10);
                 view.transform.LookAt(avatar.transform);
             }
+
+        private GameObject CreateExplorerAvatar(Vector3 position)
+        {
+            var root = new GameObject("Explorer");
+            if (root == null) return null;
+            root.transform.position = position;
+            CreateVisualPart(root.transform, "Explorer Body", new Vector3(0f, 0.15f, 0f), new Vector3(0.85f, 1.0f, 0.62f), new Color(0.08f, 0.25f, 0.42f));
+            CreateVisualPart(root.transform, "Explorer Head", new Vector3(0f, 0.82f, 0f), new Vector3(0.72f, 0.55f, 0.66f), new Color(0.16f, 0.68f, 0.88f));
+            CreateVisualPart(root.transform, "Explorer Visor", new Vector3(0f, 0.84f, -0.34f), new Vector3(0.48f, 0.16f, 0.06f), new Color(0.55f, 0.95f, 1f));
+            CreateVisualPart(root.transform, "Explorer Backpack", new Vector3(0f, 0.18f, 0.38f), new Vector3(0.52f, 0.72f, 0.22f), new Color(0.95f, 0.55f, 0.18f));
+            CreateVisualPart(root.transform, "Explorer Left Leg", new Vector3(-0.22f, -0.46f, 0f), new Vector3(0.22f, 0.42f, 0.26f), new Color(0.12f, 0.40f, 0.58f));
+            CreateVisualPart(root.transform, "Explorer Right Leg", new Vector3(0.22f, -0.46f, 0f), new Vector3(0.22f, 0.42f, 0.26f), new Color(0.12f, 0.40f, 0.58f));
+            return root;
+        }
+
+        private GameObject CreateVisualPart(Transform parent, string name, Vector3 localPosition, Vector3 scale, Color color)
+        {
+            if (parent == null || defaultWorldMaterial == null || defaultWorldMaterial.shader == null) return null;
+            var part = new GameObject(name);
+            if (part == null) return null;
+            part.transform.SetParent(parent, false);
+            part.transform.localPosition = localPosition;
+            part.transform.localScale = scale;
+            var filter = part.AddComponent<MeshFilter>();
+            var renderer = part.AddComponent<MeshRenderer>();
+            if (filter == null || renderer == null) return part;
+            filter.sharedMesh = CreateCubeMesh();
+            renderer.material = new Material(defaultWorldMaterial);
+            if (renderer.material != null) renderer.material.color = color;
+            return part;
+        }
         }
 
         private void EnsureGameplayLight()
@@ -1133,6 +1201,7 @@ namespace Nexo.UI
         {
             if (challengeOpen || mission == null || mission.StateMachine.State != GameState.Exploring) return;
             challengeOpen = true;
+            gameplayGuideVisible = false;
             challengeAnswered = false;
             challengeCorrect = false;
             challengeFeedback = GetChallengePrompt();
