@@ -506,3 +506,5 @@ P215 — escopo ampliado para gameplay completo: regras de missão agora dirigem a 
 P216 - Build guiado e artefatos: código corrigido, testes Unity PASS, Android ARM64 e iOS IPA sem assinatura SUCCESS no commit 7213921. APK/IPA e hashes registrados em PHASE_113_GUIDED_GAMEPLAY_BUILD.md. Repositório restaurado privado. AVD X86_64 ainda não executado nesta rodada.
 
 P217 - Perícia runtime: sem erros de shader ou crash no trecho. Ausência de eventos de gameplay e divergência de ABI impedem confirmar interatividade do artefato atual.
+
+P219 - Correção de interatividade: logs explícitos e fallback de toque ampliado adicionados ao bootstrap. QA local PASS; sem nova build nesta etapa.

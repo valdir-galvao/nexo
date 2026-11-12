@@ -1182,3 +1182,5 @@ P216 - 2026-11-12: correção CS0106 nas fronteiras dos métodos do bootstrap aplic
 P217 - 2026-11-12: perícia do log recebido. Boot e renderização confirmados (incompatibleShaders=0, magentaObjects=0), mas nenhum evento de transição/interação aparece. O log é x86_64 e não corresponde ao APK ARM64 recém-baixado. Causa provável: Start Mission não foi acionado ou não há evidência do toque; gameplay permanece coberto pela intro. Relatório: docs/PHASE_114_RUNTIME_GAMEPLAY_FORENSICS.md.
 
 P218 - Correção de evidência: APK de 23:28 (run 43137667979) contém ARM64 e x86_64; o log x86_64 pode ser do mesmo artefato. A divergência de ABI foi retirada do diagnóstico. O log ainda não registra clique/transição; causa funcional requer instrumentação e novo smoke.
+
+P219 - 2026-11-12: blindagem do caminho de entrada aplicada. O primeiro toque agora aceita Began/Moved/Stationary, registra [NEXO_INPUT], impede transições duplicadas e ativa a HUD imediatamente após SkipIntro; gameplay registra transição e investigação. Static QA/diff PASS. Build remoto ainda não executado.

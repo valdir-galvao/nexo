@@ -467,3 +467,5 @@ Atualização P216: commit 7213921 corrigiu CS0106 do bootstrap. Unity Tests 43137
 Atualização P217: log recebido só prova boot/renderização; não prova clique nem gameplay e é x86_64, diferente do APK ARM64 da rodada 43137667979. Próximo passo: smoke X86_64 com toque automatizado e captura pós-clique.
 
 Correção P218: o APK 43137667979 é multi-ABI (arm64-v8a+x86_64), portanto o log x86_64 é compatível. Próximo passo continua sendo instrumentar eventos de toque/transição e repetir smoke.
+
+Atualização P219: commit de entrada/transição aplicado e enviado. Repetir testes Unity e smoke X86_64; procurar [NEXO_INPUT] e [NEXO_GAMEPLAY] no log.

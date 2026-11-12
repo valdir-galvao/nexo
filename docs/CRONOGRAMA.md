@@ -449,3 +449,5 @@ P215 | Loop de missão completo | PASS local | objetivos obrigatórios, feedback v
 P216 (2026-11-12): build remoto do gameplay guiado concluído; próxima ação é smoke AVD X86_64 e inspeção visual antes de declarar validação técnica completa.
 
 P217: separar validação visual de build. Próxima ação é executar APK X86_64 com toque automatizado e logs explícitos de transição/interação.
+
+P219: correção de entrada/transição aplicada; próximo passo é executar Unity Tests e smoke X86_64 antes de gerar novos artefatos.
