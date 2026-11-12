@@ -1176,3 +1176,5 @@ P213 (2026-11-11/12): ciclo PUBLIC confirmado antes do dispatch e PRIVATE restau
 P214 (2026-11-11): perícia do log Android separou avisos do emulador de defeitos do app; adicionados avatar Explorer composto e cartão de orientação pós-início sem bloquear controles. Static QA/diff-check PASS. Build nova ainda NOT_RUN.
 
 P215 (2026-11-11): loop completo guiado implementado (fonte-canal-valvula-portal), marcador de objetivo, ripples de agua, estados da valvula, avatar composto e trilha ambiente procedural. Static QA/diff-check PASS; Unity/ APK desta revisão NOT_RUN.
+
+P216 - 2026-11-12: correção CS0106 nas fronteiras dos métodos do bootstrap aplicada no commit 7213921. QA local PASS. Run Unity Tests 43137663651 SUCCESS; Android 43137667979 SUCCESS com APK ARM64 baixado e iOS 43137671962 SUCCESS com IPA sem assinatura baixado. Repositório restaurado PRIVATE. Smoke AVD não executado nesta rodada por arquitetura ARM64; validação visual em X86_64 permanece pendente. Relatório: docs/PHASE_113_GUIDED_GAMEPLAY_BUILD.md.

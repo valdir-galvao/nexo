@@ -461,3 +461,5 @@ P213 — artefatos do commit 78fafbd disponíveis em C:/Temp/nexo-release-final; ru
 P214 — logs Android não mostram falha do app; nova UX inclui avatar composto e cartão COMO JOGAR. QA local PASS; próxima ação é build/smoke Android.
 
 P215 — o loop agora exige Fonte -> Canal -> Válvula -> Portal, com marcador visual e trilha procedural. QA local PASS. Próximo passo: enviar/compilar o commit atual e validar no emulador.
+
+Atualização P216: commit 7213921 corrigiu CS0106 do bootstrap. Unity Tests 43137663651, Android 43137667979 e iOS 43137671962 SUCCESS. Artefatos baixados em C:/Temp/nexo-release-final; repositório PRIVATE. Para fechar a validação, executar Android workflow com architecture=X86_64 e smoke AVD; não repetir correções já aplicadas.

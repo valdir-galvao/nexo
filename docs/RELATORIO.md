@@ -502,3 +502,5 @@ P213 — release controlada: gameplay interativo compilado e artefatos Android/iOS
 P214 — diagnóstico: o bloqueio era qualidade/clareza de gameplay, não shader ou boot; UX guiada e avatar foram adicionados sem remover a lógica existente.
 
 P215 — escopo ampliado para gameplay completo: regras de missão agora dirigem a UI e os objetivos visuais; áudio ambiente procedural adicionado.
+
+P216 - Build guiado e artefatos: código corrigido, testes Unity PASS, Android ARM64 e iOS IPA sem assinatura SUCCESS no commit 7213921. APK/IPA e hashes registrados em PHASE_113_GUIDED_GAMEPLAY_BUILD.md. Repositório restaurado privado. AVD X86_64 ainda não executado nesta rodada.

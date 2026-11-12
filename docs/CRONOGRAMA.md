@@ -445,3 +445,5 @@ P213 | Build pós-gameplay | PASS | testes, APK ARM64 e IPA concluídos; visibilid
 P214 | UX guiada | PASS local | avatar, tutorial pós-início e alvo explícito de interação implementados | validar visualmente em novo APK
 
 P215 | Loop de missão completo | PASS local | objetivos obrigatórios, feedback visual e áudio ambiente implementados | executar Unity tests e smoke Android
+
+P216 (2026-11-12): build remoto do gameplay guiado concluído; próxima ação é smoke AVD X86_64 e inspeção visual antes de declarar validação técnica completa.
