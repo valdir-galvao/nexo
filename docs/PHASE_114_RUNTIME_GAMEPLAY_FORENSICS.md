@@ -27,3 +27,8 @@ O log não mostra o acionamento do botão. Além disso, ele é de uma execução `x86_
 ## Pendência verificável
 
 É necessário executar o APK X86_64 com um toque automatizado no botão e coletar logs após o toque. A próxima execução deve registrar explicitamente os eventos de entrada, `BeginModernMission`, `InvestigateCurrentObjective` e `OpenChallenge`, além de capturar screenshot antes/depois. Sem essa evidência, a interatividade não pode ser declarada validada.
+# Correção do diagnóstico de ABI
+
+Verificação em 2026-11-12: `C:/Temp/nexo-release-final/Android/Run-43137667979/Android/Nexo.apk` tem `lib/arm64-v8a` e `lib/x86_64`. O tamanho é 59.553.859 bytes e o SHA-256 é `E85254108987A54EF95B47D6446EAAAA428DAB5F8496AA30F19C821B3F7B761D`. Portanto, o log x86_64 recebido pode sim ser do APK baixado às 23:28. A conclusão anterior sobre divergência de ABI foi corrigida.
+
+O log continua mostrando apenas boot/renderização (`NEXO_BOOT`, `NEXO_RENDER`) e nenhum evento de clique/transição. A causa funcional permanece não comprovada no trecho: é necessário instrumentar e repetir o toque para distinguir toque não recebido de falha na transição.
