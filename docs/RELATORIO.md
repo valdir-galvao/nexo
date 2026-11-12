@@ -514,3 +514,5 @@ P220 - Fechamento: erro era do harness de smoke (toque fora do bot�o/log antes d
 P221 - Auditoria de runtime: os arquivos recebidos comprovam boot/transição e renderização sem shader incompatível, mas não comprovam investigação. O sintoma visual decorre do guia COMO JOGAR persistente e de toques que não atingem alvos; correção de UX pendente.
 
 P222 - Overhaul visual: o blockout foi enriquecido com água, cenário, animação de avatar, câmera de revelação e instruções dispensáveis. A validação remota ainda está pendente; não declarar release visual antes do smoke.
+
+P223 - infraestrutura: gates locais passaram, porém o GitHub recusou o push por repository disabled/HTTP 403. Nenhum workflow foi disparado e nenhum artefato novo existe; visibilidade restaurada privada.

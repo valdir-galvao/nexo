@@ -1190,3 +1190,5 @@ P220 - 2026-11-12: smoke AVD corrigido e aprovado. Run 43150590272 X86_64 instal
 P221 - 2026-11-12: auditoria dos arquivos de debug/HAR recebidos. Boot, transição e render audit passaram sem crash, shader incompatível ou magenta. O log não contém investigação/desafio após a transição; a causa funcional é o guia COMO JOGAR persistente sobre o blockout e ausência de feedback para toques fora dos alvos. Relatório: docs/PHASE_116_RUNTIME_LOG_HAR_AUDIT.md.
 
 P222 - 2026-11-12: implementado overhaul de apresentação e interatividade: guia dispensável, água visível com ondas, árvores/rochas, avatar com animação procedural e câmera panorâmica inicial. Static QA PASS (json=5, cs=26) e diff-check PASS. Nova build ainda pendente.
+
+P223 - 2026-11-12: gates locais aprovados para f75942b, mas o push foi recusado pelo GitHub com repository disabled/HTTP 403 após visibilidade pública. Nenhum workflow ou artefato novo foi gerado. Repositório restaurado PRIVATE. Bloqueio externo pendente.

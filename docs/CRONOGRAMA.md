@@ -457,3 +457,5 @@ P220: interatividade validada no AVD X86_64 ap�s corre��o do harness; APKs ARM64
 P221 | Auditoria debug/HAR | DIAGNÓSTICO | sem crash/shader; transição confirmada, investigação não confirmada; UX do guia persistente e toque fora de alvo são bloqueios de clareza | implementar fechamento do guia e feedback de interação antes de novo build
 
 P222 | Overhaul visual/gameplay | PASS local | água, paisagem, avatar animado, câmera de revelação e guia dispensável implementados | executar Unity Tests e smoke AVD antes de gerar release
+
+P223 | Disparo pós-overhaul | BLOCKED | GitHub recusou push: repository disabled (HTTP 403); visibilidade restaurada PRIVATE | reativar repositório no GitHub antes de novo ciclo

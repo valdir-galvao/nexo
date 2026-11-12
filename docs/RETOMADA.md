@@ -475,3 +475,5 @@ Atualiza��o P220: smoke AVD X86_64 aprovado no run 43150590272 com marcadores de
 Atualização P221: debug log/HAR confirmam boot e transição para gameplay, sem crash, ANR ou shader incompatível. Nenhum evento de investigação/desafio aparece; o guia COMO JOGAR permanece ativo e domina a tela. Próxima ação: corrigir UX do guia e o feedback de toques fora dos alvos; não gerar build antes dessa correção.
 
 Atualização P222: alterações locais em NexoVerticalSliceBootstrap.cs adicionam apresentação jogável real (água, paisagem, avatar animado, câmera e guia dispensável). QA local PASS. Próxima ação: validar em Unity/GameCI e AVD; APK anterior não inclui este commit.
+
+Atualização P223: f75942b passou QA local, mas não foi enviado porque o repositório GitHub está disabled e recusou push com HTTP 403. Nenhum build novo. Repositório confirmado PRIVATE; próximo passo é reativação externa do repositório.
