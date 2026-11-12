@@ -453,3 +453,5 @@ P208: consulta autenticada confirmou a mensagem de billing nos runs públicos e p
 P209: ciclo público correto concluído. Runs 43119213947/43119218369/43119224274 SUCCESS; APK em C:/Temp/nexo-release-final/Android/Nexo-ARM64-fixed.apk e IPA em C:/Temp/nexo-release-final/iOS/Final-43119224274/Nexo.ipa. Repositório PRIVATE.
 
 P210 — retomada: o gameplay agora possui controles direcionais e INVESTIGAR persistente na HUD, além de animações contínuas de portal/canal/avatar/luz. Static QA e diff-check passaram. Próximo passo: validar compilação e interação em Unity/GameCI; não declarar compatibilidade visual final sem smoke Android.
+
+P211 — a HUD e o portal agora fornecem alvo visual contínuo: INVESTIGAR, aura de partículas e luz pulsante. QA local PASS; falta validação em APK.

@@ -60,6 +60,8 @@ namespace Nexo.UI
         private Vector3 channelBaseScale = Vector3.one;
         private Transform avatarTransform;
         private Light gameplayLight;
+        private Light portalLight;
+        private ParticleSystem portalParticles;
         private bool challengeOpen;
         private bool challengeAnswered;
         private bool challengeCorrect;
@@ -603,7 +605,7 @@ namespace Nexo.UI
             if (gameplayHudStage != null) gameplayHudStage.text = "FASE " + activeStage + "/3";
             if (gameplayHudPrompt != null)
                 gameplayHudPrompt.text = string.IsNullOrEmpty(prompt)
-                    ? (challengeOpen ? challengeFeedback : "Toque em Interagir para investigar pistas.")
+                    ? (challengeOpen ? challengeFeedback : "Mova-se com as setas e toque em INVESTIGAR para abrir o portal.")
                     : prompt;
         }
 
@@ -848,6 +850,7 @@ namespace Nexo.UI
                 activeChallengeDoor = greenDoor.AddComponent<NexoChallengeDoor>();
                 if (activeChallengeDoor != null) activeChallengeDoor.stage = activeStage;
                 else Debug.LogWarning("Nexo: porta verde sem componente de desafio.");
+                CreatePortalFeedback(greenDoor.transform, initialPortalColor);
             }
             MakeCube("Reservoir", new Vector3(4, 1, 3), new Vector3(3, 2, 2), NexoVisualTheme.Stone, true);
             MakeCube("ExitBridge", new Vector3(7, 0, 3), new Vector3(4, 0.25f, 2), NexoVisualTheme.Wood);
@@ -886,6 +889,55 @@ namespace Nexo.UI
             light.color = Color.white;
             light.intensity = 1.2f;
             light.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
+        }
+
+        private void CreatePortalFeedback(Transform portal, Color color)
+        {
+            if (portal == null) return;
+            var lightObject = new GameObject("Nexo Portal Light");
+            if (lightObject != null)
+            {
+                lightObject.transform.position = portal.position + Vector3.back * 0.8f;
+                portalLight = lightObject.AddComponent<Light>();
+                if (portalLight != null)
+                {
+                    portalLight.type = LightType.Point;
+                    portalLight.color = color;
+                    portalLight.range = 7f;
+                    portalLight.intensity = 1.6f;
+                }
+            }
+            if (defaultWorldMaterial == null || defaultWorldMaterial.shader == null) return;
+            var fxObject = new GameObject("Nexo Portal Energy FX");
+            if (fxObject == null) return;
+            fxObject.transform.SetParent(portal, false);
+            fxObject.transform.localPosition = new Vector3(0f, 0f, -0.4f);
+            portalParticles = fxObject.AddComponent<ParticleSystem>();
+            var main = portalParticles.main;
+            main.loop = true;
+            main.startLifetime = 1.4f;
+            main.startSpeed = 0.25f;
+            main.startSize = new ParticleSystem.MinMaxCurve(0.04f, 0.10f);
+            main.startColor = new Color(color.r, color.g, color.b, 0.85f);
+            main.maxParticles = 20;
+            var emission = portalParticles.emission;
+            emission.rateOverTime = 8f;
+            var shape = portalParticles.shape;
+            shape.shapeType = ParticleSystemShapeType.Circle;
+            shape.radius = 0.65f;
+            var velocity = portalParticles.velocityOverLifetime;
+            velocity.enabled = true;
+            velocity.space = ParticleSystemSimulationSpace.Local;
+            velocity.x = new ParticleSystem.MinMaxCurve(-0.08f, 0.08f);
+            velocity.y = new ParticleSystem.MinMaxCurve(0.10f, 0.25f);
+            velocity.z = new ParticleSystem.MinMaxCurve(0f, 0f);
+            var renderer = fxObject.GetComponent<ParticleSystemRenderer>();
+            if (renderer != null)
+            {
+                renderer.material = new Material(defaultWorldMaterial);
+                if (renderer.material != null) renderer.material.color = new Color(color.r, color.g, color.b, 0.85f);
+            }
+            portalParticles.Play(true);
         }
 
         private static Mesh CreateCubeMesh()
@@ -1024,6 +1076,10 @@ namespace Nexo.UI
             }
             if (gameplayLight != null)
                 gameplayLight.intensity = 1.05f + Mathf.Sin(gameplayWorldTime * 1.6f) * 0.15f;
+            if (portalLight != null)
+                portalLight.intensity = 1.25f + Mathf.Sin(gameplayWorldTime * 3.0f) * 0.55f;
+            if (portalParticles != null)
+                portalParticles.transform.localRotation = Quaternion.Euler(0f, gameplayWorldTime * 35f, 0f);
         }
 
         private void InteractAtScreenPoint(Vector2 screenPoint)
@@ -1172,6 +1228,7 @@ namespace Nexo.UI
                 challengeDoorRenderer = portal.GetComponent<Renderer>();
                 activeChallengeDoor = portal.AddComponent<NexoChallengeDoor>();
                 if (activeChallengeDoor != null) activeChallengeDoor.stage = activeStage;
+                CreatePortalFeedback(portal.transform, portalColor);
                 challengeFeedback = challengeFeedback + (activeStage == 2 ? " Novo portal: eficiencia energetica." : " Novo portal: logica de programacao.");
             }
         }

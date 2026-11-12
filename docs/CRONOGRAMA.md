@@ -437,3 +437,5 @@ P208: bloqueio de billing confirmado no nível da conta; detalhe interno (pagamen
 P209: gate Unity PASS; APK ARM64 e IPA sem assinatura Apple baixados com hashes; visibilidade restaurada PRIVATE.
 
 P210 | Overhaul gameplay/UI | PASS local | controles móveis e feedback contínuo implementados; build Unity pendente | executar EditMode/PlayMode e smoke Android após janela CI
+
+P211 | Polimento de feedback | PASS local | aura de portal, luz e partículas de gameplay adicionadas | validar em Unity/GameCI
