@@ -490,3 +490,5 @@ P206 - 2026-11-11: artefatos não gerados. Runs 42952356267/42952356276/429523562
 P207 - ciclo público controlado: visibilidade restaurada PRIVATE; runs 43117632696/43117632650/43117632559 bloqueados antes do runner por billing/quota. Sem APK/IPA novos.
 
 P208 - bloqueio de billing confirmado no nível da conta; API não revela o subtipo financeiro sem escopo user. Repositório público não contornou.
+
+P209 - artefatos finais: testes, Android e iOS SUCCESS após dispatch com repositório público confirmado; downloads validados por tamanho/hash; repositório privado restaurado.

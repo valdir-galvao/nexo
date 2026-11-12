@@ -1162,3 +1162,5 @@ P206 (2026-11-11): commit c3d9892 foi enviado, mas Unity Tests 42952356267, Andr
 P207 (2026-11-11): ciclo controlado PUBLIC->build->PRIVATE executado. Visibilidade confirmada PUBLIC e restaurada PRIVATE. Runs 43117632696 (tests), 43117632650 (Android) e 43117632559 (iOS) recusados antes do runner pela mesma falha de pagamentos/limite de gastos; nenhum artefato novo.
 
 P208 (2026-11-11): API autenticada confirmou runs recusados antes do runner por billing/spending lock, inclusive durante visibilidade pública. Endpoints REST de billing exigem escopo OAuth user, ausente; causa financeira específica não é observável sem Billing & licensing/Support. Relatório: docs/PHASE_107_BILLING_ROOT_CAUSE.md.
+
+P209 (2026-11-11): sequência PUBLIC confirmada antes do dispatch concluída. Unity Tests 43119213947 SUCCESS (EditMode/PlayMode), Android 43119218369 SUCCESS e iOS 43119224274 SUCCESS. APK e IPA baixados; hashes e caminhos em docs/PHASE_108_FINAL_ARTIFACTS.md. Repositório restaurado PRIVATE.

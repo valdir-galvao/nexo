@@ -449,3 +449,5 @@ P206: push c3d9892 disparou três workflows, todos recusados em 2-3s por falha de
 P207: tentativa PUBLIC->build->PRIVATE concluída. GitHub recusou tests/Android/iOS em 2s por billing/quota; repositório agora PRIVATE. Não repetir até regularização de Billing & plans.
 
 P208: consulta autenticada confirmou a mensagem de billing nos runs públicos e privados. /user funciona; endpoints de billing retornam exigência de escopo user. Verificar Billing & licensing ou Support antes de novo dispatch.
+
+P209: ciclo público correto concluído. Runs 43119213947/43119218369/43119224274 SUCCESS; APK em C:/Temp/nexo-release-final/Android/Nexo-ARM64-fixed.apk e IPA em C:/Temp/nexo-release-final/iOS/Final-43119224274/Nexo.ipa. Repositório PRIVATE.
