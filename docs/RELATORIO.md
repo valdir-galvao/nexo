@@ -516,3 +516,5 @@ P221 - Auditoria de runtime: os arquivos recebidos comprovam boot/transição e 
 P222 - Overhaul visual: o blockout foi enriquecido com água, cenário, animação de avatar, câmera de revelação e instruções dispensáveis. A validação remota ainda está pendente; não declarar release visual antes do smoke.
 
 P223 - infraestrutura: gates locais passaram, porém o GitHub recusou o push por repository disabled/HTTP 403. Nenhum workflow foi disparado e nenhum artefato novo existe; visibilidade restaurada privada.
+
+P224 - visibilidade: mudança para PUBLIC concluída e confirmada; nenhum build foi disparado nesta etapa.

@@ -459,3 +459,5 @@ P221 | Auditoria debug/HAR | DIAGNÓSTICO | sem crash/shader; transição confir
 P222 | Overhaul visual/gameplay | PASS local | água, paisagem, avatar animado, câmera de revelação e guia dispensável implementados | executar Unity Tests e smoke AVD antes de gerar release
 
 P223 | Disparo pós-overhaul | BLOCKED | GitHub recusou push: repository disabled (HTTP 403); visibilidade restaurada PRIVATE | reativar repositório no GitHub antes de novo ciclo
+
+P224 | Visibilidade pública | PASS | repositório confirmado PUBLIC via API; sem build disparado | manter público somente durante o ciclo autorizado e restaurar PRIVATE ao concluir

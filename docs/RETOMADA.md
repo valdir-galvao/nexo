@@ -477,3 +477,5 @@ Atualização P221: debug log/HAR confirmam boot e transição para gameplay, se
 Atualização P222: alterações locais em NexoVerticalSliceBootstrap.cs adicionam apresentação jogável real (água, paisagem, avatar animado, câmera e guia dispensável). QA local PASS. Próxima ação: validar em Unity/GameCI e AVD; APK anterior não inclui este commit.
 
 Atualização P223: f75942b passou QA local, mas não foi enviado porque o repositório GitHub está disabled e recusou push com HTTP 403. Nenhum build novo. Repositório confirmado PRIVATE; próximo passo é reativação externa do repositório.
+
+Atualização P224: repositório agora PUBLIC confirmado pela API. Nenhum workflow foi iniciado; próxima ação autorizada pode ser push/dispatch e coleta de artefatos, seguida de retorno a PRIVATE.
