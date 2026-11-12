@@ -922,6 +922,7 @@ namespace Nexo.UI
                 view.transform.position = new Vector3(-6, 6, -10);
                 view.transform.LookAt(avatar.transform);
             }
+        }
 
         private GameObject CreateExplorerAvatar(Vector3 position)
         {
@@ -996,7 +997,6 @@ namespace Nexo.UI
             else if (objectiveStep == 1) prompt = "2/3: siga o CANAL de agua ate a valvula.";
             else if (objectiveStep == 2) prompt = "3/3: investigue a VALVULA para ativar o portal.";
             else prompt = "Portal ativo: toque em INVESTIGAR para resolver o desafio.";
-        }
         }
 
         private void EnsureGameplayLight()
