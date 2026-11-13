@@ -533,3 +533,5 @@ P249: integração CapBuddy automatizada nos três workflows e no bootstrap. O CI a
 P250: fe88d0e está no GitHub público. Runs 43519382211 (tests) e 43519388987 (Android) falharam antes de iniciar steps; CapBuddy.prefab/controller não foram gerados. Não declarar geração concluída até existir job com steps e artefato.
 
 Atualizacao P251: o ultimo APK 43520318437 compilou, mas usou fallback procedural. O motivo foi a geracao do prefab CapBuddy ocorrer apenas em InitializeOnLoad/delayCall, apos o momento em que o builder podia iniciar. A correcao local adiciona importacao/refresh e EnsureGeneratedForBuild chamado antes de BuildPipeline em Android/iOS. Executar static QA, commit/push e novo run publico; so considerar avatar integrado quando o log contiver [NEXO_AVATAR] Authored avatar prefab loaded.
+
+Atualizacao P252: runs d04122b ativos; Unity Tests PASS, Android/iOS ainda compilando. Aguardar conclusao e baixar artefatos para verificar CapBuddy no runtime.
