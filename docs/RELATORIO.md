@@ -566,3 +566,5 @@ P246 - Estado atual: o APK anterior não contém assets de produção; a integração 
 P247 - Assets gratuitos CC0 foram adicionados como fontes. Ainda não são assets de produção no APK até importação Unity e geração de prefabs/controller.
 
 P248 - CapBuddy é uma fonte 3D animada disponível, mas não está pronto para runtime Unity: faltam prefab/controller/meta e integração. Não considerar avatar de produção até validar no Editor e AVD.
+
+P249 - CapBuddy foi copiado para Assets e conectado ao bootstrap por Resources. A geração efetiva de prefab/controller ocorre no Unity Editor durante CI; permanece pendente até novo run.

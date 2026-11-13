@@ -994,7 +994,8 @@ namespace Nexo.UI
             // setup step has generated it. This is the production path; the
             // procedural model remains an explicit fallback for environments
             // that cannot import FBX assets, and is reported in the log.
-            var authoredPrefab = Resources.Load<GameObject>("Characters/NexoExplorer_FreeTest");
+            var authoredPrefab = Resources.Load<GameObject>("Characters/CapBuddy");
+            if (authoredPrefab == null) authoredPrefab = Resources.Load<GameObject>("Characters/NexoExplorer_FreeTest");
             if (authoredPrefab != null)
             {
                 var authored = Instantiate(authoredPrefab, position, Quaternion.identity);
@@ -1004,7 +1005,7 @@ namespace Nexo.UI
                     var authoredAnimator = authored.GetComponentInChildren<Animator>(true);
                     if (authoredAnimator != null && authoredAnimator.runtimeAnimatorController != null)
                         authoredAnimator.Play("Idle", 0, 0f);
-                    Debug.Log("[NEXO_AVATAR] Authored humanoid prefab loaded: Characters/NexoExplorer_FreeTest");
+                    Debug.Log("[NEXO_AVATAR] Authored prefab loaded: " + authoredPrefab.name);
                     return authored;
                 }
             }

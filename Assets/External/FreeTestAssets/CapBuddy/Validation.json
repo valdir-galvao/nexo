@@ -1,0 +1,13 @@
+{
+  "format": "glb reimport",
+  "bones": 17,
+  "meshes": 2,
+  "triangles": 32720,
+  "actions": [
+    "Idle_CapBuddy_Rig",
+    "Investigate_CapBuddy_Rig",
+    "Success_CapBuddy_Rig",
+    "Walk_CapBuddy_Rig"
+  ],
+  "Unity_tested": false
+}

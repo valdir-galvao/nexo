@@ -509,3 +509,5 @@ P246 - Conteúdo visual: integração do prefab humanoide conectada ao runtime; val
 P247 - Pacote CC0 baixado; integração Unity de modelos e rig pendente.
 
 P248 - Avatar CapBuddy auditado; setup/importação Unity pendente.
+
+P249 - Setup CapBuddy automatizado no CI; validação Unity/AVD pendente.
