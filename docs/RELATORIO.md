@@ -558,3 +558,5 @@ P242 - O primeiro run apos a correcao de entrada revelou pacote InputSystem ause
 P243 - O erro CS0234 foi de referencia de assembly, nao de pacote inexistente no manifesto. A correcao definitiva adiciona referencias Unity.InputSystem e Unity.InputSystem.ForUI ao Nexo.Runtime.
 
 P244 - O assembly Input System agora compila; a falha seguinte foi conflito de nome TouchPhase e foi corrigida por qualificacao explicita.
+
+P245 - A referencia de assembly Input System e a qualificacao TouchPhase resolveram as falhas de compilacao. Release 976a591 gerada com Unity Tests, Android e iOS aprovados. A interatividade ainda precisa de smoke AVD para prova funcional.

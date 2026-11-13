@@ -501,3 +501,5 @@ P242 | Correcao CS0234 InputSystem | PASS local / NOT_RUN remoto | removida depe
 P243 | Integracao correta do Input System | PASS local / NOT_RUN remoto | references adicionadas no asmdef, dependencia preservada | push e validar Unity Tests/Android/iOS
 
 P244 | Correcao de namespace TouchPhase | PASS local / NOT_RUN remoto | ambiguidade eliminada sem remover pacotes | repetir workflow
+
+P245 | Release Input System corrigida | PASS | testes e builds SUCCESS; artefatos capturados | smoke AVD permanece pendente

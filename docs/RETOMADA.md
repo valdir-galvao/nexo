@@ -519,3 +519,5 @@ Atualizacao P242: CS0234 do InputSystem corrigido por reflexao/fallback no boots
 Atualizacao P243: dependencia Input System preservada e explicitamente referenciada no Nexo.Runtime.asmdef (Unity.InputSystem/ForUI). Bootstrap voltou a usar APIs diretas com fallback. QA local PASS; aguardar novo run.
 
 Atualizacao P244: CS0104 TouchPhase corrigido com UnityEngine.TouchPhase. Input System compilou no GameCI; novo run necessario.
+
+Atualizacao P245: commit 976a591 validado. Unity Tests 43360475217, Android 43360475228 e iOS 43360475222 SUCCESS; APK/IPA baixados e hashes em PROGRESSO. Repositorio PRIVATE. Proximo passo opcional: smoke AVD para validar toque no APK.
