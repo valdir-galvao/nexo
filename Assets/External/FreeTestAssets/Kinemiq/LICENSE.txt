@@ -1,0 +1,6 @@
+KinemIQ Free Game Animations
+
+CC0 1.0 Universal (public domain dedication).
+Source: https://huggingface.co/datasets/Kinemiq/free-game-animations
+The package README states that the mannequin and the 35 FBX/GLB animations may be used, modified and redistributed commercially and non-commercially without attribution.
+Canonical deed: https://creativecommons.org/publicdomain/zero/1.0/

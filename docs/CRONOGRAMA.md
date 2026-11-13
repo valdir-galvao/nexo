@@ -477,3 +477,5 @@ P230: critérios de produção definidos; implementação final bloqueada por au
 P231: build Android alinhada ao requisito IL2CPP; próxima etapa requer Unity Editor para importar assets/Animator e validar dispositivo.
 
 P232: fixtures CC0 baixadas; proxima etapa e importar no Unity 6000.3.0f1 quando o Editor estiver disponivel.
+
+P233: fixtures humanoide/animacao CC0 baixadas e automacao de importacao criada; executar menu Unity apos disponibilizar 6000.3.0f1.

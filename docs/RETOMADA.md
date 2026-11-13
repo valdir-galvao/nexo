@@ -495,3 +495,5 @@ Atualização P230: antes de declarar produto completo, importar assets 3D/rig/�
 Atualização P231: AndroidBuild agora força IL2CPP e o workflow não usa NEXO_CI_FAST_BUILD. Não disparar build antes de integrar assets reais e preparar matriz de dispositivos.
 
 Atualizacao P232: fixtures Kenney CC0 em Assets/External/FreeTestAssets. Nao integrar sem Unity 6000.3.0f1; executar importacao isolada e QA apos disponibilizacao do Editor.
+
+Atualizacao P233: KinemIQ CC0 em Assets/External/FreeTestAssets/Kinemiq e ConfigureFreeTestAssets.cs. Proximo passo: abrir Unity 6000.3.0f1, importar FBX e executar menu de configuracao; nao declarar rig/prefab validado antes disso.
