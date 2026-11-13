@@ -16,7 +16,10 @@ namespace Nexo.EditorTools
     {
         private const string MannequinPath = "Assets/External/FreeTestAssets/Kinemiq/KinemIQ_Mannequin.fbx";
         private const string AnimationRoot = "Assets/External/FreeTestAssets/Kinemiq/FBX";
-        private const string OutputRoot = "Assets/NEXO/Content/FreeTest";
+        // Runtime assets must live below Resources so the bootstrap can load
+        // the authored character in a player build. The previous location
+        // produced a prefab in the project but never connected it to runtime.
+        private const string OutputRoot = "Assets/Resources/Characters";
 
         [InitializeOnLoadMethod]
         private static void ConfigureInCiWhenRequested()

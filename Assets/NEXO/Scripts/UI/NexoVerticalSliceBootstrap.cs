@@ -990,6 +990,26 @@ namespace Nexo.UI
 
         private GameObject CreateExplorerAvatar(Vector3 position)
         {
+            // Prefer the imported, humanoid test asset when the Unity Editor
+            // setup step has generated it. This is the production path; the
+            // procedural model remains an explicit fallback for environments
+            // that cannot import FBX assets, and is reported in the log.
+            var authoredPrefab = Resources.Load<GameObject>("Characters/NexoExplorer_FreeTest");
+            if (authoredPrefab != null)
+            {
+                var authored = Instantiate(authoredPrefab, position, Quaternion.identity);
+                if (authored != null)
+                {
+                    authored.name = "Explorer";
+                    var authoredAnimator = authored.GetComponentInChildren<Animator>(true);
+                    if (authoredAnimator != null && authoredAnimator.runtimeAnimatorController != null)
+                        authoredAnimator.Play("Idle", 0, 0f);
+                    Debug.Log("[NEXO_AVATAR] Authored humanoid prefab loaded: Characters/NexoExplorer_FreeTest");
+                    return authored;
+                }
+            }
+
+            Debug.LogWarning("[NEXO_AVATAR] Authored humanoid prefab unavailable; using procedural fallback. Run NEXO/Free Test Assets/Configure Humanoid Character in Unity before release builds.");
             var root = new GameObject("Explorer");
             if (root == null) return null;
             root.transform.position = position;
