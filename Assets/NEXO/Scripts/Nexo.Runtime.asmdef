@@ -1,7 +1,10 @@
 {
   "name": "Nexo.Runtime",
   "rootNamespace": "Nexo",
-  "references": [],
+  "references": [
+    "Unity.InputSystem",
+    "Unity.InputSystem.ForUI"
+  ],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,

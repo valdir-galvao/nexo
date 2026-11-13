@@ -12,6 +12,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Events;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
+#endif
 
 namespace Nexo.UI
 {
@@ -427,27 +431,18 @@ namespace Nexo.UI
             var legacy = eventSystem.GetComponent<StandaloneInputModule>();
             if (legacy == null) legacy = eventSystem.gameObject.AddComponent<StandaloneInputModule>();
 
-            // Resolve the optional Input System module without a compile-time
-            // assembly reference. Some GameCI restores omit the package even
-            // though the manifest declares it; reflection keeps the project
-            // compiling and falls back to the legacy module in that case.
-            var modernType = System.Type.GetType("UnityEngine.InputSystem.UI.InputSystemUIInputModule, Unity.InputSystem");
-            Component modern = null;
-            if (modernType != null)
-            {
-                modern = eventSystem.GetComponent(modernType);
-                if (modern == null) modern = eventSystem.gameObject.AddComponent(modernType);
-            }
+#if ENABLE_INPUT_SYSTEM
+            var modern = eventSystem.GetComponent<InputSystemUIInputModule>();
+            if (modern == null) modern = eventSystem.gameObject.AddComponent<InputSystemUIInputModule>();
             if (modern != null)
             {
-                modern.gameObject.SetActive(true);
                 modern.enabled = true;
                 if (legacy != null) legacy.enabled = false;
             }
-            else if (legacy != null)
-            {
-                legacy.enabled = true;
-            }
+            else if (legacy != null) legacy.enabled = true;
+#else
+            if (legacy != null) legacy.enabled = true;
+#endif
         }
 
         private void EnsurePresentationCamera()
@@ -1437,6 +1432,22 @@ namespace Nexo.UI
         private bool TryGetPrimaryPointerDown(out Vector2 position)
         {
             position = Vector2.zero;
+#if ENABLE_INPUT_SYSTEM
+            if (Touchscreen.current != null)
+            {
+                var touch = Touchscreen.current.primaryTouch;
+                if (touch.press.wasPressedThisFrame)
+                {
+                    position = touch.position.ReadValue();
+                    return true;
+                }
+            }
+            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                position = Mouse.current.position.ReadValue();
+                return true;
+            }
+#endif
             for (int i = 0; i < Input.touchCount; i++)
             {
                 var touch = Input.GetTouch(i);

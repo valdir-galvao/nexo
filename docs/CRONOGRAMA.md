@@ -497,3 +497,5 @@ P240 | Compatibilidade de entrada | PASS local / BLOCKED remoto | activeInputHan
 P241 | Workflow apos correcao de entrada | BLOCKED | runs 433573* falharam pre-runner; sem artefatos | desbloquear Actions/quota e repetir
 
 P242 | Correcao CS0234 InputSystem | PASS local / NOT_RUN remoto | removida dependencia de assembly; fallback legado preservado | repetir Unity Tests e builds
+
+P243 | Integracao correta do Input System | PASS local / NOT_RUN remoto | references adicionadas no asmdef, dependencia preservada | push e validar Unity Tests/Android/iOS

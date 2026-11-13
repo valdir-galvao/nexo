@@ -515,3 +515,5 @@ Atualizacao P240: activeInputHandler alterado de 0 para 2 para habilitar Input M
 Atualizacao P241: novo ciclo 12a33a7 falhou sem runner (steps=0) nos tres workflows. Nenhum APK/IPA. Repositorio voltou PRIVATE. Aguardar desbloqueio de Actions antes de novo dispatch.
 
 Atualizacao P242: CS0234 do InputSystem corrigido por reflexao/fallback no bootstrap. Run 43358965697 falhou antes dos testes por compilacao. QA local PASS; novo push necessario.
+
+Atualizacao P243: dependencia Input System preservada e explicitamente referenciada no Nexo.Runtime.asmdef (Unity.InputSystem/ForUI). Bootstrap voltou a usar APIs diretas com fallback. QA local PASS; aguardar novo run.
