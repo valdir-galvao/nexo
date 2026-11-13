@@ -1774,4 +1774,4 @@ namespace Nexo.UI
         public string description;
         public void Initialize(ClueId value, string text) { clue = value; description = text; }
     }
-}\r\n
+}
