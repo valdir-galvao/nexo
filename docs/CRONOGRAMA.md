@@ -495,3 +495,5 @@ P239 | Publicacao da correcao Input System | BLOCKED | GitHub recusou push com r
 P240 | Compatibilidade de entrada | PASS local / BLOCKED remoto | activeInputHandler=2; Input System + legado habilitados | push e Unity/AVD quando runner GitHub estiver operacional
 
 P241 | Workflow apos correcao de entrada | BLOCKED | runs 433573* falharam pre-runner; sem artefatos | desbloquear Actions/quota e repetir
+
+P242 | Correcao CS0234 InputSystem | PASS local / NOT_RUN remoto | removida dependencia de assembly; fallback legado preservado | repetir Unity Tests e builds

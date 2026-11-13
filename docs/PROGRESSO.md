@@ -1228,3 +1228,5 @@ P239 - 2026-11-13 America/Sao_Paulo: tentativa de ciclo PUBLIC para o commit 76e
 P240 - 2026-11-13 America/Sao_Paulo: alinhado ProjectSettings.activeInputHandler para 2 (Input Manager + Input System), compatível com a ponte de toque adicionada em 76eca22. Static QA PASS (json=5, cs=27) e diff-check PASS. Commit local pendente de push/execucao remota; workflows anteriores 433570* falharam sem runner (steps=0).
 
 P241 - 2026-11-13 America/Sao_Paulo: workflows 43357358702 (Unity), 43357358675 (Android) e 43357358807 (iOS) falharam antes do runner, com steps=0; nenhum artefato ou log Unity. Codigo 12a33a7 nao foi validado remotamente. Repositorio restaurado PRIVATE; bloqueio e GitHub Actions/quota/billing externo.
+
+P242 - 2026-11-13 America/Sao_Paulo: run Unity Tests 43358965697 falhou com causa reproduzida `CS0234 UnityEngine.InputSystem` ausente no assembly do GameCI. Removida referencia de compilacao direta; EventSystem agora descobre InputSystemUIInputModule por reflexao e usa StandaloneInputModule como fallback. Static QA PASS (json=5, cs=27), diff-check PASS. Requer novo run para confirmar compilacao/interacao.

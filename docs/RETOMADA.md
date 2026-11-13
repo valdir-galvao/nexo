@@ -513,3 +513,5 @@ Atualizacao P239: visibilidade foi PUBLIC, mas push 76eca22 falhou com repositor
 Atualizacao P240: activeInputHandler alterado de 0 para 2 para habilitar Input Manager + Input System. QA local PASS. Runner GitHub ainda falha antes dos steps; nao declarar interatividade validada.
 
 Atualizacao P241: novo ciclo 12a33a7 falhou sem runner (steps=0) nos tres workflows. Nenhum APK/IPA. Repositorio voltou PRIVATE. Aguardar desbloqueio de Actions antes de novo dispatch.
+
+Atualizacao P242: CS0234 do InputSystem corrigido por reflexao/fallback no bootstrap. Run 43358965697 falhou antes dos testes por compilacao. QA local PASS; novo push necessario.

@@ -552,3 +552,5 @@ P239 - O ciclo de release da correcao de entrada nao iniciou: GitHub confirmou r
 P240 - Corrigida a configuracao de entrada para modo combinado. A causa funcional anterior (ponte legada incompatível com Input System) está coberta no código; a prova em APK depende de runner remoto operacional.
 
 P241 - A correção de Input System não pôde ser validada remotamente: os jobs falharam sem steps/runner. O bloqueio é de infraestrutura GitHub Actions.
+
+P242 - O primeiro run apos a correcao de entrada revelou pacote InputSystem ausente no assembly. A implementacao foi tornada compativel com GameCI sem referencia direta; validacao remota pendente.
