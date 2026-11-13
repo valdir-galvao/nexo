@@ -7,3 +7,6 @@ Run `43348490067` reached the GameCI builder and failed before Unity compilation
 The subsequent image lookup failure was a cascade. Unity Tests `43348489786` passed after the C# newline fix, proving the compiler error was resolved. The Android/iOS jobs had `UNITY_LICENSE` injected, but GameCI did not receive a valid ULF file. Historical successful runs used the account activation path with `UNITY_EMAIL` and `UNITY_PASSWORD` only. The invalid/empty ULF injection was therefore removed from the three production workflows; no Secret value was read or changed.
 
 The workflows retain `NEXO_CONFIGURE_FREE_ASSETS=1`, so the CC0 fixture setup remains enabled during the next valid Unity import.
+
+## Correcao funcional posterior (P238)
+Os logs de runtime tambem mostraram ausencia de [NEXO_INPUT]; a tela permanecia na introducao. O bootstrap agora usa InputSystemUIInputModule e leitura de Touchscreen.current/Mouse.current, preservando fallback legado. Essa mudanca requer novo build e smoke AVD.

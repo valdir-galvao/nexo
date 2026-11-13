@@ -544,3 +544,5 @@ P235: pipeline agora usa o Secret UNITY_LICENSE informado e configura fixtures C
 P236 - Diagnostico de licenca: o run Android 43348490067 nao compilou; GameCI exigiu ULF inexistente. A falha nao representa defeito de jogo. A configuracao foi corrigida para ativacao por UNITY_EMAIL/UNITY_PASSWORD, mantendo secrets fora dos logs. Testes Unity 43348489786 PASS; novo ciclo remoto pendente.
 
 P237 - Release: ativacao por email/password funcionou; ULF nao foi usado. Testes e builds remotos passaram. APK e IPA locais foram verificados por SHA-256. Repositorio voltou ao modo privado.
+
+P238 - Diagnostico funcional: o mundo jogavel existia no codigo, mas a transicao nunca era acionada no APK porque o bootstrap so dependia da ponte legada. Foi adicionada a ponte Input System; validacao remota pendente.

@@ -487,3 +487,5 @@ P235: CI preparado para ativacao Unity Personal e setup automatico dos fixtures;
 P236 | Licenciamento GameCI | EM ANDAMENTO | ULF inexistente causou falha Android 43348490067; workflows ajustados para email/password | repetir Unity Tests/Android/iOS e capturar artefatos
 
 P237 | Release apos correcao de licenca | PASS | Unity/Android/iOS SUCCESS; APK e IPA capturados; repositorio PRIVATE | executar smoke AVD se for necessaria validacao visual adicional
+
+P238 | Correcao de entrada mobile | PASS local / NOT_RUN remoto | Input System UI module e Touchscreen adicionados; APK anterior nao contem a correcao | executar Unity Tests, build e smoke AVD

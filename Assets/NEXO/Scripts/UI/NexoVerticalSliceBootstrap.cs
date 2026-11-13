@@ -12,6 +12,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Events;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
+#endif
 
 namespace Nexo.UI
 {
@@ -144,7 +148,14 @@ namespace Nexo.UI
                 eventSystem.gameObject.SetActive(true);
                 var inputModule = eventSystem.GetComponent<StandaloneInputModule>();
                 if (inputModule == null) inputModule = eventSystem.gameObject.AddComponent<StandaloneInputModule>();
+#if ENABLE_INPUT_SYSTEM
+                var modernInputModule = eventSystem.GetComponent<InputSystemUIInputModule>();
+                if (modernInputModule == null) modernInputModule = eventSystem.gameObject.AddComponent<InputSystemUIInputModule>();
+                if (modernInputModule != null) modernInputModule.enabled = true;
+                if (inputModule != null) inputModule.enabled = modernInputModule == null;
+#else
                 if (inputModule != null) inputModule.enabled = true;
+#endif
             }
             catch (System.Exception exception)
             {
@@ -422,7 +433,14 @@ namespace Nexo.UI
             eventSystem.gameObject.SetActive(true);
             var inputModule = eventSystem.GetComponent<StandaloneInputModule>();
             if (inputModule == null) inputModule = eventSystem.gameObject.AddComponent<StandaloneInputModule>();
+#if ENABLE_INPUT_SYSTEM
+            var modernInputModule = eventSystem.GetComponent<InputSystemUIInputModule>();
+            if (modernInputModule == null) modernInputModule = eventSystem.gameObject.AddComponent<InputSystemUIInputModule>();
+            if (modernInputModule != null) modernInputModule.enabled = true;
+            if (inputModule != null) inputModule.enabled = modernInputModule == null;
+#else
             if (inputModule != null) inputModule.enabled = true;
+#endif
         }
 
         private void EnsurePresentationCamera()
@@ -1412,6 +1430,22 @@ namespace Nexo.UI
         private bool TryGetPrimaryPointerDown(out Vector2 position)
         {
             position = Vector2.zero;
+#if ENABLE_INPUT_SYSTEM
+            if (Touchscreen.current != null)
+            {
+                var touch = Touchscreen.current.primaryTouch;
+                if (touch.press.wasPressedThisFrame)
+                {
+                    position = touch.position.ReadValue();
+                    return true;
+                }
+            }
+            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                position = Mouse.current.position.ReadValue();
+                return true;
+            }
+#endif
             for (int i = 0; i < Input.touchCount; i++)
             {
                 var touch = Input.GetTouch(i);
