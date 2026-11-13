@@ -570,3 +570,5 @@ P248 - CapBuddy é uma fonte 3D animada disponível, mas não está pronto para runt
 P249 - CapBuddy foi copiado para Assets e conectado ao bootstrap por Resources. A geração efetiva de prefab/controller ocorre no Unity Editor durante CI; permanece pendente até novo run.
 
 P250 - Repositório público e commit CapBuddy enviado; execução remota falhou antes dos steps, sem evidência de importação Unity ou APK. Estado BLOCKED.
+
+P251 - Diagnostico CapBuddy: infraestrutura remota estava funcional, mas o APK ainda nao continha prefab porque a automacao do Editor era temporalmente fraca. Build-time generation agora e explicita; validacao remota pendente.

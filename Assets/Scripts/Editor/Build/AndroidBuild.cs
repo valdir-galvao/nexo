@@ -10,6 +10,7 @@ namespace Nexo.Editor.Build
     {
         public static void PerformBuild()
         {
+            CapBuddySetup.EnsureGeneratedForBuild();
             var architecture = Environment.GetEnvironmentVariable("NEXO_ANDROID_ARCH");
             PlayerSettings.Android.targetArchitectures = architecture switch
             {

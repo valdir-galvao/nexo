@@ -10,6 +10,7 @@ namespace Nexo.Editor.Build
     {
         public static void PerformBuild()
         {
+            CapBuddySetup.EnsureGeneratedForBuild();
             var output = Environment.GetEnvironmentVariable("BUILD_PATH");
             if (string.IsNullOrWhiteSpace(output)) output = Path.Combine("build", "iOS");
             Directory.CreateDirectory(output);

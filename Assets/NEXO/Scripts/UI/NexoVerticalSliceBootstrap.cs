@@ -1010,7 +1010,7 @@ namespace Nexo.UI
                 }
             }
 
-            Debug.LogWarning("[NEXO_AVATAR] Authored humanoid prefab unavailable; using procedural fallback. Run NEXO/Free Test Assets/Configure Humanoid Character in Unity before release builds.");
+            Debug.LogWarning("[NEXO_AVATAR] Authored avatar prefab unavailable; using procedural fallback. Run CapBuddySetup in Unity before release builds.");
             var root = new GameObject("Explorer");
             if (root == null) return null;
             root.transform.position = position;

@@ -513,3 +513,5 @@ P248 - Avatar CapBuddy auditado; setup/importação Unity pendente.
 P249 - Setup CapBuddy automatizado no CI; validação Unity/AVD pendente.
 
 P250 - Workflows públicos falharam antes do runner; geração CapBuddy bloqueada.
+
+P251: CapBuddy build-time generation corrigida; proximo passo push e novo Android/Unity Tests, seguido de inspeção do log runtime.

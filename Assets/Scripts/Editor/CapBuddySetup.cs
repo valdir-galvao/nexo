@@ -4,15 +4,27 @@ using UnityEditor.Animations;
 using System.Linq;
 public static class CapBuddySetup {
  private const string OutputDir = "Assets/Resources/Characters";
+ private const string SourceModel = "Assets/External/FreeTestAssets/CapBuddy/CapBuddy.fbx";
 
  [InitializeOnLoadMethod]
  private static void ConfigureInCiWhenRequested() {
   if (!string.Equals(System.Environment.GetEnvironmentVariable("NEXO_CONFIGURE_CAPBUDDY"), "1", System.StringComparison.Ordinal)) return;
-  EditorApplication.delayCall += Build;
+  EditorApplication.delayCall += () => TryBuild(0);
+ }
+
+ private static void TryBuild(int attempt) {
+  AssetDatabase.Refresh();
+  var found = AssetDatabase.FindAssets("CapBuddy t:Model");
+  if (found.Any(g => AssetDatabase.GUIDToAssetPath(g).EndsWith("CapBuddy.fbx"))) { Build(); return; }
+  if (attempt < 12) EditorApplication.delayCall += () => TryBuild(attempt + 1);
+  else Debug.LogError("[NEXO_CAPBUDDY] FBX was not imported after waiting for AssetDatabase.");
  }
 
  [MenuItem("Tools/CapBuddy/Create Prefab and Animator")]
  public static void Build() {
+  AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+  if (AssetDatabase.LoadAssetAtPath<GameObject>(SourceModel) == null && System.IO.File.Exists(SourceModel))
+   AssetDatabase.ImportAsset(SourceModel, ImportAssetOptions.ForceUpdate);
   var guids=AssetDatabase.FindAssets("CapBuddy t:Model");
   var path=guids.Select(AssetDatabase.GUIDToAssetPath).FirstOrDefault(p=>p.EndsWith("CapBuddy.fbx"));
   if(path==null){ Debug.LogError("Copy CapBuddy.fbx and Textures into Assets/CapBuddy first."); return; }
@@ -21,6 +33,8 @@ public static class CapBuddySetup {
   importer.SaveAndReimport();
   System.IO.Directory.CreateDirectory(OutputDir);
   var controllerPath=OutputDir+"/CapBuddy.controller";
+  if (AssetDatabase.LoadAssetAtPath<Object>(controllerPath) != null)
+   AssetDatabase.DeleteAsset(controllerPath);
   var ctrl=AnimatorController.CreateAnimatorControllerAtPath(controllerPath);
   ctrl.AddParameter("Speed",AnimatorControllerParameterType.Float);
   ctrl.AddParameter("Investigate",AnimatorControllerParameterType.Trigger);
@@ -38,5 +52,10 @@ public static class CapBuddySetup {
   var anim=go.GetComponent<Animator>()??go.AddComponent<Animator>();anim.runtimeAnimatorController=ctrl;anim.applyRootMotion=false;
   PrefabUtility.SaveAsPrefabAsset(go,OutputDir+"/CapBuddy.prefab");Object.DestroyImmediate(go);AssetDatabase.SaveAssets();
   Debug.Log("[NEXO_CAPBUDDY] prefab/controller generated at Resources/Characters");
+ }
+
+ public static void EnsureGeneratedForBuild() {
+  if (!string.Equals(System.Environment.GetEnvironmentVariable("NEXO_CONFIGURE_CAPBUDDY"), "1", System.StringComparison.OrdinalIgnoreCase)) return;
+  Build();
  }
 }
