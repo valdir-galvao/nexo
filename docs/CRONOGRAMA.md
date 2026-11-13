@@ -483,3 +483,5 @@ P233: fixtures humanoide/animacao CC0 baixadas e automacao de importacao criada;
 P234: setup Unity bloqueado por Editor ausente; nao conectar fixtures ao bootstrap sem importacao real.
 
 P235: CI preparado para ativacao Unity Personal e setup automatico dos fixtures; proximo passo e executar GameCI e validar os artefatos Unity.
+
+P236 | Licenciamento GameCI | EM ANDAMENTO | ULF inexistente causou falha Android 43348490067; workflows ajustados para email/password | repetir Unity Tests/Android/iOS e capturar artefatos
