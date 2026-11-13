@@ -528,3 +528,5 @@ P227: release pública controlada concluída com Unity Tests, Android e iOS SUCC
 P228: causa raiz visual confirmada como blockout procedural sem assets finais; runtime e shaders estão saudáveis.
 
 P229: camada visual de apresentação adicionada ao vertical slice; QA estático PASS. Runtime remoto ainda pendente.
+
+P230: produção ainda BLOCKED por ausência de assets finais, toolchain e dispositivos; critérios de aceite documentados.

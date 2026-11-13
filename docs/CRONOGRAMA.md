@@ -471,3 +471,5 @@ P227 concluído: gate Unity PASS e APK/IPA capturados; privacidade restaurada PR
 P228: diagnóstico visual concluído; bloqueio é falta de conteúdo final, não pipeline gráfico.
 
 P229: camada de apresentação visual implementada e ligada ao bootstrap; próxima etapa é teste Unity/GameCI e smoke visual.
+
+P230: critérios de produção definidos; implementação final bloqueada por ausência de toolchain Unity/art assets e dispositivos reais.

@@ -489,3 +489,5 @@ Atualização P227: builds públicas concluídas: testes 43332024133, Android 43
 Atualização P228: para tornar o jogo realmente envolvente, a próxima etapa deve adicionar assets de cenário/avatar, animações e áudio; não repetir ajustes de shader como se fossem causa raiz.
 
 Atualização P229: NexoScenePresentation.cs adiciona conteúdo visual e animações ao blockout sem dependências externas. Validar no Unity/GameCI antes de gerar artefatos.
+
+Atualização P230: antes de declarar produto completo, importar assets 3D/rig/áudio em Unity e executar matriz de dispositivos. Ambiente atual não possui Unity, Blender, adb ou hardware.
