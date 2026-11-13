@@ -1214,3 +1214,5 @@ P232 - 2026-11-13 America/Sao_Paulo: baixado conjunto pequeno de fixtures gratui
 P233 - 2026-11-13 America/Sao_Paulo: ampliado o conjunto de testes gratuito com KinemIQ CC0: mannequin humanoide FBX e clips Idle_relaxed, Walk_forwards, Action_interact e Action_dance. Criado ConfigureFreeTestAssets.cs para configurar Humanoid, AnimatorController e prefab quando Unity 6000.3.0f1 estiver disponivel. Static QA e diff-check pendentes nesta alteracao; importacao Unity e IL2CPP continuam BLOCKED.
 
 P234 - 2026-11-13 America/Sao_Paulo: tentativa de configurar assets no Unity executada, mas BLOCKED porque Unity 6000.3.0f1 nao existe nos caminhos locais nem no PATH. Validacao de assinaturas FBX/GLB/WAV, Static QA e diff-check passaram; prefab/Avatar/AnimatorController nao foram gerados.
+
+P235 - 2026-11-13 America/Sao_Paulo: workflows Unity Tests, Android e iOS passaram a injetar UNITY_LICENSE junto com email/password, sem expor valores, e NEXO_CONFIGURE_FREE_ASSETS=1. ConfigureFreeTestAssets agora roda uma vez no carregamento do Editor em CI para gerar Humanoid/Animator/prefab. Static QA PASS (json=5, cs=27) e diff-check PASS. Execucao remota ainda pendente.

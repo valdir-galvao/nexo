@@ -499,3 +499,5 @@ Atualizacao P232: fixtures Kenney CC0 em Assets/External/FreeTestAssets. Nao int
 Atualizacao P233: KinemIQ CC0 em Assets/External/FreeTestAssets/Kinemiq e ConfigureFreeTestAssets.cs. Proximo passo: abrir Unity 6000.3.0f1, importar FBX e executar menu de configuracao; nao declarar rig/prefab validado antes disso.
 
 Atualizacao P234: Unity.exe 6000.3.0f1 ausente; ConfigureFreeTestAssets.cs pronto, mas ainda nao executado. Proximo passo: disponibilizar Editor correto e rodar importacao/testes.
+
+Atualizacao P235: UNITY_LICENSE foi adicionado aos tres workflows, sem leitura do valor. NEXO_CONFIGURE_FREE_ASSETS=1 ativa o setup Editor automatico. Falta executar run remoto para provar importacao, prefab, Animator e testes.

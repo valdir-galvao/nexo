@@ -18,6 +18,15 @@ namespace Nexo.EditorTools
         private const string AnimationRoot = "Assets/External/FreeTestAssets/Kinemiq/FBX";
         private const string OutputRoot = "Assets/NEXO/Content/FreeTest";
 
+        [InitializeOnLoadMethod]
+        private static void ConfigureInCiWhenRequested()
+        {
+            if (!string.Equals(System.Environment.GetEnvironmentVariable("NEXO_CONFIGURE_FREE_ASSETS"), "1", System.StringComparison.Ordinal)) return;
+            if (SessionState.GetBool("NEXO_FREE_ASSETS_CONFIGURED", false)) return;
+            SessionState.SetBool("NEXO_FREE_ASSETS_CONFIGURED", true);
+            EditorApplication.delayCall += Configure;
+        }
+
         [MenuItem("NEXO/Free Test Assets/Configure Humanoid Character")]
         public static void Configure()
         {

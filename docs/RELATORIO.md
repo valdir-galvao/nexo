@@ -538,3 +538,5 @@ P232: conjunto de teste gratuito baixado com licencas locais; escopo limitado a 
 P233: pacote humanoide/animacoes CC0 e script de setup Editor adicionados para testes. A validacao efetiva depende do Unity Editor correto e permanece pendente.
 
 P234: tentativa de setup de assets bloqueada pela ausencia do Unity Editor correto. Arquivos binarios passaram validacao de assinatura; resultados Unity permanecem pendentes.
+
+P235: pipeline agora usa o Secret UNITY_LICENSE informado e configura fixtures CC0 no carregamento do Editor. Nenhuma evidencia remota nova ainda; nao declarar assets integrados antes do run.

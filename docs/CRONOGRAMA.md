@@ -481,3 +481,5 @@ P232: fixtures CC0 baixadas; proxima etapa e importar no Unity 6000.3.0f1 quando
 P233: fixtures humanoide/animacao CC0 baixadas e automacao de importacao criada; executar menu Unity apos disponibilizar 6000.3.0f1.
 
 P234: setup Unity bloqueado por Editor ausente; nao conectar fixtures ao bootstrap sem importacao real.
+
+P235: CI preparado para ativacao Unity Personal e setup automatico dos fixtures; proximo passo e executar GameCI e validar os artefatos Unity.
