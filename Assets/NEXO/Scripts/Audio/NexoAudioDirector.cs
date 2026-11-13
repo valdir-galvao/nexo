@@ -3,12 +3,14 @@ using Nexo.Progression;
 
 namespace Nexo.Audio
 {
-    /// <summary>Audio procedural minimo para feedback local, sem assets externos.</summary>
+    /// <summary>Audio de feedback com assets CC0 importados e fallback procedural.</summary>
     public sealed class NexoAudioDirector : MonoBehaviour
     {
         private AudioSource source;
         private AudioSource musicSource;
         private AudioClip ambientClip;
+        private AudioClip clickClip;
+        private AudioClip successClip;
         private AudioSettingsData settings = new AudioSettingsData();
         private bool paused;
 
@@ -17,21 +19,24 @@ namespace Nexo.Audio
             settings = value ?? new AudioSettingsData();
             EnsureSource();
             EnsureMusicSource();
+            clickClip = Resources.Load<AudioClip>("Audio/nexo_click");
+            successClip = Resources.Load<AudioClip>("Audio/nexo_success");
             if (source != null) source.volume = settings.muted ? 0f : settings.master * settings.effects;
             PlayAmbient();
         }
 
         public void PlayDiscovery()
         {
-            PlayTone(660f, 0.12f, false, 740f);
+            if (successClip != null) PlayClip(successClip); else PlayTone(660f, 0.12f, false, 740f);
             if (!paused) Invoke(nameof(PlayDiscoveryTail), 0.13f);
         }
 
-        public void PlayClick() { PlayTone(420f, 0.055f, true, 360f); }
+        public void PlayClick() { if (clickClip != null) PlayClip(clickClip); else PlayTone(420f, 0.055f, true, 360f); }
 
         public void PlayFeedback(bool success)
         {
-            PlayTone(success ? 520f : 180f, success ? 0.16f : 0.1f, !success, success ? 680f : 140f);
+            if (success && successClip != null) PlayClip(successClip);
+            else PlayTone(success ? 520f : 180f, success ? 0.16f : 0.1f, !success, success ? 680f : 140f);
         }
 
         public void PlayPortalUnlock()
@@ -53,6 +58,13 @@ namespace Nexo.Audio
         private void OnApplicationFocus(bool hasFocus) { SetPaused(!hasFocus); }
         private void PlayDiscoveryTail() { PlayTone(880f, 0.14f, false, 980f); }
         private void PlayPortalUnlockTail() { PlayTone(1040f, 0.16f, false, 1240f); }
+
+        private void PlayClip(AudioClip clip)
+        {
+            if (clip == null || source == null || paused || settings == null || settings.muted) return;
+            source.volume = settings.master * settings.effects;
+            source.PlayOneShot(clip);
+        }
 
         private void EnsureSource()
         {

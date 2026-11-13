@@ -523,3 +523,5 @@ Atualizacao P244: CS0104 TouchPhase corrigido com UnityEngine.TouchPhase. Input 
 Atualizacao P245: commit 976a591 validado. Unity Tests 43360475217, Android 43360475228 e iOS 43360475222 SUCCESS; APK/IPA baixados e hashes em PROGRESSO. Repositorio PRIVATE. Proximo passo opcional: smoke AVD para validar toque no APK.
 
 Atualização P246: causa visual confirmada como blockout procedural, não falha de shader. O bootstrap agora tenta carregar Characters/NexoExplorer_FreeTest, gerado pelo setup Editor em Assets/Resources/Characters; fallback registra aviso. Próximo passo: executar Unity 6000.3.0f1 com NEXO_CONFIGURE_FREE_ASSETS=1, verificar prefab/AnimatorController e somente então gerar novo APK e smoke AVD.
+
+P247: assets CC0 baixados e áudio WAV conectado. Ambiente Kenney está em GLB e ainda depende de importação glTF/Unity; KinemIQ FBX depende do setup Editor. Próxima ação: executar Unity 6000.3.0f1, gerar prefab humanoide/AnimatorController e prefabs de cenário, validar no AVD.

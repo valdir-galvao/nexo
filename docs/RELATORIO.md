@@ -562,3 +562,5 @@ P244 - O assembly Input System agora compila; a falha seguinte foi conflito de n
 P245 - A referencia de assembly Input System e a qualificacao TouchPhase resolveram as falhas de compilacao. Release 976a591 gerada com Unity Tests, Android e iOS aprovados. A interatividade ainda precisa de smoke AVD para prova funcional.
 
 P246 - Estado atual: o APK anterior não contém assets de produção; a integração de prefab humanoide foi corrigida no código, mas depende da execução do Unity Editor para gerar/importar o asset. Não declarar jogo completo nem gerar release visual antes dessa validação.
+
+P247 - Assets gratuitos CC0 foram adicionados como fontes. Ainda não são assets de produção no APK até importação Unity e geração de prefabs/controller.

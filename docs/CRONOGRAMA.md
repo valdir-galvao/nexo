@@ -505,3 +505,5 @@ P244 | Correcao de namespace TouchPhase | PASS local / NOT_RUN remoto | ambiguid
 P245 | Release Input System corrigida | PASS | testes e builds SUCCESS; artefatos capturados | smoke AVD permanece pendente
 
 P246 - Conteúdo visual: integração do prefab humanoide conectada ao runtime; validação Unity/AVD pendente.
+
+P247 - Pacote CC0 baixado; integração Unity de modelos e rig pendente.
