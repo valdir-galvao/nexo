@@ -517,3 +517,5 @@ Atualizacao P241: novo ciclo 12a33a7 falhou sem runner (steps=0) nos tres workfl
 Atualizacao P242: CS0234 do InputSystem corrigido por reflexao/fallback no bootstrap. Run 43358965697 falhou antes dos testes por compilacao. QA local PASS; novo push necessario.
 
 Atualizacao P243: dependencia Input System preservada e explicitamente referenciada no Nexo.Runtime.asmdef (Unity.InputSystem/ForUI). Bootstrap voltou a usar APIs diretas com fallback. QA local PASS; aguardar novo run.
+
+Atualizacao P244: CS0104 TouchPhase corrigido com UnityEngine.TouchPhase. Input System compilou no GameCI; novo run necessario.

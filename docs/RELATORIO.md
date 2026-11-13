@@ -556,3 +556,5 @@ P241 - A correção de Input System não pôde ser validada remotamente: os jobs
 P242 - O primeiro run apos a correcao de entrada revelou pacote InputSystem ausente no assembly. A implementacao foi tornada compativel com GameCI sem referencia direta; validacao remota pendente.
 
 P243 - O erro CS0234 foi de referencia de assembly, nao de pacote inexistente no manifesto. A correcao definitiva adiciona referencias Unity.InputSystem e Unity.InputSystem.ForUI ao Nexo.Runtime.
+
+P244 - O assembly Input System agora compila; a falha seguinte foi conflito de nome TouchPhase e foi corrigida por qualificacao explicita.
