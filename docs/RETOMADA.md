@@ -483,3 +483,5 @@ Atualização P224: repositório agora PUBLIC confirmado pela API. Nenhum workfl
 Atualização P225: testes Unity PASS no commit f75942b/ee8ec51, mas quatro builds Android/iOS ficaram presos no GameCI por 184-199 min. Nenhum APK/IPA novo. Repositório PRIVATE. Próximo passo é perícia do runner/licenciamento, não nova tentativa automática.
 
 Atualização P226: dispatch de Unity Tests 43330830350 falhou em ~4s antes de qualquer step; jobs sem logs. Não houve execução Unity nem artefatos. Repositório permaneceu privado. Antes de novo dispatch, regularizar o bloqueio externo de runner/billing/quota.
+
+Atualização P227: builds públicas concluídas: testes 43332024133, Android 43332023924 e iOS 43332023963 SUCCESS. Artefatos baixados e hashes registrados em PROGRESSO. Repositório PRIVATE.
