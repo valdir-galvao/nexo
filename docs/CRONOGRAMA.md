@@ -489,3 +489,5 @@ P236 | Licenciamento GameCI | EM ANDAMENTO | ULF inexistente causou falha Androi
 P237 | Release apos correcao de licenca | PASS | Unity/Android/iOS SUCCESS; APK e IPA capturados; repositorio PRIVATE | executar smoke AVD se for necessaria validacao visual adicional
 
 P238 | Correcao de entrada mobile | PASS local / NOT_RUN remoto | Input System UI module e Touchscreen adicionados; APK anterior nao contem a correcao | executar Unity Tests, build e smoke AVD
+
+P239 | Publicacao da correcao Input System | BLOCKED | GitHub recusou push com repository disabled/HTTP 403; nenhum run/artefato | reativar repositorio externamente e repetir ciclo

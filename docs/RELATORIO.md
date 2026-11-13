@@ -546,3 +546,5 @@ P236 - Diagnostico de licenca: o run Android 43348490067 nao compilou; GameCI ex
 P237 - Release: ativacao por email/password funcionou; ULF nao foi usado. Testes e builds remotos passaram. APK e IPA locais foram verificados por SHA-256. Repositorio voltou ao modo privado.
 
 P238 - Diagnostico funcional: o mundo jogavel existia no codigo, mas a transicao nunca era acionada no APK porque o bootstrap so dependia da ponte legada. Foi adicionada a ponte Input System; validacao remota pendente.
+
+P239 - O ciclo de release da correcao de entrada nao iniciou: GitHub confirmou repositorio disabled e recusou push. O bloqueio e externo ao Unity e aos artefatos.
