@@ -467,3 +467,5 @@ P225 | Build pós-overhaul | BLOCKED | Unity Tests PASS; Android/iOS repetidamen
 P226 registrado: Unity Tests 43330830350 foi recusado antes do runner, sem steps/logs. Builds Android/iOS continuam bloqueadas por congelamentos GameCI anteriores.
 
 P227 concluído: gate Unity PASS e APK/IPA capturados; privacidade restaurada PRIVATE.
+
+P228: diagnóstico visual concluído; bloqueio é falta de conteúdo final, não pipeline gráfico.

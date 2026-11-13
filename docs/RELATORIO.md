@@ -524,3 +524,5 @@ P225 - release bloqueada: Unity Tests passaram, mas Android/iOS repetidamente co
 P226: execução remota de diagnóstico recusada antes do runner (run 43330830350). O estado da aplicação não foi alterado; não há nova evidência de teste ou build.
 
 P227: release pública controlada concluída com Unity Tests, Android e iOS SUCCESS; artefatos locais e hashes registrados; repositório voltou a PRIVATE.
+
+P228: causa raiz visual confirmada como blockout procedural sem assets finais; runtime e shaders estão saudáveis.
