@@ -491,3 +491,5 @@ Atualização P228: para tornar o jogo realmente envolvente, a próxima etapa de
 Atualização P229: NexoScenePresentation.cs adiciona conteúdo visual e animações ao blockout sem dependências externas. Validar no Unity/GameCI antes de gerar artefatos.
 
 Atualização P230: antes de declarar produto completo, importar assets 3D/rig/áudio em Unity e executar matriz de dispositivos. Ambiente atual não possui Unity, Blender, adb ou hardware.
+
+Atualização P231: AndroidBuild agora força IL2CPP e o workflow não usa NEXO_CI_FAST_BUILD. Não disparar build antes de integrar assets reais e preparar matriz de dispositivos.

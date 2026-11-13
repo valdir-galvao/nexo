@@ -17,8 +17,10 @@ namespace Nexo.Editor.Build
                 "X86_64" => AndroidArchitecture.X86_64,
                 _ => AndroidArchitecture.ARM64 | AndroidArchitecture.X86_64
             };
-            if (string.Equals(Environment.GetEnvironmentVariable("NEXO_CI_FAST_BUILD"), "1", StringComparison.OrdinalIgnoreCase))
-                PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.Mono2x);
+            // Release builds must remain IL2CPP. The former CI fast-build
+            // override produced a Mono APK that did not satisfy the product
+            // architecture/stripping contract.
+            PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
             var output = Environment.GetEnvironmentVariable("BUILD_PATH");
             if (string.IsNullOrWhiteSpace(output)) output = Path.Combine("build", "Android", "Nexo.apk");
             // GameCI may pass buildsPath-derived directories (for example

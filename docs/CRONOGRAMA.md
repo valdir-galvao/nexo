@@ -473,3 +473,5 @@ P228: diagnóstico visual concluído; bloqueio é falta de conteúdo final, não
 P229: camada de apresentação visual implementada e ligada ao bootstrap; próxima etapa é teste Unity/GameCI e smoke visual.
 
 P230: critérios de produção definidos; implementação final bloqueada por ausência de toolchain Unity/art assets e dispositivos reais.
+
+P231: build Android alinhada ao requisito IL2CPP; próxima etapa requer Unity Editor para importar assets/Animator e validar dispositivo.

@@ -530,3 +530,5 @@ P228: causa raiz visual confirmada como blockout procedural sem assets finais; r
 P229: camada visual de apresentação adicionada ao vertical slice; QA estático PASS. Runtime remoto ainda pendente.
 
 P230: produção ainda BLOCKED por ausência de assets finais, toolchain e dispositivos; critérios de aceite documentados.
+
+P231: removida a divergência Mono2x/Release; Android passa a declarar IL2CPP. Produção visual continua bloqueada por assets e hardware.

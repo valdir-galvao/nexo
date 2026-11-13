@@ -1206,3 +1206,5 @@ P228 - 2026-11-13 America/Sao_Paulo: auditoria confirmou causa do quadro verde/a
 P229 - 2026-11-13 America/Sao_Paulo: implementada camada NexoScenePresentation conectada ao bootstrap, com terreno estilizado, cristais, anel/luz/partículas do portal, faixa/névoa de água e avatar articulado com animação. Static QA PASS (json=5, cs=27), diff-check PASS. Unity/GameCI ainda não executado para esta revisão.
 
 P230 - 2026-11-13 America/Sao_Paulo: definidos critérios formais de aceitação para produção. Auditoria confirmou ausência de Unity/Blender/adb e de assets finais (.fbx/.prefab/.anim/.controller/.wav/.mp3/.ogg); modelos, rig, áudio final e testes físicos permanecem BLOCKED, sem falsa aprovação. Relatório: docs/PHASE_122_PRODUCTION_READINESS.md.
+
+P231 - 2026-11-13 America/Sao_Paulo: corrigido defeito de infraestrutura: Android Release deixou de forçar Mono2x e agora define IL2CPP explicitamente; metadata do workflow atualizada. Static QA/diff PASS. Assets finais e testes físicos continuam pendentes.
