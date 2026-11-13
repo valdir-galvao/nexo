@@ -529,3 +529,5 @@ P247: assets CC0 baixados e áudio WAV conectado. Ambiente Kenney está em GLB e a
 P248: CapBuddy possui o modelo e clips (Idle/Walk/Investigate/Success), mas nenhum prefab/controller Unity gerado. O rig é Generic, não Humanoid validado. Próximo passo é executar CapBuddySetup no Unity 6000.3.0f1 e integrar o prefab antes do APK.
 
 P249: integração CapBuddy automatizada nos três workflows e no bootstrap. O CI agora deve importar o FBX Generic e gerar Resources/Characters/CapBuddy.prefab/controller. Ainda não há execução Unity nesta máquina; não declarar APK atualizado até validar o artefato.
+
+P250: fe88d0e está no GitHub público. Runs 43519382211 (tests) e 43519388987 (Android) falharam antes de iniciar steps; CapBuddy.prefab/controller não foram gerados. Não declarar geração concluída até existir job com steps e artefato.

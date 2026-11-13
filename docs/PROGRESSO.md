@@ -1244,3 +1244,5 @@ P247 - 2026-11-13: baixados fixtures CC0 Kenney para personagem/ambiente (GLB, t
 P248 - 2026-11-13: auditoria CapBuddy concluída. Pacote contém FBX/GLB/Blend, textura, quatro animações e script Unity de setup; Validation.json registra 17 ossos, 2 meshes e Unity_tested=false. Faltam prefab, AnimatorController, .meta, importação Unity, collider e integração no bootstrap. Relatório docs/PHASE_248_CAPBUDDY_AUDIT.md.
 
 P249 - 2026-11-13: CapBuddy incorporado aos fontes do projeto em Assets/External/FreeTestAssets/CapBuddy; CapBuddySetup agora roda no CI com NEXO_CONFIGURE_CAPBUDDY=1, gera CapBuddy.prefab e CapBuddy.controller em Assets/Resources/Characters, e o bootstrap prioriza esse prefab. Workflows YAML válidos, Static QA PASS (json=5, cs=27), diff check PASS. Prefab final depende da execução Unity 6000.3.0f1.
+
+P250 - 2026-11-13: repositorio PUBLIC confirmado; commit fe88d0e enviado. Workflows Unity Tests 43519382211 e Android 43519388987 falharam antes dos steps, sem runner/importação e sem prefab CapBuddy gerado. Android emulator skipped. Estado BLOCKED por infraestrutura/runner; nenhum APK novo.

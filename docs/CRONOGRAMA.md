@@ -511,3 +511,5 @@ P247 - Pacote CC0 baixado; integração Unity de modelos e rig pendente.
 P248 - Avatar CapBuddy auditado; setup/importação Unity pendente.
 
 P249 - Setup CapBuddy automatizado no CI; validação Unity/AVD pendente.
+
+P250 - Workflows públicos falharam antes do runner; geração CapBuddy bloqueada.
