@@ -509,3 +509,5 @@ Atualizacao P237: ciclo a22462f concluido. Unity Tests 43349424119, Android 4334
 Atualizacao P238: ausencia de NEXO_INPUT no log confirmou toque nao processado. Bootstrap corrigido para InputSystemUIInputModule + Touchscreen/Mouse, com fallback legado. Static QA PASS. Nao gerar nova release sem validacao Unity/AVD.
 
 Atualizacao P239: visibilidade foi PUBLIC, mas push 76eca22 falhou com repository disabled/HTTP 403. Nenhum workflow novo. Repositorio voltou PRIVATE. Nao repetir ate reativacao externa.
+
+Atualizacao P240: activeInputHandler alterado de 0 para 2 para habilitar Input Manager + Input System. QA local PASS. Runner GitHub ainda falha antes dos steps; nao declarar interatividade validada.

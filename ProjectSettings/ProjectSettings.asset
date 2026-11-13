@@ -8,7 +8,7 @@ PlayerSettings:
   defaultScreenOrientation: 3
   useOSAutorotation: 0
   runInBackground: 1
-  activeInputHandler: 0
+  activeInputHandler: 2
   bundleVersion: 0.1.0-rc1
   applicationIdentifier:
     Standalone: com.nexo.educational
