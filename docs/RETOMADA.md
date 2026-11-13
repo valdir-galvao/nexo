@@ -525,3 +525,5 @@ Atualizacao P245: commit 976a591 validado. Unity Tests 43360475217, Android 4336
 Atualização P246: causa visual confirmada como blockout procedural, não falha de shader. O bootstrap agora tenta carregar Characters/NexoExplorer_FreeTest, gerado pelo setup Editor em Assets/Resources/Characters; fallback registra aviso. Próximo passo: executar Unity 6000.3.0f1 com NEXO_CONFIGURE_FREE_ASSETS=1, verificar prefab/AnimatorController e somente então gerar novo APK e smoke AVD.
 
 P247: assets CC0 baixados e áudio WAV conectado. Ambiente Kenney está em GLB e ainda depende de importação glTF/Unity; KinemIQ FBX depende do setup Editor. Próxima ação: executar Unity 6000.3.0f1, gerar prefab humanoide/AnimatorController e prefabs de cenário, validar no AVD.
+
+P248: CapBuddy possui o modelo e clips (Idle/Walk/Investigate/Success), mas nenhum prefab/controller Unity gerado. O rig é Generic, não Humanoid validado. Próximo passo é executar CapBuddySetup no Unity 6000.3.0f1 e integrar o prefab antes do APK.

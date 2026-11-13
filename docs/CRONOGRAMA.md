@@ -507,3 +507,5 @@ P245 | Release Input System corrigida | PASS | testes e builds SUCCESS; artefato
 P246 - Conteúdo visual: integração do prefab humanoide conectada ao runtime; validação Unity/AVD pendente.
 
 P247 - Pacote CC0 baixado; integração Unity de modelos e rig pendente.
+
+P248 - Avatar CapBuddy auditado; setup/importação Unity pendente.
