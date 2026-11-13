@@ -493,3 +493,5 @@ P238 | Correcao de entrada mobile | PASS local / NOT_RUN remoto | Input System U
 P239 | Publicacao da correcao Input System | BLOCKED | GitHub recusou push com repository disabled/HTTP 403; nenhum run/artefato | reativar repositorio externamente e repetir ciclo
 
 P240 | Compatibilidade de entrada | PASS local / BLOCKED remoto | activeInputHandler=2; Input System + legado habilitados | push e Unity/AVD quando runner GitHub estiver operacional
+
+P241 | Workflow apos correcao de entrada | BLOCKED | runs 433573* falharam pre-runner; sem artefatos | desbloquear Actions/quota e repetir

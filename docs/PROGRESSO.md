@@ -1226,3 +1226,5 @@ P238 - 2026-11-13 America/Sao_Paulo: logs de runtime confirmaram ausencia de [NE
 P239 - 2026-11-13 America/Sao_Paulo: tentativa de ciclo PUBLIC para o commit 76eca22 bloqueada pelo estado externo do repositorio. API confirmou visibility=public, mas `git push` respondeu HTTP 403 `Your repository is disabled`; nenhum workflow foi disparado e nenhum artefato novo foi gerado. Visibilidade restaurada PRIVATE. O APK a22462f continua sem a correção Input System; nova execução depende da reativação do repositório pelo GitHub.
 
 P240 - 2026-11-13 America/Sao_Paulo: alinhado ProjectSettings.activeInputHandler para 2 (Input Manager + Input System), compatível com a ponte de toque adicionada em 76eca22. Static QA PASS (json=5, cs=27) e diff-check PASS. Commit local pendente de push/execucao remota; workflows anteriores 433570* falharam sem runner (steps=0).
+
+P241 - 2026-11-13 America/Sao_Paulo: workflows 43357358702 (Unity), 43357358675 (Android) e 43357358807 (iOS) falharam antes do runner, com steps=0; nenhum artefato ou log Unity. Codigo 12a33a7 nao foi validado remotamente. Repositorio restaurado PRIVATE; bloqueio e GitHub Actions/quota/billing externo.

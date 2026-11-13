@@ -511,3 +511,5 @@ Atualizacao P238: ausencia de NEXO_INPUT no log confirmou toque nao processado. 
 Atualizacao P239: visibilidade foi PUBLIC, mas push 76eca22 falhou com repository disabled/HTTP 403. Nenhum workflow novo. Repositorio voltou PRIVATE. Nao repetir ate reativacao externa.
 
 Atualizacao P240: activeInputHandler alterado de 0 para 2 para habilitar Input Manager + Input System. QA local PASS. Runner GitHub ainda falha antes dos steps; nao declarar interatividade validada.
+
+Atualizacao P241: novo ciclo 12a33a7 falhou sem runner (steps=0) nos tres workflows. Nenhum APK/IPA. Repositorio voltou PRIVATE. Aguardar desbloqueio de Actions antes de novo dispatch.

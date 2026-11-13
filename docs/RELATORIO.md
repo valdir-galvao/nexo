@@ -550,3 +550,5 @@ P238 - Diagnostico funcional: o mundo jogavel existia no codigo, mas a transicao
 P239 - O ciclo de release da correcao de entrada nao iniciou: GitHub confirmou repositorio disabled e recusou push. O bloqueio e externo ao Unity e aos artefatos.
 
 P240 - Corrigida a configuracao de entrada para modo combinado. A causa funcional anterior (ponte legada incompatível com Input System) está coberta no código; a prova em APK depende de runner remoto operacional.
+
+P241 - A correção de Input System não pôde ser validada remotamente: os jobs falharam sem steps/runner. O bloqueio é de infraestrutura GitHub Actions.
