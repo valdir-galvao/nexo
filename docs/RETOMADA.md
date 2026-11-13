@@ -503,3 +503,5 @@ Atualizacao P234: Unity.exe 6000.3.0f1 ausente; ConfigureFreeTestAssets.cs pront
 Atualizacao P235: UNITY_LICENSE foi adicionado aos tres workflows, sem leitura do valor. NEXO_CONFIGURE_FREE_ASSETS=1 ativa o setup Editor automatico. Falta executar run remoto para provar importacao, prefab, Animator e testes.
 
 Atualizacao P236: Android 43348490067 falhou antes da compilacao por manualLicenseFile UnityLicenseFile.ulf inexistente. Removida injecao UNITY_LICENSE dos workflows; Unity Tests 43348489786 PASS. Repositorio PUBLIC no ciclo atual. Proximo passo: validar push e repetir runs; restaurar PRIVATE apos sucesso/bloqueio.
+
+Atualizacao P237: ciclo a22462f concluido. Unity Tests 43349424119, Android 43349424238 e iOS 43349424143 SUCCESS. APK e IPA em C:/Temp/nexo-release-final com hashes registrados em PROGRESSO. Repositorio PRIVATE. Nao disparar novo ciclo sem nova hipotese.

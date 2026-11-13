@@ -485,3 +485,5 @@ P234: setup Unity bloqueado por Editor ausente; nao conectar fixtures ao bootstr
 P235: CI preparado para ativacao Unity Personal e setup automatico dos fixtures; proximo passo e executar GameCI e validar os artefatos Unity.
 
 P236 | Licenciamento GameCI | EM ANDAMENTO | ULF inexistente causou falha Android 43348490067; workflows ajustados para email/password | repetir Unity Tests/Android/iOS e capturar artefatos
+
+P237 | Release apos correcao de licenca | PASS | Unity/Android/iOS SUCCESS; APK e IPA capturados; repositorio PRIVATE | executar smoke AVD se for necessaria validacao visual adicional
