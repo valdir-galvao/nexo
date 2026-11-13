@@ -497,3 +497,5 @@ Atualização P231: AndroidBuild agora força IL2CPP e o workflow não usa NEXO_
 Atualizacao P232: fixtures Kenney CC0 em Assets/External/FreeTestAssets. Nao integrar sem Unity 6000.3.0f1; executar importacao isolada e QA apos disponibilizacao do Editor.
 
 Atualizacao P233: KinemIQ CC0 em Assets/External/FreeTestAssets/Kinemiq e ConfigureFreeTestAssets.cs. Proximo passo: abrir Unity 6000.3.0f1, importar FBX e executar menu de configuracao; nao declarar rig/prefab validado antes disso.
+
+Atualizacao P234: Unity.exe 6000.3.0f1 ausente; ConfigureFreeTestAssets.cs pronto, mas ainda nao executado. Proximo passo: disponibilizar Editor correto e rodar importacao/testes.

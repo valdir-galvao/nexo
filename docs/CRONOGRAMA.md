@@ -479,3 +479,5 @@ P231: build Android alinhada ao requisito IL2CPP; próxima etapa requer Unity Ed
 P232: fixtures CC0 baixadas; proxima etapa e importar no Unity 6000.3.0f1 quando o Editor estiver disponivel.
 
 P233: fixtures humanoide/animacao CC0 baixadas e automacao de importacao criada; executar menu Unity apos disponibilizar 6000.3.0f1.
+
+P234: setup Unity bloqueado por Editor ausente; nao conectar fixtures ao bootstrap sem importacao real.

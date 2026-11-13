@@ -536,3 +536,5 @@ P231: removida a divergência Mono2x/Release; Android passa a declarar IL2CPP. P
 P232: conjunto de teste gratuito baixado com licencas locais; escopo limitado a fixtures, sem alegacao de assets de producao. Unity/importacao/dispositivo continuam bloqueados.
 
 P233: pacote humanoide/animacoes CC0 e script de setup Editor adicionados para testes. A validacao efetiva depende do Unity Editor correto e permanece pendente.
+
+P234: tentativa de setup de assets bloqueada pela ausencia do Unity Editor correto. Arquivos binarios passaram validacao de assinatura; resultados Unity permanecem pendentes.
