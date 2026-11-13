@@ -526,3 +526,5 @@ P226: execução remota de diagnóstico recusada antes do runner (run 4333083035
 P227: release pública controlada concluída com Unity Tests, Android e iOS SUCCESS; artefatos locais e hashes registrados; repositório voltou a PRIVATE.
 
 P228: causa raiz visual confirmada como blockout procedural sem assets finais; runtime e shaders estão saudáveis.
+
+P229: camada visual de apresentação adicionada ao vertical slice; QA estático PASS. Runtime remoto ainda pendente.

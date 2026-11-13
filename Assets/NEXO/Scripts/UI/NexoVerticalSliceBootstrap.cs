@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Nexo.Core;
@@ -15,7 +15,7 @@ using UnityEngine.Events;
 
 namespace Nexo.UI
 {
-    /// <summary>Bootstrap temporário: cria uma ilha jogável sem depender de prefabs.</summary>
+    /// <summary>Bootstrap temporÃ¡rio: cria uma ilha jogÃ¡vel sem depender de prefabs.</summary>
     public sealed class NexoVerticalSliceBootstrap : MonoBehaviour
     {
         private VerticalSliceMission mission;
@@ -28,6 +28,7 @@ namespace Nexo.UI
         private bool showDiary;
         private bool showSettings;
         private NexoAudioDirector audioDirector;
+        private NexoScenePresentation scenePresentation;
         private LocalDataControls dataControls;
         private bool confirmDelete;
         private bool showTransfer;
@@ -186,6 +187,9 @@ namespace Nexo.UI
             // frame. The intro UI remains on top, but the interactive portals,
             // score state and raycast targets are already available underneath.
             EnsureWorldBuilt();
+            scenePresentation = gameObject.GetComponent<NexoScenePresentation>();
+            if (scenePresentation == null) scenePresentation = gameObject.AddComponent<NexoScenePresentation>();
+            if (scenePresentation != null) scenePresentation.Initialize();
             audioDirector = gameObject.AddComponent<NexoAudioDirector>();
             if (audioDirector != null) audioDirector.Configure(mission.Save != null ? mission.Save.audio : null);
             dataControls = new LocalDataControls();
@@ -580,10 +584,10 @@ namespace Nexo.UI
             controlsRect.offsetMin = Vector2.zero;
             controlsRect.offsetMax = Vector2.zero;
 
-            CreateHudButton(gameplayControlsRoot.transform, "UP", "▲", new Vector2(0.04f, 0.50f), new Vector2(0.16f, 0.96f), () => MovePlayer(Vector3.forward));
-            CreateHudButton(gameplayControlsRoot.transform, "LEFT", "◀", new Vector2(0.00f, 0.04f), new Vector2(0.12f, 0.50f), () => MovePlayer(Vector3.left));
-            CreateHudButton(gameplayControlsRoot.transform, "DOWN", "▼", new Vector2(0.04f, 0.04f), new Vector2(0.16f, 0.50f), () => MovePlayer(Vector3.back));
-            CreateHudButton(gameplayControlsRoot.transform, "RIGHT", "▶", new Vector2(0.16f, 0.04f), new Vector2(0.28f, 0.50f), () => MovePlayer(Vector3.right));
+            CreateHudButton(gameplayControlsRoot.transform, "UP", "â–²", new Vector2(0.04f, 0.50f), new Vector2(0.16f, 0.96f), () => MovePlayer(Vector3.forward));
+            CreateHudButton(gameplayControlsRoot.transform, "LEFT", "â—€", new Vector2(0.00f, 0.04f), new Vector2(0.12f, 0.50f), () => MovePlayer(Vector3.left));
+            CreateHudButton(gameplayControlsRoot.transform, "DOWN", "â–¼", new Vector2(0.04f, 0.04f), new Vector2(0.16f, 0.50f), () => MovePlayer(Vector3.back));
+            CreateHudButton(gameplayControlsRoot.transform, "RIGHT", "â–¶", new Vector2(0.16f, 0.04f), new Vector2(0.28f, 0.50f), () => MovePlayer(Vector3.right));
             gameplayInteractButton = CreateHudButton(gameplayControlsRoot.transform, "INTERACT", "INVESTIGAR", new Vector2(0.68f, 0.08f), new Vector2(0.98f, 0.52f), Interact);
 
             gameplayGuidePanel = new GameObject("Nexo First Mission Guide");
@@ -748,7 +752,7 @@ namespace Nexo.UI
             var velocity = introParticles.velocityOverLifetime;
             velocity.enabled = true;
             velocity.space = ParticleSystemSimulationSpace.Local;
-            // Unity exige que os três eixos usem o mesmo modo de curva.
+            // Unity exige que os trÃªs eixos usem o mesmo modo de curva.
             // TwoConstants evita a mistura entre Constant e TwoConstants em batchmode/IL2CPP.
             velocity.x = new ParticleSystem.MinMaxCurve(0f, 0f);
             velocity.y = new ParticleSystem.MinMaxCurve(0.12f, 0.28f);
@@ -920,7 +924,7 @@ namespace Nexo.UI
                 waterSurfaceBaseColor = new Color(0.04f, 0.38f, 0.82f, 1f);
             }
             var source = MakeCube("Source", new Vector3(-5, 0.4f, 4), new Vector3(1.4f, 0.8f, 1.4f), NexoVisualTheme.Water, true);
-            InitializeInteractable(source, ClueId.Source, "Fonte: siga as marcas de umidade até o canal.");
+            InitializeInteractable(source, ClueId.Source, "Fonte: siga as marcas de umidade atÃ© o canal.");
             sourceTransform = source == null ? null : source.transform;
             InitializeInteractable(MakeCube("Channel", new Vector3(-1, 0.25f, 2), new Vector3(3.5f, 0.3f, 0.5f), NexoVisualTheme.Water, true), ClueId.Channel, "O canal aponta para o reservat?rio.");
             channelTransform = GameObject.Find("Channel") == null ? null : GameObject.Find("Channel").transform;
@@ -1607,33 +1611,33 @@ namespace Nexo.UI
             if (showMenu)
             {
                 GUI.Box(new Rect(safe.x + 24, safe.y + 40, safe.width - 48, 220), "NEXO");
-                GUI.Label(new Rect(safe.x + 55, safe.y + 90, safe.width - 110, 60), "O arquipélago perdeu a conexão. Restaure a primeira ilha.");
-                if (GUI.Button(new Rect(safe.x + 55, safe.y + 165, 190, 44), "Iniciar missão")) showMenu = false;
-                if (GUI.Button(new Rect(safe.x + 255, safe.y + 165, 190, 44), "Configurações")) showSettings = true;
+                GUI.Label(new Rect(safe.x + 55, safe.y + 90, safe.width - 110, 60), "O arquipÃ©lago perdeu a conexÃ£o. Restaure a primeira ilha.");
+                if (GUI.Button(new Rect(safe.x + 55, safe.y + 165, 190, 44), "Iniciar missÃ£o")) showMenu = false;
+                if (GUI.Button(new Rect(safe.x + 255, safe.y + 165, 190, 44), "ConfiguraÃ§Ãµes")) showSettings = true;
                 if (showSettings) DrawSettings(safe);
                 return;
             }
-            GUI.Label(new Rect(safe.x + 16, safe.y + 16, safe.width - 32, 32), "NEXO | " + mission.StateMachine.State + " | Água: " + mission.Save.activeMission.water);
+            GUI.Label(new Rect(safe.x + 16, safe.y + 16, safe.width - 32, 32), "NEXO | " + mission.StateMachine.State + " | Ãgua: " + mission.Save.activeMission.water);
             if (showIntro)
             {
                 float introAlpha = Mathf.Clamp01(introElapsed / 0.45f);
                 GUI.color = new Color(1f, 1f, 1f, introAlpha);
-                GUI.Box(new Rect(safe.x + 30, safe.y + 70, safe.width - 60, 180), "O reservatório silencioso");
+                GUI.Box(new Rect(safe.x + 30, safe.y + 70, safe.width - 60, 180), "O reservatÃ³rio silencioso");
                 GUI.Label(new Rect(safe.x + 55, safe.y + 110, safe.width - 110, 60), "Observe a fonte, siga o canal e restaure o fluxo.");
-                if (GUI.Button(new Rect(safe.x + 55, safe.y + 180, 180, 42), "Começar (pular prólogo)")) { mission.SkipIntro(); showIntro = false; introElapsed = 0f; EnsureWorldBuilt(); audioDirector.PlayDiscovery(); }
+                if (GUI.Button(new Rect(safe.x + 55, safe.y + 180, 180, 42), "ComeÃ§ar (pular prÃ³logo)")) { mission.SkipIntro(); showIntro = false; introElapsed = 0f; EnsureWorldBuilt(); audioDirector.PlayDiscovery(); }
                 GUI.color = Color.white;
                 return;
             }
             if (GUI.Button(new Rect(safe.x + 16, safe.yMax - 62, 70, 44), "Pausa")) { mission.Pause(); }
             if (GUI.Button(new Rect(safe.xMax - 180, safe.yMax - 62, 70, 44), "Interagir")) Interact();
-            if (GUI.Button(new Rect(safe.xMax - 95, safe.yMax - 62, 70, 44), "Ajuda")) prompt = "Compare as marcas do canal e da válvula.";
-            if (GUI.Button(new Rect(safe.x + 96, safe.yMax - 62, 70, 44), "Diário")) showDiary = true;
+            if (GUI.Button(new Rect(safe.xMax - 95, safe.yMax - 62, 70, 44), "Ajuda")) prompt = "Compare as marcas do canal e da vÃ¡lvula.";
+            if (GUI.Button(new Rect(safe.x + 96, safe.yMax - 62, 70, 44), "DiÃ¡rio")) showDiary = true;
             if (!string.IsNullOrEmpty(prompt)) GUI.Box(new Rect(safe.x + 16, safe.y + 55, safe.width - 32, 55), prompt);
             if (showDiary) DrawDiary(safe);
             if (mission.Save.activeMission.discoveredClueIds != null &&
                 System.Array.IndexOf(mission.Save.activeMission.discoveredClueIds, ClueId.Valve.ToString()) >= 0)
             {
-                GUI.Label(new Rect(16, 118, 300, 28), "Válvula: compare os marcadores");
+                GUI.Label(new Rect(16, 118, 300, 28), "VÃ¡lvula: compare os marcadores");
                 if (GUI.Button(new Rect(16, 148, 70, 36), "Pos. 1")) mission.EvaluateValve(0);
                 if (GUI.Button(new Rect(92, 148, 70, 36), "Pos. 2")) mission.EvaluateValve(1);
                 if (GUI.Button(new Rect(168, 148, 70, 36), "Pos. 3")) mission.EvaluateValve(2);
@@ -1641,12 +1645,12 @@ namespace Nexo.UI
             if (mission.Save.activeMission.allocation == WaterAllocation.Reservoir &&
                 mission.Save.activeMission.valveIndex == MissionRuleEngine.ReservoirValveIndex &&
                 !mission.Save.activeMission.completed &&
-                GUI.Button(new Rect(250, 148, 170, 36), "Ativar reservatório"))
+                GUI.Button(new Rect(250, 148, 170, 36), "Ativar reservatÃ³rio"))
             {
                 mission.Complete();
             }
             if (mission.Save.activeMission.completed)
-                GUI.Box(new Rect(30, 250, Screen.width - 60, 100), "Missão concluída — nova área desbloqueada: o sinal distante.");
+                GUI.Box(new Rect(30, 250, Screen.width - 60, 100), "MissÃ£o concluÃ­da â€” nova Ã¡rea desbloqueada: o sinal distante.");
             if (mission.Save.activeMission.completed && !transferAnswered && GUI.Button(new Rect(250, 360, 220, 36), "Demonstrar compreensao")) showTransfer = true;
             if (showTransfer) DrawTransfer(safe);
             if (mission.StateMachine.State == GameState.Feedback)
@@ -1692,10 +1696,10 @@ namespace Nexo.UI
 
         private void DrawDiary(Rect safe)
         {
-            GUI.Box(new Rect(safe.x + 30, safe.y + 90, safe.width - 60, 210), "Diário de descobertas");
+            GUI.Box(new Rect(safe.x + 30, safe.y + 90, safe.width - 60, 210), "DiÃ¡rio de descobertas");
             string clues = string.Join(", ", mission.Save.activeMission.discoveredClueIds ?? new string[0]);
             GUI.Label(new Rect(safe.x + 55, safe.y + 135, safe.width - 110, 80), "Pistas encontradas: " + clues);
-            GUI.Label(new Rect(safe.x + 55, safe.y + 205, safe.width - 110, 60), "Hipótese: a água segue uma rede que atravessa as ilhas.");
+            GUI.Label(new Rect(safe.x + 55, safe.y + 205, safe.width - 110, 60), "HipÃ³tese: a Ã¡gua segue uma rede que atravessa as ilhas.");
             if (GUI.Button(new Rect(safe.x + 55, safe.y + 255, 120, 36), "Fechar")) showDiary = false;
         }
 
@@ -1724,14 +1728,14 @@ namespace Nexo.UI
 
         private void DrawSettings(Rect safe)
         {
-                GUI.Box(new Rect(safe.x + 40, safe.y + 60, safe.width - 80, 390), "Configurações");
-            GUI.Label(new Rect(safe.x + 70, safe.y + 105, 250, 32), "Áudio: " + (mission.Save.audio.muted ? "silenciado" : "ativo"));
-            if (GUI.Button(new Rect(safe.x + 70, safe.y + 145, 190, 40), mission.Save.audio.muted ? "Ativar áudio" : "Silenciar áudio"))
+                GUI.Box(new Rect(safe.x + 40, safe.y + 60, safe.width - 80, 390), "ConfiguraÃ§Ãµes");
+            GUI.Label(new Rect(safe.x + 70, safe.y + 105, 250, 32), "Ãudio: " + (mission.Save.audio.muted ? "silenciado" : "ativo"));
+            if (GUI.Button(new Rect(safe.x + 70, safe.y + 145, 190, 40), mission.Save.audio.muted ? "Ativar Ã¡udio" : "Silenciar Ã¡udio"))
             {
                 mission.Save.audio.muted = !mission.Save.audio.muted;
                 audioDirector.Configure(mission.Save.audio);
             }
-            GUI.Label(new Rect(safe.x + 70, safe.y + 205, 400, 32), "Legendas: sempre disponíveis");
+            GUI.Label(new Rect(safe.x + 70, safe.y + 205, 400, 32), "Legendas: sempre disponÃ­veis");
             if (!confirmDelete && GUI.Button(new Rect(safe.x + 220, safe.y + 255, 190, 36), "Apagar dados locais")) confirmDelete = true;
             if (confirmDelete)
             {
@@ -1770,4 +1774,4 @@ namespace Nexo.UI
         public string description;
         public void Initialize(ClueId value, string text) { clue = value; description = text; }
     }
-}
+}\r\n

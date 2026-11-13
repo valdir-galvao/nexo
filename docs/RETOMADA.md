@@ -487,3 +487,5 @@ Atualização P226: dispatch de Unity Tests 43330830350 falhou em ~4s antes de q
 Atualização P227: builds públicas concluídas: testes 43332024133, Android 43332023924 e iOS 43332023963 SUCCESS. Artefatos baixados e hashes registrados em PROGRESSO. Repositório PRIVATE.
 
 Atualização P228: para tornar o jogo realmente envolvente, a próxima etapa deve adicionar assets de cenário/avatar, animações e áudio; não repetir ajustes de shader como se fossem causa raiz.
+
+Atualização P229: NexoScenePresentation.cs adiciona conteúdo visual e animações ao blockout sem dependências externas. Validar no Unity/GameCI antes de gerar artefatos.
