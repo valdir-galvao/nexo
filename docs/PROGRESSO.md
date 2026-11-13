@@ -1208,3 +1208,5 @@ P229 - 2026-11-13 America/Sao_Paulo: implementada camada NexoScenePresentation c
 P230 - 2026-11-13 America/Sao_Paulo: definidos critérios formais de aceitação para produção. Auditoria confirmou ausência de Unity/Blender/adb e de assets finais (.fbx/.prefab/.anim/.controller/.wav/.mp3/.ogg); modelos, rig, áudio final e testes físicos permanecem BLOCKED, sem falsa aprovação. Relatório: docs/PHASE_122_PRODUCTION_READINESS.md.
 
 P231 - 2026-11-13 America/Sao_Paulo: corrigido defeito de infraestrutura: Android Release deixou de forçar Mono2x e agora define IL2CPP explicitamente; metadata do workflow atualizada. Static QA/diff PASS. Assets finais e testes físicos continuam pendentes.
+
+P232 - 2026-11-13 America/Sao_Paulo: baixado conjunto pequeno de fixtures gratuitos para testes de importacao: Kenney character-a.glb + textura e dois WAV de Interface Sounds, todos CC0 com licencas preservadas em Assets/External/FreeTestAssets. Nenhum APK/IPA ou integracao Unity foi executado. Unity 6000.3.0f1 ausente; importacao GLB, rig/Animator e testes de dispositivo permanecem BLOCKED. Relatorio: docs/PHASE_123_FREE_TEST_ASSET_DOWNLOAD.md.

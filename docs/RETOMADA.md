@@ -493,3 +493,5 @@ Atualização P229: NexoScenePresentation.cs adiciona conteúdo visual e animaç
 Atualização P230: antes de declarar produto completo, importar assets 3D/rig/áudio em Unity e executar matriz de dispositivos. Ambiente atual não possui Unity, Blender, adb ou hardware.
 
 Atualização P231: AndroidBuild agora força IL2CPP e o workflow não usa NEXO_CI_FAST_BUILD. Não disparar build antes de integrar assets reais e preparar matriz de dispositivos.
+
+Atualizacao P232: fixtures Kenney CC0 em Assets/External/FreeTestAssets. Nao integrar sem Unity 6000.3.0f1; executar importacao isolada e QA apos disponibilizacao do Editor.

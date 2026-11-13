@@ -532,3 +532,5 @@ P229: camada visual de apresentação adicionada ao vertical slice; QA estático
 P230: produção ainda BLOCKED por ausência de assets finais, toolchain e dispositivos; critérios de aceite documentados.
 
 P231: removida a divergência Mono2x/Release; Android passa a declarar IL2CPP. Produção visual continua bloqueada por assets e hardware.
+
+P232: conjunto de teste gratuito baixado com licencas locais; escopo limitado a fixtures, sem alegacao de assets de producao. Unity/importacao/dispositivo continuam bloqueados.
