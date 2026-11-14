@@ -578,3 +578,5 @@ P252 - Validacao remota em curso: testes Unity aprovados; builds Android/iOS ain
 P253 - Setup local CapBuddy nao executado: Editor Unity obrigatorio ausente. Nao ha evidencia local de importacao ou casamento de clips.
 
 P254 - O novo Android compilou, mas a validação runtime do avatar não foi executada. O iOS revelou falha concreta de integração do Animator no CapBuddySetup.cs:52.
+
+P255 - Geração do CapBuddy tornou-se gate obrigatório do build, com logs por clip e validação dos assets finais. Aguardando validação remota.

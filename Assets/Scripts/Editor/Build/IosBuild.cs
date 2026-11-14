@@ -10,7 +10,11 @@ namespace Nexo.Editor.Build
     {
         public static void PerformBuild()
         {
-            CapBuddySetup.EnsureGeneratedForBuild();
+            // Keep iOS generation identical to Android so both artifacts audit
+            // the same prefab/controller and clip mapping.
+            CapBuddySetup.Build();
+            if (!CapBuddySetup.LastBuildSucceeded)
+                throw new BuildFailedException("[NEXO_CAPBUDDY] CapBuddy prefab/controller generation failed; see setup logs.");
             var output = Environment.GetEnvironmentVariable("BUILD_PATH");
             if (string.IsNullOrWhiteSpace(output)) output = Path.Combine("build", "iOS");
             Directory.CreateDirectory(output);

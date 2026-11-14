@@ -10,7 +10,11 @@ namespace Nexo.Editor.Build
     {
         public static void PerformBuild()
         {
-            CapBuddySetup.EnsureGeneratedForBuild();
+            // Equivalent to `-executeMethod CapBuddySetup.Build`, performed
+            // in-process before the actual Android BuildPipeline invocation.
+            CapBuddySetup.Build();
+            if (!CapBuddySetup.LastBuildSucceeded)
+                throw new BuildFailedException("[NEXO_CAPBUDDY] CapBuddy prefab/controller generation failed; see setup logs.");
             var architecture = Environment.GetEnvironmentVariable("NEXO_ANDROID_ARCH");
             PlayerSettings.Android.targetArchitectures = architecture switch
             {

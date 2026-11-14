@@ -17,3 +17,6 @@ Executar novo Unity Tests/Android público e confirmar no log [NEXO_AVATAR] Autho
 
 ## Tentativa local subsequente
 Unity 6000.3.0f1 nao foi encontrado nos caminhos locais nem no PATH; importacao, geração do prefab/controller e validação LoadAssetAtPath permanecem BLOCKED localmente.
+
+## Gate obrigatório de build
+AndroidBuild e IosBuild chamam CapBuddySetup.Build antes do BuildPipeline e interrompem a build se LastBuildSucceeded for falso. Logs [NEXO_CAPBUDDY] registram início, mapeamento de cada clip, falha e sucesso.
