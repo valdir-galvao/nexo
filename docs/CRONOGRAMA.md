@@ -519,3 +519,7 @@ P251: CapBuddy build-time generation corrigida; proximo passo push e novo Androi
 P257 | Avatar/UI/audio runtime | PASS local / NOT_RUN remoto | Correcoes aplicadas em Bootstrap e ScenePresentation; runtime Unity depende de GameCI | executar Unity Tests e smoke AVD
 
 P258 | Validacao remota b877e76 | PASS build/test | Unity Tests, Android e iOS SUCCESS; CapBuddy gerado e validado no log; AVD skipped por ARM64 | executar smoke X86_64 se necessario
+
+P259 | Auditoria GLB CapBuddy | DIAGNOSTICO | GLB raiz valido, mas setup usa FBX e pacote gltfast ausente | implementar integracao somente apos decisao sobre fonte visual e Package Manager Unity
+
+P260 | Integracao GLB CapBuddy | PRONTO PARA CI | GLB novo e setup visual/animacao integrados; pacote gltfast no manifesto; lockfile aguarda Unity | commit/push e monitorar Android/iOS

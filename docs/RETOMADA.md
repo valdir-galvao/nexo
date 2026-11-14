@@ -549,3 +549,9 @@ Atualizacao P257: corrigidos enquadramento/Animator do CapBuddy, layout do guia 
 
 
 Atualizacao P258: workflows 43539652950/43539652850/43539652954 concluiram SUCCESS no b877e76. Android publicou nexo-android-ARM64-b877e76 e logs confirmam CapBuddy prefab/controller/clips. AVD nao rodou por ABI ARM64; para prova visual, executar build X86_64/smoke.
+
+
+Atualizacao P259: verificacao do GLB concluida sem build. O arquivo raiz e CapBuddy_Animated.glb; target rastreado CapBuddy.glb ja existe. Setup nao integra GLB e gltfast nao esta no manifesto. Relatorio: docs/PHASE_259_GLB_INTEGRATION_AUDIT.md. Proxima acao: implementar e validar no Unity, sem editar lockfile manualmente.
+
+
+Atualizacao P260: GLB novo integrado como fonte visual e FBX preservado como fonte de animacoes. Manifesto agora declara gltfast 6.21.0; lockfile nao foi editado manualmente. Static QA PASS. Proxima acao: commit/push e validar no GameCI.

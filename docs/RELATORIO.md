@@ -590,3 +590,11 @@ A integracao agora garante Animator/controller e camera para o CapBuddy autorado
 
 ## P258 - Validacao remota b877e76
 Unity Tests, Android e iOS passaram. O build Android importou CapBuddy.fbx, gerou prefab/controller e mapeou Idle/Walk/Investigate/Success. O artefato ARM64 foi publicado; o smoke AVD foi pulado por incompatibilidade de ABI, portanto a exibicao em emulador ainda requer run X86_64.
+
+
+## P259 - Auditoria GLB CapBuddy
+A auditoria encontrou dois GLBs diferentes e confirmou que o setup atual usa apenas o FBX. O pacote gltfast esta ausente do manifesto. Nenhum build ou push foi disparado.
+
+
+## P260 - Integracao GLB CapBuddy
+O novo GLB foi promovido a fonte visual do prefab, mantendo o FBX para os clips. O setup aplica materiais importados, AnimatorController e gate de sucesso. A validacao Unity e a regeneracao do lockfile dependem do runner remoto.

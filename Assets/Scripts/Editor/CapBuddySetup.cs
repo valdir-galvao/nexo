@@ -5,6 +5,7 @@ using System.Linq;
 public static class CapBuddySetup {
  private const string OutputDir = "Assets/Resources/Characters";
  private const string SourceModel = "Assets/External/FreeTestAssets/CapBuddy/CapBuddy.fbx";
+ private const string VisualModel = "Assets/External/FreeTestAssets/CapBuddy/CapBuddy.glb";
  public static bool LastBuildSucceeded { get; private set; }
 
  [InitializeOnLoadMethod]
@@ -28,9 +29,13 @@ public static class CapBuddySetup {
   AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
   if (AssetDatabase.LoadAssetAtPath<GameObject>(SourceModel) == null && System.IO.File.Exists(SourceModel))
    AssetDatabase.ImportAsset(SourceModel, ImportAssetOptions.ForceUpdate);
+  if (AssetDatabase.LoadAssetAtPath<GameObject>(VisualModel) == null && System.IO.File.Exists(VisualModel))
+   AssetDatabase.ImportAsset(VisualModel, ImportAssetOptions.ForceUpdate);
   var guids=AssetDatabase.FindAssets("CapBuddy t:Model");
   var path=guids.Select(AssetDatabase.GUIDToAssetPath).FirstOrDefault(p=>p.EndsWith("CapBuddy.fbx"));
   if(path==null){ Debug.LogError("[NEXO_CAPBUDDY] FAIL source FBX not found: " + SourceModel); return; }
+  var visualModel = AssetDatabase.LoadAssetAtPath<GameObject>(VisualModel);
+  if (visualModel == null) { Debug.LogError("[NEXO_CAPBUDDY] FAIL visual GLB not imported: " + VisualModel); return; }
   var importer=(ModelImporter)AssetImporter.GetAtPath(path);
   if (importer == null) { Debug.LogError("[NEXO_CAPBUDDY] FAIL ModelImporter unavailable: " + path); return; }
   importer.animationType=ModelImporterAnimationType.Generic; importer.importAnimation=true;
@@ -60,14 +65,28 @@ public static class CapBuddySetup {
   var walk=states["Idle"].AddTransition(states["Walk"]);walk.hasExitTime=false;walk.duration=.15f;walk.AddCondition(AnimatorConditionMode.Greater,.1f,"Speed");
   var idle=states["Walk"].AddTransition(states["Idle"]);idle.hasExitTime=false;idle.duration=.15f;idle.AddCondition(AnimatorConditionMode.Less,.1f,"Speed");
   foreach(var n in new[]{"Investigate","Success"}){var t=sm.AddAnyStateTransition(states[n]);t.hasExitTime=false;t.canTransitionToSelf=false;t.duration=.15f;t.AddCondition(AnimatorConditionMode.If,0,n);var back=states[n].AddTransition(states["Idle"]);back.hasExitTime=true;back.exitTime=1;back.duration=.15f;}
-  var model=AssetDatabase.LoadAssetAtPath<GameObject>(path);
-  if (model == null) { Debug.LogError("[NEXO_CAPBUDDY] FAIL model LoadAssetAtPath returned null: " + path); return; }
-  var go=(GameObject)PrefabUtility.InstantiatePrefab(model);
+  var go=(GameObject)PrefabUtility.InstantiatePrefab(visualModel);
   if (go == null) { Debug.LogError("[NEXO_CAPBUDDY] FAIL PrefabUtility.InstantiatePrefab returned null"); return; }
+  go.name = "CapBuddy";
   var anim=go.GetComponentInChildren<Animator>(true);
   if (anim == null) anim=go.AddComponent<Animator>();
   if (anim == null) { Object.DestroyImmediate(go); Debug.LogError("[NEXO_CAPBUDDY] FAIL Animator component could not be created"); return; }
-  anim.runtimeAnimatorController=ctrl;anim.applyRootMotion=false;
+  anim.runtimeAnimatorController=ctrl;anim.applyRootMotion=false;anim.cullingMode=AnimatorCullingMode.AlwaysAnimate;
+  var fallbackShader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Unlit/Color") ?? Shader.Find("Standard");
+  var fallbackMaterial = fallbackShader == null ? null : new Material(fallbackShader) { name = "CapBuddy GLB Fallback Material" };
+  int materialCount = 0;
+  foreach (var renderer in go.GetComponentsInChildren<Renderer>(true))
+  {
+   if (renderer == null) continue;
+   var materials = renderer.sharedMaterials;
+   for (int i = 0; i < materials.Length; i++)
+   {
+    if (materials[i] == null && fallbackMaterial != null) materials[i] = fallbackMaterial;
+    if (materials[i] != null) materialCount++;
+   }
+   renderer.sharedMaterials = materials;
+  }
+  Debug.Log("[NEXO_CAPBUDDY] visual source=" + VisualModel + " materials=" + materialCount);
   var prefab=PrefabUtility.SaveAsPrefabAsset(go,OutputDir+"/CapBuddy.prefab");Object.DestroyImmediate(go);AssetDatabase.SaveAssets();AssetDatabase.Refresh();
   var savedPrefab=AssetDatabase.LoadAssetAtPath<GameObject>(OutputDir+"/CapBuddy.prefab");
   var savedController=AssetDatabase.LoadAssetAtPath<AnimatorController>(controllerPath);
