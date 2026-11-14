@@ -541,3 +541,5 @@ Atualizacao P253: configuracao local do CapBuddy BLOCKED por ausencia do Unity 6
 Atualizacao P254: Android terminou SUCCESS sem smoke por arquitetura ARM64; iOS falhou em CapBuddySetup.cs:52 com MissingComponentException no Animator. Corrigir instanciação defensiva do Animator antes de novo ciclo.
 
 Atualizacao P255: correção local pronta para push. O builder falha explicitamente se CapBuddy.prefab/controller ou qualquer clip não forem gerados; logs auditáveis [NEXO_CAPBUDDY].
+
+Atualizacao P256: iOS e testes aprovados com evidencia CapBuddy; Android ainda em compilacao. Aguardar artifact e smoke (se X86_64) antes de declarar ciclo completo.
