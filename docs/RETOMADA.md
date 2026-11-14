@@ -546,3 +546,6 @@ Atualizacao P256: iOS e testes aprovados com evidencia CapBuddy; Android ainda e
 
 
 Atualizacao P257: corrigidos enquadramento/Animator do CapBuddy, layout do guia Canvas, duplicacao OnGUI e audio de botoes/desafios. Relatorio: docs/PHASE_257_AVATAR_UI_AUDIO_RUNTIME.md. Proxima acao: push e validar no GameCI/AVD; nao declarar runtime PASS sem log [NEXO_AVATAR] e interacao.
+
+
+Atualizacao P258: workflows 43539652950/43539652850/43539652954 concluiram SUCCESS no b877e76. Android publicou nexo-android-ARM64-b877e76 e logs confirmam CapBuddy prefab/controller/clips. AVD nao rodou por ABI ARM64; para prova visual, executar build X86_64/smoke.

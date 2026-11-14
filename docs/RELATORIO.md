@@ -586,3 +586,7 @@ P256 - A geração do CapBuddy foi comprovada no iOS: quatro clips mapeados e outp
 
 ## P257 - Integracao runtime do avatar, UI e audio
 A integracao agora garante Animator/controller e camera para o CapBuddy autorado, remove a sobreposicao entre Canvas e OnGUI e centraliza PlayClick nos botoes Canvas. A validacao local passou; Unity local esta ausente, portanto a evidencia runtime permanece pendente.
+
+
+## P258 - Validacao remota b877e76
+Unity Tests, Android e iOS passaram. O build Android importou CapBuddy.fbx, gerou prefab/controller e mapeou Idle/Walk/Investigate/Success. O artefato ARM64 foi publicado; o smoke AVD foi pulado por incompatibilidade de ABI, portanto a exibicao em emulador ainda requer run X86_64.
