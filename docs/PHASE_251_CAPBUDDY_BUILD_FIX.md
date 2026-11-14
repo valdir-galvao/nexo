@@ -14,3 +14,6 @@ O run Android 43520318437 foi SUCCESS, porém o log runtime registrou fallback pr
 
 ## Pendente
 Executar novo Unity Tests/Android público e confirmar no log [NEXO_AVATAR] Authored avatar prefab loaded. Não declarar a integração concluída antes dessa evidência.
+
+## Tentativa local subsequente
+Unity 6000.3.0f1 nao foi encontrado nos caminhos locais nem no PATH; importacao, geração do prefab/controller e validação LoadAssetAtPath permanecem BLOCKED localmente.

@@ -574,3 +574,5 @@ P250 - Repositório público e commit CapBuddy enviado; execução remota falhou ant
 P251 - Diagnostico CapBuddy: infraestrutura remota estava funcional, mas o APK ainda nao continha prefab porque a automacao do Editor era temporalmente fraca. Build-time generation agora e explicita; validacao remota pendente.
 
 P252 - Validacao remota em curso: testes Unity aprovados; builds Android/iOS ainda sem resultado. Nenhuma conclusao visual nova.
+
+P253 - Setup local CapBuddy nao executado: Editor Unity obrigatorio ausente. Nao ha evidencia local de importacao ou casamento de clips.
