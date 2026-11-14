@@ -529,3 +529,5 @@ P261 | Diagnostico GLTFast/CapBuddy | EM ANDAMENTO | CapBuddy GLB importado; fix
 P262 | Correcao de fixtures GLB | PRONTO PARA VALIDACAO | Texturas auxiliares adicionadas; .blend fora de Assets; APK baixado | executar Unity Tests para confirmar importacao limpa
 
 P263 | Escala avatar/cenario | PASS local | avatar normalizado para 2.2 unidades e log auditavel | validar em Unity/GameCI e observar enquadramento de agua/paisagem
+
+P264 | Validacao pos-normalizacao | PASS build / visual pendente | Unity Tests, Android e iOS SUCCESS; sem erros GLTFast/Blender | executar smoke visual para confirmar enquadramento

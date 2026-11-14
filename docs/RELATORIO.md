@@ -604,3 +604,5 @@ P261 - Estado atual: integracao CapBuddy.glb validada no GameCI; erros de import
 P262 - Correcoes aplicadas apos auditoria: aliases de textura para Kenney GLB e armazenamento do .blend fora da pasta Assets. APK 43546295830 preservado localmente; novo run necessario para validar importacao limpa.
 
 P263 - Correcao dimensional: avatar authored agora e normalizado para 2.2 unidades antes de EnsureAvatarVisible, reduzindo risco de modelo gigante/pequeno em relacao a ilha, agua e portal.
+
+P264 - Validacao remota confirmou que as correcoes de assets eliminaram os erros de importacao. O build Android passou, mas a compatibilidade visual do enquadramento do avatar/agua ainda nao foi comprovada por emulador nesta execucao.

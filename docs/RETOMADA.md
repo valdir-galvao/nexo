@@ -561,3 +561,5 @@ Atualizacao P261: Unity Tests 43546295823 PASS e iOS 43546296733 PASS com [NEXO_
 Atualizacao P262: APK ARM64 baixado e hash registrado. URIs externas dos GLBs Kenney agora resolvem para arquivos existentes; CapBuddy.blend foi preservado fora de Assets para eliminar dependencia Blender. Proximo passo: Unity Tests remoto no novo commit e depois builds se aprovados.
 
 Atualizacao P263: normalizacao de escala do CapBuddy adicionada no bootstrap antes do enquadramento da camera. Alvo 2.2 unidades, limite de fator 0.25..4.0. Proximo passo e validar o novo log [NEXO_AVATAR] em Unity/GameCI.
+
+Atualizacao P264: novo commit 9fb7ef3 passou Unity Tests/Android/iOS. Importacao GLTFast limpa e CapBuddy SUCCESS. Nenhum smoke visual executado; escala normalizada aguarda evidencia em tela.
