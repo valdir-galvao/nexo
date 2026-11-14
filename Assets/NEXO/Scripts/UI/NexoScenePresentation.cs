@@ -16,6 +16,7 @@ namespace Nexo.UI
         private Transform explorerBackpack;
         private Transform leftLeg;
         private Transform rightLeg;
+        private Animator explorerAnimator;
         private Transform portalRing;
         private Transform waterRibbon;
         private ParticleSystem sparkleFx;
@@ -62,6 +63,19 @@ namespace Nexo.UI
             GameObject existing = GameObject.Find("Explorer");
             if (existing == null) return;
             explorer = existing.transform;
+            explorerAnimator = explorer.GetComponentInChildren<Animator>(true);
+            if (explorerAnimator != null)
+            {
+                explorerAnimator.enabled = explorerAnimator.runtimeAnimatorController != null;
+                if (explorerAnimator.enabled)
+                {
+                    explorerAnimator.Rebind();
+                    explorerAnimator.Update(0f);
+                    explorerAnimator.Play("Idle", 0, 0f);
+                }
+                Debug.Log("[NEXO_AVATAR] Presentation animator active=" + explorerAnimator.enabled +
+                    " controller=" + (explorerAnimator.runtimeAnimatorController != null));
+            }
             explorerHead = FindChild(explorer, "Explorer Head");
             explorerBackpack = FindChild(explorer, "Explorer Backpack");
             leftLeg = FindChild(explorer, "Explorer Left Leg");

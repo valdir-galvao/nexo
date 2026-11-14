@@ -543,3 +543,6 @@ Atualizacao P254: Android terminou SUCCESS sem smoke por arquitetura ARM64; iOS 
 Atualizacao P255: correção local pronta para push. O builder falha explicitamente se CapBuddy.prefab/controller ou qualquer clip não forem gerados; logs auditáveis [NEXO_CAPBUDDY].
 
 Atualizacao P256: iOS e testes aprovados com evidencia CapBuddy; Android ainda em compilacao. Aguardar artifact e smoke (se X86_64) antes de declarar ciclo completo.
+
+
+Atualizacao P257: corrigidos enquadramento/Animator do CapBuddy, layout do guia Canvas, duplicacao OnGUI e audio de botoes/desafios. Relatorio: docs/PHASE_257_AVATAR_UI_AUDIO_RUNTIME.md. Proxima acao: push e validar no GameCI/AVD; nao declarar runtime PASS sem log [NEXO_AVATAR] e interacao.

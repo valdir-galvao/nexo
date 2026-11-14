@@ -515,3 +515,5 @@ P249 - Setup CapBuddy automatizado no CI; validação Unity/AVD pendente.
 P250 - Workflows públicos falharam antes do runner; geração CapBuddy bloqueada.
 
 P251: CapBuddy build-time generation corrigida; proximo passo push e novo Android/Unity Tests, seguido de inspeção do log runtime.
+
+P257 | Avatar/UI/audio runtime | PASS local / NOT_RUN remoto | Correcoes aplicadas em Bootstrap e ScenePresentation; runtime Unity depende de GameCI | executar Unity Tests e smoke AVD

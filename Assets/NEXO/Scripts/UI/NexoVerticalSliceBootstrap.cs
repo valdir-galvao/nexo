@@ -76,6 +76,7 @@ namespace Nexo.UI
         private Transform avatarHeadTransform;
         private Transform avatarLeftLegTransform;
         private Transform avatarRightLegTransform;
+        private Animator avatarAnimator;
         private Light gameplayLight;
         private Light portalLight;
         private ParticleSystem portalParticles;
@@ -625,7 +626,7 @@ namespace Nexo.UI
             }
             gameplayGuideText = CreateIntroText(gameplayGuidePanel.transform,
                 "COMO JOGAR\n\n1. Mova o explorador com as setas\n2. Toque em INVESTIGAR para registrar a pista\n3. Siga o marcador pulsante\n4. Resolva o desafio para ativar o portal",
-                24, FontStyle.Bold, new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.94f));
+                24, FontStyle.Bold, new Vector2(0.06f, 0.27f), new Vector2(0.94f, 0.94f));
             if (gameplayGuideText != null)
             {
                 gameplayGuideText.alignment = TextAnchor.MiddleCenter;
@@ -643,7 +644,6 @@ namespace Nexo.UI
             gameplayGuideTime = 0f;
             if (gameplayGuidePanel != null) gameplayGuidePanel.SetActive(false);
             prompt = "Agora investigue a fonte azul marcada pelo alvo pulsante.";
-            if (audioDirector != null) audioDirector.PlayClick();
         }
 
         private Button CreateHudButton(Transform parent, string name, string label, Vector2 anchorMin, Vector2 anchorMax, UnityAction action)
@@ -661,7 +661,11 @@ namespace Nexo.UI
             var button = buttonObject.AddComponent<Button>();
             if (button == null) return null;
             button.targetGraphic = image;
-            button.onClick.AddListener(action);
+            button.onClick.AddListener(() =>
+            {
+                if (audioDirector != null) audioDirector.PlayClick();
+                if (action != null) action.Invoke();
+            });
             var text = CreateIntroText(buttonObject.transform, label, name == "INTERACT" ? 20 : 30, FontStyle.Bold, Vector2.zero, Vector2.one);
             if (text != null)
             {
@@ -715,7 +719,11 @@ namespace Nexo.UI
                     button.gameObject.SetActive(true);
                     button.onClick.RemoveAllListeners();
                     int answer = options[i];
-                    button.onClick.AddListener(() => ResolveChallenge(answer));
+                    button.onClick.AddListener(() =>
+                    {
+                        if (audioDirector != null) audioDirector.PlayClick();
+                        ResolveChallenge(answer);
+                    });
                     var image = button.targetGraphic as Image;
                     if (image != null) image.color = i == 0 ? new Color(0.12f, 0.62f, 0.38f, 1f) : new Color(0.10f, 0.42f, 0.68f, 1f);
                     var label = button.GetComponentInChildren<Text>();
@@ -729,7 +737,11 @@ namespace Nexo.UI
                 {
                     first.gameObject.SetActive(true);
                     first.onClick.RemoveAllListeners();
-                    first.onClick.AddListener(CloseChallenge);
+                    first.onClick.AddListener(() =>
+                    {
+                        if (audioDirector != null) audioDirector.PlayClick();
+                        CloseChallenge();
+                    });
                     var image = first.targetGraphic as Image;
                     if (image != null) image.color = challengeCorrect ? new Color(0.12f, 0.65f, 0.38f, 1f) : new Color(0.70f, 0.16f, 0.18f, 1f);
                     var label = first.GetComponentInChildren<Text>();
@@ -816,6 +828,8 @@ namespace Nexo.UI
             text.horizontalOverflow = HorizontalWrapMode.Wrap;
             text.verticalOverflow = VerticalWrapMode.Truncate;
             text.color = Color.white;
+            var layout = textObject.AddComponent<LayoutElement>();
+            if (layout != null) layout.minHeight = Mathf.Max(28f, size * 1.15f);
             return text;
         }
 
@@ -981,11 +995,29 @@ namespace Nexo.UI
             }
             playerTransform = avatar.transform;
             avatarTransform = playerTransform;
-            if (view != null)
+            EnsureAvatarVisible(avatar);
+        }
+
+        private void EnsureAvatarVisible(GameObject avatar)
+        {
+            if (avatar == null) return;
+            avatar.SetActive(true);
+            if (view == null) view = Camera.main;
+            if (view == null) return;
+            Renderer[] renderers = avatar.GetComponentsInChildren<Renderer>(true);
+            Bounds bounds = new Bounds(avatar.transform.position + Vector3.up, Vector3.one);
+            bool hasBounds = false;
+            for (int i = 0; i < renderers.Length; i++)
             {
-                view.transform.position = new Vector3(-6, 6, -10);
-                view.transform.LookAt(avatar.transform);
+                if (renderers[i] == null || !renderers[i].enabled) continue;
+                if (!hasBounds) { bounds = renderers[i].bounds; hasBounds = true; }
+                else bounds.Encapsulate(renderers[i].bounds);
             }
+            Vector3 target = hasBounds ? bounds.center : avatar.transform.position + Vector3.up;
+            float distance = Mathf.Clamp(hasBounds ? bounds.extents.magnitude * 2.8f : 8f, 6f, 12f);
+            view.transform.position = target + new Vector3(-distance * 0.45f, distance * 0.42f, -distance);
+            view.transform.LookAt(target);
+            Debug.Log("[NEXO_AVATAR] Visible target=" + target + " renderers=" + renderers.Length + " animator=" + (avatarAnimator != null && avatarAnimator.enabled));
         }
 
         private GameObject CreateExplorerAvatar(Vector3 position)
@@ -1003,9 +1035,28 @@ namespace Nexo.UI
                 {
                     authored.name = "Explorer";
                     var authoredAnimator = authored.GetComponentInChildren<Animator>(true);
-                    if (authoredAnimator != null && authoredAnimator.runtimeAnimatorController != null)
-                        authoredAnimator.Play("Idle", 0, 0f);
-                    Debug.Log("[NEXO_AVATAR] Authored prefab loaded: " + authoredPrefab.name);
+                    if (authoredAnimator == null)
+                        authoredAnimator = authored.AddComponent<Animator>();
+                    if (authoredAnimator != null)
+                    {
+                        if (authoredAnimator.runtimeAnimatorController == null)
+                            authoredAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Characters/CapBuddy");
+                        authoredAnimator.enabled = authoredAnimator.runtimeAnimatorController != null;
+                        if (authoredAnimator.enabled)
+                        {
+                            authoredAnimator.Rebind();
+                            authoredAnimator.Update(0f);
+                            authoredAnimator.Play("Idle", 0, 0f);
+                        }
+                        avatarAnimator = authoredAnimator;
+                    }
+                    Renderer[] renderers = authored.GetComponentsInChildren<Renderer>(true);
+                    for (int i = 0; i < renderers.Length; i++)
+                        if (renderers[i] != null) renderers[i].enabled = true;
+                    authored.SetActive(true);
+                    Debug.Log("[NEXO_AVATAR] Authored avatar loaded: " + authoredPrefab.name +
+                        " animator=" + (avatarAnimator != null && avatarAnimator.enabled) +
+                        " controller=" + (avatarAnimator != null && avatarAnimator.runtimeAnimatorController != null));
                     return authored;
                 }
             }
@@ -1024,6 +1075,7 @@ namespace Nexo.UI
             avatarHeadTransform = head == null ? null : head.transform;
             avatarLeftLegTransform = leftLeg == null ? null : leftLeg.transform;
             avatarRightLegTransform = rightLeg == null ? null : rightLeg.transform;
+            avatarAnimator = null;
             return root;
         }
 
@@ -1309,7 +1361,6 @@ namespace Nexo.UI
             if (gameplayGuideVisible) DismissGameplayGuide();
             playerTransform.position += direction.normalized * 0.8f;
             prompt = "Explorando a ilha... toque em INVESTIGAR para abrir o desafio.";
-            if (audioDirector != null) audioDirector.PlayClick();
         }
 
         private void AnimateGameplayWorld()
