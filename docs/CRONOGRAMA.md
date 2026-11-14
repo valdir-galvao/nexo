@@ -523,3 +523,7 @@ P258 | Validacao remota b877e76 | PASS build/test | Unity Tests, Android e iOS S
 P259 | Auditoria GLB CapBuddy | DIAGNOSTICO | GLB raiz valido, mas setup usa FBX e pacote gltfast ausente | implementar integracao somente apos decisao sobre fonte visual e Package Manager Unity
 
 P260 | Integracao GLB CapBuddy | PRONTO PARA CI | GLB novo e setup visual/animacao integrados; pacote gltfast no manifesto; lockfile aguarda Unity | commit/push e monitorar Android/iOS
+
+P261 | Diagnostico GLTFast/CapBuddy | EM ANDAMENTO | CapBuddy GLB importado; fixtures Kenney com texturas ausentes; Android ainda compilando | decidir tratamento das fixtures e aguardar Android
+
+P262 | Correcao de fixtures GLB | PRONTO PARA VALIDACAO | Texturas auxiliares adicionadas; .blend fora de Assets; APK baixado | executar Unity Tests para confirmar importacao limpa

@@ -598,3 +598,7 @@ A auditoria encontrou dois GLBs diferentes e confirmou que o setup atual usa ape
 
 ## P260 - Integracao GLB CapBuddy
 O novo GLB foi promovido a fonte visual do prefab, mantendo o FBX para os clips. O setup aplica materiais importados, AnimatorController e gate de sucesso. A validacao Unity e a regeneracao do lockfile dependem do runner remoto.
+
+P261 - Estado atual: integracao CapBuddy.glb validada no GameCI; erros de importacao restritos a fixtures Kenney com texturas auxiliares ausentes e Blender nao instalado. Unity Tests/iOS aprovados; Android ainda sem conclusao.
+
+P262 - Correcoes aplicadas apos auditoria: aliases de textura para Kenney GLB e armazenamento do .blend fora da pasta Assets. APK 43546295830 preservado localmente; novo run necessario para validar importacao limpa.
