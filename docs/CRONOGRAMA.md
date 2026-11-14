@@ -527,3 +527,5 @@ P260 | Integracao GLB CapBuddy | PRONTO PARA CI | GLB novo e setup visual/animac
 P261 | Diagnostico GLTFast/CapBuddy | EM ANDAMENTO | CapBuddy GLB importado; fixtures Kenney com texturas ausentes; Android ainda compilando | decidir tratamento das fixtures e aguardar Android
 
 P262 | Correcao de fixtures GLB | PRONTO PARA VALIDACAO | Texturas auxiliares adicionadas; .blend fora de Assets; APK baixado | executar Unity Tests para confirmar importacao limpa
+
+P263 | Escala avatar/cenario | PASS local | avatar normalizado para 2.2 unidades e log auditavel | validar em Unity/GameCI e observar enquadramento de agua/paisagem

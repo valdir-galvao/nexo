@@ -1053,6 +1053,7 @@ namespace Nexo.UI
                     Renderer[] renderers = authored.GetComponentsInChildren<Renderer>(true);
                     for (int i = 0; i < renderers.Length; i++)
                         if (renderers[i] != null) renderers[i].enabled = true;
+                    NormalizeAuthoredAvatarScale(authored, renderers);
                     authored.SetActive(true);
                     Debug.Log("[NEXO_AVATAR] Authored avatar loaded: " + authoredPrefab.name +
                         " animator=" + (avatarAnimator != null && avatarAnimator.enabled) +
@@ -1077,6 +1078,33 @@ namespace Nexo.UI
             avatarRightLegTransform = rightLeg == null ? null : rightLeg.transform;
             avatarAnimator = null;
             return root;
+        }
+
+        private static void NormalizeAuthoredAvatarScale(GameObject avatar, Renderer[] renderers)
+        {
+            if (avatar == null || renderers == null || renderers.Length == 0) return;
+            Bounds bounds = default(Bounds);
+            bool hasBounds = false;
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                Renderer renderer = renderers[i];
+                if (renderer == null || !renderer.enabled) continue;
+                if (!hasBounds) { bounds = renderer.bounds; hasBounds = true; }
+                else bounds.Encapsulate(renderer.bounds);
+            }
+            float authoredHeight = hasBounds ? bounds.size.y : 0f;
+            if (authoredHeight <= 0.01f) return;
+
+            // Keep the imported model in the same world-unit convention as the
+            // island, portal and water (a human-sized avatar is ~2.2 units).
+            // Assets from different DCC tools often arrive in centimetres or
+            // metres; normalising here prevents a giant or microscopic avatar
+            // from hiding the authored landscape on mobile cameras.
+            const float targetHeight = 2.2f;
+            float factor = Mathf.Clamp(targetHeight / authoredHeight, 0.25f, 4f);
+            avatar.transform.localScale *= factor;
+            Debug.Log("[NEXO_AVATAR] scale normalized sourceHeight=" + authoredHeight.ToString("F3") +
+                " targetHeight=" + targetHeight.ToString("F3") + " factor=" + factor.ToString("F3"));
         }
 
         private void CreateLandscapeDecor()

@@ -602,3 +602,5 @@ O novo GLB foi promovido a fonte visual do prefab, mantendo o FBX para os clips.
 P261 - Estado atual: integracao CapBuddy.glb validada no GameCI; erros de importacao restritos a fixtures Kenney com texturas auxiliares ausentes e Blender nao instalado. Unity Tests/iOS aprovados; Android ainda sem conclusao.
 
 P262 - Correcoes aplicadas apos auditoria: aliases de textura para Kenney GLB e armazenamento do .blend fora da pasta Assets. APK 43546295830 preservado localmente; novo run necessario para validar importacao limpa.
+
+P263 - Correcao dimensional: avatar authored agora e normalizado para 2.2 unidades antes de EnsureAvatarVisible, reduzindo risco de modelo gigante/pequeno em relacao a ilha, agua e portal.
